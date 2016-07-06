@@ -1,0 +1,180 @@
+\documentclass[EL1Noter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+\begin{document}
+
+	\section{Specielle teknikker}
+	
+	\subsection{Laplaces ligning (og en smule Poisson)}
+	Laplaces ligning har formen
+	\begin{equation}
+		\grad^2 V = \diff{^2 V}{x^2}+\diff{^2 V}{y^2}+\diff{^2 V}{z^2} = 0
+	\end{equation}
+	I én dimension, hvor ligningen lyder $ \diff{^2 V}{x} = 0 $ er den generelle løsning en ret linje:
+	\begin{equation}
+		V(x) = mx+b
+	\end{equation}
+	Her er to konstante, der skal bestemmes, hvilket gøres ved passende randbetingelser. Her er ">passende"< at kende værdien af $ V $ i to punkter, eller at kende $ V $ i ét punkt samt $ V' $ i et andet punkt (eller det samme). Det er dog ikke nok at kende $ V' $ i to punkter, da den ene information er redundant, idet $ V' $ er konstant.
+	
+	Ligningen i én dimension viser nogle af de vigtige egenskaber, som Laplaces ligning i højere dimensioner også besidder:
+	
+	\begin{itemize}
+		\item $ V(x) $ er gennemsnittet af $ V(x+a) $ og $ V(x-a) $ for ethvert $ a $; givet ved formlen \begin{equation*}
+			V(x) = \frac{1}{2} [V(x+a)+V(x-a)]
+		\end{equation*}
+		Dette gælder også for Laplaces ligning i højere dimensioner, hvor det i 2 dimensioner er $ V(x) $ ">gennemsnittet"< af en cirkel omkring $ V(x) $, og i 3 dimensioner er det ">gennemsnittet"< af en kugleskal. 
+		\item Løsningen til Laplaces ligning har ingen lokale maksima eller minima. Idet alle punkter er gennemsnittet af deres naboer, kan der ikke være nogle ekstremumspunkter andre steder end randen. Hvis der var et lokalt maksimum, der ikke sad på randen, ville $ V $ i dette punkt have en større værdi end de omkringliggende punkter, og ville da ikke være gennemsnittet af dem.
+	\end{itemize}
+	
+	\subsubsection*{Laplaces ligning i 2 dimensioner}
+	I to dimensioner lyder formlen for gennemsnittet
+	\begin{equation}
+		V(x,y) = \frac{1}{2\pi R} \oint\displaylimits_{\text{cirkel}} V \ud l'
+	\end{equation}
+	hvor $ R $ er radius af cirklen, med centrum i $ (x,y) $. Dette gælder igen for alle værdier af $ R $.
+	
+	\subsubsection*{Laplaces ligning i 3 dimensioner}
+	I tre dimensioner lyder gennemsnittet
+	\begin{equation}
+		V(\V{r}) = \frac{1}{4\pi R^2} \oint\displaylimits_{\text{sfære}} V \ud a'
+	\end{equation}
+	Hvor $ R $ er radius af sfæren med centrum i $ \V{r} $. Dette gælder igen igen for alle $ R $.
+	
+	\subsubsection{Randbetingelser og entydighedssætningerne}
+	I det endimensionale tilfælde er det ret nemt at genkende, hvad der er passende grænsebetingelser. Det er ikke helt lige så nemt i fleredimensionale tilfælde. Dog siger den første entydighedssætning, at det er nok at kende værdien af $ V $ over randen. Dette svarer til at kende værdien af $ V $  i to punkter, i det endimensionale tilfælde. Selve sætningen lyder:
+	\begin{unique1}
+		Løsningen til Laplaces ligning i en given volumen $ \mathcal{V} $ er entydigt bestemt, hvis $ V $ er opgivet på den omsluttende overflade $ \mathcal{S} $.
+	\end{unique1}
+	Dette vil altså sige, at hvis du kan finde bare \textbf{én} løsning til ligningen, der opfylder din randbetingelse - lige meget hvor triviel denne løsning er - så er det \textbf{den eneste} løsning, der opfylder randbetingelserne.
+	
+	Denne sætning er dermed et utrolig kraftfuldt værktøj, og denne kan gøres endnu bedre ved følgende lemma, der udvider sætningen til løsning af \textbf{Poissons ligning}:
+	\begin{lemma}
+		Potentialet i en volumen $ \mathcal{V} $ er entydigt bestemt hvis både ladningsdensiteten $ \rho $ i hele området, samt værdien af $ V $ på randen af området, er defineret.
+	\end{lemma}
+	
+	Til sidst er der også en anden entydighedssætning, der giver en entydig løsning, såfremt en bestemt randbetngelse kendes. Her er randbetingelsen, at \textit{ladningen} på forskellige ledere kendes. Denne sætning gælder både for Poissons ligning, og dermed også for Laplaces ligning. Sætningen lyder:
+	\begin{unique2}
+		I en volumen $ \mathcal{V} $, omsluttet af ledere og som indeholder en ladningsdensitet $ \rho $, er det elektriske felt entydigt bestemt, hvis den \textbf{samlede ladning} på hver leder er givet. Området som helhed kan være omsluttet af en leder, men dette er ikke nødvendigt, og randen kan også være uendelighed.
+	\end{unique2}
+	Dette vil sige, at hvis du har et område, hvor du kender ladningsdensiteten $ \rho $, og der er nogle ledere, hvor du kender den samlede ladning på hver leder; og du samtidig kender én løsning (igen, lige meget hvor triviel), så er det den \textbf{eneste} løsning.
+	
+	
+	\subsection{Billedmetoden}
+	Entydighedssætningerne giver mulighed for at benytte et smart trick, kaldet ">billedmetoden"<, der består i at se på en lettere situation, som har samme randbetingelser, og så løse Poissons ligning for denne situation. Idet problemet har samme randbetingelser garanterer entydighedssætningerne, at løsning, der findes for det lette problem er den helt samme løsning, som for det svære problem.
+	
+	Et eksempel på dette, er en punktladning $ q $, der er placeret i koordinaterne $ (0,0,d) $, med en uendelig plan i $ xy $, forbundet til jord. Denne punktpartikel vil da inducere en negativ ladning i planen, der også skaber et potentiale. Randbetingelserne for situationen er, at potentialet er nul i $ xy $-planen ($ V(x,y,0)=0 $) samt at potentialet går mod nul, når vi bevæger os langt væk fra $ q $ ($ V\to 0 $, når $ x^2+y^2+z^2 \gg d^2 $).
+	
+	En situation med helt samme randbetingelser er situationen hvor $ q $ stadig er i $ (0,0,d) $, men hvor der også befinder sig $ -q $ i $ (0,0,-d) $. Da vil potentialet i $ xy $-planen også være 0, og når vi bevæger os langt væk, vil potentialet også gå mod 0. Her er det samlede potentialet givet ved
+	\begin{equation}
+		V(x,y,z) = \kc[1] \bb{\frac{q}{\sqrt{x^2+y^2+(z-d)^2}} - \frac{q}{\sqrt{x^2+y^2+(z+d)^2}}}
+	\end{equation}
+	Den inducerede overfladeladning i planen er givet ved \eqref{eq:overfladeladning}
+	\begin{equation}
+		\sigma(x,y) = -\epsilon_0 \diff{V}{n} = \frac{-qd}{2\pi (x^2+y^2+d^2)^{3/2}}
+	\end{equation}
+	Den samlede inducerede ladning kan fås ved at integrere over hele planen (dette gøres lettest ved at omregne til plane polarkoordinater, og sætte $ r^2=x^2+y^2 $), og denne er netop lig $ -q $.
+	
+	Ladningen er også tiltrukket af planen, og da potentialet for billedsituationen er ens med potentialet i den reelle situation, må kraften også være ens. Denne er givet ved
+	\begin{equation}
+		\V{F} = -\kc[1] \frac{q^2}{(2d)^2} \Vz
+	\end{equation}
+	\textbf{Energien} i billedsituationen er dog ikke den samme, som for den reelle situation. I den reelle situation er energien
+	\begin{equation}
+		W = -\kc[1] \frac{q^2}{4d}
+	\end{equation}
+	Mens i den billedsituation er energien det dobbelte af dette. Dette ses ved at kigge på energien i feltet, hvor der i billedsituationen er et elektrisk felt forskelligt fra nul, både over og under $ xy $-planen, er der kun, i den reelle situation, et felt forskelligt fra nul over $ xy $-planen. 
+	
+	Grundet superpositionsprincippet kan enhver situation med stationære ladninger i nærheden af en uendelig plan leder, forbundet til jord, behandles på samme måde - der skal bare anbringes $ -q $ i samme afstand \textit{under} planen, som der er $ q $ \textit{over} planen.
+	
+	\subsubsection{En vigtig restriktion på billedmetoden}
+	Billedmetoden er endnu et kraftigt værktøj, men man kan kun vælge billedlandinger, der ligger i et område, man \textbf{ikke} udrenger $ V $ i. Hvis man nemlig lagde en ladning i løsningsområdet, ville det ændre på $ \rho $, og man ville løse Poissons ligning for en anden situation.
+	
+	\subsubsection*{Et andet billedproblem}
+	Denne metode kan også bruges i andre tilfælde. Eksempelvis ses der på en kugle med radius $ R $, forbundet til jord, og en punktladning $ q $, i en afstand $ a $ fra kuglens centrum. Her skal potentialet findes.
+	
+	Hvis der i stedet ses på en situation, hvor en punktladning $ q $ ligger i en afstand $ a $ til origo, og en punktladning $ q' $ ligger i en afstand $ b $ fra origo, på samme linje, med $ q' $ liggende mellem origo og $ q $, da vil denne situation have samme potentiale, såfremt
+	\begin{equation}
+		q' = \frac{-R}{a} q, \quad b= \frac{R^2}{a}
+	\end{equation}
+	Potentialet er her givet ved
+	\begin{equation}
+		V(\V{r}) = \kc[1] \pp{\frac{q}{\sr} + \frac{q'}{\sr'}}
+	\end{equation}
+	hvor $ \sr $ og $ \sr' $ er afstanden fra $ \V{r} $ til henholdsvis $ q $ og $ q' $. Det ses, at $ b>R $, og denne billedladning altså ligger inde i selve sfæren. Kraften mellem sfæren og $ q $ er her
+	\begin{equation}
+		F= \kc[1] \frac{qq'}{(a-b)^2} = -\kc[1] \frac{q^2 Ra}{(a^2-R^2)^2}
+	\end{equation}
+	
+	\subsection{Separation af de variable}
+	Jeg har allerede skrevet et afsnit om netop denne metode i mine MatF1 noter, så jeg vil ikke beskrive denne metode i dette notesæt. Mit notesæt til MatF1 kan findes på psi.nbi.dk, ved at søge efter ">formelsamlinger"<, eller ved at klikke på  \href{http://psi.nbi.dk/@psi/wiki/Formelsamlinger/files/MatFNoter2016.pdf}{dette direkte link}, til .pdf filen. .tex-filerne til notesamlingen, samt filerne til \textit{denne} notesamling, kan også findes på psi.nbi.dk.
+	
+	
+	
+	\subsection{Multipolekspansion}
+	En (fysisk) elektrisk dipol består af to partikler, $ q $ og $ -q $, i en afstand $ d $  fra hinanden. Det samlede potentiale for disse er
+	\begin{equation}
+		V(\V{r}) = \kc[1] \pp{\frac{q}{\sr_+} - \frac{q}{\sr_-}} \approx \kc[1] \frac{qd \cos \theta}{r^2}, \ r\gg d
+	\end{equation}
+	Hvor størrelserne kan ses på figuren herunder
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.33\textwidth]{img/EDipol}
+		\caption{Fra bogen, side 146.}
+	\end{figure}
+	
+	Det sidste resultat, med det approksimerede potentiale, fås ved at skrive $ \sr_{\pm} $ ved hjælp af cosinusrelationen, se på tilfældet hvor $ r\gg d $ og derefter tage binomialekspansionen til $ \sr\inverse $.
+	
+	Det ses her, at potentialet af en fysisk dipol går af som $ r^{-2} $, for store $ r $. For en \textbf{quadrupol}, der er to modsatrettede dipoler bragt sammen, går potentialet af som $ r^{-3} $, og for en \textbf{octopol}, der er to modsatrettede quadrupoler, går potentialet som $ r^{-4} $, und so weiter.
+	
+	For en generel ladningsfordeling kan skrives som en sum af multipolled, givet i potenser af $ 1/r $. Denne formel er
+	\begin{equation}
+		V(\V{r}) = \kc[1] \sum_{n=0}^{\infty} \frac{1}{r^{(n+1)}} \int (r')^n P_n(\cos\theta') \rho(\V{r}') \ud \tau'
+	\end{equation}
+	Hvor $ \theta' $ er vinklen mellem $ \V{r} $ og $ \V{r}' $, og $ P_n $ er det $ n $-te Legendrepolynomium med $ \cos \theta' $ som variabel.
+	
+	Denne formel er en præcis formel for potentialet men bruges mest som en approksimation, idet det første led (monopolleddet) er det dominerende led for potentialet, ved store $ r $.
+	
+	
+	
+	
+	\subsubsection{Monopol- og dipolleddet}
+	Multipolekspansionen domineres som oftest af monopolleddet (ved store $ r $):
+	\begin{equation}
+		V_{\text{mon}} (\V{r}) = \kc[1] \frac{Q}{r}
+	\end{equation}
+	hvor $ Q $ er den samlede ladning, og kaldes nogle gange for \textbf{monopolmomentet}. For en punktladning i origo er dette ikke bare en approksimation, men det eksakte potentiale for systemet, da alle højereordens multipolled forsvinder.
+	
+	Hvis den samlede ladning er $ 0 $ er det næste led, dipolleddet, det dominerende:
+	\begin{equation}
+		V_{\text{dip}} (\V{r}) = \kc[1] \frac{1}{r^2} \int r' cos \theta' \rho (\V{r}') \ud\tau'
+	\end{equation}
+	hvor $ \theta' $ er vinklen mellem $ \V{r}' $ og $ \V{r} $. Dette kan også skrives på formen
+	\begin{equation}
+		V_{\text{dip}}(\V{r}) = \kc[1] \frac{\V{p \D \U{r}}}{r^2}, \quad \V{p} = \int \V{r}' \rho(\V{r}') \ud \tau'
+	\end{equation}
+	hvor $ \V{p} $ kaldes \textbf{dipolmomentet}, og denne oversættes som normalt til punkt-, linje-, og overfladeladninger:
+	\begin{equation}
+		\V{p} = \sum_{i=1}^{n} q_i \V{r}'_r ,\quad \V{p}= \int r' \cos \theta' \lambda(\V{r}') \ud l',\quad \V{p}= \int r' \cos \theta' \sigma(\V{r}') \ud a'
+	\end{equation}
+	For en \textbf{fysisk dipol}, med to punkladninger $ \pm q $, er dipolmomentet
+	\begin{equation}
+		\V{p} = q \V{d}
+	\end{equation}
+	hvor $ \V{d} = \V{r}'_+ - \V{r}'_-$ er vektoren fra den negative til den positive ladning. Dette gælder også for en ren, \textbf{matematisk} dipol, der fås i grænsen $ d \to 0, \, q \to \infty $ med $ qd = p $ konstant. Idet dipolmomenter er vektorer, adderes disse som normalt. Haves to dipoler $ \V{p}_1 $ og $ \V{p}_2 $, er det samlede dipolmoment $ \V{p} = \V{p}_1+ \V{p}_2 $.
+	
+	Monopolmomentet er tydeligvis uafhængigt af valg af origo, idet $ Q $ ikke afhænger af de valgte koordinater. Dette gælder dog ikke altid for dipolmomentet. Hvis dipolmomentet i ét koordinatsystem er givet ved $ \V{p} $, og i et andet koordinatsystem, forskudt med $ \V{a} $ i forhold til det første, er det givet ved $ \overline{\V{p}} $, er sammenhængen mellem disse
+	\begin{equation}
+		\overline{\V{p}} = \V{p} - Q \V{a}
+	\end{equation}
+	Det vil altså sige, at hvis den samlede ladning $ Q $ er 0, er dipolmomentet uafhængigt af valg af koordinater, men hvis \textit{ikke} $ Q $ er 0, afhænger dipolmomentet altså af koordinatvalget.
+	
+	Det elektriske felt for en \textbf{matematisk} dipol, med dipolmoment $ \V{p} $, der ligger i origo, og peger i $ z $-retningen, er givet ved
+	\begin{equation}
+		\V{E}_{\text{dip}} (r,\theta) = \frac{p}{4\pi\epsilon_0 r^3} (2\cos \theta \U{r} + \sin \theta \U{\theta})
+	\end{equation}
+	hvor $ r $ er afstanden til $ \V{r} $ og $ \theta $ er vinklen mellem $ \V{r} $ og $ z $-aksen. Feltet afhænger ikke af $ \phi $, idet der er rotationel symmetri omkring $ z $-aksen. Formlen kræver et bestemt valg af koordinater (sfærisk), og en bestemt orientering af dipolen. Den kan omskrives til følgende koordinatfrie form:
+	\begin{equation}
+		\V{E}_{\text{dip}} (\V{r}) =\kc[1] \frac{1}{r^3} [3(\V{p}\D \U{r})\U{r}-\V{p}]
+	\end{equation}
+	
+\end{document}

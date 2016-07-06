@@ -1,0 +1,107 @@
+\documentclass[MatFNoter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+% Hvis ikke dokumenterne (hoved & under) er i samme mappe, skal den relative stig bruges.
+
+
+
+\begin{document}
+	\section{Divergens- og rotationsfrie felter}
+	\subsection{Hastighedspotentiale og Laplace-operatoren \texorpdfstring{$ \grad^2 $}{}}
+	\textbf{Rotationsfrie} felter kan altid skrives som gradienten til et eller andet skalarfelt. Skalarfeltet til sådan et strømfelt kaldes for \textit{hastighedspotentialet} $ \phi $, og relationen skrives som følger:
+	\begin{equation}
+		\V{v} = \grad \phi
+	\end{equation}
+	Hvilket giver at
+	\begin{equation}
+		v_x = \diff{\phi}{x}, \quad v_y = \diff{\phi}{y}, \quad v_z = \diff{\phi}{z}
+	\end{equation}
+	Er feltet også \textbf{divergensfrit} gælder at:
+	\begin{equation}
+		\grad \D \V{v} = \grad \D \grad \phi = \grad^2 \phi= 0 \label{eq:laplaceeq}
+	\end{equation}
+	$ \grad^2 $ kaldes for \textbf{Laplaceoperatoren}. I kartesiske og polare koordinater er denne:
+	\begin{equation}
+		\grad^2 = \diff{^2}{x^2} + \diff{^2}{y^2} + \diff{^2}{z^2} \quad = \quad \frac{1}{r} \diff{}{r}\pp{r \diff{}{r}} + \frac{1}{r^2} \diff{^2}{\theta^2}
+	\end{equation}
+	Ligningen \eqref{eq:laplaceeq} kaldes for \textit{Laplaceligningen}, og alle felter der \textbf{divergens- og rotationsfrie} opfylder denne, og kaldes da for \textbf{Laplaciske felter}.
+	
+	I to dimensionale Laplaciske felter fås følgende sammenhæng mellem hastighedspotentialet $ \phi $ og strømfunktionen $ \psi $:
+	\begin{equation}
+		\diff{\phi}{x} = - \diff{\psi}{y}, \quad \diff{\phi}{y} = \diff{\psi}{x} \quad \Rightarrow \quad \grad\phi = \Vk \times \grad \psi
+	\end{equation}
+	Disse ligninger kaldes for \textit{Cauchi-Riemann relationerne}. I polarkoordinater er disse:
+	\begin{equation}
+		\diff{\phi}{r} = -\frac{1}{r} \diff{\psi}{\theta}, \quad \frac{1}{r} \diff{\phi}{\theta} = \diff{\psi}{r}
+	\end{equation}
+	Disse relationer siger også, at ækviskalarlinjerne for $ \phi $ og $ \psi $ står ortogonale på hinanden, hvor $ \psi $ beskriver retningen af gradientvektoren $ \grad\phi $ (som beskrevet i afsnit \ref{sec:gradient})
+	
+	\subsubsection{Stagnationsstrøm}
+	I strømfelter kaldes punkter, hvor $ \V{v}=0 $, for \textbf{stagnationspunkter}. Et eksempel er hastighedspotentialet, med tilhørende strømfunktion
+	\begin{equation}
+		\phi = \frac{A}{2} (x^2-y^2), \quad \psi = -Axy
+	\end{equation}
+	Strømlinjerne, hvor $ x=0 $ og/eller $ y=0 $ er nul, og der er altså to \textit{stagnationslinjer}. 
+	
+	\subsubsection{Superposition af felter}
+	Summen af to potentialstrømme (vektorfelter, der skrives som gradienten til et hastighedspotentiale) kaldes for superpositionen af de to individuelle felter.
+	
+	Da er hastighedspotentialet, strømfunktionen og strømvektorerne givet ved:
+	\begin{equation}
+		\phi = \phi_1 + \phi_2, \quad \psi= \psi_1+\psi_2, \quad \V{v}=\V{v}_1+\V{v}_2
+	\end{equation}
+	Både divergensen og rotationen for de to individuelle felter er divergens- og rotationsfrie. Dermed er summen af dem også divergens- og rotationsfrie:
+	\begin{equation*}
+		\grad \D \V{v} = \grad \V{v}_1+ \grad \V{v}_2 = 0, \quad \grad \times \V{v}  = \grad \times \V{v}_1 + \grad \times \V{v}_2 = 0
+	\end{equation*}
+	
+	\subsubsection*{Retlinjet strøm}
+	Retlinjet strøm, er hvor hastighedsvektoren har konstante koefficienter. Hastighedspotentialet og strøm-funktionen er
+	\begin{equation}
+		\phi = v_x x + v_y y, \quad \psi = -v_x y + v_y x
+	\end{equation}
+	Vinklen mellem den retlinjede strøm og $ x $-aksen er givet ved
+	\begin{equation}
+		\tan \alpha = \frac{v_y}{v_x}
+	\end{equation}
+	Dette felt er også et Laplacisk felt.
+	
+	\subsubsection*{Kilde og afløb}
+	Disse felter behandles i polarkoordinater, og hastighedspotentialet og strømfunktionen er givet ved
+	\begin{equation}
+		\phi = A\ln r, \quad \psi = -A\theta, \quad \V{v} = \frac{A}{r} \Vi_r
+	\end{equation}
+	Hvor $ A $ er en konstant. Hvis $ A > 0 $ kaldes feltet en \textit{kilde}, mens hvis $ A<0 $ kaldes det et afløb.
+	
+	Ud/indstrømningen fra/mod origo findes ved at integrere volumenstrømmen over en cirkel med radius $ r $:
+	\begin{equation}
+		Q=\int_{o}^{2\pi} v_r r \ud\theta = 2\pi A 
+	\end{equation}
+	$ Q $ kaldes også for \textit{styrken} af kilden/afløbet (I nogle bøger kaldes $ A $ dog for styrken).
+	
+	\subsubsection*{Punkthvirvel}
+	I en punkthvirvel strømvektorens komponenter byttet om, hvilket giver følgende hastighedspotentiale, strømfunktion og vektor:
+	\begin{equation}
+		\phi = A\theta, \quad \psi = A \ln r, \quad \V{v}=\frac{A}{r}\Vi_{\theta}
+	\end{equation}
+	Cirkulationen om en cirkel, med radius $ r $ og centrum i origo er givet ved
+	\begin{equation*}
+		C = \int_{0}^{2\pi} v_\theta r \ud\theta = 2\pi A
+	\end{equation*}
+	Imens cirkulationen om enhver anden lukket kurve (som ikke omslutter origo) er lig 0 (da feltet er rotationsfrit).
+	
+	\subsubsection*{Spiralhvirvel}
+	En spiralhvirvel er superpositionen af en punkthvirvel og et afløb. Hastighedspotentialet og strømfunk-tionen er givet ved:
+	\begin{equation}
+		\phi = - A_1 \ln r + A_2 \theta, \quad \psi = A_1 \theta + A_2 \ln r
+	\end{equation}
+	
+	\subsubsection*{Dipolfelt}
+	Et dipolfelt er summen af felterne for en kilde og et afløb, der ligger uendeligt tæt på hinanden. Dette svarer også til magnetfeltet skabt af en magnet. Hastighedspotentialet og strømfunktionen er givet ved:
+	\begin{equation}
+		\phi = \frac{Ax}{x^2+y^2}, \quad \psi = \frac{Ay}{x^2+y^2}
+	\end{equation}
+	Dette er et dipolfelt med $ x $-aksen som dipolakse. Sættes $ \phi = \frac{Ay}{x^2+y^2} $ fås $ y $-aksen som dipolaksen (Strøm-funktionen bliver $ \psi = \frac{Ax}{x^2+y^2} $).
+	
+	
+\end{document}
+

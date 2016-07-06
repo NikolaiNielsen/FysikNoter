@@ -1,0 +1,139 @@
+\documentclass[a4paper,danish]{article} 
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{framed}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[RO,RE]{Jophiel Wiis}
+\fancyhead[LO,LE]{\textbf{\large{Almindelige regneregler}}}
+\fancyfoot{}
+\begin{document} 
+\frenchspacing
+
+\section*{Regningsarternes Hierarki}
+\begin{enumerate}
+	\item Paranteser
+	\item Potenser og rødder
+	\item Gange og dividere
+	\item Plus og minus
+\end{enumerate}
+
+
+\section*{Brøkregneregler}
+\begin{framed}
+\begin{tabular}{ m{4cm} | p{6cm} }
+	Symbolsk fremstilling & Regel \\  \hline
+	\\ $a\cdot \dfrac{b}{c}=\dfrac{a\cdot b}{c}$ & Et tal ganges på en brøk ved at gange tælleren med tallet. \\\\\hline
+	\\ $\dfrac{a}{b}\cdot \dfrac{c}{d}=\dfrac{a\cdot c}{b\cdot d}$ & To brøker ganges ved at gange tæller med tæller og nævner med nævner.\\\\  \hline
+	\\ $\dfrac{\tfrac{a}{b}}{c}=\dfrac{a}{b}\cdot \dfrac{1}{c}=\dfrac{a}{b\cdot c}$ & En brøk divideres med et tal ved at gange nævneren med tallet. \\ \\ \hline
+	\\ $\dfrac{a}{\tfrac{b}{c}}=\dfrac{a\cdot c}{b} \hspace{.3cm} , \hspace{.3cm} \dfrac{\tfrac{a}{b}}{\tfrac{c}{d}}=\dfrac{a\cdot d}{b\cdot c}$ & et tal (eller en brøk) divideres med en brøk ved at gange med den omvendte brøk.\\ \\ \hline
+	\\ $\dfrac{a}{b} = \dfrac{a \cdot c}{b \cdot c}$ & en brøk forlænges eller forkortes ved at gange både tæller og nævner med samme tal eller brøk.\\
+\end{tabular}\\
+\end{framed}
+
+\newpage
+
+\doublespacing
+
+\section*{Potenser}
+\textbf{Regneregler}\\
+\hspace*{1cm} $a^{p}\cdot a^{q} = a^{p+q}$ \\
+\hspace*{1cm} $\dfrac{a^{p}}{a^{q}}=a^{p-q}$\\
+\hspace*{1cm} $(a^{p})^{q} = a^{pq}$ \\
+\hspace*{1cm} $a^{p}\cdot b^{p} = (ab)^{p}$\\
+\hspace*{1cm} $\dfrac{a^{p}}{b^{p}} = \left(\dfrac{a}{b}\right)^{p}$ \\
+\textbf{Specielle eksponenter}\\
+\hspace*{1cm} $a^{0} = 1$\\
+\hspace*{1cm} $a^{-n} = \frac{1}{a^{n}}$\\
+\hspace*{1cm} $a^{\frac{1}{2}} = \sqrt{a}$\\
+\hspace*{1cm} $a^{\frac{1}{n}} = \sqrt[n]{a}$ \\
+\textbf{Rational eksponent}\\
+\hspace*{1cm} $a^{\frac{p}{q}} = \sqrt[q]{a^{p}} = \sqrt[q]{a}^{p}$ \\
+
+\singlespacing
+
+\section*{Rødder}
+\hspace*{1cm} $\sqrt{a\cdot b} = \sqrt{a}\cdot \sqrt{b}$\\\\
+\hspace*{1cm} $\sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}$\\\\
+\hspace*{1cm}  $\sqrt[n]{a^{n}} =
+				  \begin{cases}
+			  	      |a| & \text{for lige $n$} \\
+				     \; a & \text{for ulige $n$} 
+				  \end{cases}$
+
+\doublespacing
+
+\section*{Kvadratsætningerne}
+\begin{tabular}{ l  p{6cm} }
+	$(a+b)^{2} = a^{2}+b^{2}+2ab$ & \multirow{3}{6cm}{Kvadratet på en toleddet størrelse er kvadratet af det ene led plus kvadratet på det andet led, plus eller minus det dobbelte produkt.} \\
+	& \\
+	$(a-b)^{2} = a^{2}+b^{2}-2ab$ & \\\\\\
+	$(a+b)(a-b) = a^{2}-b^{2}$ & To tals sum gange de samme to tals differens er kvadratet på første led minus kvadratet på andet led.\\
+\end{tabular}
+
+\section*{Andengrads-ligningen}
+ligningen $az^2+bz+c=0$, hvor z er et reelt eller komplekst tal, har op til 2 løsninger, og findes således:
+\begin{align}
+z=\frac{-b \pm \sqrt{b^2-4ac}}{2a}
+\end{align}
+
+\section*{Logartimer}
+\textbf{Regneregler for 10-tals logaritmen}\\
+\hspace*{1cm} $\log(10^{a}) = 10^{\log(a)} = a$\\
+\hspace*{1cm} $\log(10) = 1$\\
+\textbf{Regneregler for den naturlige logaritme}\\
+\hspace*{1cm} $\ln(e^{a}) = e^{\ln(a)} = a$\\
+\hspace*{1cm} $\ln(e) = 1$\\
+\textbf{Generelle regneregler} (gælder både for $\ln$ og $\log$)\\
+\hspace*{1cm} $\ln(a \cdot b) = \ln(a) + \ln(b)$\\
+\hspace*{1cm} $\ln\left(\dfrac{a}{b}\right) = \ln(a) - \ln(b)$\\
+\hspace*{1cm} $\ln(a^{p}) = p \cdot \ln(a)$\\
+\hspace*{1cm} $\ln(\sqrt[n]{a^{p}}) = \dfrac{1}{q} \cdot \ln(a)$\\
+\hspace*{1cm} $\ln(1) = \log(1) = 0$\\
+
+\section*{Sinus og cosinus regneregler}
+\textbf{Gymnasie-pensum}\\
+\hspace*{1cm} $\sin(\theta)=\frac{\text{opposite}}{\text{hypothenuse}}$\\
+\hspace*{1cm} $\cos(\theta)=\frac{\text{adjacent}}{\text{hypothenuse}}$\\
+\hspace*{1cm} $\tan(\theta)=\frac{\text{opposite}}{\text{adjacent}}$\\
+\hspace*{1cm} $\tan(\theta)=\frac{\sin(\theta)}{\cos(\theta)}$\\
+\hspace*{1cm} $\sin^{2}{\theta}+\cos^{2}(\theta)=1$\\
+\bf{sinus-relationerne}\\
+\hspace*{1cm} $\dfrac{a}{\sin{A}}=\dfrac{b}{\sin{B}}=\dfrac{c}{\sin{C}}$\\
+\bf{cosinus-relationerne}\\
+\begin{tabular}{ m{4cm}  p{6cm} }
+\hspace*{1cm} $\cos{A}=\frac{b^{2}+c^{2}-a^{2}}{2bc}$ & \hspace*{1cm} $a^{2}=b^{2}+c^{2}-2bc\cdot \cos{A}$\\
+\hspace*{1cm} $\cos{B}=\frac{a^{2}+c^{2}-b^{2}}{2ac}$ & \hspace*{1cm} $b^{2}=a^{2}+c^{2}-2ac\cdot \cos{B}$\\
+\hspace*{1cm} $\cos{C}=\frac{a^{2}+b^{2}-c^{2}}{2ab}$ & \hspace*{1cm} $c^{2}=a^{2}+b^{2}-2ab\cdot \cos{C}$\\
+\end{tabular}\\
+
+\section*{Uni-pensum}
+
+\bf{Sekant og Cosekant}\\
+\hspace*{1cm} $\csc x = \frac{1}{\sin x}$\\
+\hspace*{1cm} $\sec x = \frac{1}{\cos x}$\\
+\hspace*{1cm} $\cot x = \frac{1}{\tan x} = \frac{\cos x}{\sin x}$\\
+
+\bf{$\sin$ og $\cos$}\\
+\hspace*{1cm} $\sin{(a)}\cdot\cos{(b)}=\frac{1}{2}(\sin{(a-b)}+\sin{(a+b)})$\\
+\hspace*{1cm} $\sin{(a)}\cdot\sin{(b)}=\frac{1}{2}(\cos{(a-b)}-\cos{(a+b)})$\\
+\hspace*{1cm} $\cos{(a)}\cdot\cos{(b)}=\frac{1}{2}(\cos{(a-b)}+\cos{(a+b)})$\\
+\hspace*{1cm} $(\cos(\theta)+i\sin(\theta))^n = \cos(n\theta)+i\sin(n\theta)$ (De Moivres formel)\\
+\hspace*{1cm} $2\sin{\theta}\cos{\theta}=\sin{2\theta}$\\
+\hspace*{1cm} $\cos^{2}\theta-\sin^{2}\theta=\cos2\theta$\\
+\hspace*{1cm} $\cos{2\theta}=2\cos^{2}(\theta)-1=1-2\sin^{2}\theta$\\
+\hspace*{1cm} $\tan{2\theta}=\frac{2\tan\theta}{1-\tan^{2}\theta}$\\
+\hspace*{1cm} $2+2\cos(\theta) = 4 \cdot \cos^{2}\left(\frac{\theta}{2}\right)$\\
+\bf{konverteringer mellem $e$ og $\sin$ og $\cos$}\\
+\hspace*{1cm} $e^{\pm ikx} = cos(kx) \pm i \sin(kx)$\\
+\hspace*{1cm} $(e^{-ikx}+e^{ikx}) = 2\cos(kx)$\\
+\hspace*{1cm} $(e^{-ikx}-e^{ikx}) = -2i\sin(kx)$\\
+\hspace*{1cm} $(e^{ikx}-e^{-ikx}) = 2i\sin(kx)$\\
+
+
+
+\end{document}

@@ -1,0 +1,83 @@
+\documentclass[MatF2Noter.tex]{subfiles}
+
+
+\section{Komplekse variable 2}
+\subsection{Konforme transformationer}
+\begin{quotation}
+	Ikke pensum i kurset årgang 2015/2016, jeg nåede bare at skrive noterne, inden jeg fandt ud af det. Så jeg gad ikke at slette alt mit hårde arbejde. Jeg har da heller ikke kapitel 15.2 med, om anvendelse af konforme transformationer.
+	\end{quotation}
+	Konforme transformationer er en metode at skifte variable fra $ z= x+iy$ til $ w=r+is $, gennem en given formel
+	\begin{equation*}
+	w = g(z) = r(x,y)+is(x,y)
+	\end{equation*}
+	samt dennes inverse $ z=h(w) $. Såfremt begge disse eksisterer og er analytiske (ud over, måske, i nogle isolerede punkter), kaldes transformationen for \textbf{konform}.
+	
+	Denne type transformationer afbilder hele $ z $-planen over til noget af $ w $-planen, hele $ w $-planen, eller dele/hele $ w $-planen flere gange. Disse fire tilfælde er alle stadig konforme transformationer, såfremt $ g $ og $ h $ eksisterer og er analytiske.
+	
+	Konforme transformationer har følgende egenskaber overalt, ud over hvor $ g' $ og dermed også $ h' $ er enten 0 eller uendelig:
+	\begin{enumerate}
+		\item Kontinuerte linjer i $ z$-planen transformeres til kontinuerte linjer i $ w $-planen
+		\item Vinklen mellem to kurver, der skærer hinanden i $ z $-planen, er den samme vinkel for kurverne, hvor de skærer hinanden i $ w $-planen
+		\item Skaleringen af små linjeelementer i nærheden af ethvert bestemt punkt er uafhængigt af linjeelementets retning. Dette vil altså sige, at små kurver/figurer eller lignende kan blive roteret og skaleret, men vil altid opretholde deres form under transformationen
+		\item Enhver analytisk funktion af $ z $ transformeres til en analytisk funktion af $ w $
+		\end{enumerate}
+		
+		\subsubsection*{Kvantitative informationer om egenskab 2 og 3}
+		Egenskab 2 og 3 kan beskrives som følger: Skæringen mellem to kurver i $ z $-planen, $ C_1 $ og $ C_2 $ i punktet $ z_0 $, kan beskrives som skæringen mellem tangenterne til kurven, i $ z_0 $. Hvis $ z_1 $ beskriver et punkt på tangenten til $ C_1 $ og ligeledes for $ z_2 $ (og begge har afstanden $ \rho $ fra $ z_0 $), vil vinklen mellem den reelle akse og tangenterne være givet ved argumentet af $ z_1-z_0 $ og $ z_2-z_0 $:
+		\begin{equation}
+		\theta_1 = \arg z_1-z_0, \quad \theta_2 = \arg z_2 - z_0
+		\end{equation}
+		Hvis lignende navngivning indføres for $ w $-planen, med følgende transformationer:
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{cc}
+				Navn i $ z $ & Navn i $ w $ \\
+				\hline
+				$ C_1 $ & $ C'_1 $ \\
+				$ C_2 $ & $ C'_2 $ \\
+				$ z_0 $ & $ w_0 $ \\
+				$ z_1 $ & $ w_1 $ \\
+				$ z_2 $ & $ w_2 $ \\
+				$ \theta_1 $ & $ \phi_1 $ \\
+				$ \theta_2 $ & $ \phi_2 $ \\
+				\hline
+				\end{tabular}
+				\caption{Tabel over navnene på henholdsvis kurver, punkter og vinkler mellem tangenter til kurver og den reelle akse, i $ z $- og $ w $-planen.}
+				\label{tab:Konfirmationsnavne}
+				\end{table}
+				$ \phi_1 $ er altså vinklen mellem tangenten til $ C'_1 $ i punktet $ w_0 $, og den reelle akse, givet ved $ \arg w_1-w_0 $, hvor $ w_1 $ ligger på den førnævnte tangent. Ligeledes gør sig gældende for $ \phi_2 $. De fulde definitioner af $ z_1-z_0 $ og $ z_2-z_0 $, samt deres tilsvarende i $ w $ er 
+				\begin{equation}
+				z_n-z_0 = \rho \exp i \theta_n, \quad w_n - w_0 = \rho_n\exp i\phi_n
+				\end{equation}
+				Her er afstanden mellem $ w_n $ og $ w_0 $ ikke nødvendig ens for alle $ n $, da lige linjer af endelig længde i $ z $ ikke nødvendigvis er lige i $ w $. En mere stringent definition af $ w_n $ er faktisk $ w_n - w_0 = \rho_n \exp i(\phi_n+\delta\phi_n) $ hvor $ \delta \phi_n \to 0$ når $ \rho_n \to 0 $, og dermed også $ \rho \to 0 $
+				
+				Med alle disse navne og definitioner i baghovedet, kan egenskab 2 beskrives ved følgende ligning:
+				\begin{equation}
+				\phi_1-\theta_1 = \phi_2-\theta_2 = \arg g'(z_0),  \quad \text{for} \rho \to 0 \label{eq:hashtag2}
+				\end{equation}
+				og egenskab 3 kan beskrives ved
+				\begin{equation}
+				\rho_1 / \rho = \rho_2 / \rho = |g'(z_0)|, \quad \text{for} \rho \to 0 \label{eq:hashtag3}
+				\end{equation}
+				Lighederne for egenskab 2 og 3 er strengt taget kun opfyldt når $ \rho \to 0 $, men er omtrent rigtige for \textit{små} linjeelementer, hvormed lighedstegnene skal udskiftes med cirka-omtrent tegnene: $ \approx $.
+				
+				I \eqref{eq:hashtag3} ses $ |g'(z_0) |$ som den lineære skaleringsfaktor for små linjeelementer, beskrevet i listen over egenskaber. Dette vil altså siges, at små figurer i $ z $ skaleres med en faktor $ |g'(z)|^2 $ under transformationen til $ w $.
+				
+				Det noteres at i punkter hvor $ g'(z) = 0 $ er $ \arg g'(z) $, som jo er vinklen hvormed linjeelementer roteres, udefineret. Punkter af denne art kaldes for \textbf{kritiske punkter} for transformationen.
+				
+				\subsubsection*{Kvantitative informationer om egenskab 4}
+				For en analytisk funktion $ f(z) = \phi + i \psi $ i $ z= h(w) $, er $ F(w)=f(h(w)) = \Phi + i \Psi$ også analytisk i $ w $. Da begge er analytiske, opfylder deres koordinatfunktioner $ \phi,\psi,\Phi $ og $ \Psi $ alle Laplaces ligning:
+				\begin{equation}
+				\diff{^2\phi}{x^2} + \diff{^2 \phi}{y^2} = 0, \text{ etc, for } \psi, \Phi \text{ og } \Psi \text{ med } r,s \text{ som koordinaterne for } \Phi,\Psi 
+				\end{equation}
+				Hvis, for eksempel $ \Re f(z) = \phi$ er konstant over randen $ C $ i $ z $, er $ \Re F(w)=\Phi $ konstant over $ C' $, som er kurven $ C $, transformeret af $ w=h(z) $. Dette bruges blandt andet flittigt til løsning af Laplaces ligning i to dimensioner.
+				
+				\subsubsection*{Nyttige konforme transformationer}
+				Nogle eksempler på konforme transformationer er eksempelvis
+				\begin{itemize}
+					\item $ w = z+b, \ b\in \Set{C} $: translation med $ b $.
+					\item $ w = (\exp i \theta)z $: rotation med $ \theta $.
+					\item $ w = az, \ a\in \Set{R} $: skalering med reelt $ a $.
+					\item $ w = az+b, \ a,b\in \Set{C} $: skalering og rotation med $ a $, translation med $ b $.
+					\item $ w = 1/z $: invers transformation - afbilder ydersiden af enhedscirklen på indersiden, og vice versa.
+					\end{itemize}

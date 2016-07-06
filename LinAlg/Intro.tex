@@ -1,0 +1,313 @@
+\documentclass[LinAlgNoter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+% Hvis ikke dokumenterne (hoved & under) er i samme mappe, skal den relative stig bruges.
+
+
+
+\begin{document}
+	
+	\section{Introduktion, lineære afbildninger og matricer}
+	
+	
+	\subsection{Talrum ($ \Set{R} $ \& $ \Set{C} $)}
+	Disse noter omhandler lineær algebra, og derfor også $ n $-dimensionale rum. Mængden $ \Set{R} $ er de reelle tal, mens $ \Set{C} $ er de komplekse tal. I denne bog, og dermed også disse noter, defineres mængden $ \Set{F} $ til enten at være de komplekse tal $ \Set{C} $ eller $ \Set{R} $. Mængden $ \Set{F} $ bruges da i definitioner og sætninger, for at specificere, at det er lige meget, hvilket af de to rum, man arbejder med.
+	
+	\subsection{Afbildninger}
+	Ved en \textbf{afbildning} af en mængde $ X $, ind i en mængde $ Y $ (eller en \textbf{funktion} fra $ X $ til $ Y $) forstås en forskrift, hvorved der til hvert element $ x \in X $ knyttes et element $ y \in Y $. $ X $ og $ Y $ kan altså være enhver mængde, eksempelvis kendes funktioner af én variabel, hvor $ X=Y=\Set{R} $, hvis funktionen er ubegrænset og defineret i hele $ \Set{R} $. Mængden $ X $ kaldes for 
+	\textbf{definitionsmængden}, mens $ Y $ kaldes for \textbf{dispositionsmængden}.
+	
+	Normalt betegnes en afbildning (som en funktion) ved ét bogstav. Notationen er:
+	
+	\begin{equation*}
+		\morf{f}{X}{Y}
+	\end{equation*}
+	
+	Elementet tilsvarende $ x $ kaldes $ f(x) $ og kaldes \textbf{billedet} af $ x $ ved $ f $ eller den tilhørende \textbf{funktionsværdi}. At $ f(x) $ svarer til $ x $ skrives som
+	\begin{equation*}
+		x \to f(x)
+	\end{equation*}
+	Der kan også tages et billede af en hel delmængde af $ X $. Eksempelvis udgør billederne for alle $ x \in A \subseteq X $ en delmængde af $ Y $, der kaldes billedet af $ A $ ved $ f $, og betegnes $ f(A) $. Dette skrives:
+	\begin{equation*}
+		f(A)=\{f(x) \ | \ x\in A\}
+	\end{equation*}
+	Billedet af \textit{hele} mængden $ X $ (kaldet $ f(X) $) kaldes for \textbf{billedmængden} eller \textbf{værdimængden} for $ f $. Dette kendes også fra funktioner for én variabel, hvor værdimængden er mængden af alle $ y $-værdier, mens dispositionsmængden (som ikke altid er den samme), for det meste er hele $ \Set{R} $. Altså gælder:
+	\begin{equation*}
+		f(X) \subseteq Y
+	\end{equation*}
+	
+	En afbildning $ \morf{f}{X}{Y} $ kaldes \textbf{surjektiv} eller en afbildning af $ X $ \textbf{på} $ Y $, hvis $ f(X)=Y $, altså at værdimængden er lig hele dispositionsmængden. Afbildningen kaldes \textbf{injektiv}, hvis der for vilkårlige valg af $ x $-værdier er forskellige funktionsværdier, altså at $ f(x_1)=f(x_2) $ kun hvis $ x_1 = x_2 $. Til sidst kaldes en afbildning \textbf{bijektiv}, hvis denne både er surjektiv og injektiv, og hvis der altså til ethvert billed $ y\in Y $ findes ét og kun ét $ x \in X $.
+	
+	Disse egenskaber kan også beskrives, hvis der for en afbildning $ \morf{f}{X}{Y} $ er givet et $ x\in X $ og $ y \in Y $, og lignignen $ f(x)=y $ betragtes. Da gælder det:
+	\begin{enumerate}
+		\item Ligningen har \textit{mindst} en løsning for hvert $ y $, hvis $ f $ er surjektiv
+		\item Ligningen har \textit{højst} en løsning for hvert $ y $, hvis $ f $ er injektiv
+		\item Ligningen har \textit{kun} en løsning for hvert $ y $, hvis $ f $ er bijektiv
+	\end{enumerate}
+	
+	Til bijektive afbildninger $ \morf{f}{X}{Y} $ hører den \textbf{omvendte} eller \textbf{inverse} afbildning $ \morf{f\inverse}{Y}{X} $. Denne afbildning er også bijektiv, og der hører et $ x\in X $ til ethvert billed af $ y\in Y $: $ f\inverse(y)=x $. Yderligere gælder $ (f\inverse)\inverse=f $.
+	
+	\textbf{Sammensatte afbildninger} er som følger: lad $ X,Y,Z $ være mængder og lad $ \morf{f}{X}{Y} $ og $ \morf{g}{Y}{Z} $ være afbildninger. Deres sammensatte afbildning $ \morf{g \circ f}{X}{Z} $ knytter et element $ g(f(x)) \in Z $ til hvert element $ x \in X $. For sammensatte afbildninger gælder den associative regel: Lad $ X,Y,Z,W $ være mængder, og lad $ \morf{f}{X}{Y}, \ \morf{g}{Y}{Z}, \ \morf{h}{Z}{W} $. Da gælder:
+	\begin{equation*}
+		h \circ (g\circ f) = (h \circ g) \circ f = h\circ g \circ f
+	\end{equation*}
+	Yderligere gælder det, at hvis både $ f $ og $ g $ er enten surjektive, injektive eller bijektive, så er den sammensatte afbildning $ g\circ f $ også henholdsvis surjektiv, injektiv eller bijektiv. Og for bijektive, sammensatte afbildninger gælder at $ (g\circ f)\inverse = g\inverse \circ f\inverse $
+	
+	\textbf{Identiske afbildninger} er afbildninger $ \morf{\id_X}{X}{X} $ af en mængde $ X $ ind i sig selv, hvor billedet af $ x\in X $ er lig $ x \in X $. Altså $ \id_X(x)=x $. For enhver bijektiv afbildning $ \morf{f}{X}{Y} $ gælder at $ f\inverse \circ f = \id_X$ og $ f\circ f\inverse=\id_Y $.
+	
+	Hvis $ \morf{f}{X}{Y} $ og $ \morf{g}{Y}{X} $ er afbildninger så $ g\circ f=\id_X $ og $ f\circ g = \id_Y $, da er begge afbildninger bijektive, og $ f\inverse=g, \ g\inverse=f $.
+	
+	
+	
+	\subsection{Vektorer}
+	Vektorer er en konstruktion i $ \Set{F}^n $, der har en størrelse og retning i $ n $ dimensioner. Eksempelvis kendes vektorer i planen som $ \Set{R}^2 $. Disse skrives som
+	\begin{equation*}
+		\vec{a}=\begin{pmatrix}
+		x \\ y
+		\end{pmatrix}=\Bf{a}=\V{x} = \begin{pmatrix}
+			x_1 \\ x_2 
+		\end{pmatrix}
+	\end{equation*}
+	Hvor den sidste notation bruges i denne bog. Her noteres en vektor altså med en enkelt understregning, mens de enkelte værdier $ x_1 $ og $ x_2 $ viser hvilken dimension/række de tilhører. Dette muliggører nem udvidelse til mere end 3 dimensioner. Generelt er vektorformen for en vektor $ \V{x} $ i $ \Set{F}^n $
+	\begin{equation*}
+		\V{x}=\begin{pmatrix}
+		x_1 \\ \vdots \\ x_n
+		\end{pmatrix}
+	\end{equation*}
+	De mest almindelige operationer er skalering af vektorer, eller multiplicering med en skalar, og addition/subraktion. Skalering er at gange en vektor $ \V{x} $ i $ \Set{F}^n $ med en skalar (et tal i $ \Set{F} $). Negative vektorer defineres som en vektor ganget med -1:
+	\begin{equation*}
+		a\D \V{x}=\begin{pmatrix}
+		ax_1 \\ \vdots \\ ax_n
+		\end{pmatrix}, \quad -\V{x}=(-1)\V{x}=\begin{pmatrix}
+		-x_1 \\ \vdots \\ -x_n
+	\end{pmatrix}
+	\end{equation*}
+	Addition og subtraktion defineres som:
+	\begin{equation*}
+		\V{x}+\V{y}=\begin{pmatrix}
+		x_1+y_1 \\ \vdots \\ x_n+y_n
+		\end{pmatrix}, \quad \V{x}-\V{y}=\V{x}+(-\V{y})=\begin{pmatrix}
+		x_1-y_1 \\ \vdots \\ x_n-y_n
+	\end{pmatrix}
+	\end{equation*}
+	Et udtryk på formen $ a\V{x}+b\V{y} $ kaldes en \textbf{linearkombination} af $ \V{x} $ og $ \V{y} $. Til sidst, inden regnereglerne for vektorer opskrives, defineres nulvektoren $ \V{o} $ i $ \Set{F}^n $ som:
+	\begin{equation*}
+		\V{o}=\begin{pmatrix}
+			0 \\ \vdots \\ 0
+		\end{pmatrix}
+	\end{equation*}
+	(altså med bogstavet ``o'')
+	
+	
+	
+	\subsubsection{Regneregler}
+	Regnereglerne for vektorer er således:
+	\begin{table}[H]
+		\begin{tabular}{rlrl}
+			V1 & $ (\V{x}+\V{y})+\V{z}=\V{x}+(\V{y}+\V{z}) $ & V5 & $ a(\V{x}+\V{y})=a\V{x}+a\V{y} $ \\ 
+			V2 & $ \V{x}+\V{o}=\V{x} $ & V6 & $ (a+b)\V{x}=a\V{x}+b\V{x} $ \\ 
+			V3 & $ \V{x}+(-\V{x})=\V{o} $ & V7 & $ (ab)\V{x}=a(b\V{x}) $ \\ 
+			V4 & $ \V{x}+\V{y}=\V{y}+\V{x} $ & V8 & $ 1\V{x}=\V{x} $ \\ 
+		\end{tabular} 
+	\end{table}
+	\subsubsection{Krydsprodukt}
+	Krydsproduktet af to vektorer i $ \Set{R}^3 $ er givet ved:
+	\begin{equation*}
+		\V{a} \times \V{b} = \begin{vmatrix}
+			\hat{x}	& \hat{y}	& \hat{z}	\\
+			a_1		& a_2		& a_3		\\
+			b_1		& b_2		& b_3
+		\end{vmatrix}
+	\end{equation*}
+	
+	\subsection{Matricer}
+	En \textbf{matrix} (en matrix, matricen, flere matricer, alle matricerne) er en tabel med talværdier, og har formen:
+	\begin{equation*}
+		\mat{A}=\begin{pmatrix}
+		a_{11} & a_{12} & \dots & a_{1n} \\
+		a_{21} & a_{22} & \dots & a_{2n} \\
+		\vdots & \vdots &  & \vdots \\
+		a_{m1} & a_{m2} & \dots & a_{mn} \\
+		\end{pmatrix}
+	\end{equation*}
+	Dette er den \textbf{generelle} matrix, hver værdi $ a_{ij} $ kaldes en \textbf{indgang}, og ligger i $ \Set{F} $. Hvis $ \Set{F}=\Set{R} $ kaldes matricen reel, og hvis $ \Set{F}=\Set{C} $ kaldes matricen kompleks. Den 
+	\textit{i}'te række henholdsvis \textit{j}'te søjle, i $ \mat{A} $ betegnes $ \mat{A}[i,*] $ henholdsvis $ \mat{A}[*,j] $, og er
+	\begin{equation*}
+		\begin{pmatrix}
+		a_{i1} & \dots & a_{in}
+		\end{pmatrix} \quad \text{henholdsvis} \quad \begin{pmatrix}
+		a_{1j} \\ \vdots \\ a_{mj}
+		\end{pmatrix}
+	\end{equation*}
+	Hvis disse er en adskilt matrix, kaldes de for henholdsvis en \textbf{rækkematrix} og en \textbf{søjlematrix}. Indgangen $ a_{ij} $, som står i den \textit{i}'te række og \textit{j}'te søjle, betegnes da $ \mat{A}[i,j] $. Matricen $ \mat{A} $ har $ m $ rækker og $ n $ søjler (men ikke nødvendigvis flere søjler end rækker). Matricen består da af $ m\D n $ indgange fra $ \Set{F} $, og kaldes for en $ m\times n $-matrix.
+	
+	Matricen $ \mat{A} $ kan også opfattes som bestående af $ n $ $ m $-dimensionelle vektorer, der skrives:
+	\begin{equation*}
+		\V{a}_1=\begin{pmatrix}
+			a_{11}\\\vdots\\a_{m1}
+		\end{pmatrix},\cdots,\V{a}_n=\begin{pmatrix}
+			a_{1n}\\\vdots\\a_{mn}
+		\end{pmatrix}
+	\end{equation*}
+	Disse vektorer kaldes for matricens \textbf{søjlevektorer}.
+	
+	Søjlematricer og vektorer bruges i forskellige sammenhænge, men der er ingen stor forskel på dem, ud over sammenhæng og notation.
+	
+	En matrix hvor alle elementer er lig 0 kaldes en \textbf{nulmatrix} og betegnes $ \mat{0} $ eller $ \mat{0}_{m,n} $ (altså med tallet ``0'')
+	
+	Matricen $ \mat{A} $ kan også opskrives på en kortere måde, end ved en tabel:
+	\begin{equation*}
+		\mat{A} = (a_{ij})_{1\leq i\leq m, \, 1\leq j \leq n}=(a_{ij})_{m,n},
+	\end{equation*}
+	Og disse skrivemåder er altså ækvivalente med opskrivning ved en tabel.
+	
+	En $ n\times n $-matrix, der altså har lige mange rækker og søjler, kaldes en \textbf{kvadratisk matrix}, og alle indgange $ a_{ij} $ hvor $ i=j $ siges at stå i diagonalen, mens alle andre indgange (hvor $ i \neq j $) siges at stå uden for diagonalen. En kvadratisk matrix, hvor alle indgange ude for diagonalen er lig 0, kaldes for en \textbf{diagonalmatrix}.
+	\begin{table}[H]
+		\begin{tabular}{p{0.5\textwidth}p{0.5\textwidth}}
+			En kvadratisk matrix hvor $ a_{ij} =0 $ for alle $ i $ og $ j $ med $ i<j $ kaldes en \textbf{nedre trekantsmatrix}: & Ligeledes kaldes en kvadratisk matrix, hvor alle indgange under diagonalen er lig 0 ($ a_{ij}=0 $ for alle $ i>j $), for en \textbf{øvre trekantsmatrix}: \\
+			\multicolumn{1}{c}{$ \begin{pmatrix}
+				a_{11}	& 0			& \cdots	& 0 \\
+				a_{21}	& a_{22}	& \ddots	& \vdots \\
+				\vdots 	& \vdots	& \ddots	& 0 \\
+				a_{n1}	& a_{n2}	& \cdots	& a_{nn}
+				\end{pmatrix} $ }& \multicolumn{1}{c}{$ \begin{pmatrix}
+			a_{11}	& a_{12}	& \cdots	& a_{1n} \\
+			0		& a_{22}	& \cdots	& a_{2n} \\
+			\vdots 	& \ddots	& \ddots	& \vdots \\
+			0		& \cdots	& 0			& a_{nn}
+			\end{pmatrix} $}
+		\end{tabular}
+	\end{table}
+	De forskellige indgange med $ a $'er kan sagtens være 0. Kravet er kun, at alle indgange over (eller under) diagonalen er lig 0.	 
+
+	Fra en $ m\times n $-matrix $ \mat{A} $ og en $ m \times p $ matrix $ \mat{B} $ kan der dannes en $ m \times (n+p) $-matrix $ \mat{C} $ ved at opskrive $ \mat{B} $'s søjler efter $ \mat{A} $'s søjler. Matricen $ \mat{C} $ kaldes for en \textbf{blokmatrix} og skrives:
+	\begin{equation*}
+		\mat{C}=\begin{pmatrix}
+		\mat{A} & \mat{B}
+		\end{pmatrix}
+	\end{equation*}
+	Det samme kan gøres for flere matricer. For eksempel kan $ \mat{A} $ dannes ud fra sine søjlematricer:
+	\begin{equation*}
+		\mat{A}= \begin{pmatrix}
+		\mat{A}_1 & \cdots & \mat{A}_n
+		\end{pmatrix}
+	\end{equation*}
+	Det samme kan gøres med søjlevektorer.
+	
+	
+	\subsubsection*{Enhedsmatricer og elementære matricer}
+	En diagonalmatrix hvor alle indgange på diagonalen er lig 1 kaldes for en \textbf{enhedsmatrix}. Disse betegnes enten $ \mat{E} $ eller $ \mat{E}_{n,n} $, hvis antallet af rækker/søjler ønskes specificeret. Hvis der ikke specificeres antal rækker/søjler følger enhedsmatricens størrelse af kontekst.
+	
+	Enhedsmatricen kan også ses opbygget af \textbf{standard enhedssøjlematricer-ne} eller \textbf{standard enhedsvektorerne}:
+	\begin{equation*}
+		\V{e}_1 = \mat{E}_1 = \begin{pmatrix}
+		1 \\ \vdots \\ 0
+		\end{pmatrix}, \cdots, \V{e}_n=\mat{E}_n=\begin{pmatrix}
+		0 \\ \vdots \\ 1
+		\end{pmatrix}
+	\end{equation*}
+	En matrix hvor alle indgange (eller elementer) pånær plads ($ j,k $), der er lig 1, kaldes for en \textbf{elementærmatrix}. Denne ser sådan ud:
+	\begin{equation*}
+		\mat{I}_{j,k}=\begin{pmatrix}
+		0 		& \cdots	& 0			& \cdots	& 0 \\
+		\vdots 	& \ddots	& \vdots	& \ddots	& \vdots \\
+		0		& \cdots	& 1 		& \cdots	& 0 \\
+		\vdots	& \ddots	& \vdots 	& \ddots	& \vdots \\
+		0 		& \cdots	& 0 		& \cdots	& 0 \\
+		\end{pmatrix}
+	\end{equation*}
+	hvor 1 altså er i række $ j $ og søjle $ k $. Elementærmatricens størrelse defineres normalt ikke, andet end med kontekst (hvis der arbejdes med en $ m\times n $-matrix $ \mat{A} $, så har dens elementærmatricer også størrelsen $ m\times n $).
+	
+	En vilkårlig $ m\times n $-matrix $ \mat{A} $ kan opbygges som en sum af skalerede elementærmatricer: (se regnereglerne for matricer, i afsnittet Matrixalgebra)
+	
+	\begin{equation*}
+		\mat{A}=\sum_{j,k}a_{jk}\mat{I}_{j,k}
+	\end{equation*}
+	
+	Og for to elementærmatricer, der kan multipliceres (igen, se regneregler for matricer) gælder følgende:
+	\begin{equation*}
+		\mat{I}_{j,k}\mat{I}_{m,n}=\delta_{km}\mat{I}_{j,n}, \text{ hvor }\delta_{km}=\begin{cases}
+		1 & k=m\\
+		0 & \text{ellers}
+		\end{cases}
+	\end{equation*}
+	hvor $ \delta_{km} $ kaldes Kroneckers delta. Eksempelvis multipliceres $ 5\times 5 $ matricen $ \mat{I}_{2,4} $ (altså 1 i anden række, fjerde søjle) med sig selv, fås følgende:
+	\begin{align*}
+		\mat{I}_{2,4}\mat{I}_{2,4} &\Rightarrow j=m=2, \ k=n=4 \Rightarrow k\neq m \Rightarrow \delta_{km}=0\\
+		&= 0 \mat{I}_{2,4} = \mat{0}
+	\end{align*}
+	Men hvis matricerne $ \mat{I}_{2,4} $ og $ \mat{I}_{4,4} $ multipliceres fås:
+	\begin{align*}
+		\mat{I}_{2,4}\mat{I}_{4,4} &\Rightarrow j=2, \ k=m=n=4 \Rightarrow k = m \Rightarrow \delta_{km}=1\\
+		&= 1 \mat{I}_{2,4} = \mat{I}_{2,4}
+	\end{align*}
+	Samme resultat kan også opnås ved almindelig matrixmultiplikation.
+	
+	\subsection{Lineære afbildninger}
+	Vi lader en $ m\times n $ matrix $ \mat{A} $, med indgange i $ \Set{F} $, der har formen 
+	\begin{equation}
+	\mat{A} = \begin{pmatrix}
+	a_{11}	& a_{21} 	& \cdots 	& a_{1n} \\
+	a_{21}	& a_{22} 	& \cdots 	& a_{2n} \\
+	\vdots	& \vdots 	&			& \vdots \\
+	a_{m1}	& a_{m2}	& \cdots 	& a_{mn} \\
+	\end{pmatrix}.
+	\end{equation}
+	knyttes til en afbildning $ \morf{f}{\Set{F}^n}{\Set{F}^m} $, ved fastsættelsen af
+	\begin{equation}
+	f \begin{pmatrix}
+	x_1 \\ \vdots \\ x_n
+	\end{pmatrix}
+	= \begin{pmatrix}
+	a_{11}x_1+\cdots+a_{1n}x_n\\
+	\vdots\\
+	a_{m1}x_1+\cdots+a_{mn}x_n\\
+	\end{pmatrix}
+	\end{equation}
+	En afbildning $ \morf{f}{\Set{F}^n}{\Set{F}^m} $, der på denne måde har en matrix knyttet til sig, kaldes \textbf{lineær}. Hvis $ \Set{F}=\Set{R} $ kaldes den reelt lineær, og hvis $ \Set{F}=\Set{C} $ kaldes den komplekts lineær.
+	
+	\subsubsection*{Linearitetsbetingelserne}
+	Lad $ \morffFF{n}{m} $ være en lineær afbildning. Da gælder
+	\begin{enumerate}[{L}1:]
+		\item $ f(a\V{x})=af(\V{x}) $ for alle $ \V{x}\in \Set{F}^n, \, a\in \Set{F} $
+		\item $ f(\V{x}+\V{y})=f(\V{x})+f(\V{y}) $ for alle $ \V{x},\V{y} \in \Set{F}^n $
+	\end{enumerate}
+	Hvis omvendt $ \morffFF{n}{m} $ er en afbildning så L1 og L2 er opfyldt, da er $ f $ en lineær afbildning.
+	
+	\subsubsection*{Søjlereglen}
+	Den $ j $'te søjlevektor i $ \mat{A} $ er lig billedet ved $ f $ af den $ j $'te standard enhedsvektor.
+	
+	Altså at $ f(\mat{E}_j)=\mat{A}_j $. Dette betyder, at hvis man kender resultatet af en afbildning kan man opskrive matricen for denne, som en sum af skalerede vektorer
+	\begin{equation}
+	f \begin{pmatrix}
+	x_1 \\ \vdots \\ x_n
+	\end{pmatrix}
+	= x_1  \begin{pmatrix}
+	a_{11} \\ a_{21} \\ \vdots \\ a_{m1}
+	\end{pmatrix} + \dots + x_n  \begin{pmatrix}
+	a_{1n} \\ a_{2n} \\ \vdots \\ a_{mn}
+	\end{pmatrix}
+	\end{equation}
+	
+	Yderligere gælder der for en lineær afbildning $ \morffFF{n}{m} $ knyttet til matricen $ \mat{A}=(a_{ij})_{m,n} $ at 
+	\begin{equation}
+	a_{ij}=f(\V{e}_j)\D \V{e}_i, \quad 1\leq i \leq m, \ 1 \leq j \leq n.
+	\end{equation}
+	
+	Hvis vi definerer $ \mat{X} = \begin{psmallmatrix} x_1 \\ \vdots \\ x_n \end{psmallmatrix} $, kan den lineære afbildning udtrykkes ved matrixmultiplikation:
+	
+	\begin{equation}
+	f(\mat{X})=\mat{A} \, \mat{X} 
+	= \begin{pmatrix}
+	a_{11}	& \cdots	& a_{1n} \\
+	\vdots	& 			& \vdots \\
+	a_{m1}	& \cdots	& a_{mn}
+	\end{pmatrix}\begin{pmatrix}
+	x_1 \\ \vdots \\ x_n
+	\end{pmatrix}.
+	\end{equation}
+	
+	For \textbf{sammensatte lineære afbildninger} gælder:
+	
+	Hvis $ \morffFF{p}{m} $ og $ \morffFF[g]{n}{p} $ er lineære afbildninger, så er den sammensatte afbildning $ h = \morffFF[f \circ g]{n}{m} $ også lineær. Hvis $ f $ svarer til $ m\times p $-matricen $ \mat{A} $ og $ g $ svarer til $ p \times n $-matricen $ \mat{B} $, da svarer $ h=f \circ g $ til $ m \times n $-matricen $ \mat{C}=\mat{A}\, \mat{B} $.
+\end{document}
+

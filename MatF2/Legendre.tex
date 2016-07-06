@@ -1,0 +1,61 @@
+\documentclass[MatF2Noter.tex]{subfiles}
+
+\begin{document}
+	
+	\section{Specielle funktioner}
+	
+	
+	\subsection{Legendrefunktioner}
+	Legendres differentiallinging lyder
+	\begin{equation}
+		(1-x^2)y'' - 2xy' + \ell (\ell+1)y = 0
+	\end{equation}
+	Differentialligningen optræder ofte i problemer med aksial symmetri, og sfæriske koordinater. Funktioner, der løser ligningen kaldes for Legendrefunktioner, og en bestemt type, der ofte bruges, er \textbf{Legendrepolynomierne} $ P_{\ell}(x) $, hvor $ \ell $ er et heltal.
+	
+	Disse polynomier har en række egenskaber, såsom lineær uafhængighed, som gør dem smarte at arbejde med. Én måde at konstruere dem på, er ved hjælp af \textbf{Rodrigues' formel}, der lyder
+	\begin{equation}
+		P_{\ell}(x) = \frac{1}{2^{\ell} \ell!} \diff[\ud]{^{\ell}}{x^{\ell}} (x^2-1)^\ell
+	\end{equation}
+	Herved fås de første 6 polynomier til at være
+	\begin{align*}
+		&P_0(x) = 1,							&	& P_1(x) = x, \\
+		&P_2(x) = \frac{1}{2}(3x^2-1)			&	& P_3(x) = \frac{1}{2} (5x^3-3x), \\
+		&P_4(x) = \frac{1}{8} (35x^4-30x^2+3)	&	& P_5(x) = \frac{1}{8} (63x^5-70x^3+15x).
+	\end{align*}
+	De har følgende egenskaber:
+	\begin{itemize}
+		\item De er normaliserede, så $ P_{\ell}(1) = 1 $.
+		\item $ P_{\ell} $ indeholder kun lige potenser hvis $ \ell $ er lige, og omvendt kun ulige potenser, hvis $ \ell $ er ulige.
+		\item De to første egenskaber giver også, at $ P_{\ell}(-1) = (-1)^{\ell} $.
+		\item De er indbyrdes ortogonale over intervallet -1 til 1, så
+		\begin{equation}
+			\int_{-1}^{1} P_{\ell}(x) P_k(x) \ud x = 0
+		\end{equation}
+		\item De har alle, undtagen for $ \ell=0 $ en gennemsnitlig værdi på 0 over -1 til 1:
+		\begin{equation}
+			\int_{-1}^{1} P_{\ell}(x) \ud x = 0, \ \ell\neq 0.
+		\end{equation}
+		\item Integralet af kvadratet af polynomierne giver altid ($ 2/(2\ell+1) $):
+		\begin{equation}
+			I_{\ell} = \int_{-1}^{1} P_{\ell}(x) P_{\ell}(x) \ud x = \frac{2}{2\ell +1}.
+		\end{equation}
+		\item Grundet den indbyrdes ortogonalitet (og fuldstændighed), kan enhver funktion (der opfylder Dirichlet betingelserne) med $ |x|< 1 $ skrives som en uendelig sum af Legendrepolynomier:
+		\begin{equation}
+			f(x) = \sum_{\ell = 0}^{\infty} a_{\ell} P_{\ell} (x), \quad a_{\ell} = \frac{2\ell+1}{2} \int_{-1}^{1} f(x) P_{\ell} (x) \ud x.
+		\end{equation} 
+		\item Der er en række \textbf{rekursionsrelationer}, 5 af dem lyder
+		\begin{align*}
+			P_{n+1}'+P_{n-1}' &= P_n + 2x P_n', \\
+			P_{n+1}' &= (n+1)P_n+x P_n', \\
+			P_{n-1}' &= -n P_n + x P_n', \\
+			(1-x^2) P_n' &= n(P_{n-1} - x P_n), \\
+			(2n+1) P_n &= P_{n+1}' - P_{n-1}', \\
+			P_{n+1} &= \frac{(2n+1)x P_n - n P_{n-1}}{n+1}
+		\end{align*}
+		Disse relationer kommer fra \textbf{Generatorfunktionen} for Legendrepolynomier, der lyder
+		\begin{equation}
+			G(x,h) = (1-2xh+h^2)^{-1/2} = \sum_{n=0}^{\infty} P_n(x) h^n 
+		\end{equation}
+		hvor $ h $ er en dummyvariabel, der bruges i ekspansionen af genereringsfunktionen, og $ P_n(x) $ er det $ n $-te Legendrepolynomium.
+	\end{itemize}
+\end{document}

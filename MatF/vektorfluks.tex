@@ -1,0 +1,164 @@
+\documentclass[MatFNoter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+% Hvis ikke dokumenterne (hoved & under) er i samme mappe, skal den relative stig bruges.
+
+
+
+\begin{document}
+	\section{Vektorfluks, cirkulation og strømfunktionen}
+	
+	\subsection{Vektorfluks}
+	Vektorfluksen $ Q $ er et mål for, hvor stor en strømning der er, gennem en flade $ \sigma $. Fladen inddeles i $ N $ fladeelementer, hvor $ \Delta \sigma_i $ er arealet af fladeelementet, $ \V{n}_i $ er fladenormalen til dette fladeelement og $ \V{v}_i $ er strømhastigheden gennem elementet. Den samlede vektorfluks er da summen af vektorfluksen for alle de små fladeelementer:
+	
+	\begin{equation}
+		Q=\sum_{i=1}^{N} \V{v}_i\D \V{n}_i \ \Delta\sigma_i
+	\end{equation} 
+	Lader vi arealet af fladeelementet gå mod 0, bliver denne sum til et fladeintegral:
+	\begin{equation}
+		Q=\int_{\sigma} \V{v}\D \V{n}  \ud\sigma
+	\end{equation}
+	$ Q $ er da volumenstrømmen/vektorfluksen for strømmen $ \V{v} $ gennem fladen $ \sigma $. Denne har enheden $ m^3/s $.
+	
+	
+	
+	\subsection{Cirkulation}
+	For en lukket kurve $ \lambda $ lader vi $ \Delta\V{r}_i $ beskrive et lille vektorialt bueelement af kurven, og $ \V{v}_i $ beskrive vektorstrømmen gennem dette bueelement. Hvis der er $ N $ bueelementer i kurven defineres cirkulationen $ C $ ved summen af $ N $ prikprodukter af vektoriale bueelementer $ \Delta \V{r}_i $ og strømvektoren $ \V{v}_i $:
+	
+	\begin{equation}
+		C=\sum_{i=1}^{N} \V{v}_i \D \Delta\V{r}_i
+	\end{equation}
+	Lader vi antallet af bueelementer gå mod uendeligt, og lader hvert bueelements længde gå mod 0, vil dette blive til er kurveintegral  (regnes i positiv omløbsretning):
+	
+	\begin{equation}
+		C=\oint_{\lambda} \V{v} \D \ud\V{r}
+	\end{equation}
+	
+	
+	\subsection{\texorpdfstring{$ \grad $-operatoren}{Nabla-operatoren}}
+	$ \nabla $-operatoren (nabla-operatoren), der blandt andet bruges til at beskrive gradienten, kan opfattes som en vektor:
+	\begin{equation}
+		\grad=  \diff{}{x} \Vi + \diff{}{y} \Vj + \diff{}{z} \Vk
+	\end{equation}
+	Nogle regneregler for denne (egentlig bare de almindelige regneregler for differentiation) er:
+	\begin{align}
+		\grad (\kappa+\beta) &= \grad \kappa + \grad \beta \\
+		\grad (\kappa\beta) &= \kappa \grad \beta + \beta \grad \kappa \\
+		\grad \pp{\frac{1}{\beta}} &= -\frac{1}{\beta^2} \grad \beta \\
+		\grad \D (\kappa \V{A}) &= \grad \kappa \D \V{A} + \kappa \grad \D \V{A} \\
+		\grad \times (\kappa \V{A}) &= \grad \kappa \times \V{A} + \kappa \grad \times \V{A}
+	\end{align}
+	
+	
+	\subsubsection{Gradienten}
+	\label{sec:gradient}
+	Gradienten af et skalarfelt er en vektor, der har de partielt afledte, med hensyn til hver koordinat, som sine komponenter:
+	\begin{equation}
+		\grad \beta = \diff{\beta}{x}\Vi+\diff{\beta}{y}\Vj+\diff{\beta}{z}\Vk
+	\end{equation}
+	Denne kan også ses som $ \grad $-vektoren ganget med skalaren $ \beta $:
+	\begin{equation*}
+	\grad \beta = \pp{\diff{}{x} \Vi + \diff{}{y} \Vj + \diff{}{z} \Vk} \beta = \diff{\beta}{x}\Vi+\diff{\beta}{y}\Vj+\diff{\beta}{z}\Vk
+	\end{equation*}
+	(Det er lidt omsonst, jeg ved det godt, men det illustrerer pointen)
+	
+	Ved at tage prikproduktet af gradienten og en retningsvektor fås tilvæksten i gradientvektoren:
+	\begin{equation*}
+		\Delta \beta = \grad \beta \D \Delta \V{r}
+	\end{equation*}
+	Lades $ \Delta\V{r}\rightarrow 0 $, fås det \textit{totale differentiale} af $ \grad \beta $:
+	\begin{equation}
+		\ud\beta = \grad \beta \D \ud\V{r} \label{eq:totdiff}
+	\end{equation}
+	Gradientvektoren har fælgende egenskaber:
+	\begin{itemize}
+		\item Den står normalt på ækviskalarflader
+		\item Den peger mod større værdier af skalaren
+		\item Den angiver stigningen af skalarværdien per længdeenhed i den retning, hvor øgningen er størst (hældningskoefficienten for den tredimensionelle linje, der går gennem punktet, i retning af gradientvektoren)
+	\end{itemize}
+	
+	
+	\subsubsection*{Retningsafledede}
+	Ændringen i skalarværdien i en hvilken som helst retning $ \V{r} $ kan findes ved prikproduktet af gradienten og en enhedsvektor $ \V{a} $, med samme retning som $ \V{r} $:
+	\begin{equation}
+		\diff{\beta}{r} = \V{a} \D \grad \beta \label{eq:retning}
+	\end{equation}
+	\subsubsection*{Sådan findes \texorpdfstring{$ \beta $}{skalarfeltet}, når \texorpdfstring{$ \grad\beta $}{gradienten} kendes}
+	Hvis gradienten til et skalarfelt kendes, kan skalarfeltet findes ved hjælp af integration - lige som for funktioner af én variabel. Metoden er en lille smule anderledes for flere variable, men ideen er som følger.
+	
+	Gradienten $ \grad \beta = \pp{\diff{\beta}{x}\Vi + \diff{\beta}{y}\Vj + \diff{\beta}{z}\Vk} $ kendes, og skalarfeltet findes ved at integrere hver koordinat af gradienten med hensyn til dennes koordinat, sætte dem lig med hinanden og løse ligningen:
+	\begin{equation}
+		\beta = \int \diff{\beta}{x} \ud x = \int \diff{\beta}{y} \ud y = \int \diff{\beta}{z} \ud z
+	\end{equation}
+	Forskellen kommer så i integrationskonstanten. For i den venstre del er konstanten en funktion af $ y $ og $ z $ (da disse jo er konstante, når der differentieres med hensyn til $ x $ igen). Ligeledes gør sig gældende for de to andre dele af ligningen. 
+	
+	Hvis $ \beta_x (x,y,z) $ betegner en vilkårlig stamfunktionen af $ \diff{\beta}{x} $, og lignende for andre variable, kan ligningen skrives som følger 
+	\begin{equation}
+		\beta_x (x,y,z) + f_1 (y,z) = \beta_y (x,y,z) + f_2 (x,z) = \beta_z (x,y,z) + f_3 (z,y)
+	\end{equation}
+	Integrationskonstanterne ($ f_1 $, etc.) behøver selvfølgelig ikke at afhænge af begge (eller bare én) variabel: de kan sagtens være lig $ C $, den normale integrationskonstant.
+	
+	Et eksempel på denne teknik er følgende gradient: $ \grad \beta = (yz \Vi + xz \Vj + xy \Vk) $. Ligningen bliver som følger:
+	\begin{align*}
+		\beta &= \int yz \ud x = \int xz \ud y = \int xy \ud z \\
+		&= xyz + f_1(y,z) = xyz + f_2 (x,z) = xyz + f_3 (x,y) 
+	\end{align*}
+	Her ses da, at hvis $ f_1 = f_2 = f_3 = C $ er ligningen løst, og skalarfeltet er $ \beta = xyz+C $.
+	
+	
+	\subsubsection{Divergens}
+	Divergensen $ \grad \D \V{v} $ af et strømfelt er givet ved prikproduktet mellem nabla-operatoren og strømfunktionen. Denne bruges i udregningen af vektorfluksen gennem en flade.
+	
+	Udregningen af denne er som følger. For et strømfelt $ \V{v} = v_x \Vi + v_y \Vj + v_z \Vk $, hvor $ v_x,v_y,v_z $ er funktioner af rumkoordinaterne $ x $, $ y $ og $ z $. Prikproduktet er da:
+	\begin{equation}
+		\grad\D\V{v} = \diff{v_x}{x} + \diff{v_y}{y}+ \diff{v_z}{z}
+	\end{equation}
+	
+	Divergensen er altså en skalarstørrelse, og den beskriver vektorfluksen gennem en flade. En måde at se dette på, er at hvis $ \grad \D \V{v} > 0 $ er der en \textit{udstrømning}, hvilket kaldes \textbf{ekspansion}, mens hvis $ \grad \D \V{v} < 0 $ er der en \textit{indstrømning}, hvilket kaldes \textbf{kontraktion/konvergens}. For et endimensionelt vektorfelt kan dette illustreres som følger:
+	
+	\begin{figure}[H]
+		\includegraphics[width=0.75\textwidth]{img/vektorfluks.png}
+		\caption{Illustration af vektorfluksen. Til venstre er $ \grad \D \V{v} < 0 $ og altså \textit{kontraktion}. Til højre er $ \grad \D \V{v} > 0 $ og altså \textit{ekspansion}. Billedet er fra bogen Feltteori og Vektoranalyse, side 67.}
+		\label{fig:vektorfluks}
+	\end{figure}
+	
+	
+	\subsubsection{Rotation/virvlning}
+	Virvlningen / rotationen $ \grad \times \V{v} $ af et strømfelt er givet ved krydsproduktet mellem nabla-operatoren og en strømfunktion. Denne bruges til at udregne cirkulationen gennem en kurve.
+	
+	Udregningen er som følger. $ \V{v} $ betegner strømfunktionen (som for divergens). Rotationen er da kryds-produktet mellem disse:
+	\begin{align}
+		\grad \times \V{v} &= \begin{vmatrix}
+		\Vi & \Vj & \Vk \\
+		\diff{}{x} & \diff{}{y} & \diff{}{z} \\
+		v_x & v_y & v_z
+		\end{vmatrix}
+	\end{align}
+	For todimensionale strømfunktioner har denne kun en komponent i $ z $-regningen. Givet ved:
+	\begin{equation}
+		\grad \times \V{v} = \begin{vmatrix}
+		\Vi & \Vj & \Vk \\
+		\diff{}{x} & \diff{}{y} & \diff{}{z} \\
+		v_x & v_y & 0
+		\end{vmatrix} = \pp{\diff{v_y}{x}-\diff{v_x}{y}}\Vk
+	\end{equation}
+	
+	Rotationen i et vektorfelt beskriver vinkelhastigheden (deraf navnet rotation). Faktisk er vinkelhastighedsvektoren givet ved
+	\begin{equation}
+		\V{\omega} = \frac{1}{2} \grad \times \V{v}
+	\end{equation}
+	
+	\subsection{Strømfunktionen}
+	I todimensionale \textbf{divergensfrie} strømfelter ($ \grad\D \V{v} =0$) kan en \textbf{strømfunktion} defineres ved følgende relationer:
+	\begin{equation}
+		v_x = - \diff{\psi}{y}, \quad v_y = \diff{\psi}{x}
+	\end{equation}
+	Og altså:
+	\begin{equation}
+		\psi(x,y) = - \int v_x \ud y = \int v_y \ud x
+	\end{equation}
+	Det ses, at denne ligner ligningen for strømlinjer, og der er da også den relation at strømlinjerne er givet ved
+	\begin{equation}
+		\psi(x,y)=\psi_0
+	\end{equation}
+\end{document}
+

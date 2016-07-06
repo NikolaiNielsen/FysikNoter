@@ -1,0 +1,77 @@
+\documentclass[LinAlgNoter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+% Hvis ikke dokumenterne (hoved & under) er i samme mappe, skal den relative stig bruges.
+
+\begin{document}
+	\subsection{Ortogonale matricer}
+	Definitionen på ortogonalmatricer er som følger:
+	
+	En $ n\times n $-matrix kaldes ortogonal, hvis dens søjler udgør en \textit{ortonormalbasis} i $ \Set{F}^n $. (en kompleks ortogonal matrix kaldes også for en \textit{unitær} matrix).
+	
+	Egenskaber for ortogonale matricer:
+	\begin{itemize}
+		\item Følgende betingelser er ensbetydende:
+		\begin{itemize}
+			\item $ \mat{S} $ er ortogonal
+			\item $ \mat{S}*\mat{S}=\mat{E} $
+			\item $ \mat{S} $ er regulær og $ \mat{S}\inverse = \mat{S}* $
+		\end{itemize}
+		\item Koordinattransformationsmatricen for overgang fra én ortonormalbasis til en anden, er en ortogonalmatrix.
+	\end{itemize}
+	
+	\subsection{Ortogonalkomplement og ortogonalprojektion}
+	Ortogonalkomplementet er defineret som følger:
+	
+	For en delmængde $ M\subseteq V $ sættes $ M^\perp = \{\V{x} \in V \ | \ \V{x}\D \V{y}= 0, \ \text{for alle } \V{y}\in M  \}$. 
+	
+	Hvis $ M $ er et underrum af $ V $, kaldes $ M^\perp $ for ortogonalkomplementet til $ M $. Den eneste vektor, der både er en del af $ M $ og $ M^\perp $ er nulvektoren $ \V{o} $, da denne er den eneste, hvor $ \V{x}\D \V{x}=0 $. Altså $ M \cap M^\perp = \{\V{o}\}$.
+	
+	Hvis $ M\subseteq V $, og $ M^\perp = \{\V{o}\} $, så er $ \Span M = V $.
+	\subsubsection*{Ortogonalprojektion}
+	Lad $ V $ være et endeligdimensionalt indre produkt vektorrum, og lad $ U $ være et underrum i $ V $. Til $ \V{a}\in V $ findes en entydig bestemt vektor $ \V{x}\in U $, for hvilken $ \V{a}-\V{x}\in U^\perp $. Vektoren $ \V{x} $ kaldes for ortogonalprojektionen af $ \V{a} $ på $ U $. Hvis $ \dim U = p > 0 $, og hvis $ (\V{a}_1,\dots,\V{a}_p) $ er en ortogonormalbasis for $ U $, er ortogonalprojektionen $ \V{x} $ af $ \V{a} $ på $ U $ givet ved
+	\begin{equation}
+			\V{x}=(\V{a}\D\V{a}_1)\V{a}_1+\dots+(\V{a}\D\V{a}_p)\V{a}_p
+	\end{equation}
+	Dette kaldes også for projektionsafbildningen $ P_U(\V{a}) $ for U, og den kræver en ortonormalbasis for $ U $. For denne gælder at
+	\begin{equation}
+		\ker (P_U)= U^\perp, \qquad P_U(V) = U
+	\end{equation}
+	Altså at kernen for denne afbildning er ortogonalkomplementet, og at billedet af $ V $ er lig underrummet $ U $.
+	
+	
+	\subsubsection*{Opskrift på ortogonalprojektionen af $ \V{a} $ på $ U $}
+	Lad $ V $ være et e-dim, indre produkt rum. Lad $ \V{a} \in V $ og lad $ U $ være et underrum defineret ved $ U=\Span\{ \V{a},\dots,\V{a}_k \} $.
+	\begin{enumerate}
+		\item Find en basis for $ U $ ved hjælp af udtyndingsalgoritmen
+		\item Find, ved Gram-Schmidt, en ortonormalbasis $ (\V{b}_1,\dots,\V{b}_p) $
+		\item Da er ortogonalprojektionen $ P_U(\V{a}) $ af $ \V{a} $ på $ U $ givet ved
+		\begin{equation}
+			P_U(\V{a})=(\V{a}\D\V{b}_1)\V{b}_1 + \dots + (\V{a}\D \V{b}_p) \V{b}_p
+		\end{equation}
+	\end{enumerate}
+	
+	\subsection{Kvadratiske former}
+	Lad $ \mat{B} $ være en reel, symmetrisk matris. For $ \V{x}=\mat{X}\in \Set{R}*^n $ sættes
+	\begin{equation}
+		K_{\mat{B}}(\V{x}) = \mat{X}^t \mat{B} \mat{X} = \sum_{i=1}^{n} b_{ii} x_i^2 + 2\sum_{i<j} b_{ij} x_i x_j
+	\end{equation}
+	
+	For denne gælder følgende definitioner og egenskaber
+	\begin{itemize}
+		\item $ K_{\mat{B}} $ er positivt definit, hvis $ K_{\mat{B}}(\V{x})>0 $ for alle $ \V{x}\neq 0 $
+		\item $ K_{\mat{B}} $ er positivt semidefinit, hvis $ K_{\mat{B}}(\V{x})\geq 0 $ for alle $ \V{x}$
+		\item $ K_{\mat{B}} $ er negativt definit, hvis $ K_{\mat{B}}(\V{x})<0 $ for alle $ \V{x}\neq 0 $
+		\item $ K_{\mat{B}} $ er negativt semidefinit, hvis $ K_{\mat{B}}(\V{x})\geq0 $ for alle $ \V{x} $
+		\item Hvis ingen af disse betingelser er opfyldt, kaldes $ K_{\mat{B}} $ for \textit{indefinit} (der findes et $ \V{x} $ og $ \V{y} $, så $ K_{\mat{B}}(\V{x})>0, K_{\mat{B}}(\V{y})<0 $.
+		\item Hvis $ K_{\mat{B}} $ er positivt definit, er den også positivt semidefinit. Matricen $ \mat{B} $ kaldes da også for positivt definit. Det samme gør sig gældende for negativt definit, etc.
+		\item Hvis $ K_{\mat{B}} $ er negativt definit, er $ -K_{\mat{B}} $ positivt definit, og omvendt.
+	\end{itemize}
+	
+	Der er følgende måde at bestemme, hvorvidt en symmetrisk matrix $ \mat{B} $ er positivt definit, etc:
+	
+	\subsubsection*{Bestemmelse af definitet}
+	Den kvadratiske form $ K_{\mat{B}} $, hørende til $ \mat{B} $ er positivt definit (positivt semi, negativt, negativt semi) netop hvis alle egenværdier for $ \mat{B} $ er positive (positive eller nul, negative, negative eller nul), og den er indefinit, hvis der findes både negative og positive egenværdier.
+	
+	Ved den $ i $'te ledende undermatrix for forstås den $ i\times i $-matrix $ \mat{B}_i $, der fremkommer ved at slette de sidste $ n-i $ rækker og søjler. Eksempelvis er $ \mat{B}_2 = \begin{psmallmatrix} b_{11} & b_{12} \\	b_{21} & b_{22}\end{psmallmatrix}$. Specielt er $ \mat{B}_n =\mat{B}$.
+	
+	En symmetrisk matrix er positivt definit, netop hvis alle dens ledende underdeterminanter (determinanter af ledende undermatricer) er positive.
+\end{document}

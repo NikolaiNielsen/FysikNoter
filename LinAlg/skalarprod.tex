@@ -1,0 +1,76 @@
+\documentclass[LinAlgNoter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+% Hvis ikke dokumenterne (hoved & under) er i samme mappe, skal den relative stig bruges.
+
+\begin{document}
+	\section{Skalarprodukt og ortonomalbaser}
+	Skalarprodukt er en måde at knytte et tal til hvert par vektorer i et vektorrum $ V $. For to vektorer $ \V{x},\V{y}\in V $ skrives skalarproduktet $ \V{x}\D \V{y} $. Regneregler for skalarprodukt i $ V $ over $ \Set{F} $ er som følger:
+	\begin{enumerate}[{S}1:]
+		\item $ (\V{x}+\V{y})\D \V{z}= \V{x}\D\V{z}+\V{y}\D\V{z} $
+		\item $ (\lambda \V{x})\D \V{y} = \lambda(\V{x}\D\V{y}) $
+		\item $ \V{x}\D \V{y}=\konj{\V{y}\D \V{x}} $
+		\item $ \V{x}\D \V{x} \geq 0 $
+		\item $ \V{x}\D \V{x} = 0 \Rightarrow \V{x}=\V{o} $
+	\end{enumerate}
+	Et vektorrum der er udstyret med skalarprodukt kaldes for et \textit{indre produkt rum}, og hvis $ \Set{F}=\Set{R} $ kaldes det for et \textit{euklidisk rum}.
+	
+	Hvis to vektorer $ \V{x},\V{y} $ har koordinaterne ($ \V{x}_1, \dots, \V{x}_n $) og ($ \V{y}_1, \dots, \V{y}_n $) i en ortonormalbasis \textbf{(specielt i $ \Set{F}^n $ kaldes dette for sædvanligt skalarprodukt)}, regnes skalarproduktet ved
+	\begin{equation}
+	\V{x}\D\V{y}= \sum_{i=1}^{n} x_i \konj{y_i}
+	\end{equation}
+	
+	\subsection*{Længden af vektor og normering}
+	\begin{itemize}
+		\item Længden af en vektor $ \V{x} $ er $ |\V{x}| = \sqrt{\V{x}\D \V{x}} $
+		\item Der gælder $ |\lambda \V{x}|= |\lambda| \, | \V{x} | $, hvor $ |\lambda|=\sqrt{\lambda\konj{\lambda}} $
+		\item Hvis $ |\V{x}| = 1 $ kaldes vektoren for en enhedsvektor
+		\item En vektor $ \V{y} = \frac{1}{|\V{x}|} $ er en enhedsvektor, fremstillet ved normering af $ |\U{x}| $
+		\item Normering er at dividere en vektor med sin længde.
+		\item For $ \Set{R}^n $ er $ \V{x}\D\V{y}= \cos (\theta) |\V{x}| |\V{y}| $. Eller, cos til vinklen mellem to vektorer er $ \cos \theta = \frac{\V{x}\D\V{y}}{|\V{x}| |\V{y}|} $
+		\item Cauchy-Schwarz's ulighed: $ |\V{x}\D \V{y}| \leq |\V{x}||\V{y}| $
+		\item Trekantsuligheden: $ |\V{x}+\V{y}| \leq |\V{x}|+|\V{y}| $
+	\end{itemize}
+	
+	\subsection*{Ortogonal-/ortonormalsæt og skalarprodukter}
+	\begin{itemize}
+		\item To vektorer siges at være ortogonale, hvis $ \V{x}\D \V{y} = 0 $. Dettes skrives også som $ \V{x} \!\! \perp\!\! \V{y} $
+		\item Et sæt vektorer $ \V{a}_1,\dots,\V{a}_n $ i $ V $ kaldes for et ortogonalsæt, hvis hver vektor er forskellig fra nulvektoren og deres indbyrdes skalarprodukter alle er lig 0. Altså $ \V{a}_i \neq \V{o}, \ 1 \leq i \leq n $ og $ \V{a}_1 \D \V{a}_j \neq 0$, for $1 \leq i,j \leq n $.
+		\item Et ortogonalsæt, hvor $ |\V{a}_i| = 1, \ 1\leq i \leq n $ kaldes for et ortonormalsæt. Et ortogonalsæt (og ortonormalsæt) er altid lineært uafhængigt.
+	\end{itemize}
+	
+ 
+	
+	En basis $\mathcal{A}=(\V{a}_1, \dots, \V{a}_n )$ kaldes en ortonormalbasis, hvis sættet $ \V{a}_1, \dots, \V{a}_n $ er et ortonormalsæt og altså $ \U{a}_i \D \U{a}_i = 1, \ \U{a}_i \D \U{a}_j = 0, \ i\neq j $. \textbf{Ethvert endeligdimensionalt indre produkt vektorrum $ V $ har en ortonormalbasis (sætning 7.1.10)}. Koordinaterne for en vektor $ \V{x} $ i denne base er givet ved
+	\begin{equation}
+		\mathcal{A}[\V{x}] = \begin{pmatrix}
+			\V{x} \D \V{a}_1 \\ \vdots \\ \V{x} \D \V{a}_n
+		\end{pmatrix}
+	\end{equation}
+	Egenskaber ved ortogonalsæt ($ \V{a}_1,\dots,\V{a}_n $):
+	\begin{itemize}
+		\item For $ \V{a} \in \Span \{\V{a}_1,\dots,\V{a}_n\} $ gælder: $ \V{a} = \sum_{i=1}^{n} \frac{\V{a}\D \V{a}_i}{\V{a}_i\D \V{a}_i}\V{a}_i $
+		\item for $ \V{b} \in V $ sættes $ \V{a}_{n+1} = \V{b} - \pp{\sum_{i=1}^{n} \frac{\V{b}\D \V{a}_i}{\V{a}_i\D \V{a}_i}\V{a}_i} $
+		\begin{itemize}
+			\item Hvis er $ \V{a}_{n+1} \neq \V{o} $, er sættet $ \V{a}_1,\dots,\V{a}_n, \V{b} $ lineært uafhængigt, og $ \V{a}_{n+1} $ er ortogonalt på $ \V{a}_1,\dots,\V{a}_n $
+			\item er $ \Span\{\V{a}_1,\dots,\V{a}_n,\V{b}\} = \Span\{\V{a}_1,\dots,\V{a}_n,\V{a}_{n+1}\}$
+		\end{itemize}
+	\end{itemize}
+	
+	\subsection{Gram-Schmidt ortogonalisering}
+	Egenskaberne for ortogonalsæt giver anledning til følgende opskrift på, hvordan man danner en ortonormal basis for et underrum $ U $.
+	
+	\paragraph{Opskrift:}
+	Lad sættet $ \V{a}_1,\dots,\V{a}_n $ i $ V $ være lineært uafhængige, og lad $ U = \Span\{\V{a}_1,\dots,\V{a}_n\} $.
+	\begin{enumerate}
+		\item Lad $ \V{b}_1 = \V{a}_1 $
+		\item for $ k = 2,\dots , n $ lad
+		\begin{equation}
+			\V{b}_{k} = \V{a}_{k} - \pp{\sum_{i=1}^{k-1} \frac{\V{a}_{k} \D \V{b}_i}{\V{b}_i \D \V{b}_i} \V{b}_i}
+		\end{equation}
+		da er ($ \V{b}_1,\dots \V{b}_n $) en basis for $ U $ bestående af ortogonale vektorer.
+		\item for $ i = 1,\dots,n $ lad $ \V{b}'_i = \frac{\V{b}_i}{|\V{b}_i|}$.
+		
+		Da er ($ \V{b}'_1, \dots, \V{b}'_n $) en ortonormalbasis for $ U $
+	\end{enumerate}
+	Udtrykket $ \frac{\V{a}_{k+1} \D \V{b}_i}{\V{b}_i \D \V{b}_i} $ ændres ikke, hvis $ \V{b}_k $ erstattes af $ c \V{b}_k, c\neq 0$. Det kan derfor være bekvemt at gøre dette for et passende $ c $ (eksempelvis for at eliminere brøker). 
+	
+\end{document}

@@ -1,0 +1,151 @@
+\documentclass[MatFNoter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+% Hvis ikke dokumenterne (hoved & under) er i samme mappe, skal den relative stig bruges.
+
+
+
+\begin{document}
+	
+	\section{Egenfunktionsmetoden til Differentialligninger}
+	\label{sec:egenfunkt}
+	Denne metode til løsning af differentialligninger beskæftiger sig med inhomogene ligninger på formen
+	\begin{equation}
+		\mathcal{L} y(x) = f(x)
+	\end{equation}
+	Hvor $ \mathcal{L} $ er en lineær differentialoperator. Eksempelvis fås Legendreligningen:
+	\begin{equation*}
+		(1-x^2)y''-2xy'+\lambda y = f(x), \quad \mathcal{L} = (1-x^2) \diff[d]{^2}{x^2} - 2x \diff[d]{}{x} + \lambda
+	\end{equation*}
+	Hvis ikke $ f(x) $ er simpel eller kendt, så løses ligningen ved at opbygge en superposition, normalt af en uendelig serie af funktioner $ \{y_i(x)\} $. Vi opbygger sættet af funktioner, der opfylder følgende ligning
+	\begin{equation}
+		\mathcal{L} y_i(x) = \lambda_i y_i(x)
+	\end{equation}
+	Hvor $ \lambda_i $ er en konstant og kaldes \textbf{egenværdien} til \textbf{egenfunktionen} $ y_i(x) $.
+	
+	Der kan også diskuteres en mere generel form af ovenstående ligning, hvor der inkluderes en "vægtfunktion":
+	\begin{equation}
+			\mathcal{L}y_i(x) = \lambda_i \rho(x) y_i(x)
+	\end{equation}
+	hvor $ \rho(x) $ er vægtfunktionen. Normalt set er denne 1, hvormed forrige ligning genopstår. Generelt set er den dikteret af valget af koordinatsystem, og der er nogle restriktioner på funktionen:
+	\begin{itemize}
+		\item Den skal være reel
+		\item Den må ikke skifte fortegn i intervallet $ [a;b] $, hvor $ a $ og $ b $ er grænserne for differentialligningen
+		\item Den skal være ens for alle $ \lambda_i $.
+	\end{itemize} 
+	
+	
+	
+		
+	\subsection{Indre produkt for funktioner og Hilbertrum}
+	Til behandlingen af disse typer differentialligninger, skal indre produkter for funktioner, samt uendeligtdimensionelle funktionsrum diskuteres. Ses enhver velopførende funktion i intervallet $ a\leq x \leq b $ opbygget af en uendelig serie lineært uafhængige basisfunktioner, kan den opskrives som:
+	\begin{equation}
+		f(x) = \sum_{n=0}^{\infty} c_n y_n(x)
+	\end{equation}
+	Hvor $ c_n $ er skalaren og $ y_n(x) $ er basisfunktionen. Med velopførende menes at den opfylder Dirichletbetingelserne opstillet i næste kapitel (Fourierserier, Kap \ref{sec:FourierSerie}).
+	
+	Til dette funktionsrum defineres det \textbf{indre produkt} som:
+	\begin{equation}
+		\ind{f}{g} = \int_{a}^{b} f^*(x) g(x) \rho(x) \ud x
+	\end{equation}
+	Hvis dette integral er 0 er funktionerne \textbf{ortogonale}. \textbf{Normen} (længden el. størrelsen) af en funktion er defineret som
+	\begin{equation}
+		\norm{f}= \ind{f}{f}^{1/2} = \bb{\int_{a}^{b} f^*(x) f(x) \rho(x) \ud x}^{1/2} = \bb{\int_{a}^{b} \lvert f(x) \rvert^2 \rho(x) \ud x}^{1/2}
+	\end{equation}
+	En \textbf{normaliseret} funktion defineres som $ \hat{f} = f/\norm{f} $, lige som ved vektorer. Normen af denne er da 1.
+	
+	Et uendeligdimensionalt funktionsrum, hvor det indre produkt er defineret, kaldes for et \textbf{Hilbertrum}. Til disse rum defineres ofte en ortonormalbasis $ \hat{\psi}_n(x), n=0,1,2,\dots $:
+	\begin{equation}
+		\ind{\hat{\psi}_i}{\hat{\psi}_j} = \int_{a}^{b} \hat{\psi}_i^* (x) \hat{\psi}_j \rho(x) \ud x = \delta_{ij}
+	\end{equation}
+	hvor $ \delta_{ij} $ er \textbf{Kroneckers delta} (fra LinAlg): $ \delta_{ij} = 1 $ hvis $ i=j $ og 0 ellers.
+	
+	I en ortonormalbasis er funktionen givet ved
+	\begin{equation}
+		f(x) = \sum_{n=0}^{\infty} c_n \hat{\psi}_n(x)
+	\end{equation}
+	Og $ c_n $ er givet ved
+	\begin{equation}
+		c_n = \ind{\hat{\psi}_n}{f} = \int_{a}^{b} \hat{\psi}_i^* (x) f(x) \rho(x) \ud x 
+	\end{equation}
+	For Hilbertrum gælder både Schwarz uligheden og trekantuligheden:
+	\begin{equation}
+		\lvert \ind{f}{g} \rvert \leq \norm{f} \D \norm{g}, \quad \norm{f+g} \leq \norm{f} + \norm{g}
+	\end{equation}
+	Er der ydermere opgivet en ortonormalbasis gælder Bessel's ulighed:
+	\begin{equation}
+		\ind{f}{f} \geq \sum_{n} |c_n|^2
+	\end{equation}
+	Ligheden holder hvis der summeres over alle basiselementer, mens uligheden holder hvis nogle værdier af $ n $ udelades.
+	
+	\subsection{Adjungerede og Hermitiske operatorer}
+	Den \textbf{adjungerede} til den lineære differentialoperator $ \mathcal{L} $ betegnes $ \mathcal{L}^{\dagger} $, og er defineret ved
+	\begin{equation}
+		\int_{a}^{b} f^*(x) [\mathcal{L} g(x)] \ud x = \int_{a}^{b} [\mathcal{L}^{\dagger} f(x)]^* g(x) \ud x + \text{randbetingelser}
+	\end{equation}
+	Hvor randbetingelserne evalueres i grænserne af intervallet $ [a;b] $. Den adjungerede til enhver lineær differentialoperator kan findes ved $ n $ gange partiel integration (hvor $ n $ er den største grad af differentiation i operatoren).
+	
+	Operatoren siges at være selvadjungeret, hvis $ \mathcal{L}^{\dagger} = \mathcal{L} $ (som ved vektorer). Hvis randbetingelserne forsvinder - enten grundet egenskaber ved funktionerne $ f $ og $ g $, eller ved operatoren $ \mathcal{L} $, kaldes operatoren for \textbf{Hermitisk} over intervallet $ a\leq x \leq b $. I så fald fås
+	\begin{equation}
+		\int_{a}^{b} f^*(x) [\mathcal{L} g(x)] \ud x = \int_{a}^{b} [\mathcal{L} f(x)]^* g(x) \ud x
+	\end{equation}
+	
+	\subsubsection*{Egenskaber ved Hermitiske operatorer}
+	\begin{itemize}
+		\item Egenværdierne til Hermitiske operatorer er altid reelle
+		\item Egenfunktioner hørende til forskellige egenværdier, for en Hermitisk operator, er ortogonale
+		\item Egenfunktionerne til en Hermitisk operator danner en komplet basis over det relevante interval
+		\item Der kan altid konstrueres reelle egenfunktioner fra lineære kombinationer af komplekse egenfunktioner (mindst én af $ y_i^* + y_i $ og $ i(y_i^*-y_i) $ er en reel egenfunktion, forskellig fra 0, svarende til dennes egenværdi)
+	\end{itemize}
+	
+	\subsection{Sturm-Liouvilleligninger}
+	En vigtig type differentialligninger, hvor differentialoperatoren er Hermitisk, er Sturm-Liouvilleligninger, der har formen
+	\begin{equation}
+		p(x) \diff[d]{^2 y}{x^2} + r(x) \diff[d]{y}{x}+q(x) y + \lambda \rho(x) y= 0, \quad r(x) = \diff[d]{p(x)}{x}
+	\end{equation}
+	eller
+	\begin{equation}
+		(py')'+qy+\lambda \rho y = 0
+	\end{equation}
+	Hvor $ p $, $ q $ og $ r $ er reelle funktioner. Denne kan omskrives til formen givet i starten af kapitlet:
+	\begin{align}
+		\mathcal{L}y = \lambda \rho(x) y, \quad \mathcal{L} &= -\bb{p(x) \diff[d]{^2}{x^2}+ r(x) \diff[d]{}{x} + q(x)} \\
+		&= -\bb{\diff[d]{}{x}\pp{p(x) \diff[d]{}{x}}+q(x)}
+	\end{align}
+	
+	Sturm-Liouvilleoperatoren er Hermitisk over intervallet $ [a;b] $ såfremt der for enhver to egenfunktioner $ y_i $ og $ y_j $ gælder
+	\begin{equation}
+		[y_i^* \, p \,  y'_j]_{x=a} = [y_i^* \, p \,  y'_j]_{x=b}, \quad [y_i^* \, p \,  y'_j]_{x=a}^{x=b} = 0
+	\end{equation}
+	Eksempelvis er disse betingelser mødt, hvis $ y(a) = y(b) = 0 $; $ y(a) = y'(b) = 0 $ eller $ p(a)=p(b) = 0 $. Grundet det sidste eksempel har mange Sturm-Liouvilleligninger et ``naturligt'' interval, hvor operatoren er Hermitisk, uanset funktionsværdierne til $ x=a $ og $ x=b $.
+	
+	\subsubsection*{Transformation til Sturm-Liouvilleform}
+	Enhver andenordens differentialligning, der kan skrives på formen
+	\begin{equation}
+		p(x)y''+r(x) y' + q(x) y + \lambda\rho(x) y = 0
+	\end{equation}
+	(hvor $ r = p' $ ikke nødvendigvis er sandt), kan omskrives til Sturm-Liouvilleform, ved at gange igennem med faktoren:
+	\begin{equation}
+		F(x) = \exp \kk{\int^{x} \frac{r(u)-p'(u)}{p(u)} \ud u}
+	\end{equation}
+	Det ses, at hvis $ r=p' $ fås $ F(x) = e^0 = 1 $ og den generelle Sturm-Liouville optræder.
+	
+	En række differentialligningers transformation til Sturm-Liouvilleform er opgivet i følgende tabel\footnote{Tabellen er taget fra EMM og navnene på differentialliningerne er bare groft oversat. Hvis der er fejl så ret dem endelig}. Stjernen ved Besselligningen betegner, at et skift af variabel, $ x \to  x/\alpha $ er nødvendigt for at få den konventionelle normalisering, men er ikke nødvendig for transformationen.
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{lcccc}
+			Ligning                   &        $ p(x) $         &      $ q(x) $      & $ \lambda $  &       $ \rho(x) $        \\ \hline
+			Hypergeometrisk           & $ x^c (1-x)^{a+b-c+1} $ &         0          &   $ -ab $    & $ x^{c-1} (1-x)^{a+b-c}$ \\
+			Legendre                  &        $ 1-x^2 $        &         0          &  $ \ell(\ell+1) $  &            1             \\
+			Associeret Legendre       &        $ 1-x^2 $        & $ -m^2 / (1-x^2) $ &  $ \ell(\ell+1) $  &            1             \\
+			Chebyshev                 &    $ (1-x^2)^{1/2} $    &         0          &  $ \nu^2 $   &    $ (1-x^2)^{-1/2} $    \\
+			Konfluent hypergeometrisk &     $ x^c e^{-x} $      &         0          &    $ -a $    &    $ x^{c-1}e^{-x} $     \\
+			Bessel*                   &          $ x $          &    $ -\nu^2/x $    & $ \alpha^2 $ &          $ x $           \\
+			Laguerre                  &       $ x\e{-x} $       &         0          &   $ \nu $    &        $ \e{-x} $        \\
+			Associerede Laguerre      &   $ x^{m+1} \e{-x} $    &         0          &   $ \nu $    &      $ x^m \e{-x} $      \\
+			Hermite                   &      $ \e{-x^2} $       &         0          &   $ 2\nu $   &       $ \e{-x^2} $       \\
+			Simpel harmonisk          &            1            &         0          & $ \omega^2 $ &            1
+		\end{tabular} 
+	\end{table} 
+	Fra $ p(x) $ i tabellen kan det naturlige interval $ [a;b] $, hvor $ p(a)=p(b) $ aflæses. For Legendre, den associerede Legendre og Chebyshevligningerne er intervallet $ [-1;1] $. For Laguerre og dens associerede er intervallet $ [0;\infty] $. For Hermiten er intervallet $ [-\infty;\infty] $. For den simple harmoniske er intervallet $ [x_0;x_0+2\pi] $ (følger af randbetingelsen for at SL-operatoren er Hermitisk).
+\end{document}
+

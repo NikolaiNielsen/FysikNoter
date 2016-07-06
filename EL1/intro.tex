@@ -1,0 +1,183 @@
+\documentclass[EL1Noter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+\begin{document}
+	
+	
+	\section*{De 4 gode sider fra bogens omslag}
+	\subsection*{Vektorafledte}
+	\paragraph{Kartesiske koordinater} \quad $ \ud \V{l} = \uuud x \,\Vx + \uuud y \, \Vy + \uuud z \,\Vz  $, \quad $ \ud \tau =  \ud x \ud y \ud z $.
+	
+	\vspace{0.3cm}
+	\begin{tabular}[H]{>{\itshape}l >{$\displaystyle} r <{$} c  >{$\displaystyle} l <{$} }
+		\vspace{0.3cm}
+		Gradient \textup{:}		& \grad t 				& = & \diff{t}{x} \Vx+ \diff{t}{y} \Vy + \diff{t}{z} \Vz \\
+		\vspace{0.3cm}
+		Divergens \textup{:} 	& \grad \D \V{v} 		& = & \diff{v_x}{x} + \diff{v_y}{y} + \diff{v_z}{z} \\
+		\vspace{0.3cm}
+		Rotation \textup{:}		& \grad \times \V{v}	& = & \begin{vmatrix}
+			\Vx        & \Vy        & \Vz        \\
+			\partial x & \partial y & \partial z \\
+			v_x        & v_y        & v_z
+		\end{vmatrix} = \pp{ \diff{v_z}{y} - \diff{v_y}{z} } \Vx + \pp{ \diff{v_x}{z} - \diff{v_z}{x} } \Vy + \pp{ \diff{v_y}{x} - \diff{v_x}{y} } \Vz \\
+		Laplace \textup{:} 		& \grad^2 t 			& = & \diff{^2t}{x^2} + \diff{^2t}{y^2} + \diff{^2t}{z^2}
+	\end{tabular}
+	
+	\paragraph{Sfæriske koordinater} \quad $ \ud \V{l} = \uuud r \,\Vr + r\uuud \theta \, \Vt +r \sin \theta \uuud \phi \,\Vp  $, \quad $ \ud \tau =  r^2 \sin \theta\ud r \ud \theta \ud \phi $.
+	
+	\vspace{0.3cm}
+	\begin{tabular}[H]{>{\itshape}l >{$\displaystyle} r <{$} c  >{$\displaystyle} l <{$} }
+		\vspace{0.3cm}
+		Gradient \textup{:}		& \grad t 				& = & \diff{t}{r} \Vr+ \frac{1}{r}\diff{t}{\theta} \Vt + \frac{1}{r \sin \theta}\diff{t}{\phi} \Vp \\
+		\vspace{0.3cm}
+		Divergens \textup{:} 	& \grad \D \V{v} 		& = & \frac{1}{r^2}\diff{}{r}(r^2 v_r) + \frac{1}{r \sin \theta} \diff{}{\theta} (\sin \theta \ v_{\theta}) + \frac{1}{r \sin \theta}\diff{v_{\phi}}{\phi} \\
+		\vspace{0.3cm}
+		Rotation \textup{:}		& \grad \times \V{v}	& = &  \frac{1}{r \sin \theta} \bb{ \diff{}{\theta}(\sin \theta \ v_{\phi}) - \diff{v_{\theta}}{\phi} } \Vr + \frac{1}{r}\bb{ \frac{1}{\sin \theta}\diff{v_r}{\phi} - \diff{}{r}(r \ v_{\phi}) } \Vt + \frac{1}{r}\bb{ \diff{}{r} (r \ v_{\theta}) - \diff{v_r}{\theta} } \Vp \\
+		Laplace \textup{:} 		& \grad^2 t 			& = & \frac{1}{r^2}\diff{}{r} \pp{r^2 \diff{t}{r}} + \frac{1}{r^2 \sin \theta} \diff{}{\theta}\pp{\sin \theta \diff{t}{\theta}}+  \frac{1}{r^2 \sin^2 \theta}\diff{^2t}{\phi^2}
+	\end{tabular}
+	
+	\paragraph{Cylinder koordinater} \quad $ \ud \V{l} = \uuud s \,\U{s} + s\uuud \phi \, \Vp + \uuud z \,\Vz  $, \quad $ \ud \tau =  s \ud s \ud \phi \ud z $.
+
+	\vspace{0.3cm}
+	\begin{tabular}[H]{>{\itshape}l >{$\displaystyle} r <{$} c  >{$\displaystyle} l <{$} }
+		\vspace{0.3cm}
+		Gradient \textup{:}		& \grad t 				& = & \diff{t}{s} \U{s}+ \frac{1}{s} \diff{t}{\phi} \Vp + \diff{t}{z} \Vz \\
+		\vspace{0.3cm}
+		Divergens \textup{:} 	& \grad \D \V{v} 		& = & \frac{1}{s}\diff{}{s}(s v_s) +  \frac{1}{s} \diff{v_{\phi}}{\phi} + \diff{v_z}{z} \\
+		\vspace{0.3cm}
+		Rotation \textup{:}		& \grad \times \V{v}	& = & \bb{ \frac{1}{s}\diff{v_z}{\phi} - \diff{v_{\phi}}{z} } \U{s} + \bb{ \diff{v_s}{z} - \diff{v_z}{s} } \Vp + \frac{1}{s}\bb{ \diff{}{s}(s \ v_{\phi}) - \diff{v_s}{\phi} } \Vz \\
+		Laplace \textup{:} 		& \grad^2 t 			& = & \frac{1}{s} \diff{}{s} \pp{s \diff{t}{s}} + \frac{1}{s^2}\diff{^2t}{\phi^2} + \diff{^2t}{z^2}
+	\end{tabular}
+	
+	\subsection*{Vektoridentiteter}
+	\paragraph{Tripleprodukter}
+	\begin{enumerate}
+		\item $ \V{A} \D (\V{B} \times \V{C}) =  \V{B} \D (\V{C \times \V{A}}) = \V{C} \D (\V{A} \times \V{B}) $ 
+		\item $ \V{A} \times (\V{B} \times \V{C}) = \V{B}(\V{A} \D \V{C}) -\V{C}( \V{A} \D \V{B} ) $
+		\setcounter{VektorListe}{\theenumi}
+	\end{enumerate}
+	\paragraph{Produktregler}
+	\begin{enumerate}
+		\setcounter{enumi}{\theVektorListe}
+		\item $ \grad (fg) = f(\grad g) + g(\grad f) $
+		\item $ \grad (\V{A} \D \V{B}) = \V{A} \times (\grad \times \V{B}) +\V{B} \times (\grad \times \V{A}) + (\V{A} \D \grad)\V{B} + (\V{B} \D \grad)\V{A} $
+		\item $ \grad \D (f\V{A}) = f(\grad \D \V{A}) + \V{A} \D (\grad f) $
+		\item $ \grad \D (\V{A} \times \V{B}) = \V{B} \D (\grad \times \V{A}) - \V{A} \D (\grad \times \V{B}) $
+		\item $ \grad \times (\V{A} \times \V{B}) = (\V{B} \D \grad) \V{A} - (\V{A} \D \grad)\V{B} + \V{A}(\grad \D \V{B}) - \V{B} (\grad \D \V{A}) $
+		\setcounter{VektorListe}{\theenumi}
+	\end{enumerate}
+	\paragraph{Andenafledte}
+	\begin{enumerate}
+		\setcounter{enumi}{\theVektorListe}
+		\item $ \grad \D (\grad \times \V{A}) = 0 $
+		\item $ \grad \times (\grad f) = 0 $
+		\item $ \grad \times (\grad \times \V{A}) = \grad(\grad \D \V{A}) - \grad^2 \V{A} $
+	\end{enumerate}
+	
+	\subsection*{Vektorintegralsætninger}
+	\begin{tabular}[H]{>{\bfseries}l  >{$\displaystyle} l <{$}}
+		\vspace{0.3cm}
+		Gradientsætningen & \int_{\V{a}}^{\V{b}} (\grad f) \D \ud \V{l} = f(\V{b})-f(\V{a}) \\
+		\vspace{0.3cm}
+		Divergenssætningen & \int (\grad \D \V{A}) \ud \tau = \oint \V{A} \D \ud \V{a} \\
+		\vspace{0.3cm}
+		Rotationssætningen (Stokes) & \int(\grad \times \V{A}) \D \ud \V{a} = \oint \V{A} \D \ud \V{l}
+	\end{tabular}
+	
+	\subsection*{Grundligninger i elektrodynamik}
+	\subsubsection*{Maxwells ligninger}
+	\begin{tabular}[H]{>{$\displaystyle} p{4cm} <{$} >{$\displaystyle} l <{$}}
+		\vspace{0.3cm}
+		\text{Generelt} & \text{I stof} \\
+		\vspace{0.3cm}
+		\grad \D \V{E} = \frac{1}{\epsilon_0} \rho & \grad \D \V{D} = \rho_f \\
+		\vspace{0.3cm}
+		\grad \times \V{E} = -\diff{\V{B}}{t} & \grad \times \V{E} = -\diff{\V{B}}{t} \\
+		\vspace{0.3cm}
+		\grad \D \V{B} = 0 & \grad \D \V{B} = 0 \\
+		\grad \times\V{B} = \mu_0 \V{J} +\mu_0 \epsilon_0 \diff{\V{E}}{t} & \grad \times \V{H} = \V{J}_f + \diff{\V{D}}{t}
+	\end{tabular}
+	\subsubsection*{På integralform}
+	
+	\begin{tabular}[H]{*{2}{>{$\displaystyle} l <{$}}}
+		\vspace{0.3cm}
+		\text{Generelt} & \text{I stof} \\
+		\vspace{0.3cm}
+		\oint_{\mathcal{S}} \V{E} \D \U{n} \ud a = \frac{1}{\epsilon_0} Q_{\text{enc}}	& \oint_{\mathcal{S}} \V{D} \D \U{n} \ud a = Q_{f_{\text{enc}}} \\
+		\vspace{0.3cm}
+		\oint_{\mathcal{S}} \V{B} \D \U{n} \ud a = 0	& \oint_{\mathcal{S}} \V{B} \D \U{n} \ud a = 0 \\
+		\vspace{0.3cm}
+		\oint_{\mathcal{P}} \V{E} \D \ud \V{l} = - \int_{\mathcal{S}} \diff{\V{B}}{t} \D \U{n} \ud a	&  \oint_{\mathcal{P}} \V{E} \D \ud \V{l} = - \int_{\mathcal{S}} \diff{\V{B}}{t} \D \U{n} \ud a \\
+		\oint_{\mathcal{P}} \V{B} \D \ud \V{l} = \mu_0 I_{\text{enc}}+\mu_0 \epsilon_0 \int_{\mathcal{S}} \diff{\V{E}}{t} \D \U{n} \ud a	& \oint_{\mathcal{P}} \V{H} \D \ud \V{l} = I_{f_{\text{enc}}} + \diff{}{t} \int_{\mathcal{S}} \V{D} \D \U{n} \ud a
+	\end{tabular}
+
+	
+	\subsubsection*{Hjælpemotorfelter (Google Translate er skønt til teknisk engelsk)}
+	\begin{tabular}[H]{>{$\displaystyle} p{4cm} <{$} >{$\displaystyle} l <{$}}
+		\vspace{0.3cm}
+		\text{Definitioner} & \text{Lineære medier}\\
+		\vspace{0.3cm}
+		\V{D} = \epsilon_0 \V{E} + \V{P} & \V{P} = \epsilon_0 \chi_e \V{E}, \quad \V{D} = \epsilon \V{E} \\
+		\V{H} = \frac{1}{\mu_0} \V{B} - \V{M} & \V{M} = \chi_m \V{H}, \quad \V{H} = \frac{1}{\mu} \V{B}
+	\end{tabular}
+	
+	\subsubsection*{Potentialer}
+	\begin{equation}
+		\V{E} = -\grad V -\diff{\V{A}}{t}, \quad \V{B} = \grad \times \V{A}
+	\end{equation}
+	
+	\subsubsection*{Lorentzloven}
+	\begin{equation}
+		\V{F} = Q(\V{E} + \V{v} \times \V{B})
+	\end{equation}
+	
+	\subsubsection*{Energi, impulsmoment og effekt}
+	\begin{tabular}[H]{>{\itshape} l >{$\displaystyle} l <{$}}
+		\vspace{0.3cm}
+		Energi & U = \frac{1}{2} \int \pp{\epsilon_0 E^2 + \frac{1}{\mu_0} B^2} \ud \tau \\
+		\vspace{0.3cm}
+		Impulsmoment & \V{P} = \epsilon_0 \int (\V{E} \times \V{B}) \ud \tau \\
+		\vspace{0.3cm}
+		Poyntingvektor & \V{S} = \frac{1}{\mu_0} (\V{E} \times \V{B}) \\
+		\vspace{0.3cm}
+		Larmorformel & P = \frac{\mu_0}{6\pi c} q^2 a^2
+	\end{tabular}
+	
+	\subsection*{Fundamentale konstante}
+	\begin{tabular}[H]{>{$} l <{$} c >{$} l <{$} l}
+		\vspace{0.3cm}
+		\epsilon_0 &=& 8.85 \D 10^{-12} \text{C}^2/\text{Nm}^2 & Permitivitet af vakuum \\
+		\vspace{0.3cm}
+		\mu_0 &=& 4 \pi \D 10^{-7} \text{N}/\text{A}^2 & Permeabilitet af vakuum \\
+		\vspace{0.3cm}
+		c &=& 299\,792\,458\  \text{m}/\text{s} \approx 3.00 \D 10^8 \text{m}/\text{s} & lysets hastighed \\
+		\vspace{0.3cm}
+		e &=& 1.602 \D 10^{-19} \text{C} & Elementarladningen (+ for proton, - for elektron) \\
+		\vspace{0.3cm}
+		m &=& 9.11 \D 10^{-31} \text{kg} & Massen af elektronen
+	\end{tabular}
+	
+	\subsection*{Sfæriske og cylindriske koordinater}
+	\subsubsection*{Sfæriske koordinater}
+	\begin{tabular}[H]{>{$} l <{$} c >{$} p{3.5cm} <{$}  >{$} l <{$} c >{$} l <{$} }
+		x &=& r \sin \theta \cos \phi & \Vx &=& \sin\theta\cos\phi\ \Vr + \cos\theta\cos\phi\ \Vt - \sin \phi\ \Vp \\
+		y &=& r \sin \theta \sin \phi & \Vy &=& \sin \theta \sin \phi\ \Vr + \cos \theta \sin \phi\ \Vt + \cos \phi\ \Vp \\
+		z &=& r \cos \theta & \Vz &=& \cos \theta\ \Vr -\sin \theta \ \Vt \\
+		& & & & & \\
+		r &=& \sqrt{x^2+y^2+z^2} & \Vr &=& \sin\theta\cos\phi\ \Vx + \sin\theta\sin\phi\ \Vy +\cos \theta\ \Vz \\
+		\theta &=& \arctan (\sqrt{x^2+y^2}/z) & \Vt &=& \cos\theta\cos\phi\ \Vx + \cos\theta\sin\phi\ \Vy - \sin \theta\ \Vz \\
+		\phi &=& \arctan(y/x) & \Vp &=& -\sin\phi \ \Vx + \cos \phi \ \Vy
+	\end{tabular}
+	
+	\subsubsection*{Cylindriske koordinater}
+	\begin{tabular}[H]{>{$} l <{$} c >{$} p{3.5cm} <{$}  >{$} l <{$} c >{$} l <{$} }
+		x &=& r \cos \phi & \Vx &=& \cos\phi\ \U{s} - \sin \phi\ \Vp \\
+		y &=& r \sin \phi & \Vy &=& \sin\phi\ \U{s} + \cos \phi\ \Vp \\
+		z &=& z & \Vz &=& \Vz \\
+		& & & & & \\
+		s &=& \sqrt{x^2+y^2} & \U{s} &=& \ \ \,\cos\phi\ \Vx + \sin\phi\ \Vy \\
+		\phi &=& \arctan(y/x) & \Vp &=& -\sin\phi \ \Vx + \cos \phi \ \Vy \\
+		z &=& z & \Vz &=& \Vz
+	\end{tabular}
+	
+	
+\end{document}

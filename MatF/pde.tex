@@ -1,0 +1,340 @@
+\documentclass[MatFNoter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+% Hvis ikke dokumenterne (hoved & under) er i samme mappe, skal den relative stig bruges.
+
+
+
+\begin{document}
+	
+\section{Partielle differentialligninger}
+En partiel differentialligning (Partial Differential Equation, eller PDE på engelsk) er en differentialligning, hvor der indgår partielle differentialkvotienter i ligningen - altså en differentialligning af flere variabler. En stor del af vigtige differentialligninger i fysikken er både lineære (så teknikkerne fra kapitel \ref{sec:egenfunkt} kan bruges), og af anden orden. 
+
+til partielle differentialligninger bruges $ u $ som benævnelse for funktionen, i stedet for $ y $ for ordinære differentialligninger (diff-ligninger af én variabel).
+
+Som eksempler på PDE ses følgende
+\subsection*{Bølgeligningen}
+\begin{equation}
+	\grad^2 u = \frac{1}{c^2}\diff{^2u}{t^2}
+\end{equation}
+Funktionen i bølgeligning beskriver et system i tid, der oplever en forskydning fra et ækvilibrium, og en genoprettende kraft, der forsøger at få systemet tilbage i ækvilibrium. Eksempler er guitarstrenge (1 rumlig dimension), trommeskind (2 rumlige dimensioner) og elektromagnetiske bølger (1-3 rumlige dimensioner).
+
+\subsection*{Diffusionsligningen}
+\begin{equation}
+	\kappa \grad^2 u = \diff{u}{t}
+\end{equation}
+Diffusionsligningen beskriver temperaturen i en varmeledende region, hvor der ikke er nogen resevoirer, der tilfører eller fjerner varme fra systemet, eller diffusionen af kemikalier, der har koncentrationen $ u(\V{r},t) $. $ \kappa $ kaldes for diffusiviteten af materialet.
+
+Diffusionsligningen kan generaliseres til følgende:
+\begin{equation}
+	k \grad^2 u + f(\V{r},t) = s\rho \diff{u}{t}
+\end{equation}
+Hvor $ f(\V{r},t) $ repræsenterer en varierende densitet af varmekilder i legemet, men bruges ofte ikke i fysiske sammenhænge. Både $ k $, $ s $ og $ \rho $ kan afhænge af positionen $ \V{r} $, hvormed første led bliver til $ \grad\D (k\grad u) $.
+
+\subsection*{Laplaces ligning}
+\begin{equation}
+	\grad^2 u = 0
+\end{equation}
+Laplaces ligning beskriver blandt andet \textit{steady-state} temperaturen af et system, der ikke indeholder nogen varmekilder (altså systemet efter lang tid). Ligningen beskriver også det gravitationelle potentiale i et felt, hvor der ikke er masse, eller lignende med elektriske felter uden ladninger. Den ses også generelt for divergens- og rotationsfrie felter.
+
+\subsection*{Poissons ligning}
+\begin{equation}
+	\grad^2 u = \rho (\V{r})
+\end{equation}
+Poissons ligning beskriver samme fysiske situationer som Laplaces ligning - men hvor der er varmekilder, masse eller elektrisk ladning. $ \rho(\V{r}) $ kaldes for kildedensiteten.
+
+\subsection*{Schrödingers ligning}
+\begin{equation}
+	-\frac{\hbar^2}{2m} \grad^2 u + V(\V{r})u = i\hbar \diff{u}{t}
+\end{equation}
+Schrödingers ligning er basis for den kvantemekaniske bølgefunktion af en ikkerelativistisk partikel $ u(\V{r},t) $. $ \hbar $ er den reducerede Planck konstant og $ m $ er partiklens masse.
+
+
+
+\subsection{Generel løsningsform for 2 variable (parametrisering)}
+Vi søger generelt løsninger af formen:
+\begin{equation}
+	u(x,y) = f(p(x,y))
+\end{equation}
+De partielle differentialkvotienter for løsningen bliver:
+\begin{align}
+	\diff{u}{x} &= \diff[d]{f(p)}{p} \diff{p}{x} \\
+	\diff{u}{y} &= \diff[d]{f(p)}{p} \diff{p}{y}
+\end{align}
+Ved at sætte disse lig hinanden, kan alle referencer til $ f(p) $ forsvinde:
+\begin{equation}
+	\diff{p}{y} \diff{u}{x} = \diff{p}{x} \diff{u}{y}
+\end{equation}
+Det betyder, at enhver funktion af typen $ f(p) $ løser en given differentialligning - såfremt parameteriseringen $ p(x,y) $ er korrekt. Det er denne metode, der generelt bruges til løsning af ligninger med 2 variable.
+
+
+
+\subsection{Løsning af 1. ordens PDE}
+Den mest generelle førsteordens partielle differentialligning er
+\begin{equation*}
+	A(x,y) \diff{u}{x} + B(x,y) \diff{u}{y} + C(x,y)u = R(x,y)
+\end{equation*}
+hvor $ A,B,C,R $ er funktioner af $ x $ og $ y $ (eller konstante). Til start arbejdes der kun med ligninger, hvor $ C=R=0 $. Sættes $ u=f(p) $ ind i denne reducerede ligning fås:
+\begin{equation*}
+	\bb{A(x,y) \diff{p}{x} + B(x,y)\diff{p}{y}} \diff[d]{f(p)}{p} = 0
+\end{equation*}
+Her skal den sidste faktor være lig 0, hvilket giver at $ p = konstant $. Dette opnås ved at integrere følgende ligning, og sætte en konstant lig $ p $
+\begin{equation}
+	\frac{dx}{A(x,y)} = \frac{dy}{B(x,y)}
+\end{equation}
+Det er ikke nødvendigvis den første integrationskonstant, der skal sættes lig $ p $. Der er ret stor frihed for at vælge $ p $, så udtrykket for denne bliver pænt (for eksempel uden brøk-potenser eller lignende).
+
+\subsubsection*{\texorpdfstring{Ligninger med $ C(x,y)\neq 0 $}{Ligninger med C(x,y) forskellig fra 0}}
+Er $ C \neq 0 $ i differentialligningen, ledes der efter løsninger af formen
+\begin{equation}
+	u = h(x,y) f(p)
+\end{equation}
+hvor $ h(x,y) $ er en funktion (lige meget hvor simpel - tjek med en konstant først), der løser ligningen hele ligningen. $ f(p) $ er her stadig løsningen til ligningen $ A \diff{u}{x} + B\diff{u}{y} = 0 $.
+
+Fremgangsmetoden er da at løse ligningen som normalt, hvor $ C = 0 $, og derefter finde et simpelt udtryk, der løser ligningen, hvor $ C \neq 0 $.
+
+
+
+\subsection{Inhomogene ligninger og problemer}
+Der gøres forskel på inhomogene og homogene problemer og ligninger. Hvis $ u(x,y) $ er en løsning til en given PDE, med eller uden randbetingelser, siges \textbf{ligningen} at være \textbf{homogen}, hvis $ \lambda u(x,y) $, hvor $ \lambda $ er en given konstant, også er en løsning (dette er gældende, hvis $ R=0 $). \textbf{Problemet} siges at være \textbf{homogent}, hvis $ \lambda u(x,y) $ også opfylder randbetingelserne for problemet. Randbetingelser af denne type kaldes også for \textbf{homogene randbetingelser}.
+
+Generelt, til løsning af inhomogene ligninger eller problemer, ledes der efter en løsning på formen
+\begin{equation}
+	u(x,y) = v(x,y) + w(x,y)
+\end{equation}
+Hvor $ v(x,y) $ er en tilfældig løsning til problemet
+\begin{equation}
+	A(x,y)\diff{u(x,y)}{x} + B(x,y)\diff{u(x,y)}{y} + C(x,y)u(x,y) = R(x,y)
+\end{equation}
+der også opfylder randbetingelserne. Mens $ w(x,y) $ er den generelle løsning til
+\begin{equation}
+	A(x,y)\diff{u(x,y)}{x} + B(x,y)\diff{u(x,y)}{y} + C(x,y)u(x,y) = 0
+\end{equation}
+hvor $ w(x,y) = 0 $ i randbetingelserne. Dermed opfylder den samlede løsning $ u(x,y) $ enhver randbetingelse for problemet. Dette princip kan også udvides, således at der inkluderes flere funktioner - måske $ n+1 $, hvor $ n $ er antallet af randbetingelser. Én løsning til det homogene problem, der er 0 i alle randbetingelser, mens hver af de andre løsninger løser én randbetingelse hver især. Ydermere fungerer dette princip også til PDE'er af højere orden. 
+
+\subsection{Løsning af 2. ordens PDE}
+Den mest generelle, lineære, andenordens, partielle differentialligning, af to variable, er:
+\begin{equation}
+	A \diff{^2 u}{x^2} + B \diff{^2 u}{x \partial y} + C \diff{^2 u}{y^2} + D\diff{u}{x} + E\diff{u}{y} + Fu = R(x,y),
+\end{equation}
+hvor $ A,B,C,D,E,F,R $ er funktioner af $ x $ og $ y $. Disse ligninger deles ofte ind i tre klasser:
+\begin{itemize}
+	\item Hyperbolsk, hvis $ B^2 > 4AC $
+	\item Parabolsk, hvis $ B^2 = 4AC $
+	\item Elliptisk, hvis $ B^2 < 4AC $
+\end{itemize}
+Hvis $ A,B,C $ ikke er konstante, men funktioner af $ x $ og $ y $, kan ligningen skifte klasse i forskellige dele af planen.	I dette afsnit beskæftiger vi os kun med ligninger, hvor $ A,B,C $ er konstante, og hvor $ D=E=F=R(x,y) = 0 $. Dermed er det kun ligninger på formen
+\begin{equation}
+	A \diff{^2 u}{x^2} + B \diff{^2 u}{x \partial y} + C \diff{^2 u}{y^2} = 0. \label{eq:andenordensnem}
+\end{equation}
+Igen ledes der efter løsninger på formen $ u = f(p(x,y)) $, hvor $ p = ax+by $. Differentieres dette udtryk for $ u $ to gange, med alle kombinationer af variable, og substitueres ind i ligningen, fås:
+\begin{equation*}
+	(Aa^2+Bab+Cb^2) \diff[d]{f(p)}{p^2} = 0
+\end{equation*}
+Hvis den anden faktor er lig 0, er løsningen $ u = kx+ly+m $, mens hvis parentesen sættes lig 0, kan den løses som en andengradsligning, hvor $ b/a $ er variablen. Løsningen er
+\begin{equation*}
+	b/a = \frac{-B \pm \sqrt{B^2-4AC}}{2C}
+\end{equation*}
+Så $ A $ og $ C $ har altså skiftet plads, i forhold til den normale andengradsløsning! Hvis de to løsninger kaldes $ \lambda_1 $ og $ \lambda_2 $ fås
+\begin{equation}
+	p_1 = x+\lambda_1 y, \quad p_2 = x+\lambda_2 y
+\end{equation}
+Og \textbf{den generelle løsning til ligning} \eqref{eq:andenordensnem} bliver
+\begin{equation}
+	u(x,y) =  f(p_1) + g(p_2)
+\end{equation}
+hvor $ f $ og $ g $ er arbitrære funktioner af henholdsvis $ p_1 $ og $ p_2 $.
+
+\subsubsection{Hyperbolske og elliptiske ligninger}
+I ligninger, der er enten hyperbolske eller elliptiske, hvor $ A,B,C \in \Set{R} $ fås løsninger, hvor $ p_1 = x+\alpha y $ og $ p_2 = x+i\beta y $, hvor $ \alpha,\beta \in \Set{R} $.
+
+\subsubsection{Parabolske ligninger}
+I parabolske ligninger er dobbeltroden givet ved $ -B/2C $, og løsninger af formen
+\begin{equation*}
+	u(x,y) = f(x-(B/2C)y) +  h(x,y)\D g(x-(B/2c)y),
+\end{equation*}
+søges, hvor $ h(x,y) $ er en simpel løsning til den oprindelige ligning. Normalt sættes $ h(x,y)= x $, og løsningen bliver
+
+\begin{equation}
+	u(x,y) = f(x-(B/2C)y) +  xg(x-(B/2c)y),
+\end{equation}
+
+\subsection{Tabel over løsninger}
+Løsninger på de ovenstående ligninger kan opsummeres i følgende tabel, hvor $ P,Q,R $ er funktioner af $ x $ og $ y $, og $ A,B,C $ er konstante.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{p{3cm} l p{7cm}}
+		Navn                                                 & Generel form                                    & Typisk løsning ved parametrisering                                                                                               \\
+		\hline
+		\rule[-2ex]{0pt}{5.5ex}
+		 Første orden              & $ P \diff{u}{x} + Q \diff{u}{y} = 0 $                                     & $ u=f(p) $, hvor $ p= \int \frac{\ud x}{P} - \int \frac{\ud y}{Q} $                                                              \\
+		\rule[-2ex]{0pt}{5.5ex}
+		 Første orden              & $  P \diff{u}{x} + Q \diff{u}{y} + Ru = 0 $                               & $ u=h(x,y)f(p) $, hvor $ p $ er som ovenstående, og $ h $ er en tilfældig løsning til ligningen                                  \\
+		\rule[-2ex]{0pt}{5.5ex}
+		 Anden orden               & $  A \diff{^2u}{x^2} + B \diff{^2u}{x\partial y} + C \diff{^2u}{y^2}= 0 $ & $ f(x+\lambda_1 y)+g(x+\lambda_2 y) $, hvor $ \lambda_i $ løser $ A+B\lambda^2+C\lambda^2 = 0$                                   \\
+		\rule[-2ex]{0pt}{5.5ex}
+		Anden orden, med $B^2=4AC$ & $  A \diff{^2u}{x^2} + B \diff{^2u}{x\partial y} + C \diff{^2u}{y^2}= 0 $ & $ f(x+\lambda_1 y)+xg(x+\lambda_1 y) $                                                                                           \\
+		\rule[-2ex]{0pt}{5.5ex}
+		   Laplace                 & $ \grad^2 u = 0  $                                                        & 2D: $ f(x+iy)+g(x-iy) $                                                                                                          \\
+		\rule[-2ex]{0pt}{5.5ex}
+		   Poisson                 & $ \grad^2 u = \rho(\V{r}) $                                               & 2D: $ f(x+iy)+g(x-iy)+h(x,y) $, hvor $ h $ er en tilfældig løsning til ligningen                                                 \\
+		\rule[-2ex]{0pt}{5.5ex}
+		    Bølge                  & $ \grad^2 u = \frac{1}{c^2} \diff{^2 u}{t^2} $                            & 1D: $ f(x-ct)+g(x+ct) $. 3D: $ f(\hat{\V{n}}\D \V{r}-ct)+g(\hat{\V{n}}\D \V{r}+ct) $                                             \\
+		\rule[-2ex]{0pt}{5.5ex}
+		  Diffusion                & $ \kappa \grad^2 u = \diff{u}{t} $                                        & 1D: $ \frac{\alpha}{2\kappa}x^2 + gx + \alpha t + c, \propto [\erf(\zeta)-\erf(\zeta_0)] $, hvor $ \zeta = x/2(\kappa t)^{1/2} $
+	\end{tabular} 
+\end{table}
+
+\section{Separation af de variable for PDE (kartesiske koordinater)}
+Til denne metode for løsning af PDE, ledes der efter løsninger på formen
+\begin{equation}
+	u(x,y,z,t) = X(x)Y(y)Z(z)T(t)
+\end{equation}
+Hvor $ X,Y,Z,T $ hver især afhænger af deres respektive små bogstaver. Denne type løsning kaldes \textit{separabel} i $ x,y,z,t $, men løsninger kan sagtens være separable i færre dimensioner (for eksempel kan en ligning i 4 dimensioner sagtens kun være separabel i $ x $ og $ z $).
+
+I løsninger af denne type, må der gerne indgå parametre af forskellig art i flere af koordinatfunktionerne. Restriktionen ligger i, at $ X $ ikke må afhænge af hverken $ y,z,t $, og lignende for de andre funktioner.
+
+Et eksempel på denne metode er den tredimensionelle bølgeligning:
+\begin{equation}
+	\diff{^2 u}{x^2}+\diff{^2 u}{y^2}+\diff{^2 u}{z^2}= \frac{1}{c^2}\diff{^2 u}{t^2}
+\end{equation}
+Hvis løsningstypen indsættes, og der divideres igennem med $ u=XYZT $ fås følgende:
+\begin{equation}
+	\frac{X''}{X}+\frac{Y''}{Y}+\frac{Z''}{Z}=\frac{1}{c^2}\frac{T''}{T}
+\end{equation}
+hvor dobbeltmærke her er dobbelt differentiation med hensyn til deres respektive variabel ($ X'' $ er differentieret med hensyn til $ x $ to gange). Her ses det, at hvert led afhænger af én bestemt variabel, men alligevel er der et lighedstegn mellem dem. Dermed må hvert led være lig med en konstant. Her sættes
+\begin{equation}
+	\frac{X''}{X} = -l^2, \quad \frac{Y''}{Y} = -m^2, \quad \frac{Z''}{Z} = -n^2, \quad \frac{1}{c^2}\frac{T''}{T} = -\mu^2
+\end{equation}
+Hvormed 4 ordinære differentialligninger opnås. De fire konstante kaldes \textit{separationskonstanter}.
+
+Løsningen til den første ligning er eksempelvis:
+\begin{equation}
+	X(x) = A \exp (ilx) + B \exp(-ilx) = A' \cos (lx) + B' \sin(lx)
+\end{equation}
+hvor $ A,B,A',B' $ er konstante, der kan findes ved randbetingelser.
+
+
+\subsection{Superposition af separerede løsninger}
+Hvis differentialligningen er lineær, kan superpositionsprincippet bruges. Eksempelvis fås Laplaces ligning i to dimensioner, hvor løsningen er af formen
+\begin{equation}
+	u_{\lambda_j}(x,y) = X_{\lambda_j}(x)Y_{\lambda_j}(y)
+\end{equation}
+hvor $ \lambda_j $ er separationskonstanten. Her er superpositionen:
+\begin{equation}
+	u(x,y) = \sum_{i} a_i X_{\lambda_i}(x)Y_{\lambda_i}(y)
+\end{equation}
+også en løsning til ligningen, såfremt $ \lambda_i $ er en tilladt værdi af separationskonstanten (dette bestemmes af randbetingelserne). Fordelen ved en superposition af denne type, er at konstanterne $ a_i $ kan vælges, så summen overholder alle randbetingelser.
+
+Dette betyder også, at løsningerne kan vælges således, at de hver især løser en enkelt randbetingelse, mens den samlede superposition opfylder alle randbetingelser (lige som ved parametrisering).
+
+Som eksempler på disse metoder anbefales klart side 426-432 i EMM, da disse tydeligt viser brugen af metoden.
+
+
+
+
+\subsection{Laplaces ligninger i polære koordinater}
+Nogle gange kan det være mere gavnligt at løse en differentialligning i et andet koordinatsystem, således, at der kan bruges symmetrier fuldt ud. Først opstilles Laplace-operatoren i plane ($ u(\rho,\phi) $) og sfæriske ($ u(r,\theta,\phi) $) polarkoordinater:
+\begin{align}
+	\grad^2 &= \frac{1}{\rho} \diff{}{\rho} \pp{\rho \diff{}{\rho}}+ \frac{1}{\rho^2} \diff{^2}{\phi^2} \\
+	\grad^2 &= \frac{1}{r^2} \diff{}{r} \pp{r^2 \diff{}{r}} + \frac{1}{r^2 \sin \theta} \diff{}{\theta} \pp{\sin \theta \diff{}{\theta}} + \frac{1}{r^2 \sin \theta} \diff{^2}{\phi^2}
+\end{align}
+
+Laplaces ligning er givet ved
+\begin{equation}
+	\grad^2 u(\V{r}) = 0
+\end{equation}
+
+
+\subsubsection{Plane polarkoordinater}
+I plane polarkoordinater ledes der efter løsninger på formen
+\begin{equation}
+	u(\rho,\phi) = P(\rho) \Phi(\phi)
+\end{equation}
+Sættes dette ind i Laplaces ligning, og ganges der med $ \frac{\rho^2}{u}=\frac{\rho^2}{P\Phi} $ fås
+\begin{equation}
+	\frac{\rho}{P} \diff{}{\rho} \pp{\rho \diff{P}{\rho}} + \frac{1}{\Phi} \diff{^2 \Phi}{\Phi^2} = 0
+\end{equation}
+Igen optræder to ordinære ligninger:
+\begin{equation}
+	\frac{\rho}{P} \diff{}{\rho} \pp{\rho \diff{P}{\rho}} = n^2, \quad \frac{1}{\Phi} \diff{^2 \Phi}{\Phi^2} = -n^2
+\end{equation}
+hvor $ n $ er et eller andet generelt komplekst tal. Løsningerne til disse ligninger, hvor $ n\neq 0 $ er
+\begin{equation}
+	P(\rho)=C\rho^n+D\rho^{-n},	\quad \Phi(\phi) = A \exp (in\phi) + B \exp (-in\phi) = A \cos n\phi + B \sin n\phi
+\end{equation}
+$ n $ skal her være et positivt heltal, for ellers har løsningen flere værdier (ikke ">single valued"<). Første ligning fås far kapitel 6.5.1 i EMM (side 244-246. Det er MatF2 stof). For $ n = 0 $ fås
+\begin{equation}
+	P(\rho) = C \ln \rho + D, \quad \Phi(\phi) = A \phi + B
+\end{equation}
+Her skal $ A = 0 $, for at funktionen kun har enkelte værdier. superpositionen af disse løsninger kan skrives som følger (hvor $ B $ og $ D $ slås sammen)
+\begin{equation}
+	u(\rho,\phi) = C_0 \ln \rho +D_0 + \sum_{n=1}^{\infty} (A_n \cos n\phi + B_n \sin n\phi)(C_n \rho^n + D_n \rho^{-n})
+\end{equation}
+hvor $ n $ er positive heltal, og $ C_0 = D_n = 0$ for $n>0 $, hvis ligningen løses i et område, der inkluderer origo (da løsningen ellers ikke er endelig).
+
+
+
+
+
+\subsubsection{Sfæriske koordinater}
+I sfæriske polarkoordinater ledes der efter løsninger på formen
+\begin{equation}
+	u(r,\theta,\phi) = R(r) \Theta(\theta) \Phi(\phi)
+\end{equation}
+Den generelle separable løsning har formen
+\begin{equation}
+	u(r,\theta,\phi) = (A r^{\ell} + B r^{-(\ell+1)})(C \cos m\phi+D\sin m\phi)[E P^m_{\ell}(\cos \theta)+F Q^m_{\ell}(\cos \theta)]
+\end{equation}
+hvor $ m $ og $ \ell $ er helttal, med $ 0 \leq |m| \leq \ell $. $ P $ og $ Q $ er de associerede Legendrefunktioner (som er tabulerede og ikke pensum i dette kursus). Skal løsningen være endelig på den polære akse, så skal $ F=0 $ for alle $ m,\ell $, da $ Q(\cos \theta) $ divergerer ved $ \pm 1 $. Dette er som oftest tilfældet, og vinkeldelen bliver da
+\begin{equation}
+	\Theta(\theta)\Phi(\phi) = P^m_{\ell} (\cos\theta) (C \cos m\phi+D\sin m\phi)
+\end{equation}
+hvor $ \ell,m $ stadig er heltal, med $ -\ell \leq m \leq \ell $. Disse kaldes for kuglefunktioner (se afsnit \ref{sec:kugel})
+%
+%
+% Udledning af løsning herunder. Jeg gider virkelig ikke skrive den færdig.....
+%
+%
+%Ved at indsætte dette i Laplaces ligning, dividere med $ u=R\Theta\Phi $, gange med $ r^2 $, og skille det radiale ($ r $) og  vinkeldelen ($ \theta $ og $ \phi $) fra hinanden fås:
+%\begin{equation}
+%	R\inverse \diff[\ud]{}{r} \pp{r^2 \diff[\ud]{R}{r}} = \lambda, \quad (\Theta \sin \theta)\inverse \diff[\ud]{}{\theta} \pp{\sin \theta \diff[\ud]{\Theta}{\theta}} + (\Phi \sin^2 \theta) \diff[\ud]{^2 \Phi}{\phi^2} = -\lambda
+%\end{equation}
+%Den radiale ligning kan løses ved at substituere $ r=\exp t $ og $ R(r) = S(t) $, og følgende løsning for $ R(r) $ fås
+%\begin{equation}
+%	R(r) = A r^{\ell} + B r^{-(\ell+1)}
+%\end{equation}
+%hvor produktet af de to eksponenter skal være lig den negative separationskonstant, altså $ \ell(\ell+1)=\lambda $. Substitueres dette ind i den anden ligning, og ganges der med $ \sin^2 \theta $ fås en ny ligning med separationskonstanten $ m^2 $
+
+\section{Kuglefunktioner}
+\label{sec:kugel}
+Til hjælp for funktioner af typen
+\begin{equation}
+\Theta(\theta)\Phi(\phi) = P^m_{\ell} (\cos\theta) (C \cos m\phi+D\sin m\phi)
+\end{equation}
+som er vinkeldelen af Laplace's ligning i polære koordinater, er \textbf{kuglefunktioner} defineret. Kuglefunktionen $ Y^m_{\ell} $ er givet ved
+\begin{equation}
+	Y^m_{\ell} (\theta,\phi)= (-1)^m \bb{\frac{2\ell + 1}{4\pi} \frac{(\ell-m)!}{(\ell+m)!}}^{1/2} P^m_{\ell} (\cos \theta) \exp (im\phi)
+\end{equation}
+Og
+\begin{equation}
+	Y^{-m}_{\ell} (\theta,\phi) = (-1)^m [Y^m_{\ell}(\theta,\phi)]^*
+\end{equation}
+Hvor stjernen betyder den kompleks konjugerede.
+
+Sættet af kuglefunktioner er alle indbyrdes ortogonale, udgør et ortonormalt sæt, og udspænder derfor et Hilbertrum. Det vil altså sige, at enhver funktion af $ \theta $ og $ \phi $ kan opbygges som en sum af disse
+\begin{equation}
+	f(\theta,\phi) = \sum_{\ell=0}^{\infty} \sum_{m=-\ell}^{\ell} a_{\ell m} Y^m_{\ell} (\theta,\phi), \quad a_{\ell m} = \int_{-1}^{1} \int_{0}^{2 \pi} [Y^m_{\ell} (\theta,\phi)]^* f(\theta,\phi) \ud \phi \ud(\cos \theta)
+\end{equation}
+Præcis lige som Fourierserien. Dette er også et eksempel på egenskaberne ved løsninger til Sturm-Liouville-problemer.
+
+Til kuglefunktioner hører også \textit{kuglefunktionsadditionsteoremet}, der siger
+\begin{equation}
+	P_\ell (\cos \gamma) = \frac{4\pi}{2\ell+1} \sum_{m=-\ell}^{\ell} Y^m_{\ell} (\theta, \phi) [Y^m_{\ell} (\theta', \phi')]^*
+\end{equation}
+hvor $ (\theta,\phi) $ og $ (\theta',\phi') $ er to forskellige vinkelsæt, separeret af vinklen $ \gamma $. Der er følgende relation mellem disse vinkler:
+\begin{equation}
+	\cos \gamma = \cos \theta \cos \theta' + \sin \theta \sin \theta' \cos(\phi-\phi')
+\end{equation}
+
+\end{document}
+

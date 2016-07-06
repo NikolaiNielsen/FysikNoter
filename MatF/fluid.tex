@@ -1,0 +1,141 @@
+\documentclass[MatFNoter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+% Hvis ikke dokumenterne (hoved & under) er i samme mappe, skal den relative stig bruges.
+
+
+
+\begin{document}
+	\section{Feltlinjer for fluider}
+	Gasser og væsker opfører sig generelt på samme måde, hvor forskellen mellem dem er, at der er større afstand mellem molekyler i en gas, end i en væske. Da de opfører sig på samme måde, får de fællesbetegnelsen \textit{fluider}.
+	
+	\subsection{Partikeldifferentiation og acceleration}
+	Partikeldifferentiation er en differentialoperator, der beskriver, hvordan en parameter $ \theta(\V{r},t) $ ændrer sig med tiden, i et strømfelt $ \V{v} $. Operatoren er givet ved.
+	\begin{equation}
+		\frac{D}{dt} = \diff{}{t} + \V{v} \D \grad
+	\end{equation}
+	Læg da mærke til, at der skrives et stort D i tælleren af brøken, for at skelne mellem partikeldifferentiation og almindelig differentiation. For parameteren $ \theta $ bliver det:
+	\begin{equation*}
+		\frac{D\theta}{dt} = \diff{\theta}{t} + \V{v} \D \grad \theta
+	\end{equation*}
+	$ \theta $ kunne for eksempel betegne temperaturfeltet i atmosfæren, saltindholdet i havet eller lignende, og $ \frac{D\theta}{dt} $ vil da beskrive, hvordan denne ændres med tiden, i strømfeltet $ \V{v} $ (atmosfæren eller havet, i disse tilfælde).
+	
+	\subsubsection*{Partikelacceleration}
+	Hvor partikeldifferentiation beskriver en parameters ændring i tiden, beskriver partikelacceleration et hastighedsfelts ændring i tiden. Denne er givet ved
+	\begin{equation}
+	\V{a} = \frac{D\V{v}}{dt} = \diff{\V{v}}{t} + \V{v} \D \grad \V{v}
+	\end{equation}
+	Hvor $ \diff{\V{v}}{t} $ kaldes for \textit{lokalaccelerationen} i feltet, og $ \V{v}\D\grad \V{v} $ er givet ved
+	\begin{equation}
+		\V{v} \D \grad \V{v} = v_x \diff{\V{v}}{x} + v_y \diff{\V{v}}{y} + v_z \diff{\V{v}}{z}
+	\end{equation}
+	og kaldes for den \textit{konvektive acceleration} i feltet. Lokalaccelerationen er den lokale ændring i feltet, på stedet, mens den konvektive acceleration er grundet ændringer i hastighedsfeltet. Der er så at sige et tidsligt og rumligt bidrag til accelerationen.
+	
+	For alle stationære felter (felter der altså \textit{ikke} afhænger af tiden) vil lokalaccelerationen altid være 0 (netop da feltet er konstant i tiden).
+	
+	
+	\subsection{Massebevarelse}
+	Massen i et felt må være bevaret, da der ikke kan skabes eller ødelægges masse. Hvis strømhastigheden er givet ved $ \V{v}=\V{v}(\V{r},t) $ og massetætheden er givet ved $ \rho =\rho(\V{r},t) $, fås følgende ligning
+	\begin{equation}
+		\diff{\rho}{t} + \grad \D (\rho\V{v}) = 0,
+	\end{equation}
+	Der skal være opfyldt i alle punkter i feltet, førend der er massebevarelsen. Denne ligning kaldes \textbf{kontinuitetsligningen}. Hvis der er konstant massetæthed $ \rho = \rho_0 $, reduceres ligningen til
+	\begin{equation*}
+		\grad \D \V{v} = 0
+	\end{equation*}
+	Altså må felter med konstant massetæthed være divergensfrie. Kontinuitetsligningen kan også omskrives til
+	\begin{equation}
+		\frac{1}{\rho} \frac{D\rho}{dt} = -\grad \D \V{v}
+	\end{equation}
+	Hvis alle partikler i feltet bevarer deres tæthed, når de flyder rundt (eksempelvis i atmosfæren og havet, hvor diffusion og blanding ikke spiller nogen stor rolle, så der ikke sker stor udveksling af varme og andre forhold). I sådan et tilfælde må hastighedsfeltet også være divergensfrit.
+	
+	\subsection{Bevægelsesligningen}
+	Ved opskrivelse af Newtons anden lov for friktionsfri strøm af fluider i et tyngdefelt fås \textbf{Euler-ligningen} for fluider:
+	\begin{equation}
+		\diff{\V{v}}{t} + \V{v} \D \grad \V{v} = - \frac{1}{\rho} \grad p + \V{g}
+	\end{equation}
+	hvor venstre side er partikelaccelerationen, $ \rho $ er massetætheden, $ \grad p $ er trykgradienten i væsken, og $ \V{g} $ er tyngdeaccelerationen (i vektorform, som oftest givet ved $ \V{g} =g \Vk $).
+	
+	\subsection{Bernoullis ligning}
+	For en væske, hvor massetætheden er konstant (og strømfeltet dermed er divergensfrit), og hvor strøm-feltet også er stationært, reduceres bevægelsesligningen til
+	\begin{equation*}
+		\V{v} \D \grad \V{v} = -\grad \frac{p}{\rho} - g\Vk
+	\end{equation*}
+	Denne kan omskrives til 
+	\begin{equation*}
+		\grad \mathcal{H} + \V{c}\times \V{v} = 0
+	\end{equation*}
+	Hvor $ \mathcal{H} = \frac{p}{\rho} + \frac{1}{2}\V{v}^2 +gz $ og $ \V{c}=\grad \times \V{v} $. Da det sidste led altid står normalt på et bueelement fås det, at tilvæksten i $ \mathcal{H} $, langs en strømlinje (og dermed et bueelement) er 0. Det betyder at $ \mathcal{H} $ er konstant, og følgende ligning fås:
+	\begin{equation}
+		\mathcal{H} = \frac{p}{\rho} + \frac{1}{2} \V{v}^2 + gz = \mathcal{H}_0
+	\end{equation}
+	som altså gælder langs strømlinjer. Denne ligning kaldes for \textbf{Bernoullis ligning} for en \textbf{inkompressibel væske} og $ \mathcal{H}_0 $ kaldes for \textbf{Bernoullikonstanten}.
+	
+	
+	\subsection{Varmetransport}
+	Varmeindholdet af et stof, per volumenenhed er givet ved
+	\begin{equation}
+		\rho c T
+	\end{equation}
+	hvor $ c $ er den specifikke varmekapacitet. Denne er egentlig ikke konstant, da den afhænger af tryk og temperatur, men over små temperatur- og trykændringer (som ved vanlige betingelser for vand og luft) er den stort set konstant.
+	
+	Varmestrømmen per tidsenhed og fladeenhed er givet ved
+	\begin{equation}
+		\V{H}_s = \rho c T \V{v}
+	\end{equation}
+	Denne kaldes også for den konvektive varmetransport. Der kan også udveksles varme ved varmeledning, hvor molekyler udveksler kinetisk energi ved sammenstød. Denne varmetransport er givet ved Fouriers lov, der er en empirisk lov:
+	\begin{equation}
+		\V{H}_l = -k\grad T
+	\end{equation}
+	hvor $ k $ kaldes varmeledningstallet.
+	
+	Den samlede varmetransport grundet strømning og ledning er da givet ved
+	\begin{equation}
+		\V{H} = \V{H}_s + \V{H}_l
+	\end{equation}
+	Generelt set er varmestrømningen meget større end varmeledningen, men hvis strømningen er svag, er dette ikke sandt.
+	
+	Ændringen i varmeindholdet inden for en afgrænset volumen skyldes den varmetransport der er gennem volumenets afgrænsningsflade, samt den varme der produceres eller absorberes inde i volumenet. Relationen udtrykkes ved følgende ligning:
+	\begin{equation*}
+		\int_{\tau} \diff{}{t}(\rho c T)  \ud\tau + \int_{\sigma} \V{H}\D \V{n} \ud\sigma = \int_{\tau} q \ud\tau
+	\end{equation*}
+	Hvor første led er ændringen i varmeindhold, andet led er varmetransporten og højre side af lighedstegnet er varmeproduktionen (eller absorberingen). Denne ligning kan omformes til
+	\begin{equation}
+		\int_{\tau} \bb{\diff{}{t} (\rho c T) + \grad \D (\rho c T \V{v}) - \grad \D (k\grad T) - q} \ud\tau = 0
+	\end{equation}
+	Hvis densiteten, varmekapaciteten og varmeledningstallet er konstant fås
+	\begin{equation}
+		\int_{\tau} \bb{\diff{T}{t} + \V{v} \D \grad T - \kappa \grad^2T-\frac{q}{\rho c}} \ud\tau = 0 \label{eq:Varme1}
+	\end{equation}
+	Hvor $ \kappa = \frac{k}{\rho c} $ kaldes for varmediffusivitet. For at disse to integraler skal være opfyldt, må integranden være lig 0 i alle punkter. Af integralet i \eqref{eq:Varme1} fås \textbf{Varmetransportligningen}:
+	\begin{equation}
+		\diff{T}{t} + \V{v} \D \grad T = \frac{DT}{dt} = \kappa \grad^2 T + \frac{q}{\rho c}
+	\end{equation}
+	Hvis der heller ikke er nogen strøm i mediet (eksempelvis i faste stoffer), reduceres varmetransportligningen til \textbf{varmeledningsligningen}:
+	\begin{equation}
+		\diff{T}{t} = \kappa \grad^2 T
+	\end{equation}
+	
+	\section{FV-Appendix A}
+	\subsection{Navier-Stokes Ligning}
+	Navier-Stokes ligning beskriver accelerationen i en fluid, og er givet ved:
+	\begin{equation*}
+		\diff{\V{v}}{t} + \V{v} \D \V{v} = -\frac{1}{\rho} \grad p + \kappa \grad (\grad\D\V{v})+\nu \grad^2\V{v} + \V{f}_v
+	\end{equation*}
+	Hvor venstre side er partikelaccelerationen. Første led på højre side er trykkraften per masseenhed, andet led er friktion grundet ekspansion i feltet, tredje led er friktion ved viskositet og sidste led er andre krafter, eks tyngdekraften.
+	
+	\subsection{Maxwells ligninger}
+	Maxwells ligninger danner grundlaget for klassisk elektromagnetisme, og er givet ved:
+	\begin{align*}
+		\grad \D \V{E} &= \frac{q}{\epsilon_0}\\
+		\grad \times \V{E} &= - \diff{\V{B}}{t} \\
+		c^2 \grad \times \V{B} &= \diff{\V{E}}{t} + \frac{\Vj}{\epsilon_0}\\
+		\grad \D \V{B} &= 0
+	\end{align*}
+	Hvor $ \V{E} $ er den elektriske feltstyrke, $ \V{B} $ er den magnetiske feltstyrke, $ q $ er ladningstætheden, $ \Vj $ er den elektriske strøm (alle disse fire er funktioner af rumkoordinaterne og tiden), $ c $ er lysets hastighed og $ \epsilon_0 $ er en konstant.
+	
+	I tilfælde hvor der ikke er nogen ladningstæthed, og det elektriske felt er stationært, gælder det at
+	\begin{equation*}
+		\grad \D \V{E} = 0, \quad \grad \times \V{E} = 0
+	\end{equation*}
+\end{document}
+

@@ -1,0 +1,66 @@
+% Nikolai Nielsens "Fysiske Fag" preamble
+\documentclass[a4paper,10pt]{article} 	% A4 papir, 10pt størrelse
+
+\usepackage{Nikolai}
+
+\theoremstyle{definition}
+\newtheorem*{unique1}{Første entydighedssætning}
+\newtheorem*{lemma}{Entydighedslemma}
+\newtheorem*{unique2}{Anden entydighedssætning}
+
+% Margen
+\usepackage[margin=1in]{geometry}
+
+% Max antal kolonner i en matrix. Default er 10
+%\setcounter{MaxMatrixCols}{20}
+
+% Hvor dybt skal kapitler labeles?
+%\setcounter{secnumdepth}{0}	
+
+% Hvilket nummer skal der startes med i sections? (n-1)
+\setcounter{section}{0}	
+
+% Til de første fire side i Griffiths
+\newcounter{VektorListe}
+
+% Til nummerering af ligninger. Så der står (afsnit.ligning) og ikke bare (ligning)
+\numberwithin{equation}{section}
+
+% Header
+%\usepackage{fancyhdr}
+%\lhead{Nikolai Plambech Nielsen, 21-06-95\\Dato:. Klasse 5.C - De Fysiske Fag}
+%\pagestyle{fancy}
+
+%Titel
+\title{Noter til EM1 på KU (Elektromagnetisme 1)}
+\author{af Nikolai Plambech Nielsen, LPK331. Version 1.0}
+
+
+\begin{document}
+	\selectlanguage{danish}
+	%Udkommenter ovenstående, hvis du skriver på engelsk.
+	
+	\maketitle
+	\subsubsection*{Introduktion}
+		Dette er min samling af noter til kurset EM1 (Normalt bare kaldt EL). I kurset bruges bogen ">An Introduction to Electrodynamics"< af David J. Griffiths, 4. udgave. Jeg har selv haft 3. udgave af bogen (sort cover, med $ \curl{E} $ og $ \curl{B} $ skrevet på forsiden). Der er ingen store forskelle i indhold, men eksempler og opgaver kan have forskellig nummerering. Pensum dækker over kapitel 2 til og med kapitel 7 i begge udgaver. Jeg har også inkluderet de fire sider fra bogens omslag, hvor der står en masse dejlige formler, både for en god del vektoranalyse, men også en opsummering af kursets indhold i form af Maxwells ligninger, o.lign. Jeg har også inkluderet en kort note om koordinattransformationer i integraler, og hvorfor man skal gange med en bestemt faktor, når man transformerer koordinater. Hvis I finder nogen fejl, eller synes der er noget, som kan uddybes yderligere, så download meget gerne .tex-filerne fra psi.nbi.dk, ændr dokumenterne og genupload (både .pdf og .tex).
+	
+	
+	\tableofcontents
+	
+	\newpage
+	\subfile{intro}
+	\newpage
+	\subfile{Elektrostatik}
+	\newpage
+	\subfile{ImSpecial}
+	\newpage
+	\subfile{EStuff}
+	\newpage
+	\subfile{Magneto}
+%	\newpage
+	\subfile{MStuff}
+	\newpage
+	\subfile{ElectroDynamics}
+	
+\end{document}
+

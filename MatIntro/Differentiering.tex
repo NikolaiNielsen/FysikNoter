@@ -1,0 +1,77 @@
+\documentclass[a4paper,danish]{article} 
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage{nicefrac}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[RO,RE]{Jophiel Wiis}
+\fancyhead[LO,LE]{\textbf{\large{Regneregler for differentiation og integration}}}
+\fancyfoot{}
+\begin{document} 
+\begin{samepage}
+Bemærk at ikke alle udtryk kan bruges for alle værdier af $x$, $a$ eller $k$.\\\\
+
+\doublespacing
+\begin{tabular}{ c | c | c}
+  afledet funktion $f'$ & Funktion $f$ & En stamfunktion $F$ til $f$\\ \hline
+  $0$ & $a$ & $ax$  \\
+  $a\cdot x^{a-1}$ & $x^{a}$ & $\frac{1}{a+1}x^{a+1}$\\
+  $-x^{-2}$ & $x^{-1}=\frac{1}{x}$ & $ln|x|$\\
+  $\frac{1}{2}x^{-\nicefrac{1}{2}}=\frac{1}{2\sqrt{x}}$ & $x^{\nicefrac{1}{2}}=\sqrt{x}$ & $\frac{2}{3}x^{\nicefrac{3}{2}}=\frac{2}{3}x\sqrt{x}$\\
+  $x^{-1}$ & $ln(x)$ & $x\cdot \mathrm{ln}(x)-x$\\
+  $a^{x}\cdot \mathrm{ln}(a)$ & $a^{x}$ & $\frac{a^{x}}{\mathrm{ln}(a)}$\\
+  $k\cdot e^{kx}$ & $e^{kx}$ & $\frac{1}{k}e^{kx}$\\
+  $\cos(x)$ & $\sin(x)$ & $-\cos(x)$\\
+  $-\sin(x)$ & $\cos(x)$ & $\sin(x)$\\
+  $\frac{1}{(\cos(x))^{2}}=1+(\tan(x))^{2}$ & $\tan(x)$ & $\mathrm{-ln}|\cos(x)|$\\
+  $-2\cos(x)\cdot \sin(x)$ & $(\cos(x))^{2}$ & $\frac{1}{2}(x+\sin(x)\cdot \cos(x))$\\
+  $2\sin(x)\cdot \cos(x)$ & $(\sin(x))^{2}$ & $\frac{1}{2}(x-\sin(x)\cdot \cos(x))$\\
+  $(\tan(x))^{3}+2\tan(x)$ & $(\tan(x))^{2}$ & $\tan(x)-x$
+\end{tabular}\\
+
+\singlespacing
+I den følgende tabel betegner $k$, $a$ og $b$ konstanter, $F$ betegner en stamfunktion til $f$, og $G$ betegner en stamfunktion til $g$. Stamfunktioner angivet med ??? kan ikke findes.\\
+
+\doublespacing
+\begin{tabular}{ c | c | c}
+  afledet funktion $h'$ & Funktion $h$ & En stamfunktion $H$ til $h$\\ \hline
+  $f'+g'$ & $f+g$ & $F+G$\\
+  $f'-g'$ & $f-g$ & $F-G$\\
+  $k\cdot f'$ & $k\cdot f$ & $k\cdot F$\\
+  $f'(x)\cdot g(x)+f(x)\cdot g'(x)$ & $f(x)\cdot g(x)$ & ???\\
+  $\frac{f'(x)\cdot g(x)-f(x)\cdot g'(x)}{(g(x))^{2}}$ & $\frac{f(x)}{g(x)}$ & ???\\
+  $f'(g(x))\cdot g'(x)$ & $f(g(x))$ & ???\\
+  $a\cdot f'(a\cdot x+b)$ & $f(a\cdot x+b)$ & $\frac{1}{a}\cdot F(a\cdot x+b)$\\
+\end{tabular}\\
+\singlespacing
+
+bemærk de nederste to linier. Det er muligt at finde en stamfunktion for en funktion indeholdende en funktion, så længe den indre funktion er lineær
+\end{samepage}
+\newpage
+\section*{Regneregler for integration}
+ \begin{align*}
+ \int (f \pm g)\,\mathrm{d}x &=\int f \,\mathrm{d}x \pm \int g \,\mathrm{d}x\\
+ \int k\cdot f \,\mathrm{d}x &= k\int f \,\mathrm{d}\\
+ \int_a^b f \,\mathrm{d} &= \left[ F \right]_a^b = F(b)-F(a) 
+\end{align*}
+\section*{Partiel integration}
+\begin{align*}
+\int f(x)\cdot g(x)\,\mathrm{d}x=F(x)\cdot g(x) - \int F(x)\cdot g'(x)\,\mathrm{d}x
+\end{align*}
+\section*{integration ved substitution}
+\begin{align*}
+\int_a^b f(g(x))\,\mathrm{d}x
+\end{align*}
+definerer $g(x)=u$, udregner de nye grænser\footnote{kun nødvendigt ved bestemte integraler} $g(a)$ og $g(b)$, og finder $\frac{\mathrm{d}u}{\mathrm{d}x}$:
+\begin{align*}
+\frac{\mathrm{d}u}{\mathrm{d}x}=g'(x) \Rightarrow \,\mathrm{d}x=\frac{\mathrm{d}u}{g'(x)}
+\end{align*}
+Det hele indsættes nu, og følgende integral udregnes:
+\begin{align*}
+\int_{g(a)}^{g(b)} f(u) \,\mathrm{d}u
+\end{align*}
+
+
+\end{document}

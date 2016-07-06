@@ -1,0 +1,67 @@
+% Nikolai Nielsens "Fysiske Fag" preamble
+\documentclass[a4paper,10pt]{article} 	% A4 papir, 10pt størrelse
+
+\usepackage{Nikolai}
+
+% Margen
+\usepackage[margin=1in]{geometry}
+
+% Max antal kolonner i en matrix. Default er 10
+%\setcounter{MaxMatrixCols}{20}
+
+% Hvor dybt skal kapitler labeles?
+%\setcounter{secnumdepth}{0}	
+
+% Hvilket nummer skal der startes med i sections? (n-1)
+%\setcounter{section}{0}	
+
+% Til de første fire side i Griffiths
+\newcounter{VektorListe}
+
+% Til nummerering af ligninger. Så der står (afsnit.ligning) og ikke bare (ligning)
+\numberwithin{equation}{section}
+
+% Header
+%\usepackage{fancyhdr}
+%\lhead{Nikolai Plambech Nielsen, 21-06-95\\Dato:. Klasse 5.C - De Fysiske Fag}
+%\pagestyle{fancy}
+
+%Titel
+\title{Noter til MatF2 på KU (Matematik for Fysikere 2)}
+\author{af Nikolai Plambech Nielsen, LPK331, Version 1.0}
+
+
+\begin{document}
+	\selectlanguage{danish}
+	%Udkommenter ovenstående, hvis du skriver på engelsk.
+
+	\maketitle
+	
+	\begin{abstract}
+		Dette notesæt er udarbejdet til kurset Matematik for Fysikere 2 (Forkortet MatF2). Bogen, der er brugt i kurset er ">Essential Mathematical Methods for the Physical Sciences"<, 1. udgave, af K. F. Riley og M. P. Hobson. Pensum er kapitel 5.4, 14.1 til 14.12 (ud over 14.7), 15.1, 15.3-15.5 og 9.1. Ud over pensum har jeg skrevet noter til kapitel 14.7 (konforme transformationer), da det var pensum til at starte med, og jeg nåede at skrive noterne, inden jeg fik at vide, det ikke var pensum.
+		
+		Jeg har også skrevet et lille afsnit til binomialkoefficienter og binomialekspansionen, som kan være ret smart til at finde residuer (Baseret på Kalkulus kapitel 1.4 og 12.1, fra MatIntro-kurset). Mit afsnit om Diracs deltafunktion, samt Fouriertransformation er også inkluderet, da Fouriertransformationen også bruges i nogle opgaver til eksamen.
+		
+		.tex-filerne kan findes på psi.nbi.dk, samme sted som dette notesæt, og hvis I finder nogle fejl, eller I synes der er noget som kan forklares bedre, så ændr endelig i filerne og genupload så sættet bliver bedre. God arbejdslyst!
+	\end{abstract}
+	
+	\tableofcontents
+	
+	
+	
+	\newpage
+	\part{Pensum}
+	\subfile{KompleksVariabel}
+	\subfile{KompleksAnvendelse}
+	\subfile{LaplaceTrans}
+	\subfile{Legendre}
+	
+	\newpage
+	\part{Ting, der ikke er pensum, men som er ret gode at have med alligevel}
+	\subfile{Fourier}
+	\subfile{binomial}
+	\subfile{DivOgTrig}
+	\subfile{Konform}
+	
+\end{document}
+
