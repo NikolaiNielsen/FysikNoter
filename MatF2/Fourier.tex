@@ -1,0 +1,86 @@
+\documentclass[MatF2Noter.tex]{subfiles}
+
+
+\begin{document}
+	\section{Dirac \texorpdfstring{$\delta$}{delta}-funktion}
+	Dirac $ \delta $-funktionen er en funktion defineret ved:
+	\begin{equation}
+	\int_{a}^{c} f(t) \delta(t-b) \ud t = f(b)
+	\end{equation}
+	hvor $ a \leq b \leq c $. Ellers er integralet 0. Ydermere er $ \int \delta(t-a) \ud t = 1 $, hvis $ a $ ligger inden for integralgrænserne.
+	Deltafunktionen kan også defineres som
+	\begin{equation}
+	\delta(t) = 0, t \neq 0
+	\end{equation}
+	Hvor funktionsværdien, når $ t=0 $, er "uendelig". Nogle andre egenskaber ved denne funktion er:
+	\begin{equation}
+	\delta(-t) = \delta (t), \quad \delta(at) = \frac{1}{|a|} \delta(t), \quad t\delta(t) = 0
+	\end{equation}
+	Dens stamfunktion er Heavyside-funktionen, der er defineret ved $ H(t) = 1 $ til $ t>0 $ og $ H(t) = 0$ for $ t<0 $. Dermed er $ H'(t) = \delta(t) $. $ \delta $-funktionen kan også beskrives ved integraler:
+	\begin{equation}
+		\delta(t-u) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} e^{i \omega (t-u)} \ud\omega, \quad \delta(\V{r}) = \frac{1}{(2\pi)^3} \int e^{i \Vk \D \V{r}} \ud^3 \Vk
+	\end{equation}
+	
+	
+	\section{Fouriertransformation}
+	Fouriertransformationer er en generalisering af Fourierserier, hvor perioden tages til at være uendelig, og der dermed ikke er noget krav om periodicitet. Det eneste krav er faktisk følgende:
+	\begin{equation}
+	\int_{-\infty}^{\infty} |f(t)| \ud t \neq \infty
+	\end{equation}
+	altså at det uendelige integrale konvergerer. Selve transformationen er en lineær integraltransformation $ f(t) \rightarrow \tilde{f} (\omega) = \mathcal{F}[f(t)] $ defineret ved
+	\begin{equation}
+	\tilde{f}(\omega) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} f(t) e^{-i\omega t} \ud t
+	\end{equation}
+	Og dens inverse
+	\begin{equation}
+	f(t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} \tilde{f}(\omega)e^{i\omega t} \ud\omega
+	\end{equation}
+	Her ses ligheden med den komplekse Fourierserie, men i stedet for en diskret sum af harmoniske svingninger, fra negativ til positiv uendeligt, har vi her en kontinuert funktion, der beskriver summen af disse harmoniske svingninger - netop et integral.
+	
+	\subsection{Foldning}
+	Et emne der, som så, ikke omhandler Fouriertransformation, men som gøres nemmere ved brug af denne, er foldning. Målinger af fysiske fænomener medbringer ofte en eller anden form for støj grundet måleapparatet. Hvis det, der måles gives navnet $ h(z) $, mens det fysiske fænomen er givet ved $ f(x) $, så fås følgende sammenhæng mellem dem:
+	\begin{equation}
+	h(z) = \int_{-\infty}^{\infty} f(x) g(z-x) \ud x \label{eq:fold}
+	\end{equation}
+	hvor $ g(z-x) $ er støjen introduceret af måleapparatet. Dette kan også bruges til at introducere "falske" måleinstrumenter, som for eksempel filtre, for at frafiltrere støj. Ligningen \eqref{eq:fold} kaldes for \textbf{foldningen} af $ f $ og $ g $, og benævnes også $ f\ast g $. Foldning er både \textbf{kommutativt} ($ f\ast g = g \ast f $), \textbf{associativt} og \textbf{distributivt}.
+	
+	Måden dette relaterer til Fouriertransformation, er ved at foldningen nemt kan skilles ad i frekvensdomænet, givet \textbf{foldeteoremet}, der siger:
+	\begin{equation}
+	\mathcal{F}[h(z)] = \tilde{h}(k) = \sqrt{2\pi} \tilde{f}(k) \tilde{g}(k)
+	\end{equation}
+	Altså bliver det grimme, uegentlige integral til et simpelt produkt i frekvensdomænet. Ligeledes gælder der omvendt:
+	\begin{equation}
+	\mathcal{F}[f(x)g(x)] = \frac{1}{\sqrt{2\pi}} \tilde{f}(k) \ast \tilde{g}(k)
+	\end{equation}
+	
+	
+	\subsection{Nyttige egenskaber ved Fouriertrasnformation}
+	For Fouriertransformationer gælder \textbf{Parseval's teorem} også:
+	\begin{equation}
+	\int_{-\infty}^{\infty} |f(t)|^2 \ud t = \int_{-\infty}^{\infty} |\tilde{f}(\omega)|^2 \ud\omega
+	\end{equation}
+	Der er også følgende transformationer:
+	\begin{table}[H]
+		\begin{tabular}{ll}
+			Funktion				& Fouriertransformation                                               \\
+			\hline	\rule[-2ex]{0pt}{4.5ex} 
+			$ f(at) $           	& $ a\inverse \tilde{f}\pp{\frac{\omega}{a}} $                        \\
+			\rule[-2ex]{0pt}{4.5ex}
+			$ f(t-b) $          	& $ e^{-ib\omega} \tilde{f}\pp{\omega} $                              \\
+			\rule[-2ex]{0pt}{5.5ex}
+			$ e^{\alpha t}f(t) $	& $ \tilde{f}\pp{\omega+i\alpha} $                                    \\
+			\rule[-2ex]{0pt}{4.5ex}
+			$ f'(t) $               & $ i \omega \tilde{f}\pp{\omega} $                                   \\
+			\rule[-2ex]{0pt}{4.5ex}
+			$ f''(t) $              & $ -\omega^2 \tilde{f}\pp{\omega} $                                  \\
+			\rule[-2ex]{0pt}{4.5ex}
+			$ f^{(n)}(t) $          & $ (i\omega)^n\tilde{f}\pp{\omega} $                                 \\
+			\rule[-2ex]{0pt}{4.5ex}
+			$ \int^{t} f(u) \ud u $ & $ (i\omega)\inverse \tilde{f}\pp{\omega} + 2\pi c \delta(\omega) $  \\
+			\rule[-2ex]{0pt}{4.5ex}
+			$ f(t)\ast g(t) $       & $\sqrt{2\pi} \tilde{f}\pp{\omega}\tilde{g}(\omega) $                \\
+			\rule[-2ex]{0pt}{4.5ex}
+			$ f(t)g(t) $            & $ \frac{1}{\sqrt{2\pi}}\tilde{f}\pp{\omega}\ast \tilde{g}(\omega) $
+		\end{tabular}
+	\end{table}
+\end{document}

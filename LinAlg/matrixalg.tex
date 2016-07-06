@@ -1,0 +1,331 @@
+\documentclass[LinAlgNoter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+% Hvis ikke dokumenterne (hoved & under) er i samme mappe, skal den relative stig bruges.
+
+
+
+\begin{document}
+	\section{Matrixalgebra og lineære ligningssystemer}
+	\subsection*{Regneoperationer}
+	Her defineres 3 regneoperationer for matricer: multiplikation med en skalar (skalering), addition af matricer og multiplikation af matricer.
+	
+	For matricen
+	\begin{equation}
+		\mat{A}=\begin{pmatrix}
+		a_{11}	& \cdots	& a_{1n} \\
+		\vdots	& 			& \vdots \\
+		a_{m1}	& \cdots	& a_{mn}
+		\end{pmatrix}=(a_{ij})
+	\end{equation}
+	defineres \textbf{multiplikation med en skalar} som
+	\begin{equation}
+		\lambda\mat{A}=\begin{pmatrix}
+		\lambda a_{11}	& \cdots	& \lambda a_{1n} \\
+		\vdots			& 			& \vdots \\
+		\lambda a_{m1}	& \cdots	& \lambda a_{mn}
+		\end{pmatrix}=(\lambda a_{ij}).
+	\end{equation}
+	Altså hvert element skaleres med faktoren $ \lambda $.
+
+	For to $ m\times n $ matricer $ \mat{A} $ og $ \mat{B} $ defineres \textbf{addition af matricer}:
+	\begin{align}
+		\mat{A} &= 
+		\begin{pmatrix}
+			a_{11}	& \cdots	& a_{1n} \\
+			\vdots	& 			& \vdots \\
+			a_{m1}	& \cdots	& a_{mn}
+		\end{pmatrix}, \quad
+		\mat{B} = 
+		\begin{pmatrix}
+			b_{11}	& \cdots	& b_{1n} \\
+			\vdots	& 			& \vdots \\
+			b_{m1}	& \cdots	& b_{mn}
+		\end{pmatrix} \nonumber\\
+		\mat{A}+\mat{B} &= \begin{pmatrix}
+		a_{11}+b_{11}	& \cdots	& a_{1n}+b_{1n} \\
+		\vdots			& 			& \vdots \\
+		a_{m1}+b_{m1}	& \cdots	& a_{mn}+b_{mn}
+		\end{pmatrix} = (a_{ij}+b_{ij}).
+	\end{align}
+	Altså lægges to matricer sammen, ved at lægge deres individuelle indgange sammen parvis.
+	
+	\textbf{Matrixmultiplikation} defineres som:
+	
+	For en $ m\times p $-matrix $ \mat{A} $ og en $ p \times n $-matrix $ \mat{B} $, der har formene
+	\begin{equation*}
+		\mat{A} = 
+		\begin{pmatrix}
+			a_{11}	& \cdots	& a_{1p} \\
+			\vdots	& 			& \vdots \\
+			a_{m1}	& \cdots	& a_{mp}
+		\end{pmatrix}, \quad
+		\mat{B} = 
+		\begin{pmatrix}
+			b_{11}	& \cdots	& b_{1n} \\
+			\vdots	& 			& \vdots \\
+			b_{p1}	& \cdots	& b_{pn}
+		\end{pmatrix}, 
+	\end{equation*}
+	defineres $ \mat{C}=\mat{A}\D\mat{B} $, der er en $ m \times n $-matrix på formen
+	\begin{equation*}
+		\mat{C}=\begin{pmatrix}
+			c_{11}	& \cdots	& c_{1n} \\
+			\vdots	& 			& \vdots \\
+			c_{m1}	& \cdots	& c_{mn}
+		\end{pmatrix}
+	\end{equation*}
+	for hvilken
+	\begin{equation}
+		c_{ij}=a_{i1} b_{1j} + \dots + a_{ip} b_{pj}=\sum_{k=1}^{p} a_{ik} b_{kj}, \quad 1\leq i\leq m, \ 1 \leq j \leq n.
+	\end{equation}
+	Hvis indgangende i $ \mat{A} $ og $ \mat{B} $ er reelle, så er indgangen $ c_{ij}= \mat{A}[i,*]\D\mat{B}[*,j] $. Altså skalarproduktet mellem den $ i $'te \textit{række} i $ \mat{A} $ og den $ j $'te \textit{søjle} i $ \mat{B} $.
+	
+	Den første matrix skal altså have lige så mange \textit{rækker} som den anden matrix har \textit{søjler}, førend matrixmultiplikation er defineret. Det er altså \textbf{ikke lige meget, hvilket rækkefølge faktorerne står!}. $ \mat{A}\D\mat{B}=\mat{B}\D\mat{A} $ gælder altså almindeligvis \textbf{ikke!}
+	
+	Herunder er en illustration af, hvordan matrixmultiplikation kan visualiseres (taget fra bogen Lineær Algebra, som disse noter er udarbejdet efter.)
+	\begin{figure}[H]
+		\includegraphics[width=9cm]{img/matrixmult.png}
+		\label{fig:matrixmult}
+		\caption{Matrixmultiplikation}
+	\end{figure}
+	
+	
+	\subsection{Regneregler}
+	\label{sub:regneregel}
+	For matrixregning gælder følgende regneregler:
+	\begin{table}[H]
+			\begin{tabular}{r l r l}
+				M1 & $ (\mat{A}+\mat{B})+\mat{C}=\mat{A}+(\mat{B}+\mat{C}) $          & M7  & $ (\lambda \mu)\mat{A}=\lambda (\mu \mat{A}) $                               \\
+				M2 & $ \mat{A}+\mat{0}=\mat{A} $                                      & M8  & $ 1\mat{A}=\mat{A} $                                                         \\
+				M3 & $ \mat{A}+(-\mat{A})=\mat{0} $                                   & M9  & $ \lambda (\mat{A} \, \mat{B})=(\lambda \mat{A})\mat{B}=A(\lambda \mat{B}) $ \\
+				M4 & $ \mat{A}+\mat{B}=\mat{B}+\mat{A} $                              & M10 & $ \mat{A}(\mat{B}+\mat{C})=\mat{A}\, \mat{B}+\mat{A}\,\mat{C} $              \\
+				M5 & $ \lambda (\mat{A}+\mat{B})= \lambda \mat{A} + \lambda \mat{B} $ & M11 & $ (\mat{A}+\mat{B})\mat{C}=\mat{A}\, \mat{C} + \mat{B}\,\mat{C} $            \\
+				M6 & $ (\lambda + \mu)\mat{A}=\lambda \mat{A}+\mu \mat{A} $           & M12 & $ (\mat{A}\,\mat{B})\mat{C}=\mat{A}(\mat{B}\,\mat{C}) $
+			\end{tabular} 
+	\end{table}
+
+	For at operationerne i M1-M12 skal være definerede, skal de individuelle matricer have passende størrelse (samme størrelse ved addition, samme antal rækker for den ene, som søjler for den anden).
+	
+	Potenser defineres som følger:
+	\begin{itemize}
+		\item $ \mat{A}^k=\mat{A}\dots \mat{A} \, (k \text{ faktorer}). $
+		\item $ \mat{A}^{-k}=(\mat{A}\inverse)^k $
+		\item $ \mat{A}^1=\mat{A}, \qquad  \mat{A}^0=\mat{E}. $
+		\item $ \mat{A}^{k_1}\mat{A}^{k_2}=\mat{A}^{k_1+k_2} $
+	\end{itemize}
+	
+	For diagonalmatricer gælder:
+	
+	\begin{align*}
+		\mat{A} &= \begin{psmallmatrix}
+		\lambda_1	&			&	\\
+					& \ddots	&	\\
+					&			& \lambda_n
+		\end{psmallmatrix}, \quad 
+		\mat{B} = \begin{psmallmatrix}
+			\mu_1	&			&	\\
+					& \ddots	&	\\
+					&			& \mu_n
+		\end{psmallmatrix}, \quad
+		\mat{A}\,\mat{B}=\begin{psmallmatrix}
+			\lambda_1\mu_1	&			&	\\
+							& \ddots	&	\\
+							&			& \lambda_n \mu_n
+		\end{psmallmatrix}=\mat{B}\,\mat{A} \\
+		\mat{A}^k &=\begin{psmallmatrix}
+		\lambda_1	&			&	\\
+		& \ddots	&	\\
+		&			& \lambda_n
+		\end{psmallmatrix}^k=\begin{psmallmatrix}
+		\lambda_1^k	&			&	\\
+		& \ddots	&	\\
+		&			& \lambda_n^k
+		\end{psmallmatrix}, \quad
+		\mat{A}^{-k} =\begin{psmallmatrix}
+		\lambda_1	&			&	\\
+					& \ddots	&	\\
+					&			& \lambda_n
+		\end{psmallmatrix}^{-k}=\begin{psmallmatrix}
+		\frac{1}{\lambda_1^k}	&			&	\\
+								& \ddots	&	\\
+								&			& \frac{1}{\lambda_n^k}
+		\end{psmallmatrix}
+	\end{align*}
+	
+	\subsection{Invers, transponeret og adjungeret matrix}
+	\subsubsection*{Invers matrix}
+	\label{subsub:Inv}
+	Definitionen på en \textbf{regulær}, eller \textbf{invertibel} matrix er som følger:
+	
+	En $ n\times n $-matrix $ \mat{A} $ kaldes regulær eller invertibel, hvis den tilhørende lineære afbildning $ \morffFF{n}{n} $ er bijektiv. Da kaldes den til $ f\inverse $ hørende $ n\times n $-matrix for den inverse til $ \mat{A} $, og betegnes $ \mat{A}\inverse $.
+	
+	For \textbf{omvendte} eller \textbf{inverse} afbildninger gælder:
+	\begin{enumerate}
+		\item Hvis $ \morffFF{n}{n} $ er bijektiv og lineær, er $ \morffFF[f\inverse]{n}{n} $ også bijektiv og lineær.
+		\item Enhedsmatricen $ \mat{E} $ er regulær og $ \mat{E}\inverse=\mat{E} $
+		\item Hvis $ \mat{A} $ er regulær, er $ \mat{A}\inverse $ regulær, og $ (\mat{A}\inverse)\inverse=\mat{A} $
+		\item Hvis $ \mat{A} $ er regulær, er $ \mat{A}\inverse \mat{A}= \mat{A}\,\mat{A}\inverse = \mat{E} $
+		\item Hvis $ \mat{A} $ og $ \mat{B} $ er regulære, da er $ \mat{A}\,\mat{B} $ regulær, og $ (\mat{A}\,\mat{B})\inverse=\mat{B}\inverse \mat{A}\inverse $
+		\item Hvis $ \mat{A} $ og $ \mat{B} $ er $ n\times n $-matricer, så $ \mat{A}\,\mat{B}=\mat{E} $.
+		Da er $ \mat{A} $ og $ \mat{B} $ regulær, og $ \mat{A}\inverse=\mat{B},\ \mat{B}\inverse=\mat{A} $
+	\end{enumerate}
+	\subsubsection*{Transponeret og adjungeret matrix}
+	For en $ m \times n $-matrix
+	\begin{equation*}
+		\mat{A}=\begin{pmatrix}
+			a_{11}	& \cdots	& a_{1n} \\
+			\vdots	&			& \vdots \\
+			a_{m1}	& \cdots	& a_{mn}
+		\end{pmatrix}
+	\end{equation*}
+	defineres den \textbf{transponerede} matrix $ \mat{A}^t $, som den $ n\times m $ matrix
+	\begin{equation*}
+		\mat{A}^t=\begin{pmatrix}
+		a_{11}'	& \cdots	& a_{1n}' \\
+		\vdots	&			& \vdots \\
+		a_{m1}'	& \cdots	& a_{mn}'
+		\end{pmatrix}=\begin{pmatrix}
+		a_{11}	& \cdots	& a_{m1} \\
+		\vdots	&			& \vdots \\
+		a_{1n}	& \cdots	& a_{mn}
+	\end{pmatrix}
+	\end{equation*}
+	Hvor
+	\begin{equation*}
+		a_{ij}'=a_{ji}, \quad 1\leq i \leq n, \ 1\leq j \leq m.
+	\end{equation*}
+
+	Den transponerede matrix fås altså ved at skrive den første \textit{række} i $ \mat{A} $, som den første \textit{søjle} i $ \mat{A}^t $, den anden række, som den anden søjle, osv. Altså $ \mat{A}^t[i,j] = \mat{A}[j,i]$.
+	
+	Den \textbf{adjungerede} matrix $ \mat{A}^* $ defineres som den konjugerede, transponerede matrix:
+	\begin{equation*}
+		\mat{A}^*=\konj{\mat{A}^t}
+	\end{equation*}
+	Hvis matricen $ \mat{A} $ er reel, er $ \konj{\mat{A}}=\mat{A} $, og $ \mat{A}^*=\mat{A}^t  $.
+	
+	For vilkårlige $ m\times p $-matricer $ \mat{A} $ og $ p\times n $-matricer $ \mat{g} $ gælder det:
+	\begin{itemize}
+		\item $ (\mat{A}^t)^t=\mat{A}, \quad (\mat{A}^*)^*=\mat{A} $
+		\item $ (\mat{A}\, \mat{B})^t = \mat{B}^t \mat{A}^t, \quad (\mat{A}\, \mat{B})^* = \mat{B}^* \mat{A}^* $
+		\item For regulære matricer er $ (\mat{A}^t)\inverse=(\mat{A}\inverse)^t, \quad (\mat{A}^*)\inverse = (\mat{A}\inverse)^* $. Alle disse matricer er regulære.
+	\end{itemize}
+
+	For lineære afbildninger $ \morffFF{n}{m} $, der har den tilhørende $ m\times n $-matrix $ \mat{A} $, defineres den \textbf{transponerede} lineære afbildning $ \morffFF[f^t]{m}{n} $, der har den transponerede matrix $ \mat{A}^t $ som tilhørende matrix. Den \textbf{adjungerede} lineære afbildning $ \morffFF[f^*]{m}{n} $ har adjungerede matrix $ \mat{A}^* $ som tilhørende matrix.
+	
+	Om adjungerede lineære afbildninger gælder:
+	\begin{itemize}
+		\item $ f(\V{x})\D \V{y}=\V{x} \D f^*(\V{y}) $
+		\item og hvis $ f(\V{x})\D\V{y}=\V{x}\D g(\V{y}) $ er $ g=f^* $
+	\end{itemize}
+	
+	En matrix $ \mat{A} $ kaldes \textbf{symmetrisk}, hvis $ \mat{A}^t = \mat{A} $. Dette betyder også, at den er $ n\times n $ og at $ a_{ij}=a_{ji} $ for alle $ i\leq i, j\leq n $. En lineær afbildning $ f $ kaldes \textbf{symetrisk}, hvis den tilhørende matrix er symmetrisk. Dette betyder at $ f^t=f $.
+	
+	En matrix $ \mat{A} $ kaldes \textbf{hermitisk}, hvis $ \mat{A}^*=\mat{A} $. Dette betyder igen, at det er en $ n\times n $-matrix. Her er dog $ a_{ij}=\konj{a_{ji}} $ for alle $ 1\leq i, j\leq n $. En lineær afbildning $ f $, hvis tilhørende matrix er hermitisk, kaldes \textbf{selvadjungeret}. Dette betyder også $ f^*=f $.
+	
+	For en selvadjungeret lineær afbildning $ \morffFF{n}{n} $ gælder det at
+	\begin{equation*}
+		f(\V{x})\D\V{y}=\V{x}\D f(\V{y})
+	\end{equation*}
+	
+	
+	\subsection{Række- og søjleoperationer}
+	Tre typer af \textbf{rækkeoperationer}
+	
+	\begin{itemize}
+		\item Type M: Multiplikation af en række med et tal $ c\neq 0 $
+		\item Type B: Ombytning af to rækker
+		\item Type S: Addition af et multiplum af en række til en anden række (læg én række, ganget med et tal $ c $, sammen med en anden række).
+	\end{itemize}
+	
+	Der er også omvendte rækkeoperationer, der ``ophæver'' de føromtalte rækkeoperationer:
+	\begin{itemize}
+		\item Den omvendte type M: At gange en række med tallet $ 1/c $
+		\item Den omvendte type B: Bytte om på to rækker igen
+		\item Den omvendte type S: læg den samme række fra før, dog ganget med $ -c $, til den samme anden række
+	\end{itemize}
+	
+	Der findes også disse tilsvarende tre typer (plus deres omvendte) søjleoperationer.
+	
+	En søjleoperation kan også udføres ved at transponere matricen, udføre den tilsvarende rækkeoperation, og transponere den resulterende matrice tilbage. Med andre ord, svarer en søjleoperation til en transponeret rækkeoperation. Dette bliver især tydeligt når der ses på operationsmatricer.
+	
+	\subsection{Operationsmatricer}
+	En \textbf{operationsmatricer} er matricen der fås ved at udføre en rækkeoperation på enhedsmatricen. Der en operationsmatrix til hver af de tre typer rækkeoperationer:
+	\begin{itemize}
+		\item Type M: Matricerne $ \mat{M}_i(c)(c\neq 0) $, der forekommer ved at gange den $ i $'te række i enhedsmatricen med $ c $. Rækkeoperationerne betegnes $ M_i(c)=\mat{E}+(c-1)\mat{I}_{i,i} $
+		\item Type B: Matricerne $ \mat{B}_{ij}(i\neq j) $, der fremkommer ved at ombytte den $ i $'te og $ j $'te række i enhedsmatricen. Rækkeoperationerne betegnes $ B_{ij}=\mat{E}-\mat{I}_{i,i}-\mat{I}_{j,j}+\mat{I}_{i,j}+\mat{I}_{j,i} $
+		\item Type S: Matricerne $ \mat{S}_{ij}(c)(i\neq j) $, der fremkommer ved at gange den $ j $'te række med $ c $ og dernæst lægge den til den $ i $'te række. Rækkeoperationerne betegnes $ S_{ij}(c)=\mat{E}+c\mat{I}_{i,j} $.
+	\end{itemize}
+
+	Disse operationsmatricer bruges ved at multiplicere operationsmatricen $ \mat{P} $ (som er en af typerne M, S eller B) med matricen $ \mat{A} $. Dette udtrykkes også ved følgende sætning:
+	
+	Lad $ \mat{A} $ være en $ m \times n $-matric. Hvis $ \mat{A} $ ved rækkeoperationen $ P $ (som er en af de tre førnævnte typer) omdannes til $ \mat{B}=P(\mat{A}) $, da er $ \mat{B}=\mat{P}\, \mat{A} $, hvor $ \mat{P} $ er den til $ P $ svarende operationsmatrix (som er $ m\times m $).	
+	
+	Ligeledes kan dette gøres flere gange:
+	
+	Lad $ \mat{A} $ være en $ m \times n $-matrix. Hvis $ \mat{A} $ ved successive rækkeoperationer $ P_1,\cdots,P_k $ omdannes til $ \mat{B} $, da er $ \mat{B}=\mat{P}_k \cdots \mat{P}_1 \mat{A} $, hvor $ \mat{P}_k, \cdots, \mat{P}_1 $ er de tilsvarende operationsmatricer (alle $ m \times m $).
+	
+	De omvendte rækkeoperationer fås ved at invertere operationsmatricerne, og er givet ved:
+	\begin{itemize}
+		\item $ \mat{M}_i(c)\inverse = \mat{M}_i(\frac{1}{c}) $
+		\item $ \mat{B}_{ij}\inverse = \mat{B}_{ij} $
+		\item $ \mat{S}_{ij}(c)\inverse = \mat{S}_{ij}(-c) $
+	\end{itemize}
+	
+	Operationsmatricerne for søjleoperationer er de transponerede operationsmatricer for rækkeoperationerne (ligesom sidste kapitel). Hvis $ M_i(c)^s $ betegner søjleoperationen af type M, og $ \mat{M}_i(c)^s $ betegner den tilhørende matrix (og ligeledes for de to andre typer), da er operationsmatricerne lig:
+	\begin{itemize}
+		\item Type M: $ \mat{M}_i(c)^s = \mat{M}_i(c)^t = \mat{M}_i(c) $
+		\item Type B: $ \mat{B}_{ij}^s = \mat{B}_{ij}^t = \mat{B}_{ij} $
+		\item Type S: $ \mat{S}_{ij}(c)^s = \mat{S}_{ij}(c)^t = \mat{S}_{ji}(c) $
+	\end{itemize}
+	
+	For søjleoperationer gælder det samme som ved rækkeoperationer:
+	
+	Lad $ \mat{A} $ være en $ m \times n $-matrix. Hvis $ \mat{A} $ ved successive søjleoperationer $ Q_1,\cdots,Q_k $ omdannes til $ \mat{B} $, da er $ \mat{B}=\mat{Q}_k \cdots \mat{Q}_1 \mat{A} $, hvor $ \mat{Q}_k, \cdots, \mat{Q}_1 $ er de tilsvarende operationsmatricer (alle $ n \times n $).
+	
+	
+	\subsection{Trappematricer}
+	Lad $ \mat{A}=(a_{ij})_{m,n} $ være en $ m\times n $-matrix.
+	
+	Matricen $ \mat{A} $ kaldes en \textbf{trin-1} matrix, hvis den har formen:
+	\begin{equation}
+	\mat{A}= \begin{psmallmatrix}
+	0		& \dots	& 0			& a			& \star		& \dots	& \star \\
+	0		& 		& 0			& 0			& \star		& 		& \star \\
+	\vdots	&		& \vdots 	& \vdots	& \vdots	&		& \vdots \\
+	0		& \dots	& 0			& 0			& \star		& \dots	& \star \\
+	\end{psmallmatrix}
+	\end{equation}
+	hvor $ a\neq 0 $ og $ \star $ betyder, at disse indgange kan have vilkårlige værdier. Tallet $ a $ kaldes matricens første trin. Positionen ($ i,j $) for de første trin i en trin-1 matrix er ($ 1,j_1 $) for $ 1\leq j_1 \leq n $. Matricen $ \mat{A}_1 $, kaldet \textbf{restmatricen for trin-1 matricen} $ \mat{A} $, fremkommer ved at slette den første række af $ \mat{A} $. Hvis restmatricen $ \mat{A}_1 $ også er en trin-1 matrix, kaldes $ \mat{A} $ for en \textbf{trin-2} matrix. I givet fald kaldes \textit{første trin} i $ \mat{A}_1 $ for \textit{andet trin} i $ \mat{A} $. Positionen af andet trin i en trin-2 matrix er $ (2,j_2), \ j_1 < j_2 \leq n $. Restmatricen $ \mat{A}_2 $ for trin-1 matricen $ \mat{A}_1 $ kaldes også restmatricen for trin-2 matricen $ \mat{A} $. Ligeledes defineres trin-3, trin-4 og så videre.
+	
+	Matricen $ \mat{A} $ kaldes en \textbf{trappematrix}, hvis den er en trin-$ d $ matrix for et $ d=1,2,3,\dots $, og hvis dens restmatrix enten er \textit{tom} eller en nulmatrix.
+	
+	Hvis $ \mat{A} $ er en trappematrix kaldes tallene $ j_1 < \dots < j_d $ for \textbf{trinpositionerne} for $ \mat{A} $.
+	
+	Nulmatricen $ \mat{0} $ defineres til at være en trappematrix.
+	
+	En \textbf{reduceret trappematrix} er en trappematrix hvor alle trinnene har værdien 1, og hvor der både er 0 \textit{over} og \textit{under} trinnet (til forskel fra almindelige, hvor der kun er 0 \textit{under} trinnet)
+	
+	Antallet af trin $ d $ i en $ m\times n $-trappematrix er altid mindre end, eller lig antallet af søjler og rækker. I tilfældet hvor $ m=d $ er den sidste række ikke en nulrække. I tilfældet $ d=n $ er $ j_1=1, \, j_2=2, \cdots, j_d=n=d $
+	
+	Enhver $ m \times n $-matrix kan ved hjælp af rækkeoperationer omdannes til en trappematrix, og videre til en reduceret trappematrix.
+	
+	\subsection{Regulære matricer og matrixinversion}
+	Definitionen på en regulær $ n\times n $-matrix $ \mat{A} $ er at ligningen $ \mat{A}\,\mat{X}=\mat{Y} $ har netop én løsning $ \mat{X} $ for hvert valg af $ \mat{Y} $. Dette er ækvivalent med at den tilhørende lineære afbildning $ \morffFF{n}{n} $ er bijektiv (eller injektiv/surjektiv, da disse er ækvivalente).
+	
+	For regulære $ n\times n $-matricer gælder også følgende:
+	\begin{itemize}
+		\item  Hvis der foretages en rækkeoperation på en regulær matrix $ \mat{A} $, er den nye matrix $ \mat{A}' $ også regulær.
+		\item En $ n\times n $-trappematrix er regulær hvis den har $ n $ trin.
+		\item En matrix er regulær, hvis den kan overføres i enhedsmatricen ved rækkeoperationer
+		\item Hvis $ \mat{A} $ og $ \mat{B} $ er $ n\times n $-matricer, og $ \mat{A}\,\mat{B} $ er regulær, da er både $ \mat{A} $ og $ \mat{B} $ regulære.
+		\item hvis $ \mat{A}\,\mat{B}=\mat{E} $ da er både $ \mat{A} $ og $ \mat{B} $ regulære og $ \mat{A}\inverse=\mat{B} $ samt $ \mat{B}\inverse = \mat{A} $
+	\end{itemize}
+	Og der er følgende opskrift på matrixinversion af en $ n\times n $-matrix $ \mat{A} $
+	\begin{enumerate}
+		\item Opskriv totalmatricen $ (\mat{A} | \mat{E}) $
+		\item Omskriv til en reduceret trappeform $ (\mat{A}'|\mat{B}') $ ved rækkeoperationer.
+		\item Hvis $ \mat{A}'=\mat{E} $ er $ \mat{A} $ regulær og $ \mat{B}'=\mat{A}\inverse $.
+		\item Hvis $ \mat{A}'\neq \mat{E} $ er $ \mat{A} $ ikke regulær.
+	\end{enumerate}	
+\end{document}
+

@@ -1,0 +1,176 @@
+\documentclass[MatFNoter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+% Hvis ikke dokumenterne (hoved & under) er i samme mappe, skal den relative stig bruges.
+
+
+
+\begin{document}
+	\section{Kurve-, flade-, og volumenintegraler}
+	
+	\subsection{Kurveintegraler}
+	Normalt integreres der over $ x$-aksen, men man kan også integrere over en kurve i planen eller rummet. $ \V{r}(t) $ betegner da positionsvektoren for en partikel, der bevæger sig langs kurven. Ses der på et lille kurveelement $ d\V{r} $ er dette givet ved:
+	\begin{equation}
+		\ud\V{r}=\ud x\Vi + \ud y\Vj + \ud z\Vk
+		\label{eq:dr}
+	\end{equation}
+	Koordinaterne $ x $, $ y $ og $ z $ kan udtrykkes ved parametren $ t $, og følgende udtryk kan fås for differentialet $ dx $ etc:
+	\begin{equation*}
+		\diff[\ud]{x}{t} = x'(t) \quad \Leftrightarrow \quad \ud x=x'(t) \ \ud t
+	\end{equation*}
+	Sættes dette udtryk ind i \eqref{eq:dr} fås følgende udtryk for kurveelementet:
+	\begin{equation}
+		\ud\V{r} = x'(t) \ \ud t \ \Vi + y'(t)\ \ud t\ \Vj + z'(t)\ \ud t \  \Vk
+	\end{equation}
+	Hermed er $ \ud\V{r} $ udtrykt kun ved variablen $ t $. Dette kaldes parametriseringen, og hvis denne ikke opgives, skal man selv vælge en hensigtsmæssig en af slagsen. Alle (korrekte) parametriseringer giver det samme resultat, men nogle kan være sværere rent regneteknisk. 
+	
+	\subsubsection*{Eksempel på parametrisering og udregning af linjeintegral}
+	Lad os sige, at vi skal udregne linjeintegralet i en ret linje fra punktet $ (4,0) $ til punktet $ (0,2) $, i vektorfeltet $ \V{v} = y \Vi $. Integralet, der skal udregnes er $ \int_{K} \V{v} \D \ud \V{r} $, og situationen ser således ud i et plot:
+	
+	\begin{figure}[H]
+		\includegraphics[width=0.75\textwidth]{img/lineint.png}
+		\caption{Illustration af linjeintegral i vektorfelt. $ \V{v}=y\Vi $ (rødt) og der skal integreres fra $ (4,0) $ til $ (0,2) $ (blåt). Figur lavet i MATLAB, med mit ">vektorplotscript"<, der kan  \href{http://psi.nbi.dk/@psi/wiki/Formelsamlinger/files/vektorplotscript.m}{downloades her}.}
+		\label{fig:lineint}
+	\end{figure}
+	
+	Her skal da findes et udtryk for linjestykket $ \ud \V{r} $. Her kan man vælge at opfatte det som en ret linje i planen, og sætte $ x=t $ og $ y=-\frac{1}{2} x + 2 = -\frac{1}{2} t + 2 $. Da er $ (4,0) $ givet ved $ t=4 $ og $ (0,2) $ givet ved $ t=0 $. Da skal man tage integralet fra $ t=4 $ til $ t=0 $ (eller det negative integral fra $ t=0 $ til $ t=4 $).
+	
+	En anden parametrisering er at lade $ x=4-t $ og $ y=\frac{1}{2}t $. Her svarer $ (4,0) $ til $ t=0 $ og $ (0,2) $ svarer til $ t=4 $. Der skal altså integreres fra $ t=0 $ til $ t=4 $.
+	
+	Med den første parametrisering fås:
+	\begin{equation}
+		\ud \V{r} = x'(t) \ud t \,\Vi + y'(t) \ud t\, \Vj = \ud t\, \Vi - 1/2 \ud t\, \Vj
+	\end{equation}
+	Og integralet bliver
+	\begin{equation}
+		\int_{K} \V{v} \D \ud \V{r} =  \int_{K} \V{v} (\ud t \,\Vi + 1/2 \ud t \,\Vj) = \int_{K} v_x \ud t + \int_{K} v_y 1/2 \ud t
+	\end{equation}
+	Herfra indsættes vektorfeltets komponenter, $ x $ og $ y $ substitueres, så der kun står et udtryk med $ t $, og grænserne indsættes. Dette giver
+	\begin{equation}
+		\int_{t=4}^{t=0} y \ud t + \int_{t=4}^{t=0} 0 \D -1/2 \ud t = \int_{t=4}^{t=0} -t/2 + 2 \ud t = [-t^2/4 + 2t]_4^0 = 0-(-4+8) = -4
+	\end{equation}
+	Med den anden parametrisering bliver smøren:
+	\begin{equation}
+		\ud \V{r} = -\ud t \, \Vi + \frac{1}{2} \ud t \, \Vj, \quad \int_{K} \V{v}\D \ud \V{r} = \int_{t=0}^{t=4} y (-\ud t) = \int_{0}^{4} -\frac{1}{2} t \ud t = [-t^2/4]_0^4 = -4
+	\end{equation}
+	
+	
+	\subsubsection*{Typer af kurveintegraler}
+	Her defineres to typer kurveintegraler: et kurveintegral for skalarfeltet $ \beta $ og et for vektorfeltet $ \V{A} $, langs kurven $ K $:
+	\begin{align}
+	\int_{K} \beta  \ud \V{r} &= \Vi \int_{K} \beta \ud x + \Vj \int_{K} \beta \ud y + \Vk \int_{K} \beta \ud z \\
+	\int_{K} \V{A} \D \ud \V{r} &= \int_{K} A_1 \ud x + \int_{K} A_2 \ud y +\int_{K} A_3 \ud z
+	\end{align}
+	Disse resultater opnås ved at indsætte \eqref{eq:dr} for $ \ud\V{r} $, og adskille integralerne. Integreres der over en lukket kurve $ \lambda $ bruges følgende symbol, og der integreres altid i positiv omløbsretning:
+	\begin{equation}
+		\oint_{\lambda} \beta  \ud \V{r}
+	\end{equation}
+	
+	\subsubsection*{Fysiske fortolkninger af kurveintegraler og betydning af kurven}
+	Kurveintegration over en skalar kan ses som arealet af et badeforhæng, der følger en meget underligt udformet brusekabine (kurven), i en bygning med et meget underligt tag (skalarfeltet). Kurven kan sno sig mangt og mærkeligt, og taget bugter sig i bakkedal.
+	
+	Kurveintegration over en vektor kan ses som et mål for, hvor meget medvind du oplever, hvis du bevæger dig langs kurven. Dette indses da prikproduktet er et udtryk for, hvor parallelle to vektorer er (i dette tilfælde din bevægelsesretning $ d\V{r} $ og vindretningen $ \V{A} $). Er de fuldt parallelle, har prikproduktet en maksværdi, og du har fuld medvind. Er de vinkelret er prikproduktet 0, og der er ingen medvind. Er de derimod antiparallelle har prikproduktet en maksimal \textit{negativ} værdi, og du har fuld modvind. I eksemplet ovenfor var der modvind langs hele integralet, og resultatet blev da også negativt.
+	
+	Det ses, at kurveintegralernes værdi afhænger af hvilken kurve man følger. Det kan godt være, at badeforhænget er lige langt, om det er i et hus eller et andet - men højden til loftet kan ændre sig. Ligeledes bevæger du dig måske lige langt på vej hjem ad to veje, men på den ene er der vindstille og den anden vind af orkanstyrke.
+	
+	\subsubsection{Kurveintegraler, gradientvektorer og konservative kraftfelter (rotationsfrie felter)}
+	I rotationsfrie vektorfelter, hvor $ \grad \times \V{v} = 0 $ kan vektorfeltet altid skrives som gradienten til en skalar $ \V{v} = \grad \beta $. Her vil kurveintegraler være givet ved værdien af gradienten i start og slutpunktet:
+	\begin{equation}
+		\int_{K} \V{v} \D \ud \V{r} = \int_{K} \grad \beta  \D \ud \V{r} = \int_{\beta_1}^{\beta_2} \ud \beta = \beta_2 - \beta_1
+	\end{equation}
+	hvilket følger af, at $ \grad \beta \D d\V{r} = d\beta $ (se ligning \eqref{eq:totdiff}). Dette betyder også, at i rotationsfrie felter, vil kurveintegralet om en lukket kurve \textit{altid} være lig 0:
+	\begin{equation}
+		\oint_{\lambda} \grad \beta \D \ud \V{r} = \int_{\beta_1}^{\beta_1} \ud \beta = \beta_1 - \beta_1 = 0
+	\end{equation}
+	Dette betyder også, at cirkulationen $ C $ om enhver lukket kurve, i et rotationsfrit felt, vil være lig 0.
+	
+	Rotationsfrie kraftfelter kaldes konservative. Her afhænger kurveintegralets værdi altså \textit{ikke} af kurven, og er altså et specialtilfælde. Et eksempel er gravitationsfelter, hvor ændringen i den potentielle energi ikke afhænger af vejen man har bevæget sig, men kun af ændringen i højde.
+	
+	\subsubsection{Greens sætning (kurve til flade)}
+	Greens sætning er en måde at udregne et kurveintegral ved et fladeintegral. Sætningen udnytter, at cirkulationen af et vektorfelt i planen, om et lille kvadrat, er givet ved:
+	\begin{equation*}
+		(\grad \times \V{v}) \D \V{n}\, \Delta \sigma_i = \oint_{\Delta \lambda_i} \V{v} \D \ud \V{r}
+	\end{equation*}
+	hvor $ \V{n}=\Vk $ er normalvektoren for planen, $ \Delta \sigma_i $ er arealet af kvadratet, og $ \Delta \lambda_i $ er kurven, der omgrænser kvadratet. En kurve kan tænkes opbygget af en masse kvadrater af denne type, og summen af alle disse kvadraters cirkulation er givet ved:
+	\begin{equation*}
+		\sum_{i=1}^{N} (\grad \times \V{v}) \D \V{n}\, \Delta \sigma_i = \sum_{i=1}^{N} \oint_{\Delta \lambda_i} \V{v} \D \ud \V{r}
+	\end{equation*}
+	For to kvadrater, ved siden af hinanden, vil kurveintegralerne for siden der støder op mod hinanden gå ud med hinanden, da det er samme kurve, men i modsat omløbsretning. Dette betyder, at det kun er de kvadrater, der har en fri side, hvis kurveintegral bidrager til udregningen. Lades $ \Delta \sigma_i \rightarrow 0 $ og $ N \rightarrow \infty $, vil venstre side af forrige ligning blive til fladeintegralet over den flade, som kurven afgrænser; mens højre side vil blive til kurveintegralet for alle de "frie" sider af kvadraterne, der netop bliver til kurven selv.
+	
+	Resultatet er Greens sætning, der kobler fladeintegralet af et vektorfelts rotation sammen med kurveintegralet af et vektorfelt:
+	\begin{equation}
+		\int_{\sigma} (\grad\times \V{v}) \D \V{n} \, d\sigma = \oint_{\lambda} \V{v}\D \ud \V{r}
+	\end{equation}
+	Igen, $ \lambda $ er kurven, der afgrænser arealet $ \sigma $, $ \V{v} $ er vektorfeltet og $ \V{n} $ er fladenormalen til planen ($ \Vk $).
+	
+	
+	\subsubsection{Stokes' sætning (kurve til flade i 3 dimensioner)}
+	Stokes sætning er en generalisering af Greens sætning, så denne virker i 3 dimensioner, med krumme flader. Selve ligningen er identisk:
+	\begin{equation}
+		\int_{\sigma} (\grad\times \V{v}) \D \V{n}  \ud \sigma = \oint_{\lambda} \V{v}\D \ud \V{r}
+	\end{equation}
+	forskellen er her, at $ \V{n} $ generelt set \textit{ikke} er lig $ \Vk $, da overfladen er krum.
+	
+		
+	\subsection{Flade- og volumenintegraler}
+	\subsubsection{Simple flade- og volumenintegraler (fra Funktioner af Flere Variable)}
+	Dette afsnit er noter fra bogen "Funktioner af Flere Variable", af T. A. Kro, som er pensum i kurset MatIntro.
+	
+	Fladeintegraler svarer til at finde volumen af et rum, med et loft afgrænset af en arbitrær funktion $ f(x,y) $, mens volumenintegraler svarer til at finde massen af en volumen med en arbitrær massefylde $ f(x,y,z) $. Til udregningen af disse ses der på begrebet "simple domæner", der gør denne udregning betydeligt lettere.
+	
+	For fladeintegraler, beskrives to former for simple mængder:
+	\begin{align}
+		D &= \{(x,y)\ | \ a\leq x \leq b, \ u(x) \leq y \leq o(x)\} \label{eq:simp1} \\
+		D &= \{(x,y)\ | \ c\leq y \leq d, \ v(y) \leq x \leq h(y)\} \label{eq:simp2}
+	\end{align}
+	hvor $ \morf{u,o}{[a,b]}{\Set{R}} $ og $ \morf{v,h}{[c,d]}{\Set{R}} $, og $ v,h,u,o $ står for henholdsvis venstre, højre, under og over. Yderligere betingelser er, at $ u\leq o, \ v\leq h $, og at disse er kontinuerte funktioner.
+	
+	For volumenintegraler defineres følgende:
+	\begin{equation}
+		R = \{ (x,y) \ | \ a\leq x \leq b, \ u(x) \leq y \leq o(x), | b(x,y) \leq z \leq t(x,y) \} \label{eq:simp3}
+	\end{equation}
+	hvor $ u,o $ er defineret som i planen, og 
+	\begin{equation}
+		\morf{t,b}{\{ (x,y) \ | \ a\leq x \leq b, \ u(x) \leq y \leq o(x) \}}{\Set{R}}
+	\end{equation}
+	og $ t,b $ står for top og bund. Yderligere skal der gælde, at $ b(x,y)\leq t(x,y) $, og at begge funktioner er kontinuerte.
+	
+	Ligesom ved tilfældet i to dimensioner, kan rollerne for $ x,y,z $ byttes om i tre dimensioner.
+	
+	Samlingen af disse mængder i planen og rummet, kaldes for \textbf{simple domæner}, og flade/volumen-integraler kan løses som itererede integraler af formen.
+	\begin{enumerate}
+		\item Hvis $ f $ er en funktion af to variable, og $ D $ er på formen \eqref{eq:simp1}, gælder
+		\begin{equation}
+			\int_{D} f(x,y) \ud A = \int_{x=a}^{x=b} \pp{\int_{y=u(x)}^{y=o(x)} f(x,y) \ud y} \ud x
+		\end{equation}
+		\item Hvis $ f $ er en funktion af to variable, og $ D $ er på formen \eqref{eq:simp2}, gælder
+		\begin{equation}
+			\int_{D} f(x,y) \ud A = \int_{x=c}^{y=d} \pp{\int_{x=v(y)}^{x=h(y)} f(x,y) \ud x} \ud y
+		\end{equation}
+		\item Hvis $ f $ er en funktion af tre variable, og $ R $ er på formen \eqref{eq:simp3}, gælder
+		\begin{equation}
+			\int_{R} f(x,y,z) \ud V = \int_{x=a}^{x=b} \pp{\int_{y=u(x)}^{y=o(x)} \bb{\int_{z=b(x,y)}^{z=t(x,y)} f(x,y,z) \ud z} \ud y} \ud x
+		\end{equation}
+	\end{enumerate}
+	Der gælder selvfølgelig tilsvarende itererede integraler, med rollerne for $ x $, $ y $ og $ z $ ombyttet.
+	
+	Hvis $ D $ kan skrives både på formen \eqref{eq:simp1} og \eqref{eq:simp2} kan begge itererede integraler bruges (eksempelvis et rektangel), ligeledes for $ R $.
+	
+	\subsubsection{Volumenintegraler og Gauss' sætning (volumen til flade)}
+	I stil med Greens og Stokes sætninger, så tænker vi os et afgrænset volumen $ \tau $, indenfor en flade $ \sigma $. Denne placeres i et vektorfelt $ \V{A} $, og indeles i et stort antal små terninger, med overfladen $ \Delta \sigma_i $ og volumenet $ \Delta \tau_i $. Fluksen gennem overfladen for hver af disse terninger er givet ved:
+	\begin{equation*}
+		(\grad \D \V{A}) \Delta \tau_i = \int_{\Delta \sigma_i} \V{A} \D \V{n} \ud \sigma.
+	\end{equation*}
+	Da fluksen af én kasses side er positiv, mens naboens samme side er negativ, går alle disse ud med hinanden, og kun de sider af kasser, der ikke har nogen naboer (som altså svarer til overfladen af volumenet) bidrager til den samlede fluks. Summeres alle disse bidrag, og lades antallet af kasser $ N \rightarrow \infty $ og $ \Delta \sigma_i \rightarrow 0 $, vil denne sum blive til et integral (præcis som ved de foregående sætninger). Resultatet er:
+	\begin{equation}
+		\int_{\tau} \grad \D \V{A} \ud \tau = \int_{\sigma} \V{A}\D \V{n} \ud \sigma
+	\end{equation}
+	Denne sætning siger, at den totale fluks over en overflade (højre side) er lig integralet af divergensen, over den volumen, som fladen afgrænser (venstre side).
+	
+	Lignende sætninger fås for gradientvektoren og rotationsvektoren:
+	\begin{align}
+		\int_{\tau} \grad \beta \ud \tau &= \int_{\sigma} \beta \V{n} \ud \sigma \\
+		\int_{\tau} \grad \times \V{A}  \ud \tau &= -\int_{\sigma} \V{A}  \times \V{n}  \ud \sigma
+	\end{align}
+	
+\end{document}
+

@@ -1,0 +1,138 @@
+\documentclass[LinAlgNoter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+% Hvis ikke dokumenterne (hoved & under) er i samme mappe, skal den relative stig bruges.
+
+
+
+\begin{document}
+	
+	\subsection{Lineære ligningssystemer}
+	Et lineært ligningssystem med $ m $ ligninger og $ n $ ubekendte er en række linjer givet på formen:
+	\begin{align*}
+		a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n &= b_1 \\
+		a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n &= b_2 \\
+		&\vdots \\
+		a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n &= b_m
+	\end{align*}
+	Et sådan ligningssystem kan også beskrives ved matricer, hvor matricen $ \mat{A} $ kaldes for \textbf{koefficientmatricen}, og søjlematricen $ \mat{B} $ kaldes for \textbf{konstantsøjlen}:
+	\begin{equation*}
+		\mat{A}= \begin{pmatrix}
+		a_{11}	& a_{12}	& \dots	& a_{1n} \\
+		a_{21}	& a_{22}	& \dots	& a_{2n} \\
+		\vdots	& \vdots 	&		& \vdots \\
+		a_{11}	& a_{12}	& \dots	& a_{mn} \\
+		\end{pmatrix}, \qquad \mat{B}=\begin{pmatrix}
+		b_1 \\ \vdots \\ b_m
+	\end{pmatrix},
+	\end{equation*}
+	Blokmatricen $ \mat{C}= \begin{pmatrix}
+	\mat{A} & \mat{B}
+	\end{pmatrix} $ kaldes for ligningssystemets \textbf{totalmatrix}, og har formen:
+	\begin{equation*}
+		\mat{C}=\pp{\begin{array}{cccc|c}
+		a_{11}	& a_{12}	& \dots	& a_{1n}	& b_1\\
+		a_{21}	& a_{22}	& \dots	& a_{2n}	& b_2 \\
+		\vdots	& \vdots 	&		& \vdots 	& \vdots \\
+		a_{11}	& a_{12}	& \dots	& a_{mn}	& b_m \\
+		\end{array}},
+	\end{equation*}
+	der er en $ m \times (n+1) $-matrix, og hvor den lodrette linje er tilføjet for overskuelighed. Sættes
+		$ \mat{X}=\begin{psmallmatrix}
+			x_1 \\ \vdots \\ x_n
+		\end{psmallmatrix} $
+	kan ligningssystemet skrives som
+	\begin{equation}
+		\mat{A} \, \mat{X}=\mat{B}
+	\end{equation}
+	
+	
+	\subsubsection*{Løsning af lineære ligningssystemer}
+	For at løse et lineært ligningssystem på matrixform, bruges Gauss-eliminiation, der består i at bruge rækkeoperationer for at omdanne totalmatricen til en trappematrix. 
+	
+	
+	\subsubsection*{Matrix til trappematrix (Gauss-elimination)}
+	For at omdanne en matrix til en trappematrix findes den første søjle, der ikke er en nulsøjle. Denne omdannes ved rækkeoperationer til at have nuller i denne søjle, ud over første position. Herved er en trin-1 matrix opnået. Restmatricen behandles nu på samme måde, så en trin-2 matrix opnås. Dette gentages for en trin-3 matrix og så videre, indtil der nås en trappematrix.
+	
+	Nogle gange bruges Gauss-Jordan elimination, hvor trappematricen omdannes til en reduceret trappematrix:
+	
+	\subsubsection*{Trappematrix til reduceret trappematrix (Gauss-Jordan elimination)}
+	For at gå fra en trappematrix til en reduceret trappematrix arbejdes der nedefra og op: Det sidste trin multipliceres med $ 1/a $, så værdien af trinnet bliver 1. Herefter trækkes denne række fra de øvre rækker, så den sidste søjle bliver til en enhedssøjlematrix (altså at der er 0 over og under trinnet). Herefter gøres det samme for andet trin og den tilhørende søjle, og så fremdeles.
+	
+	Selve løsningsmetoden kan opsummeres i følgende opskrift
+	\subsubsection{Opskrift på løsning af lineære ligningssystemer}
+	\begin{enumerate}
+		\item Opskriv blokmatricen $ \mat{C}= \begin{pmatrix}
+		\mat{A} & \mat{B}
+		\end{pmatrix} $
+		\item Omdan ved hjælp af rækkeoperationer $ \mat{C} $ til en trappematrix\begin{equation*}
+			 \mat{C}'= \begin{pmatrix}
+			\mat{A}' & \mat{B}'
+			\end{pmatrix} 
+		\end{equation*}
+		\item Hvis der er trin i sidste søjle af $ \mat{C}' $ er der \textit{ingen} løsning
+		\item Hvis der ikke er trin i sidste søjle, og antallet af trin i $ \mat{C}' $ er lig antallet af søjler i $ \mat{A} $, er der en entydig løsning, som findes ved substitution (hvis ikke der er foretaget Gauss-Jordan elimination)
+		\item Hvis der ikke er trin i sidste søjle, og antallet af trin i $ \mat{C}' $ er mindre en antallet af søjler i $ \mat{A} $ er der uendeligt mange løsninger. Disse findes ved at sætte de \textbf{frie variable} (de variable der \textit{ikke} er i en trinposition) lig parametrene $ t_1,\cdots, t_{n-d} $, hvor $ d $ er antallet af trin. Dernæst udtrykkes variablene $ x_{j1}, \cdots , x_{jd} $ svarende til trinpositioner (kaldet ledende variable), ved parametrene $ t_1,\cdots, t_{n-d} $.
+	\end{enumerate}
+	Sammenhængen mellem antallet af trin $ d $ i en $ m\times n $-koefficienttrappematrix $ \mat{A}' $ og antallet af søjler/rækker i samme er som følger:
+	\begin{enumerate}
+		\item hvis $ m>d $ findes der en søjle $ \mat{B} $, så ligningssystemet $ \mat{A}\,\mat{X}=\mat{B} $ ingen løsning har.
+		\item hvis $ n>d $ har ligningen $ \mat{A}\,\mat{X}=\mat{0} $ en løsningsmængde givet ved en parameterfremstilling med $ n-d $ parametre, og ligningen har altså uendeligt mange løsninger.
+		\item hvis $ m=n=d $ har ligningssystemet $ \mat{A}\,\mat{X}=\mat{B} $ netop én løsning for hvert valg af $ \mat{B} $.
+	\end{enumerate}
+	Og omvendt:
+	\begin{enumerate}
+		\item Hvis ligningssystemet $ \mat{A}\,\mat{X}=\mat{B} $ har mindst én løsning for hvert valg af $ \mat{B} $, da er $ d=m $. ($ f $ er surjektiv)
+		\item Hvis ligningssystemet $ \mat{A}\,\mat{X}=\mat{0} $ kun har én løsning (nemlig $ \mat{0} $), da er $ d=n $ ($ f $ er injektiv)
+		\item Hvis ligningssystemet $ \mat{A}\,\mat{X}=\mat{B} $ har netop én løsning for hvert valg af $ \mat{B} $, da er $ d=m=n $. ($ f $ er bijektiv)
+	\end{enumerate}
+	
+	For at bestemme in-/sur-/bijektivitet kan matricen omdannes til en trappematrix med $ d $ trin. Der er følgende sammenhæng mellem antal trin, rækker og søjler:
+	\begin{enumerate}
+		\item Hvis $ d=n $ (\#trin = \#søjler), så er $ f $ injektiv
+		\item Hvis $ d=m $ (\#trin = \#rækker), så er $ f $ surjektiv
+		\item Hvis $ d=m=n $ (\#trin = \#rækker = \#søjler), så er $ f $ bijektiv
+	\end{enumerate}
+	\subsubsection*{Lineære ligningssystemer og lineære afbildninger}
+	Et ligningssystem af typen $ \mat{A}\,\mat{X}=\mat{B} $ kan også beskrives ved lineære afbildninger. Hvis vi lader $ \morffFF{n}{m} $ være den lineære afbildning, der hører til $ \mat{A} $, sætter $ \V{x}=\mat{X}, \ \V{b}=\mat{B} $, så bliver ligningssystemet
+	\begin{equation}
+		f(\V{x})=\V{b}
+	\end{equation}
+	For lineære afbildninger gælder følgende om injektivitet:
+	\begin{itemize}
+		\item En lineær afbildning $ f $ er injektiv når ligningen $ f(\V{x})=\V{o} $ kun har løsningen $ \V{x}=\V{o} $
+	\end{itemize}
+	Og følgende gælder om dimensionerne for en lineær afbildning $ \morffFF{n}{m} $:
+	\begin{enumerate}
+		\item Hvis $ f $ er surjektiv er $ m\leq n $
+		\item Hvis $ f $ er injektiv er $ m\geq n $
+		\item Hvis $ f $ er bijektiv er $ m=n $
+	\end{enumerate}
+	Og hvis $ m=n $ gælder følgende: for en lineær afbildning $ \morffFF{n}{n} $ er surjektiv, injektiv og bijektiv ækvivalente, og hvis en afbildning dermed er det ene, så er den også de andre.
+	
+	\subsubsection{Løsning med determinanter (Cramers formler)}
+	For et regulært/bijektivt ligningssystem med $ n $ ligninger og $ n $ ubekendte fås følgende udtryk for de ubekendte, kaldet Cramers formler
+	\begin{equation}
+	x_j = \frac{\begin{blockarray}{c c c c c}
+			&	& j	&	& \\
+			&	& \downarrow & &\\
+			\begin{block}{| c c c c c |}
+				a_{11}	& \dots	& b_1		& \dots	& a_{1n} \\
+				\vdots	& 		& \vdots	& 		& \vdots \\
+				a_{n1}	& \dots	& b_n		& \dots	& a_{nn}\\
+			\end{block}
+		\end{blockarray}}{\det(\mat{A})},j=1,\dots,n
+	\end{equation}
+	Hvor den øverste determinant er matricen $ \mat{A} $, hvor den $ j $'te søjle er udskiftet med konstantsøjlen $ \V{b} $. Eksempelvis er $ x_3 $ til $ n=3 $:
+	\begin{equation}
+		x_3 = \frac{\begin{vmatrix}
+			a_{11} & a_{12} & b_1 \\
+			a_{21} & a_{22} & b_2 \\
+			a_{31} & a_{32} & b_3 
+			\end{vmatrix}}{\begin{vmatrix}
+			a_{11} & a_{12} & a_{31} \\
+			a_{21} & a_{22} & a_{32} \\
+			a_{31} & a_{32} & a_{33} 
+			\end{vmatrix}}
+	\end{equation}
+\end{document}
+

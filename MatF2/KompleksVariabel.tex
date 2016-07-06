@@ -1,0 +1,355 @@
+\documentclass[MatF2Noter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+\begin{document}
+	\section{Komplekse variable}
+	En kompleks funktion $ f(z) $ afhænger af et komplekst tal $ z $, og knytter én (eller flere) værdier til hvert $ z $. I dette kursus arbejdes kun med entydigt bestemte funktioner, så alle funktioner knytter kun én værdi til hvert $ z $. Vi definerer en kompleks funktion som havende en reel og en imaginær del (lige som et komplekst tal):
+	\begin{equation}
+		f(z) = u(x,y) + i v(x,y), \quad z=x+iy
+	\end{equation}
+	En kompleks funktion er differentiabel i et domæne $ R $, hvis den i punktet $ z $ i har en entydigt bestemt differentialkvotient:
+	\begin{equation}
+		f'(z) = \lim\limits_{\Delta z \to 0} \bb{\frac{f(z+\Delta z)-f(z)}{\Delta z}}, \quad \Delta z = \Delta x + i \Delta y
+	\end{equation}
+	og denne ikke afhænger af, på hvilken måde $ \Delta z $ går mod 0.
+	
+	En kompleks funktion, der er entydigt bestemt og differentiabel i et domæne $ R $, kaldes for \textbf{analytisk} (eller regulær) i domænet. En funktion kan også være analytisk, ud over en endelig mængde punkter, hvor den ikke er differentiabel. Disse punkter kaldes for \textbf{singulariteter}.
+	
+	\subsubsection*{Holomorfitet og analytiske funktioner}
+	En kompleks funktion kaldes \textbf{holomorf}, hvis den er differentiabel, mens den kaldes \textbf{analytisk}, hvis den er lig med sin egen Taylorrække. Alle analytiske funktioner er også holomorfe, og uendeligt differentierbare.
+	
+	\subsection{Cauchy-Riemann relationerne}
+	Som i Feltteori og Vektoranalyse optræder Cauchy-Riemann relationerne. I Feltteori og Vektoranalyse var det i forbindelse med relationen mellem strømfunktioner og potentialfunktioner. I studiet af komplekse variable er det relationen mellem den reelle og imaginære komponent af funktionen. 
+	
+	Relationerne lyder:
+	\begin{equation}
+		\diff{u}{x} =  \diff{v}{y}, \quad \diff{v}{x} = -\diff{u}{y}
+	\end{equation}
+	Findes disse fire partielt afledede, og de er kontinuerte og opfylder relationen ovenfor, er det en \textbf{tilstrækkelig} betingelse for at funktionen $ f $ er differentiabel i $ z $. Med andre ord: hvis de eksisterer, er kontinuerte og opfylder relationen, så er $ f $ uden tvivl differentiabel i $ z $.
+	
+	Man kan også betragte funktionen $ f $ som en funktion af $ z $ og $ z^{\ast} $. For at funktionen er analytisk skal følgende gælde:
+	\begin{equation}
+		\diff{f}{z^{\ast}} = 0
+	\end{equation}
+	Altså må en funktion $ f $ ikke afhænge af $ z^* $, for at den er analytisk. Det vil sige, at den må godt beskrives ved $ z = x+iy $, men ikke ved $ z=x-iy $.
+	
+	Ydermere er både $ u $ og $ v $ begge løsninger til Laplace's ligning (dette opnås ved at differentiere hver ligning i Cauchy-Riemann relationen med hensyn til to forskellige variable - den første med hensyn til $ x $ og den anden med hensyn til $ y $, eksempelvis):
+	\begin{equation}
+		\diff{^2 u}{x^2} + \diff{^2 u}{y^2} = 0, \quad \diff{^2 v}{x^2} + \diff{^2 v}{y^2} = 0
+	\end{equation}
+	Hvis vi ser på $ u(x,y) =  $ konstant, og ligeledes for $ v(x,y) $, så $ f = u +i\, v $. Herfra er vektornormalen givet ved
+	\begin{equation}
+		\grad u = \diff{u}{x} \Vi + \diff{u}{y} \Vj
+	\end{equation}
+	og ligeledes for $ v(x,y) $. For disse gælder følgende
+	\begin{align}
+		\grad u \D \grad v &= 0 \\
+		|\grad u| &= |\grad v|
+	\end{align}
+	
+	
+	
+	\subsection{Potensrækker i komplekse variabler}
+	Komplekse potensrækker er defineret som følger:
+	\begin{equation}
+		f(z) = \sum_{n=0}^{\infty} a_n z^n = \sum_{n= 0}^{\infty} a_n r^n \exp (in\theta) \label{eq:POWAH}
+	\end{equation}
+	Dette er en potensrække omkring origo, mens alle andre punkter kan opnås ved at skifte variabel fra $ z $ til $ z-z_0 $. 
+
+	
+	\subsubsection*{Konvergenstests}
+	Serien \eqref{eq:POWAH} konvergerer hvis følgende række konvergerer
+	\begin{equation}
+		\sum_{n=0}^{\infty} |a_n| r^n
+	\end{equation}
+	For at teste konvergensen bruges en ligning baseret på Cauchys rodtest. Her er \textbf{konvergensradiussen} $ R $ givet ved
+	\begin{equation}
+		\frac{1}{R} = \lim\limits_{n\to \infty} |a_n|^{1/n}
+	\end{equation}
+	Rækken konvergerer hvis $ |z| < R $, divergerer hvis $ |z| > R $ og hvis $ |z| = R $ duer testen ikke. En cirkel om origo med radius $ R $ kaldes for \textbf{konvergenscirklen} for $ \sum a_n z^n $. Hvis $ R = 0 $ konvergerer serien kun ved $ z=0 $ og hvis $ R= \infty $ konvergerer serien overalt. For en potensrække om et punkt $ z_0 $ er konvergenscirklen centreret i punktet $ z_0 $.
+	
+	Forholdstesten kan også bruges til at bestemme konvergens. En potensrække er konvergent, hvis
+	\begin{equation}
+		\lim\limits_{n \to \infty} \frac{|a_{n+1}| |z|^{n+1}}{|a_n| |z|^n} = \lim\limits_{n \to \infty} \frac{|a_{n+1}| |z|}{|a_n|} < 1
+	\end{equation}
+	Konvergensradiussen er her givet ved
+	\begin{equation}
+		\frac{1}{R} = \lim\limits_{n\to \infty} \frac{|a_{n+1}|}{|a_n|}
+	\end{equation}
+	\textbf{Ydermere er potensrækken \eqref{eq:POWAH} en analytisk funktion} inden for sin konvergensradius. Det giver, at dens afledte er givet ved
+	\begin{equation}
+		f'(z) = \sum_{n=0}^{\infty} n\, a_n\, z^{n-1}
+	\end{equation}
+	Og at enhver potensrække er uendeligt differentierbar inden for sin konvergensradius.
+	
+	\subsection{Elementære funktioner}
+	Den komplekse eksponentialfunktion, $ \exp z $ er defineret som
+	\begin{equation}
+	\exp z = \sum_{n = 0}^{\infty}\frac{z^n}{n!}
+	\end{equation}
+	er konvergent for alle $ z $ med endeligt modulus. Denne opfører sig generelt som sin reelle modpart, og $ \exp z $ kan derfor skrives ombytteligt med $ e^z $. En forskel på den komplekse og reelle eksponentialfunktion er, at den komplekse ikke er entydigt bestemt: fordi
+	\begin{equation}
+		\exp z = (\exp x)(\cos y + i\, \sin y)
+	\end{equation}
+	vil $ w = z + 2\pi k i $, hvor $ k $ er et heltal, give at $ \exp z = \exp w $.
+	
+	De komplekse trigonometriske funktioner som $ \sin $ og $ \cos $, samt komplekse hyperbolske som $ \sinh $ og $ \cosh $ er defineret som for reelle variable.
+	
+	Den inverse funktion til den komplekse eksponentialfunktion $ \exp z $ er den komplekse logaritme, $ \Ln z $:
+	\begin{equation}
+		\Ln z = \ln r + i(\theta + 2k\pi)
+	\end{equation}
+	hvor $ k $ er et heltal og $ \pi < \theta \leq \pi $. \textbf{Principalværdien} for denne funktion, betegnet $ \ln z $ er givet ved $ k = 0 $, og dermed
+	\begin{equation}
+		\ln z = \ln r + i \theta, \quad -\pi < \theta \leq \pi
+	\end{equation}
+	Den komplekse eksponent til et positivt, reelt tal er givet ved
+	\begin{equation}
+	a^z = \exp (z \ln a)
+	\end{equation}
+	Mens den komplekse eksponent til et generelt komplekst tal $ t\neq 0 $ er givet ved
+	\begin{equation}
+		t^z = \exp (z \Ln t)
+	\end{equation}
+	hvor man vælger \textbf{principalværdien} af $ \Ln t $, altså $ \ln t $. Hvis $ t \neq 0 $ er komplekst, men $ z $ er reel og lig $ 1/n $ bliver ligningen til definitionen af den $ n $-te rod af $ t $, og grundet flertydigheden af $ \Ln t $ vil der være flere end én $ n $-te rod for et givent t.
+	
+	
+	
+	\subsection{Flertydige funktioner, forgreningspunkter og forgreningssnit}
+	En betingelse for at en funktion er analytisk er, at den er entydigt bestemt, men både den komplekse eksponentialfunktion og logaritme er flertydige. De analytiske egenskaber kan dog genvindes ved af tage højde for såkaldte \textit{forgreningspunkter}.
+	
+	Hvis $ z $ for en funktion varieres således at der foretages en omgang rundt om et forgreningspunkt, så vil $ f(z) $ ikke have den samme værdi som i starten. Et eksempel er $ f(z) = z^{1/2} $, med $ z = r \exp i\theta $. Hvis der følges en lukket kurve rundt om origo vil følgende resultat fås:
+	\begin{equation}
+		f(z) = r^{1/2} \exp i\,\theta/2 \to r^{1/2} \exp [i(\theta+2\pi)/2] = - r^{1/2} \exp i\,\theta /2 = -f(z)
+	\end{equation}
+	Her er origo altså et forgreningspunkt. Hvis der foretages to omgange om origo, vil værdien $ f(z) $ igen optræde, men for nogle funktioner, såsom $ \Ln z $ vil den oprindelige værdi aldrig optræde igen.
+	
+	For at en funktion $ f(z) $ med et forgreningspunkt, kan betragtes som værende entydig, indføres der et \textbf{forgreningssnit}, der forhindrer at man kan danne en lukket kurve om et forgreningspunkt. For $ f(z) = z^{1/2} $ (eller $ \Ln z $, eller enhver anden funktion med et forgreningspunkt i origo) kan et snit være en linje fra origo ud til $ |z| = \infty $ for et eller andet $ \theta $. Normalt vælger man at lægge snittet langs den reelle eller imaginære akse. Hvis eksempelvis den reelle akse vælges vil argumentet for $ z $ være begrænset til $ 0 \leq \theta < 2\pi $.
+	
+	Denne metode kan også udvides til funktioner med flere end ét forgreningspunkt. Eksempelvis har funktionen $ f(z) = \sqrt{z^2 +1} = \sqrt{(z-i)(z+i)} $ forgreningspunkter i $ \pm i $. Her kan der vælges at lægge to snit, fra $ i $ langs den imaginære akse, ud mod $ +\infty $, samt fra $ -i $ ud mod $ -\infty $. Ellers kan et snit langs den imaginære akse, fra $ i $ til $ -i $ også benyttes, da denne funktion har den egenskab, at hvis \textit{begge} forgreningspunkter passeres så opnås den oprindelige værdi igen.
+	
+	\subsection{Singulariteter, nuller og uendelighed for komplekse funktioner}
+	Singulariteter er punkter, hvor $ f(z) $ ikke er analytisk. Der er flere forskellige typer af singulariteter.
+	\subsubsection*{Isolerede singulariteter, poler og essentielle singulariteter}
+	En isoleret singularitet er et punkt $ z_0 $ hvor $ f(z_0) $ ikke er analytisk, men den er analytisk i alle punkter i et område omkring $ z_0 $. \textit{Forgreningspunkter er ikke en isoleret singularitet}.
+	
+	En bestemt og vigtig type af isolerede singulariteter er \textbf{polen}. Hvis $ f(z) $ er af formen
+	\begin{equation}
+		f(z) = \frac{g(z)}{(z-z_0)^n} 
+	\end{equation}
+	hvor $ n $ er et positivt heltal, $ g(z) $ er analytisk i et område omkring $ z_0 $ og forskellig fra 0, så har $ f(z) $ en \textbf{pol af $ n $-te orden}. Hvis $ n = 1 $ kaldes polen for en \textbf{simpel pol}. En anden, lige gyldig (læg mærke til at det er to ord!) definition er
+	\begin{equation}
+		\lim\limits_{z \to z_0} [(z-z_0)^n f(z)] = a
+	\end{equation}
+	hvor $ a $ er et endeligt, komplekts tal, forskelligt fra 0. Hvis $ a= 0 $ er polen enten af ordnen mindre end 0, eller $ f(z) $ er analytisk; hvis $ a = \infty $ er polen af ordnen større end $ n $. Hvis ingen værdi af $ n $ kan findes, således at $ a $ er endelig og forskellig fra 0, kaldes $ z_0 $ for en \textbf{essentiel singularitet}.
+	
+	Ydermere, hvis $ f(z) $ har en pol i $ z_0 $, så gælder at $ |f(z)| \to \infty $ for $ z \to z_0 $, lige meget hvilken retning $ z $ går mod $ z_0 $.
+
+	\subsubsection*{Flytbare singulariteter}
+	Hvis $ z_0 $ er en singularitet, hvor $ f(z) $ tager en ubestemt værdi (0/0 eller $ \infty / \infty $, eksempelvis), men $ \lim\limits_{z\to z_0}f(z) $ eksisterer og er entydig, kaldes for en \textbf{flytbar singularitet}. 
+	
+	Et eksempel er funktionen $ f(z) = (\sin z) / z $, der har en flytbar singularitet i origo. Denne har værdien 1 (som for $ (\sin x) / x $). Dette kan ses ved at skrive $ \sin z $ som en potensrække og dividere hvert led med $ z $.
+	
+	Det er et lidt misvisende navn, da $ f(z) $ faktisk er analytisk i punktet $ z_0 $, og der dermed ikke er en singularitet.
+	
+	\subsubsection{Når \texorpdfstring{$ z $}{z} går mod \texorpdfstring{$\infty$}{uendeligt}}
+	For funktioner af én reel variabel har udtrykket ">når $ x $ går mod uendeligt"< en ret veldefineret mening, men for den komplekse variabel $ z $, der beskrives ved en plan, er betegnelsen ">uendeligt"< ikke helt så veldefineret.
+	
+	Derfor defineres en funktions $ f(z)) $ \textbf{opførsel ved uendeligt} som værdien for $ f(1/\zeta) $, hvor $ \zeta = 0 $, for $ \zeta = 1/z $.
+	
+	Eksempelvis ses funktionen $ f(z) = a+bz^{-2} $, hvor dens opførsel ved uendeligt er $ f(1/\zeta)=a+b\zeta^2 $, der er analytisk i $ \zeta = 0 $. Dermed er $ f(z) $ analytisk i $ z= \infty $.
+	
+	
+	\subsubsection{Nuller for komplekse funktioner}
+	Hvis $ f(z_0) = 0 $ kaldes $ z_0 $ for et nul til funktionen $ f $. Som ved definitionen af en pol, defineres også nullets orden ved
+	\begin{equation}
+		f(z) = (z-z_0)^n g(z)
+	\end{equation}
+	hvor $ n $ og $ g(z) $ har samme betingelser som før. Her kaldes $ z_0 $ for et \textbf{nul af orden $ n $}. Hvis $ n=1 $ kaldes nullet for et simpelt nul (som ved poler). Ydermere er et nul af orden $ n $ for $ f(z) $ en pol af orden $ n $, for $ 1/f(z) $.
+	
+	\subsection{Komplekse integraler}
+	Komplekse integraler svarer faktisk bare til kurveintegraler i et todimensionalt skalarfelt, og jeg vil klart anbefale også lige at læse op på dette, hvis du ikke kan huske dette. Et komplekst integral evalueres altid langs en eller anden kurve $ \gamma $, der afhænger af den reelle parameter $ t $, hvor $ \alpha < t < \beta $, og $ \gamma(\alpha) =A $ er startpunktet på kurven og $ \gamma(\beta)=B $ er slutpunktet på kurven. Lige som ved almindelige, reelle kurveintegraler, kan start- og slutpunktet sagtens være det samme, hvormed der integreres langs en lukket kurve, betegnet $ \oint $.
+	
+	Det generelle, komplekse integral af en kontinuert, entydig funktion $ f(z) $, langs kurven $ \gamma $ er givet ved:
+	\begin{equation}
+		\int_{\gamma} f(z) \ud z = \int_{t=\alpha}^{t=\beta} f\bigl(\gamma(t)\bigr) \diff{z}{t} \ud t 
+	\end{equation}
+	Hvis ikke man er komfortabel med kompleks integration, kan dette integral også deles op i fire, reelle delintegraler. Her huskes det, at $ f(z) = u(x,y)+i\,v(x,y) $ og $ \gamma = x(t) + i\, y(t) $. Da er integralet givet ved
+	\begin{equation}
+		\int_{\gamma} f(z) \ud z = \int_{\alpha}^{\beta} u \diff[\ud]{x}{t} \ud t -\int_{\alpha}^{\beta} v \diff[\ud]{y}{t} \ud t + i \int_{\alpha}^{\beta} u \diff[\ud]{y}{t} \ud t + i \int_{\alpha}^{\beta} v \diff[\ud]{x}{t} \ud t,
+	\end{equation}
+	som er en noget større mundfuld. Dette resultat fås ved at sætte $ f(z) = u+iv $ og $ \ud z = \ud x + i \ud y $ ind, gange parentesen ud, samt substituere $ \ud x = \diff[\ud]{x}{t} \ud t $, og lignende for $ \ud y $. Det ses, at kun ét delintegral har negativt fortegn (resultatet af dem kan selvfølgelig variere, men husk for fanden fortegnet, hvis du deler dem op!).
+	
+	Hvorvidt disse integraler findes er givet ved en \textbf{tilstrækkelig betingelse}: $ \diff[\ud]{x}{t} $ og $ \diff[\ud]{y}{t} $ findes begge, og er kontinuerte.
+	
+	Et sødt lille resultat for komplekse integraler er, at hvis $ M $ er en øvre grænse for $ |f(z)| $ langs $ \gamma $, og $ L $ er længden af $ \gamma $, da er
+	\begin{equation}
+		\vv{\int_{\gamma}f(z) \ud z} \leq \int_{\gamma} |f(z)|\ |\uuud z| \leq M\int_{\gamma} \ud l = ML
+	\end{equation}
+	
+	\subsection*{Motherfucking Cauchy, the Euler of complex variables}
+	Seriøst, han er jo ansvarlig får 120\% af det her pis.
+	
+	\subsection{Cauchys sætning}
+	\textbf{Cauchys sætning} siger, at hvis $ f(z) $ er en analytisk funktion på og inden for en lukket kurve $ \gamma $, da er
+	\begin{equation}
+		\oint_{\gamma} f(z) \ud z = 0.
+	\end{equation}
+	Dette svarer til lignende resultater for rotationsfrie felter i vektoranalysen fra MatF1. Dette resultat betyder også, at hvis to kurver $ \gamma_1 $ og $ \gamma_2 $ har samme slutpunkt og startpunkt, og $ f(z) $ er analytisk langs begge kurver, samt inden for arealet afgrænset af de to kurver, så er
+	\begin{equation}
+		\int_{\gamma_1} f(z) \ud z = \int_{\gamma_2} f(z) \ud z.
+	\end{equation}
+	Igen, meget lig resultatet fra rotationsfrie felter.
+	
+	Ydermere fås, at hvis $ \gamma $ er en lukket kurve, der helt ligger inden for en anden, større, lukket kurve $ C $, så er
+	\begin{equation}
+		\oint_{C} f(z) \ud z = \oint_{\gamma} f(z) \ud z.
+	\end{equation}
+	Der findes også en ">omvendt"< Cauchys sætning, kaldet \textit{Moreras sætning}, der siger, at hvis $ f(z) $ er kontinuert i et lukket domæne $ R $, afgrænset af kurven $ \gamma $ og $ \oint_{\gamma} f(z) \ud z = 0 $; da er $ f(z) $ analytisk i $ R $.
+	
+	\subsection{Cauchys integralformel}
+	Hvis $ f(z) $ er analytisk inden for, og på, en lukket kurve $ \gamma $, og $ z_0 $ ligger inden for $ \gamma $, da siger \textbf{Cauchys integralformel} at
+	\begin{equation}
+		f(z_0) = \frac{1}{2 \pi i} \oint_{\gamma} \frac{f(z)}{z-z_0} \ud z
+	\end{equation}
+	Den afledte af $ f $ i $ z_0 $, $ f'(z_0) $, er givet ved
+	\begin{equation}
+		f'(z_0) = \frac{1}{2 \pi i} \oint_{\gamma} \frac{f(z)}{(z-z_0)^2} \ud z
+	\end{equation}
+	Den $ n $-te afledte af $ f $ i samme punkt er givet ved
+	\begin{equation}
+		f^{(n)} (z_0) = \frac{n!}{2\pi i} \oint_{\gamma} \frac{f(z)}{(z-z_0)^{n+1}} \ud z
+	\end{equation}
+	Dermed kan værdien af $ f $ i \textit{alle} punkter $ z_0 $ inden for en lukket kurve findes, samt værdien af \textit{alle} denne afledte. P-cool, yo!
+	
+	Til sidst gives \textbf{Cauchys ulighed}, der siger, at hvis $ f(z) $ er analytisk inden for en \textit{cirkel} $ \gamma $, med radius $ R $ og centrum i $ z_0 $, samt at $ |f(z)|\leq M $ på cirklen, hvor $ M $ er en konstant, da gælder
+	\begin{equation}
+		|f^{n}(z_0)| \leq \frac{M(n!)}{R^n}
+	\end{equation}
+	Dette resultat kan til aller, \textit{aller} sidst bruges til at bevise \textbf{Liouvilles sætning}, der siger at hvis $ f(z) $ er analytisk og har en øvre grænse for alle $ z $, da er $ f $ en konstant.
+	
+	
+	
+	
+	
+	\subsection{Taylor- og Laurentrækker}
+	Taylorserien for analytiske funktioner af en kompleks variabel, omkring et punkt $ z_0 $ er givet ved
+	\begin{equation}
+		f(z) = \sum_{n=0}^{\infty} a_n (z-z_0)^n, \quad a_n = \frac{f^{n}(z_0)}{n!}
+	\end{equation}
+	denne formel kan bruges til at vise \textbf{identitetssætningen}, der siger at hvis $ f(z) $ og $ g(z) $ er analytiske i et domæne $ R $, og $ f(z)=g(z) $ i et eller andet underdomæne $ S $ af $ R $, så er $ f(z) = g(z) $ i \textit{hele} $ R $. Dette gælder faktisk også, hvis de bare er ens på en kurve med en længde større end 0, eller et tælleligt uendelig antal punkter i $ R $.
+	
+	En generalisering af Taylorserien kaldes for \textbf{Laurentrækken}. Hvis $ f(z) $ er analytisk i et domæne $ R $, men har en pol af orden $ p $ i punktet $ z_0 $, inden for $ R $, da kan $ f(z) $ skrives som en Laurentrække på formen
+	\begin{equation}
+		f(z) = \sum_{n=-p}^{\infty} a_n (z-z_0)^n, \quad a_n = \frac{1}{2 \pi i} \oint \frac{f(z)}{(z-z_0)^{n+1}}
+	\end{equation}
+	Leddene med $ n \geq 0 $ kaldes den \textbf{analytiske del}, mens leddene med $ n < 0 $ kaldes for den \textbf{principielle del}. 
+	
+	Hvis punktet $ z_0 $ er en essentiel singularitet vil $ p = \infty $, og den \textbf{principielle del} vil også have en uendelig mængde led. I så fald forventes det at den principielle del kun konvergerer for $ |(z-z_0)\inverse| $, der er mindre end en given konstant. Det vil sige, at den konvergerer \textit{uden} for en cirkel med centrum i $ z_0 $. Den analytiske del vil dog \textit{altid} konvergere inden for en (anden) cirkel, igen med centrum i $ z_0 $. Hvis den analytiske cirkel er større end den principielle cirkel, vil Laurentrækken konvergere i området, hvor de to cirkler overlapper hinanden.
+	
+	Det kan også vises, at hvis $ f(z) $ er analytisk imellem to sådanne cirkler $ C_1 $ og $ C_2 $, der begge har centrum i $ z_0 $, så kan $ f(z) $ repræsenteres ved en Laurentrække om $ z_0 $, der konvergerer i området mellem cirklerne.
+	
+	Alt efter funktionens opførsel i punktet $ z_0 $, kan den indre cirkel have en radius af 0 (altså være et punkt), og den ydre cirkel være uendeligt stor, hvormed Laurentrækken omkring $ z_0 $ konvergerer i alle punkter i den komplekse plan.
+	
+	Laurentrækken om $ z_0 $ kan også bruges til at klassificere punktet. Hvis $ f(z) $ er \textit{analytisk} i $ z_0 $ er $ a_n = 0$ for alle $ n<0 $. Det kan ske at $ a_0,a_1,\dots,a_{m-1} $ alle er nul (samtidig med at alle $ a_0 =0 $ for $ n<0 $). Det første led, der ikke er 0, vil da være $ a_m $ for $ m>0 $, og $ f(z) $ har da et nul omkring af orden $ m $ i $ z_0 $.
+	
+	Hvis $ f(z) $ \textit{ikke} er analytisk i $ z_0 $ kan én af to ting ske. Enten kan et første led $ a_{-p} $ findes, sådan at alle $ a_{-p+k}=0 $ for $ k>0 $, og Laurentrækken altså går fra $ -p $ til $ \infty $. Ellers kan denne værdi \textit{ikke} findes, og Laurentrækken går da fra $ -\infty $ til $ +\infty $.
+	
+	I første tilfælde, hvor den principielle del af Laurentrækken indeholder et endeligt antal led, har $ f(z) $ en pol af orden $ p $ i $ z_0 $. Værdien af $ a_{-1} $ kaldes for \textbf{residuum} af $ f(z) $ ved polen $ z_0 $. Læg mærke til at det er værdien af det \textit{første} led med negativ potens.
+	
+	I det andet tilfælde, hvor den principielle del indeholder et \textbf{u}endeligt antal led, da har $ f(z) $ en essentiel singularitet (eller pol af orden $ \infty $) i $ z_0 $.
+	
+	\textbf{Den nemmeste måde} at finde Laurentrækken af en funktion er oftest at isolere polen, og så Taylorudvikle den analytiske del $ g(z) $ i udtrykket $ f(z) = g(z)/(z-z_0)^p $ (se MatF2 opgavesæt 4, opgave 2).
+	
+	\subsubsection{Sådan findes residuer}
+	\label{sec:residuer}
+	Den generelle formel for at finde residuum af en funktion $ f(z) $, der har en pol af orden $ m $ i punktet $ z_0 $, er givet ved
+	\begin{equation}
+		\Res(z_0) = a_{-1} = \lim\limits_{z\to z_0} \kk{\frac{1}{(m-1)!} \diff[\uuud]{^{m-1}}{z^{m-1}} [(z-z_0)^m f(z)]}
+	\end{equation}
+	Hvis $ f(z) $ har en \textit{simpel pol} i $ z_0 $ bliver formlen
+	\begin{equation}
+		\Res(z_0)=\lim\limits_{z\to z_0} [(z-z_0)f(z)]
+	\end{equation}
+	Og hvis den både er simpel, og $ f(z)=g(z)/h(z) $, hvor $ g $ er analytisk og forskellig fra nul, og hvor $ h(z_0)=0 $, da er residuum
+	\begin{equation}
+		\Res(z_0) = \frac{g(z_0)}{h'(z_0)} \label{eq:SimpleSimpleRes}
+	\end{equation}
+	der bare fås ved at bruge L'Hôpitals regel.
+	
+	Såfremt det er en essentiel singularitet, altså en pol af orden $ \infty $, giver ingen af disse formler det rigtige resultat. Her skal funktionen rækkeudvikles, og koefficienten foran $ z\inverse $-leddet er da dennes residuum. \textbf{Det kan sagtens være, at dette har værdien 0!}
+	
+	En smart måde at finde residuum for poler af store ordner er ved at udnytte \textbf{binomialekspansionen} (se afsnit \ref{sec:binomial}). Et eksempel er som følger
+	\paragraph{Et Eksempel.} Funktionen
+	\begin{equation}
+		f(z) = \frac{1}{(z^2+a^2)^4}, \quad a\in \Set{R}
+	\end{equation}
+	Først og fremmest ses det, at funktionen kan omskrives ved hjælp af en kompleks kvadratsætning:
+	\begin{equation}
+		a^2-b^2 = (a-b)(a+b), \quad a^2+b^2 = (a-ib)(a+ib)
+	\end{equation}
+	og funktionen er dermed
+	\begin{equation}
+		f(z) = \frac{1}{[(x-ai)(x+ai)]^4}= \frac{1}{(x-ai)^4 (x+ai)^4}
+	\end{equation}
+	og denne har dermed to poler af ordnen 4, i $ \pm ai $. Her vil jeg kun udregne residuum for $ ai $, Prøv selv at klare for $ -ai $. Det er super træls at differentiere mere end én gang for funktioner med kvotienter, og derfor bruges et smart trick med binomialekspansionen. Først sættes $ z=ai+\xi $, hvor $ \xi $ er et lille tal. Da kan funktionen omskrives til:
+	\begin{equation}
+		f(z = ai+\xi) = \frac{1}{(z^2+a^2)^4} = \frac{1}{((ai+\xi)^2+a^2)^4} = \frac{1}{(-a^2 + \xi^2 +2ai\xi+a^2)^4} = \frac{1}{(2ai\xi + \xi^2)^4}
+	\end{equation}
+	Her trækkes nu $ (2ai\xi)^4 = 16a^4\xi^4 $ uden for en parentes:
+	\begin{equation}
+		f(z=ai+\xi) = \frac{1}{16 a^4 \xi^4 (1+\frac{\xi^2}{2ai\xi})^4} = \frac{1}{16 a^4 \xi^4} \bb{1-\frac{i\xi}{2a}}^{-4}
+	\end{equation}
+	Næhov! Så kan vi jo lige Taylorudvikle faktoren i de kantede parenteser med formlen fra \ref{sec:binomial}, med $ x = -i\xi/2a $ og $ \alpha = -4 $. Her inkluderes kun de første 4 led (k = 0,1,2,3), da det fjerde led (k = 4) faktisk giver koefficienten foran $ \xi\inverse $, altså residuummet:
+	\begin{equation}
+		\bb{1-\frac{i\xi}{2a}}^{-4} \approx 1 + {-4 \choose 1} \pp{-\frac{i \xi}{2a}} + {-4 \choose 2} \pp{-\frac{i \xi}{2a}}^2 + {-4 \choose 3} \pp{-\frac{i \xi}{2a}}^3
+	\end{equation}
+	Binomialkoefficienterne er da
+	\begin{align*}
+		{-4 \choose 0} &= 1 \\
+		{-4 \choose 1} &= \frac{-4}{1!} = -4 \\
+		{-4 \choose 2} &= \frac{-4 (-4-1)}{2!} =\frac{20}{2} = 10 \\
+		{-4 \choose 3} &= \frac{-4 (-4-1)(-4-2)}{3!} = \frac{-4(-5)(-6)}{6} = \frac{-120}{6} = -20
+	\end{align*}
+	og Taylorrækkens fire første led lyder
+	\begin{equation}
+		\bb{1-\frac{i\xi}{2a}}^{-4} \approx 1-4 \frac{-i \xi}{2 a} - 10 \frac{\xi^2}{4a^2} -20 \frac{i \xi^3}{8 a^8}
+	\end{equation}
+	Ganges denne på $ (16a^4 \xi^4)\inverse $ giver de tre første led noget med en potens af $ \xi $ på -4, -3 og -2. Men det fjerde led bliver
+	\begin{equation}
+		\frac{1}{16 a^4 \xi^4}  \pp{-20 \frac{i \xi^3}{8 a^8}} = \frac{1}{16 a^4 \xi^4} \frac{-5 i \xi^3}{2 a^3} = \frac{-5 i}{32 a^7} \xi\inverse
+	\end{equation}
+	Og residuummet er da
+	\begin{equation}
+		\Res(ai) = - \frac{5 i}{32 a^7}
+	\end{equation}
+	
+	
+	
+	\subsection{Residuumsætningen}
+	Fra \textbf{Cauchys sætning} fås at integralet om en lukket kurve $ \gamma $ er 0, såfremt funktionen der integreres over, er analytisk i og på kurven. Hvis den ikke er analytisk inden for kurven, men derimod har et endeligt antal poler $ j $, fås resultatet af integralet fra \textbf{residuumsætningen}. Sætningen kræver også at $ f(z) $ er kontinuert i og på kurven. Sætningen siger
+	\begin{equation}
+		\oint_{\gamma} f(z) \ud z = 2\pi i \sum_{j} \Res_j
+	\end{equation}
+	hvor $ \sum_j \Res_j$ er summen af residuerne for de $ j $ poler inden for $ \gamma $. Formelt set, er Cauchys sætning faktisk et specialtilfælde af residuumsætningen, hvor der ikke er nogen poler, og summen derved er 0.
+	
+	Hvis $ f(z) $ har en simpel pol i $ z_0 $, og funktionen kan skrives som Laurentrækken
+	\begin{equation}
+		f(z) = \phi(z) + a_{-1} (z-z_0)\inverse
+	\end{equation}
+	hvor $ \phi $ er analytisk i et område omkring $ z_0 $. Integralet $ I $ af en cirkelbue, der er en åben kurve, hvor kurven er givet ved
+	\begin{equation}
+		|z-z_0|=\rho, \quad \theta_1 \leq \arg (z-z_0) \leq \theta_2
+	\end{equation}
+	Dette er da en cirkelbue med centrum i $ z_0 $, radius $ \rho $, der spænder over vinklen $ \theta_2-\theta_1 $. Hvis $ \rho $ er lille nok til, at $ f $ ikke har andre singulariteter, end den simple pol i $ z_0 $, da er værdien af integralet $ I $:
+	\begin{equation*}
+		I = \int_{\gamma} f(z) \ud z = \int_{\gamma} \phi(z) \ud z + a_{-1} \int_{\gamma} (z-z_0)\inverse \ud z
+	\end{equation*}
+	Lades $ \rho \to 0 $, bliver integralet
+	\begin{equation}
+		I = i a_{-1}(\theta_2 - \theta_1) \label{eq:ResCirkel}
+	\end{equation}
+	Hvor, hvis $ \theta_2 = \theta_1+2 \pi$, fås værdien af integralet for en funktion med en simpel pol:
+	\begin{equation*}
+		I = i a_{-1} (\theta_1 + 2 \pi - \theta_1) = 2 \pi i a_{-1}
+	\end{equation*}
+\end{document}

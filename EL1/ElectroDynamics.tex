@@ -1,0 +1,527 @@
+\documentclass[EL1Noter.tex]{subfiles}
+
+
+\begin{document}
+	\section{Elektrodynamik}
+	
+	\subsection{Elektromotorisk kraft}
+	
+	\subsubsection{Ohms lov}
+	For at få en strøm til at strømme skal der skubbes til ladningerne. For det meste er strømmen $ \V{J} $ proportionel med kraften per enhed af ladning (i vores tilfælde oftest elektromagnetiske krafter):
+	\begin{equation}
+		\V{J} = \sigma \V{f} = \sigma (\V{E}+\V{v} \times \V{B})
+	\end{equation}
+	hvor $ \sigma $ kaldes materialets ledeevne (denne gang ikke en overfladeladningsdensitet, husk det). Oftest opgives den inverse af ledeevnen, kaldet resistiviteten $ \rho = \sigma \inverse $ (igen, ikke volumenladningsdensiteten, sorry)\footnote{Og selvom hr Griffiths siger, at ">vi er ved at løbe tør for græske bogstaver"< så er det \textbf{fuldstændig løgn}. Jeg har talt, og der er brugt godt og vel 14 forskellige græske symboler, 12 små og 2 stort, så der er stadig masser tilbage! Hvad med $ \xi $ (lille xi), eller $ \zeta $ (lille zeta)? Sure, $ \sigma $ og $ \rho $ er kendte og ser godt ud, men der er stadig en masse, helt og aldeles fine bogstaver tilbage.} Typiske værdier er tabuleret i næste tabel. Selv materialer der kaldes isolatorer leder faktisk en lille smule strøm, men det er nærmest uhåndgribeligt små mængder i forhold til metal. Typisk er forskellen af størrelsesordenen $ 10^{22} $, så til en god approksimation er metaller \textbf{perfekte ledere} med $ \sigma = \infty $.
+	
+	Normalt set er hastighederne så små, at bidraget fra magnetiske felter kan ses bort fra, hvormed Ohms lov optræder:
+	\begin{equation}
+		\V{J} = \sigma \V{E}
+	\end{equation}
+	Det ses da, at i en leder er E-feltet faktisk ikke altid 0! (det er bare et almindelig udråbstegn, ikke 0 fakultet). Det gælder kun for stationære ladninger, hvor $ \V{J}=0 $. Dog for en perfekt leder er $ \V{E} = \V{J}/\sigma = 0 $, og som oftest er metallers ledeevne så stor, at der kan ses bort fra $ \V{E} $, og den bare kan regnes som værende 0. Omvendt, så laves resistorer (modstande) af materialer, med stor resistivitet (altså en lille / dårlig ledeevne).
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{*{2}{l >{$} r <{$}}}
+			\hline
+			Materiale & \text{Resistivitet} & Materiale  & \text{Resistivitet} \\
+			\hline
+			\textit{Ledere}: & 			  & \textit{Halvledere}:& \\
+			Sølv 		& 1.59 \D 10^{-8} & Saltvand (mættet)	& 4.4 \D 10^{-2} \\
+			Kobber 		& 1.68 \D 10^{-8} & Germanium			& 4.6 \D 10^{-1} \\
+			Guld 		& 2.21 \D 10^{-8} & Diamant 			& 2.7 \\
+			Aluminium 	& 2.65 \D 10^{-8} & Silicium			& 2.5 \D 10^{3} \\
+			Jern 		& 9.61 \D 10^{-8} & \textit{Isolatorer}:& \\
+			Kviksølv 	& 9.58 \D 10^{-7} & Vand (rent) 		& 2.5 \D 10^{5} \\
+			Nichrome 	& 1.00 \D 10^{-6} & Træ	 				& 10^{8} - 10^{11} \\
+			Mangan		& 1.44 \D 10^{-6} & Glas				& 10^{10} - 10^{14}\\
+			Grafit		&  1.4 \D 10^{-5} & Kvartsglas  		& \approx 10^{16} \\
+			\hline
+		\end{tabular}
+		\label{tab:resistivitet}
+		\caption{Resistiviteter i Ohm-meter. Alle værdier er ved 1 atm og 20$ \degree $ C. Fra \textit{Handbook of Chemistry and Physics}, 78. udgave.}
+	\end{table}
+	
+	En mere kendt udgave af Ohms lov er selvfølgelig, at den samlede strøm mellem to elektroder er proportionel med potentialforskellen mellem dem:
+	\begin{equation}
+		V = IR
+	\end{equation}
+	hvor $ R $ er resistansen (modstanden) i kredsløbet, og denne afhænger af geometrien af resistoren, samt materialet den laves af. Dette er ikke en fundamental lov på fod Ampères lov eller Gauss lov, men nærmere en tommelfingerregel, der ser ud til at holde for ret mange materialer.
+	
+	For jævne strømme med homogen ledeevne fås at divergensen af $ \V{E} $ og $ \V{J} $  er 0:
+	\begin{equation}
+		\diverg{E} = \frac{1}{\sigma} \diverg{J} = 0
+	\end{equation}
+	Dette betyder, at alle ubalancerede ladninger sidder på overfladen, og at Laplaces ligning holder i homogent ohmiske materiale, hvor der løber en jævnstrøm. (og dermed kan teknikkerne fra kapitel 3 bruges)
+	
+	Når en strøm løber gennem en komponent med resistans $ R $, vil der blive afsat en effekt som varme i materialet givet ved \textbf{Joules varmelov}
+	\begin{equation}
+		P = VI = I^2 R = V^2/R
+	\end{equation}
+	
+	Et par eksempler er som følger:
+	
+	\subsubsection*{Eksempler}
+	\paragraph{En Cylindrisk resistor} med tværsnitareal $ A $, længde $ L $ og ledeevne $ \sigma $. Tværsnittet behøver ikke nødvendigvis at være rundt, så længe det er ens hele vejen gennem resistoren. Hvis potentialet er konstant i hver ende, og forskellen er $ V $, hvilken strøm løber der da?
+	
+	Det elektriske felt er homogent i resistoren, hvilket kan ses ved følgende: siden det er et homogent ohmisk materiale, hvor der løber en jævn strøm, gælder Laplaces ligning og entydighedssætningerne! Hvis potentialet i den ene ende sættes til at være 0, og i den anden ende til at være $ V_0 $, så er en løsning (og dermed den \textit{eneste} løsning), at potentialforskellen er givet ved $ V(z)=V_0 z/L $, hvor $ z $ er afstanden langs aksen, fra den ene ende. Idet potentialforskellen er lineær, må E-feltet nødvendigvis være homogent.
+	
+	Idet E-feltet er homogent, må ladningstætheden også være homogent, og der fås:
+	\begin{equation*}
+		I = JA = \sigma E A = \frac{\sigma A}{L} V
+	\end{equation*}
+	Her er resistansen da givet ved $ L/(\sigma A) $.
+	
+	\paragraph{To lange cylindre} med radier $ a $ og $ b $ ($ a<b $) er adskilt af et materiale med ledeevne $ \sigma $. Hvis der er en potentialforskel $ V $ mellem dem, hvilken strøm løber der så mellem dem, i en længde af $ L $.
+	
+	Feltet er her givet ved
+	\begin{equation*}
+		\V{E} = \frac{\lambda}{2\pi\epsilon_0 s} \U{s}
+	\end{equation*}
+	Hvor $ \lambda $ er ladningstætheden på den indre cylinder. Dermed er strømmen
+	\begin{equation*}
+		I = \int \V{J} \D \U{n} \ud a = \sigma \int \V{E} \D \U{n} \ud a = \sigma E \int \ud a = \sigma \\frac{\lambda}{2\pi\epsilon_0 s} 2 \pi s L = \frac{\sigma}{\epsilon_0}\lambda L
+	\end{equation*}
+	Og potentialforskellen
+	\begin{equation*}
+		V = -\int_{b}^{a} \V{E} \D \ud \V{l} = \frac{\lambda}{2 \pi \epsilon_0} \ln (b/a)
+	\end{equation*}
+	Ved isolering af $ \lambda $ i udtrykket for strømmen fås
+	\begin{equation*}
+		\lambda = I \frac{\epsilon_0}{\sigma L} \Leftrightarrow V = I \frac{\epsilon_0}{\sigma L} \frac{1}{2 \pi \epsilon_0} \ln (b/a)
+	\end{equation*}
+	Og strømmen er da
+	\begin{equation*}
+		I = \frac{2 \pi \sigma L}{\ln(b/a)} V
+	\end{equation*}
+	med resistans $ \ln (b/a)/2\pi\sigma L $.
+	
+	
+	
+	
+	\subsubsection{Elektromotorisk kraft - der ikke er en kraft}
+	I et typisk elektrisk kredsløb, eksempelvis et batteri forbundet til en komponent, er strømmen i praksis ens hele vejen rundt. Grunden til dette er, at hvis det ikke var tilfældet, ville den ophobning af ladning et sted i kredsløbet gøre, at der bliver dannet et elektrisk felt (Gauss lov, $ \rho \neq 0 $ og dermed $ \V{E} \neq 0$ ). Dette elektriske felt udfører en kraft der i strømmens retning får ladninger til at bevæge sig hurtigere, og imod strømmens retning får dem til at bevæge sig langsommere. Dette bevirker, at systemet udligner sig selv, så der til sidst er en ens ladningsfordeling ($ \rho = 0 $). Dette sker så hurtigt, at i systemer, der oscillerer med radiofrekvenser (3 KHz til 300 GHz), kan man roligt antage, at strømmen er konstant hele vejen rundt.
+	
+	Dette betyder også, at der er to kræfter, der driver strømmen rundt i et kredsløb: både kraften fra kilden $ \V{f}_s $ og kraften fra eventuelle elektrostatiske felter grundet ophobning af ladning $ \V{E} $. Den samlede kraft per ladning er da
+	\begin{equation}
+		\V{f} = \V{f}_s + \V{E}
+	\end{equation}
+	Lige meget hvad der driver kredsløbet (batteri, piezoelektrisk element, Van de Graaff, whatever), defineres kurveintegralet af $ \V{f} $ rundt i kredsløbet som den \textbf{elektromotoriske kraft} (electromotive force, eller ">emf"<):
+	\begin{equation}
+		\emf = \oint \V{f} \D \ud \V{l} = \oint \V{f_s} \D \ud \V{l}
+	\end{equation}
+	(idet $ \oint \V{E} \D \ud \V{l} =0 $ er det lige meget, om der bruges $ \V{f} $ eller $ \V{f}_s $ i definitionen). For en ideel emf-kilde (et batteri uden intern modstant, eksempelvis) er den samlede kraft på ladningerne 0 (Ohms lov med $ \sigma = \infty $). Da er $ \V{E} = -\V{f}_s $ og potentialforskellen mellem de to terminaler (kaldet $ a $ og $ b $) givet ved
+	\begin{equation}
+		V = - \int_{a}^{b} \V{E} \D \ud \V{l} = \int_{a}^{b} \V{f}_s \D \ud \V{l} = \oint \V{f}_s \D \ud \V{l} = \emf
+	\end{equation}
+	idet $ \V{f}_s=0 $ inde i kilden, kan integralet gøres til et kurveintegral uden problemer. Idet emf er linjeintegralet af $ \V{f}_s $, kan det ses som det udførte arbejde, per ladningsenhed:
+	\begin{equation}
+		\emf = \diff{W}{Q}
+	\end{equation}
+	
+	
+	\subsubsection{Bevægelses-emf}
+	Den mest almindelige kilde til emf er en generator, der udnytter \textbf{bevægelses-emf}, som opstår når en leder bevæges gennem et magnetfelt. Et eksempel er en rektangulær løkke, med bredde $ h $, hvor en del af den, $ x $ er inden for et homogent magnetisk felt $ B $.  Løkken trækkes da ud af lederen med en hastighed $ v $. Emf'en er her: 
+	\begin{equation}
+		\emf = \oint \V{f}_{\text{mag}} \D \ud \V{l} = vBh
+	\end{equation}
+	Dette integral evalueres i et enkelt øjeblik. Tag, så at sige, et billede af kredsen og udregn emf'en til netop dette øjeblik. Den kan også regnes ud fra arbejdsbetragninger (hvem trækker i løkken, og hvordan påvirker det kredsløbet), men det er noget af en omvej, så det er nemmere at bruge definitionen på emf, og bruge øjebliksbilledet.
+	
+	Der er dog en anden, også virkelig smart måde at udregne emf på. Den magnetiske flux gennem en løkke er givet ved
+	\begin{equation}
+		\Phi = \int \V{B} \D \U{n} \ud a
+	\end{equation}
+	Så for den rektangulære løkke er
+	\begin{equation}
+		\Phi = Bhx, \quad \diff[\ud]{\phi}{t} = Bh \diff[\ud]{x}{t} = -Bhv
+	\end{equation}
+	(hvor fortegnet kommer ved, at løkken trækkes \textit{ud} af magnetfeltet). Da ses det, at i dette tilfælde er den tidsafledte af fluxen lig den negative emf, eller:
+	\begin{equation}
+		\emf = - \diff[\ud]{\Phi}{t}
+	\end{equation}
+	Dette kaldes \textbf{fluxreglen}, og den relation gælder faktisk ikke kun for dette tilfælde: \textbf{fluxreglen gælder altid!} Der vil dog være tidspunkter hvor den ikke er brugbar, og der skal Lorentzloven bruges.
+	
+	Den rigtige integrationsvej i definitionen for den magnetiske flux, er som altid givet ved højrehånds-reglen: hvis fingrene på din højre hånd angiver den positive omløbsretning, vil din tommelfinger angive retningen på $ \U{n} $.
+	
+	
+	
+	
+	\subsection{Elektromagnetisk induktion}
+	
+	\subsubsection{Faradays lov}
+	En gang i atten-hundrede-og-grønlangkål udførte Michael Faraday 3 eksperimenter, der foregik nogenlunde således:
+	\begin{enumerate}
+		\item Han trak en ledning gennem et magnetisk felt, og der løb en strøm.
+		\item Han bevægede det magnetiske felt i modsat retning, og igen løb der en strøm.
+		\item Med begge dele stående stille ændrede han styrken af det magnetiske felt, og igen igen løb der en strøm.
+	\end{enumerate} 
+	Det første giver ret god mening - det er jo emf som vi kender det. Men i det andet bevæger ledningen sig jo ikke, så der er jo ingen magnetisk kraft! Det giver selvfølgelig god mening for os, at det er den \textit{relative} bevægelse af magnetfeltet, i forhold til ledningen, der skaber emf'en, men på hans tid kendte man ikke til speciel relativitetsteori, så det var da noget spøjst! I det sidste forsøg er der endda ingen bevægelse, men igen er der emf.
+	
+	Faradays forklaring på det andet forsøg var, at \textbf{et ændrende magnetfelt inducerer et elektrisk felt}, og at det var dette elektriske felt, der stod for den opståede emf. Fra fluxreglen fås
+	\begin{equation*}
+		\emf = \oint \V{E} \D \ud \V{l} = - \diff[\ud]{\Phi}{t} = - \diff[\ud]{}{t} \int \V{B} \D \U{n} \ud a = - \int \diff{\V{B}}{t} \D \U{n} \ud a
+	\end{equation*}
+	Resultatet er
+	\begin{equation}
+		\oint \V{E} \D \ud \V{l} = - \int \diff{\V{B}}{t} \D \U{n} \ud a
+	\end{equation}
+	Dette er \textbf{Faradays lov} i integralform. Ved Stokes sætning kan dette omdannes til differentialform:
+	\begin{equation}
+		\curl{E} = - \diff{\V{B}}{t}
+	\end{equation}
+	I det tredje eksperiment er det igen et ændrende magnetfelt - men denne gang er det styrken og ikke en bevægelse relativ til magnetfeltet, der giver anledning til en emf. Igen er det fluxreglen på spil
+	\begin{equation}
+		\emf = - \diff[\ud]{\Phi}{t}
+	\end{equation}
+	Det vil sige at \textbf{når den magnetiske flux gennem et kredsløb ændres, lige meget hvad årsagen er, opstår en emf}.
+	For at hjælpe med at holde styr på ens fortegn i sine udregninger med Faradays lov (hvilket kan være lidt af en pain in the ass) findes \textbf{Lenz Lov}, der siger at \textbf{Naturen hader en ændring i flux}. Det vil sige at den inducerede strøm vil prøve at lave et magnetisk felt, således at ændringen i flux slukkes. I praksis vil det sige at hvis en løkke oplever et magnetfelt, der stiger i styrke, vil den inducerede strøm løbe i en retning, således at der skabes et modsvarende B-felt, således at ændringen i flux bliver så lille som muligt. Og hvis der slukkes for magnetfeltet vil den inducerede strøm i ledningen lave et magnetfelt \textit{i samme retning} som det slukkede magnetfelt, igen således at ændringen i flux bliver så lille som mulig.
+	
+	
+	
+	
+	\subsubsection{Det inducerede E-felt}
+	Til udregningen af det magnetisk inducerede E-felt, kan parallellen mellem E-feltet og B-feltet bruges. Rotationerne er nemlig
+	\begin{equation}
+		\curl{E} = -\diff{\V{B}}{t}, \quad \curl{B} = \mu_0 \V{J}
+	\end{equation}
+	Og hvis det er et rent Faraday-felt (altså magnetisk induceret), så er divergensen 0:
+	\begin{equation}
+		\diverg{E} = 0, \quad \diverg{B} = 0 
+	\end{equation}
+	Dermed kan alle tricks forbundet med Ampères lov til udregning af B-felter også bruges i disse tilfælde. Her er $ \mu_0 I_{\text{enc}} $ dog udskiftet med $ -\uuud \Phi/\uuud t $:
+	\begin{equation}
+		\oint \V{E} \D \ud \V{l} = -\diff[\ud]{\Phi}{t}
+	\end{equation}
+	Der er dog et lille problem, at Ampères lov jo kun dur i magnetostatik, mens her er E-feltet skyldt af et ændrende magnetfelt. Så denne metode er faktisk kun en approksimation, men med mindre der er ekstremt hurtige fluktuationer, så er det intet stort problem. Selv i tilfældet af en ledning, der bliver klippet over af en saks, er det statisk nok til, at disse metoder dur. Det er normalt set kun når der ses på elektromagnetiske bølger og stråling, at man skal være påpasselig.
+	
+	Situationer hvor det magnetostatiske metoder kan bruges, uden det rent faktisk er magnetostatik, kaldes for \textbf{quasistatik} (lige som tilfældene fra termodynamik, hvor en process kan regnes som tilnærmelsesvist adiabatisk, hvis den er quasistatisk).
+	
+	
+	\subsubsection*{Eksempler}
+	
+	\paragraph{Et homogent B-felt} $ \V{B}(t) $ peger vinkelret gennem en cirkulær region. Hvis $ \V{B}(t) $ ændres i tiden, hvad bliver det inducerede elektriske felt så?
+	
+	Dette svarer til det magnetiske felt produceret af en lige ledning, der har en jævn strøm, og det elektriske felt løber da tangentielt rundt om B-feltet. Ved en cirkulær Ampereløkke vinkelret på B-feltet, med radius $ s $ fås
+	\begin{equation*}
+		\oint \V{E} \D \ud \V{l} = 2\pi s E = -\diff[\ud]{\Phi}{t} = -\pi s^2 B(t) = -\pi s^2 \diff[\ud]{B}{t}
+	\end{equation*}
+	Og E-feltet er da
+	\begin{equation*}
+		\V{E} = -\frac{s}{2} \diff[\ud]{B}{t} \Vp
+	\end{equation*}
+	
+	\paragraph{En linjeladning $ \lambda $ på en cirkel} med radius $ b $, der frit kan rotere. Inden for cirklen er en mindre cirkel med radius $ a $, hvori der er et homogent magnetisk felt $ B_0 $, der står vinkelret på cirklerne. B-feltet slukkes og der induceres et elektrisk felt, der roterer rundt om cirklernes akse. Dette elektriske felt vil der påvirke linjeladningen med en kraft, hvilket får den til at rotere og danne et magnetisk felt. Lenz lov giver da retningen af denne strøm, da den prøver at gendanne fluxen fra magnetfeltet. Set ovenfra vil ladningen rotere i positiv omløbsretning, sådan så det inducerede magnetfelt peger opad igen.
+	
+	Kvalitativt fås
+	\begin{equation*}
+		\oint \V{E} \D \ud \V{l} = -\pi a^2 \diff[\ud]{B}{t}
+	\end{equation*}
+	Og der opstår et kraftmoment på hjulet, hvor hvert linjeelement $ \uuud \V{l} $ oplever $ \V{r}\times \V{F}=b\lambda E \uuud l $. Det samlede kraftmoment er da kurveintegralet hele vejen rundt:
+	\begin{equation*}
+		B = b \lambda \oint E \uuud l = -b\lambda \pi a^2 \diff[\ud]{B}{t}
+	\end{equation*}
+	Og impulsmomentet er
+	\begin{equation*}
+		\int N \ud t = -\lambda \pi a^2 b \int_{B_0}^0 \ud B = \lambda \pi a^2 b B_0
+	\end{equation*}
+	Så lige meget hvor hurtigt magnetfeltet slukkes, vil hjulet rotere med den samme vinkelhastighed. Hvor impulsmomentet kommer fra vides ikke, endnu, det kommer først i kapitel 8 i bogen, som først er pensum i EL2.
+	 
+	
+	\subsubsection{Induktans}
+	Hvis man har to løkker af ledning, der begge er i hvile, og man lader en jævn strøm $ I_1 $ gennem den ene, vil den danne et magnetfelt, noget af hvilken, der giver anledning til en flux gennem den anden ledning: $ \Phi_2 $. Fra Biot-Savart-loven ses det, at det magnetiske felt er proportionalt med strømmen:
+	\begin{equation*}
+		\V{B}_1 = \frac{\mu_0}{4 \pi} I_1 \oint \frac{\ud \V{l}_1 \times \usr}{\sr^2}
+	\end{equation*}
+	Dermed er fluxen gennem den anden løkke også proportional med strømmen:
+	\begin{equation}
+		\Phi_2 = \int \V{B}_1 \D \U{n} \ud a_2 = M_{21} I_1
+	\end{equation}
+	hvor $ M_{21} $ er proportionalitetskonstanten, kaldet den ">gensidige induktans"< for de to løkker. En formel for denne kan findes ved at skrive fluxen ved vektorpotentialet, og så bruge Stokes sætning. Da fås
+	\begin{equation}
+		M_{21} = \frac{\mu_0}{4 \pi} \oint \oint \frac{\ud \V{l}_1 \D \ud \V{l}_2}{\sr}
+	\end{equation}
+	Denne kaldes for \textbf{Neumannformlen} og er et dobbelt kurveintegral. Først langs den ene, så langs den anden. Den er ikke særlig praktisk, men den viser dog to ting:
+	\begin{enumerate}
+		\item $ M_{21} $ er en ren geometrisk størrelse
+		\item Hvis der byttes om på de to integralers roller i formlen er resultatet uændret. Det vil sige at $ M_{21}=M_{12} $, så vi smider bare tallene væk, så formlen for fluxen bliver
+		\begin{equation*}
+			\Phi_2 = MI_1
+		\end{equation*}
+	\end{enumerate}
+	Dette betyder altså, at lige meget hvilken udformning eller position de to løkker har, så vil fluxen gennem løkke 2, når der løber en strøm $ I $ gennem løkke 1, være den samme, som fluxen gennem løkke 1, hvis strømmen $ I $ løb gennem løkke 2. Eller:
+	\begin{equation*}
+		\Phi_2 = MI = \Phi_1
+	\end{equation*}
+	Hvis strømmen gennem den første løkke varieres (quasistatisk), vil fluxen gennem løkke 2 også ændres, så der induceres en emf i løkken:
+	\begin{equation}
+		\emf_2 = -\diff[\ud]{\Phi_2}{t} = -M \diff[\ud]{I_1}{t}
+	\end{equation}
+	Det vil sige, at hvis strømmen gennem løkke 1 ændres, vil der løbe en strøm gennem løkke 2, også selvom der ingen ledninger er mellem dem. Det sker faktisk også, at der induceres en emf i løkke 1, når strømmen ændres (i løkke 1). Her er fluxen igen proportionel med strømmen
+	\begin{equation}
+		\Phi = LI
+	\end{equation}
+	hvor $ L $ kaldes \textbf{selvinduktansen} (eller bare \textbf{induktansen}) af løkken. Den måles i \textbf{henries} (H), der er et volt-sekund per ampere. Induktansen er, lige som $ M $, ren geometrisk, og den er, lige som kapacitansen $ C $, en udelukkende positiv størrelse. Den inducerede emf er givet ved
+	\begin{equation}
+		\emf = -L \diff[\ud]{I}{t}
+	\end{equation}
+	Denne emf kaldes også for \textbf{modspænding} (back emf), da den har en retning, der modstrider ændringen i strøm. Der skal altså kæmpes mod denne modspænding, når strømmen skal ændres. Dermed svarer $ L $ lidt til en ">elektrisk masse"<, idet en større induktans gør at et kredsløb er sværere at drive, ligesom en større masse, gør det sværere at accelerere et objekt.
+	
+	\subsubsection*{Eksempler}
+	\paragraph{To solenoider, én kort inde i en meget lang.} Den indre solenoide har radius $ a $, længde $ l $ og $ n_1 $ vindinger per enhedslængde. Den ydre har radius $ b $ og $ n_2 $ vindinger per enhedslængde. Hvis der løber en strøm $ I $ gennem den indre, korte solenoide, vil det være utrolig svært at regne fluxen gennem den ydre, idet feltet fra den korte solenoide er ret kompliceret. Til gengæld er fluxen gennem den lange solenoide, som fluxen gennem den korte, hvis der løber en strøm $ I $ gennem den lange solenoide ($ \Phi_2=\Phi_1 = MI $, fra før). Dette er en betydeligt lettere situation at regne på, idet feltet inde i den lange solenoide er homogent. B-feltet og fluxen gennem én vinding er:
+	\begin{equation*}
+		B = \mu_0 n_2 I, \quad \Phi_i = B \pi a^2 = \mu_0 n_2 I \pi a^2
+	\end{equation*} 
+	Da der er $ n_1 l $ løkker i den korte solenoide, er den samlede flux 
+	\begin{equation*}
+		\Phi = \mu_0 \pi a^2 n_1 n_2 l I
+	\end{equation*}
+	og dette er dermed også fluxen gennem den lange solenoide, hvis der løber en strøm $ I $ gennem den korte! Den gensidige induktans er i dette eksempel
+	\begin{equation*}
+		M = \mu_0 \pi a^2 n_1 n_1 l
+	\end{equation*}
+	
+	\paragraph{Selvinduktansen af en firkantet toroide} med indre radius $ a $, ydre radius $ b $, højde $ h $ og $ N $ vindinger. Det magnetiske felt og fluxen gennem én vinding er
+	\begin{equation*}
+		B = \frac{\mu_0 N I}{2 \pi s}, \quad \Phi_i = \int \V{B} \D \U{n} \ud a = \frac{\mu_0 N I}{2 \pi} h \int_a^b \frac{1}{s} ds = \frac{\mu_0 N I h}{2 \pi} \ln \pp{\frac{b}{a}}
+	\end{equation*} 
+	Den samlede flux er da $ N $ gange større, så selvinduktansen er
+	\begin{equation*}
+		L =\frac{\mu_0 N^2  h}{2 \pi} \ln \pp{\frac{b}{a}}
+	\end{equation*}
+	
+	\paragraph{En kreds sluttes til et batteri.} Kredsen har resistans $ R $ og induktans $ L $. Batteriet leverer en konstant emf $ \emf_0 $. Den samlede strøm, der løber gennem kredsen når batteriet sættes til er givet ved
+	\begin{equation}
+		\emf = \emf_0 -  L \diff[\ud]{I}{t} = IR
+	\end{equation}
+	Dette er en førsteordens differentialligning, og løsningen er
+	\begin{equation}
+		I(t) = \frac{\emf_0}{R} + k e^{-(R/L)t}
+	\end{equation}
+	hvor $ k $ er en konstant, som bestemmes ud fra begyndelsesbetingelserne. Hvis batteriet sluttes til kredsen til tiden $ t=0 $, så $ I(0)=0 $, bliver $ k = -\emf_0 /R $, og løsningen er
+	\begin{equation}
+		I(t) = \frac{\emf_0}{R} \bb{1-e^{-(R/L)t}}
+	\end{equation}
+	Det ses, at hvis $ L = 0 $, og der dermed ingen induktans er, vil strømmen med det samme nå $ \emf_0 /R $, men i praksis har alle kredsløb en eller anden induktans, hvormed de når strømmen $ \emf_0/R $ asymptotisk.
+	
+
+	
+	\subsubsection{Energi i magnetiske felter}
+	For at få en strøm til at løbe gennem en kreds, skal der udføres et arbejde mod modspænding'en. Dette arbejde er en konstant værdi for en given kreds, og den bliver frigjort igen, når strømmen slukkes. For at få en ladningsenhed gennem kredsen skal der bruges $ -\emf $ (negativt, da det er dig, der udfører arbejdet mod modspænding'en). Ladningen der løber gennem kredsen per tidsenhed er $ I $. Dermed er det samlede arbejde per tidsenhed, og det samlede arbejde, givet ved:
+	\begin{equation}
+		\diff[\ud]{W}{t} = - \emf L = LI \diff[\ud]{I}{t}, \quad W = \int_0^I LI \diff[\ud]{I}{t} \ud t = \frac{1}{2} LI^2
+	\end{equation}
+	Som det ses, afhænger det ikke af tiden, men kun af strømmen og induktansen. Denne kan generaliseres til volumen/overfladestrømme, ved at huske at $ \Phi = LI $ for kredsen, samt
+	\begin{equation}
+		\Phi =\int_{\mathcal{S}} \V{B} \D \U{n} \ud a = \int_{\mathcal{S}} (\curl{A}) \D \U{n} \ud a = \int_{\mathcal{P}} \V{A} \D \ud \V{l}
+	\end{equation}
+	hvor $ \mathcal{P} $ er kurven langs kredsen, og $ \mathcal{S} $ er enhver overflade med $ \mathcal{P} $ som grænse. Indsættes dette i formlen for arbejdet, og vektor-retningen flyttes fra $ \ud \V{l} $ til $ \V{I} $ fås
+	\begin{equation}
+		W = \frac{1}{2} \oint (\V{A}\D \V{I}) \ud l
+	\end{equation}
+	Og for overflade/volumenstrømme:
+	\begin{equation}
+		W = \frac{1}{2} \int_{\mathcal{S}} (\V{A} \D \V{K}) \ud a, \quad W = \frac{1}{2} \int_{\mathcal{V}} (\V{A} \D \V{J}) \ud \tau
+	\end{equation}
+	Ved brug af Ampères lov kan $ \V{J} $ skrives som $ \curl{B}/\mu_0 $, og med lidt smart regning fås
+	\begin{equation}
+		W = \frac{1}{2 \mu_0} \bb{\int_{\mathcal{V}} B^2 \ud \tau - \oint_{\mathcal{S}} (\V{A} \times \V{B}) \D \U{n} \ud a} \label{eq:ArbejdVogS}
+	\end{equation}
+	hvor $ \mathcal{S} $ er overfladen af volumenet $ \mathcal{V} $. I integralet med volumenstrømmen integreres der over den volumen, som $ \V{J} $ befinder sig i. Men man kan sagtens integrere over en større volumen, da $ \V{J}=0 $ uden for den oprindelige volumen. Det samme gør sig gældende for ligning \eqref{eq:ArbejdVogS}. Her bliver bidraget fra volumenintegralet kun større, mens bidraget fra overfladeintegralet bliver mindre ($ \V{A}  \times \V{B}$ går som $ r^{-3} $, mens arealet går som $ r^2 $, så integralet konvergerer mod 0, des større arealet bliver). Hivs der integreres over hele rummet bliver overfladeintegralet 0, så
+	\begin{equation}
+		W = \frac{1}{2 \mu_0} \int B^2 \ud \tau, \quad \text{Integrer over hele rummet}
+	\end{equation}
+	På denne måde kan arbejdet ses som værende indeholdt i det magnetiske felt, med et energiindhold af $ B^2/2 \mu_0 $ per volumenenhed. Dette er dog spøjst, idet et magnetisk felt ikke kan udføre et arbejde. Men for at skabe et magnetisk felt induceres der et elektrisk felt, der kan udføre arbejde. Når det magnetiske felt ">slukkes"< igen, skabes det samme elektriske felt - bare i modsat retning, og arbejdet har da negativt fortegn.
+	
+	Det ses også, at de to formler er ualmindeligt lig hinanden:
+	\begin{align}
+		W_{\text{elec}} = \frac{1}{2} \int(V \rho) \ud \tau &= \frac{\epsilon_0}{2} \int E^2 \ud \tau \\
+		W_{\text{mag}} =\frac{1}{2} \int(\V{A}\D \V{J}) \ud \tau &= \frac{1}{2 \mu_0} \int B^2 \ud \tau
+	\end{align}
+	Denne formel giver også en smart måde at udregne selvinduktansen på:
+	\begin{equation}
+		W = \frac{1}{2} LI^2 = \frac{1}{2 \mu_0} \int B^2 \ud \tau,\quad \Leftrightarrow \quad L = \frac{2 W}{I^2} = \frac{1}{\mu_0 I^2} \int B^2 \ud \tau
+	\end{equation}
+	hvor det huskes at $ I = \int_{\mathcal{S}} J \ud a_{\perp} $, hvor $ \ud a_{\perp} $ er overfladeelement, der står vinkelret på $ J $, og $ \mathcal{S} $ er den samlede overflade.
+	
+	\paragraph{Et eksempel.} Et langt coaxialt kabel, hvor der løber en strøm $ I $ gennem (ned langs den indre ledning, og op langs den ydre). Den indre cylinder har radius $ a $ og den ydre har radius $ b $. Den magnetiske energi i en længde $ l $ findes som følger:
+	
+	Fra Ampères lov fås at feltet mellem cylindrene er
+	\begin{equation*}
+		\V{B} = \frac{\mu_0 I}{2 \pi s} \Vp
+	\end{equation*}
+	Og 0 alle andre steder. Det vil sige, at energien per volumenenhed er
+	\begin{equation*}
+		\frac{1}{2 \mu_0} \pp{\frac{\mu_0 I}{2 \pi s}}^2 = \frac{\mu_0 I^2}{8 \pi^2 s^2}
+	\end{equation*}
+	Dermed er energien i en cylindrisk skal af længde $ l $, radius $ s $ og tykkelse $ \ud s $
+	\begin{equation*}
+		\frac{\mu_0 I^2}{8 \pi^2 s^2} 2 \pi l s \uuud s = \frac{\mu_0 I^2 l}{4 \pi} \pp{\frac{\uuud s}{s}}
+	\end{equation*}
+	Og den samlede energi fås ved at integrere fra $ a $ til $ b $:
+	\begin{equation*}
+		W = \int_{a}^{b} \frac{\mu_0 I^2 l}{4 \pi} \pp{\frac{\uuud s}{s}} = \frac{\mu_0 I^2 l}{4 \pi} \ln \pp{\frac{b}{a}}
+	\end{equation*}
+	Her er induktansen givet ved
+	\begin{equation*}
+		L = \frac{\mu_0 l}{2 \pi} \ln \pp{\frac{b}{a}}
+	\end{equation*}
+	
+	
+	
+	
+	
+	
+	
+	\subsection{Maxwells ligninger}
+	Der er fundet 4 love, der specificerer divergensen og rotationen af elektriske og magnetiske felter. De er som følger:
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{r >{$\displaystyle} c <{$} l}
+			\vspace{0.3cm}
+			(i)		& \diverg{E} = \frac{1}{\epsilon_0} \rho 					& (Gauss's lov) \\
+			\vspace{0.3cm}
+			(ii)	& \diverg{B} = 0 											& (Intet navn) \\
+			\vspace{0.3cm}
+			(iii)	& \curl{E} = - \diff{\V{B}}{t} 								& (Faradays lov) \\
+			(iv) 	& \curl{B} = \mu_0 \V{J} + \mu_0 \epsilon_0 \diff{\V{E}}{t}	& (Ampères lov)
+		\end{tabular}
+	\end{table}
+	Men hov! Der er da kommet et ekstra led på Ampères lov! Dette er Maxwells rettelse til Ampères lov, og den kommer af, at $ \diverg{J} $ kun er 0 for jævne strømme. For generelle strømme kan $ \diverg{J} $ regnes fra kontinuitetsligningen:
+	\begin{equation}
+		\diverg{J} = - \diff{\rho}{t} = - \diff{}{t} \pp{\epsilon_0 \diverg{E}} = -\grad \D \pp{\epsilon_0 \diff{\V{E}}{t}}
+	\end{equation}
+	Hvis denne sidste faktor lægges sammen med $ \V{J} $ i Ampères lov, fås et udtryk hvor divergensen af $ \V{J} $ altid er 0. Dermed lyder Ampères lov altså
+	\begin{equation}
+		\curl{B} = \mu_0 \V{J} + \mu_0 \epsilon_0 \diff{\V{E}}{t}
+	\end{equation}
+	Dette betyder så også, at \textbf{et ændrende elektrisk felt inducerer et magnetisk felt}, præcis som det omvendte! I integralform lyder ligningerne
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{r >{$\displaystyle} c <{$} l}
+			\vspace{0.3cm}
+			(i)		& \oint_{\mathcal{S}} \V{E} \D \U{n} \ud a = \frac{1}{\epsilon_0} Q_{\text{enc}}	& (Gauss's lov) \\
+			\vspace{0.3cm}
+			(ii)	& \oint_{\mathcal{S}} \V{B} \D \U{n} \ud a = 0	& (Intet navn) \\
+			\vspace{0.3cm}
+			(iii)	& \oint_{\mathcal{P}} \V{E} \D \ud \V{l} = - \int_{\mathcal{S}} \diff{\V{B}}{t} \D \U{n} \ud a	& (Faradays lov) \\
+			(iv) 	& \oint_{\mathcal{P}} \V{B} \D \ud \V{l} = \mu_0 I_{\text{enc}}+\mu_0 \epsilon_0 \int_{\mathcal{S}} \diff{\V{E}}{t} \D \U{n} \ud a	& (Ampères lov)
+		\end{tabular}
+	\end{table}
+	\noindent
+	Hvor overfladeintegralerne i de to første er over enhver overflade $ \mathcal{S} $, mens overfladeintegralerne i de to sidste, er over enhver overflade $ \mathcal{S} $ med $ \mathcal{P} $ som grænse. 
+	
+	
+	
+	\subsubsection{Maxwells ligninger i stof}
+	I stof der har tendens til at blive enten elektrisk eller magnetisk polariseret, og som dermed oplever enten en mængde bundne ladninger eller strømme, er det oftest smartere at arbejde med en version af Maxwells ligninger, der kun refererer til de frie ladninger i materialet.
+	
+	Maxwells love er I dette tilfælde
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{r >{$\displaystyle} c <{$} l}
+			\vspace{0.3cm}
+			(i)		& \diverg{D} = \rho_f 					& (Gauss's lov) \\
+			\vspace{0.3cm}
+			(ii)	& \diverg{B} = 0 						& (Intet navn) \\
+			\vspace{0.3cm}
+			(iii)	& \curl{E} = - \diff{\V{B}}{t} 			& (Faradays lov) \\
+			(iv) 	& \curl{H} = \V{J}_f + \diff{\V{D}}{t}	& (Ampères lov)
+		\end{tabular}
+	\end{table}
+	\noindent
+	Med
+	\begin{equation*}
+		\V{D} = \epsilon_0 \V{E} + \V{P}, \quad \V{H} = \frac{1}{\mu_0} \V{B} + \V{M}
+	\end{equation*}
+	og for lineære medier
+	\begin{align*}
+		\V{P} = \epsilon_0 \chi_e \V{E}, \quad \V{D} = \epsilon \V{E}, \quad \epsilon = \epsilon_0(1+\chi_e), \\
+		\V{M} = \chi_m \V{H}, \quad \V{H} = \frac{1}{\mu} \V{B}, \quad \mu = \mu_0(1+\chi_m)
+	\end{align*}
+	Og i integralform
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{r >{$\displaystyle} c <{$} l}
+			\vspace{0.3cm}
+			(i)		& \oint_{\mathcal{S}} \V{D} \D \U{n} \ud a = Q_{f_{\text{enc}}} 	& (Gauss's lov) \\
+			\vspace{0.3cm}
+			(ii)	& \oint_{\mathcal{S}} \V{B} \D \U{n} \ud a = 0	& (Intet navn) \\
+			\vspace{0.3cm}
+			(iii)	& \oint_{\mathcal{P}} \V{E} \D \ud \V{l} = - \int_{\mathcal{S}} \diff{\V{B}}{t} \D \U{n} \ud a	& (Faradays lov) \\
+			(iv) 	& \oint_{\mathcal{P}} \V{H} \D \ud \V{l} = I_{f_{\text{enc}}} + \diff{}{t} \int_{\mathcal{S}} \V{D} \D \U{n} \ud a	& (Ampères lov)
+		\end{tabular}
+	\end{table}
+	\noindent
+	Hvor overfladeintegralerne i de to første, som før, er over enhver overflade $ \mathcal{S} $, mens overfladeintegralerne i de to sidste, er over enhver overflade $ \mathcal{S} $ med $ \mathcal{P} $ som grænse. 
+	
+	Det ses da, at der er lidt flere ting, end sidst. De ekstra ting er som følger: I statiske tilfælde af polarisation, opstår der en bunden ladningstæthed
+	\begin{equation}
+		\rho_b = -\diverg{P}
+	\end{equation}
+	I \textit{ikke}statiske tilfælde opstår der også en volumenstrøm som følge af ændring i polarisation. Denne kaldes \textbf{polarisationsstrømmen} $ \V{J}_p $ og er givet ved
+	\begin{equation}
+		\V{J}_p = \diff{\V{P}}{t}
+	\end{equation}
+	Grunden til denne ekstra strøm er, at der er en overfladeladning i hver ende af et polariseret materialet, $ +\sigma_b $ i den ene ende og $ -\sigma_b $ i den anden. Hvis polariseringen stiger vil ladningerne på hver ende også stige (i størrelse), hvilket giver anledning til en strøm. Det er netop denne strøm, der er polarisationsstrømmen.
+	
+	Der sker ikke noget ekstra i \textit{ikke}statiske magnetisation. Her er det stadig
+	\begin{equation}
+		\V{J}_b = \curl{M}
+	\end{equation}
+	Det vil sige, at den samlede ladningstæthed kan skrives som
+	\begin{equation}
+		\rho = \rho_f + \rho_b = \rho_f - \diverg{P}
+	\end{equation}
+	Og den samlede volumenstrøm kan skrives som
+	\begin{equation}
+		\V{J} = \V{J}_f + \V{J}_b + \V{J}_p = \V{J}_f + \curl{M} + \diff{\V{P}}{t}
+	\end{equation}
+	Dermed kan Gauss's lov skrives som
+	\begin{equation}
+		\diverg{E} = \frac{1}{\epsilon_0} (\rho_f - \diverg{P})
+	\end{equation}
+	Eller
+	\begin{equation}
+		\diverg{D} = \rho_f, \quad \V{D} = \epsilon_0 \V{E} + \V{P}
+	\end{equation}
+	Ampères lov (den fulde), med polarisationsstrømmen, bliver nu
+	\begin{equation}
+		\curl{B} = \mu_0 \pp{\V{J}_f + \curl{M} + \diff{\V{P}}{t}} + \mu_0 \epsilon_0 \diff{\V{E}}{t}
+	\end{equation}
+	Eller
+	\begin{equation}
+		\curl{H} = \V{J}_f + \diff{\V{D}}{t}, \quad \V{H} = \frac{1}{\mu_0} \V{B} - \V{M}
+	\end{equation}
+	Hverken Faradays lov eller $ \diverg{B}=0 $ ændres, idet de ikke involverer $ \rho $ eller $ \V{J} $.
+	
+	
+	
+	\subsubsection{Randbetingelser}
+	Generelt set er de fire vektorfelter diskontinuerte i grænsen mellem to materialer, og ved overfladeladninger/strømme. Mængden de er diskontinuerte med ses nemmest ved integralformen af Maxwells ligninger. Ved at benytte integralform (i) og (ii) på en infinitisemal Gaussdåse, der lige er inden for begge materialer, fås for (i):
+	\begin{equation}
+		D_1^{\perp} - D_2^{\perp} = \sigma_f
+	\end{equation}
+	Det vil sige, at komponenterne af $ \V{D} $, der står normalt på grænsen mellem de to medier, er diskontinuerte. For (ii) fås
+	\begin{equation}
+		B_1^{\perp} - B_2^{\perp} = 0
+	\end{equation}
+	Og ved at bruge en infinitisemal Ampereløkke, der igen ligger lige inden for begge materialer, fås for (iii)
+	\begin{equation}
+		\V{E}_1^{\parallel} - \V{E}_2^{\parallel} = 0
+	\end{equation}
+	Dette er altså komponenterne af $ \V{E} $, der er parallelle med grænsen mellem de to medier, der er kontinuerte. For (iv) fås
+	\begin{equation}
+		\V{H}_1^{\parallel} - \V{H}_2^{\parallel} = \V{K}_f \times \U{n}
+	\end{equation}
+	Så komponenterne af $ \V{H} $, der er \textit{parallelle} med grænsen, der er diskontinuerte. For \textbf{lineære medier} kan disse skrives ved kun $ \V{E} $ og $ \V{B} $:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{*{2}{ >{$\displaystyle} l <{$} }}
+			\vspace{0.3cm}
+			\epsilon_1 E_1^{\perp} - \epsilon_2 E_2^{\perp} = \sigma_f & \V{E}_1^{\parallel} - \V{E}_2^{\parallel} = 0 \\
+			B_1^{\perp} - B_2^{\perp} = 0 & \frac{1}{\mu_1} \V{B}_1^{\parallel} - \frac{1}{\mu_2} \V{B}_2^{\parallel} = \V{K}_f \times \U{n}
+		\end{tabular}
+	\end{table}
+	\noindent
+	Og i tilfældet hvor der hverken er nogen fri ladning eller strøm bliver alle højresiderne i disse ligninger 0.
+\end{document}

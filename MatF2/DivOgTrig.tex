@@ -1,0 +1,84 @@
+\documentclass[MatF2Noter.tex]{subfiles}
+
+\begin{document}
+	\section{Geometrisk serie}
+	Den geometriske serie er defineret som
+	\begin{equation}
+		S_{\infty} = \sum_{n=0}^{\infty} ar^n
+	\end{equation}
+	Hvor $ a $ og $ r $ er konstante. Denne konvergerer for $ |r| < 1 $ og divergerer for alle andre værdier. Værdien, for $ |r|<1 $ er
+	\begin{equation}
+		S_{\infty} = \frac{a}{1-r}
+	\end{equation}
+	Denne er specielt nyttig til rækkeudvikling af udtryk på formen $ a/(1-r) $, hvor, igen, $ |r|<1 $.
+	
+	\paragraph{Et eksempel (eksamen 2015, opgave 6.a).} Funktionen $ f(z) =  (3-z)\inverse $ skal rækkeudvikles om punktet $ z = 2 $, i tilfælde hvor $ |z-2| < 1 $. Da kan funktionen omskrives til
+	\begin{equation}
+		f(z) = \frac{1}{3-z} = \frac{1}{1-(z-2)}
+	\end{equation}
+	hvilket netop er \textbf{resultatet} af den geometriske række, med $ a = 1 $, $ r= z-2 $, og det vides at $ |r|<1 $, da dette er et krav stillet i opgaven. Dermed kan denne rækkeudvikles som en geometrisk serie, hvormed det fås:
+	\begin{equation}
+		f(z) = \frac{1}{1 - (z-2)} = \sum_{n=0}^{\infty} a r^n = \sum_{n=0}^{\infty} 1\D(z-2)^n = \sum_{n=0}^{\infty} (z-2)^n
+	\end{equation}
+	Og ved udregning ses det også, at dette netop er Taylorrækken for denne funktion, om punktet $ z=2 $ (med konvergensradius 1, grundet polen i $ z=3 $)
+	
+	\paragraph{Eksamen 2015, opgave 6.b.} Samme funktion, men for $ |z-2| > 1 $. Her ses det, at konvergensradius er større end 1, så der skal findes en måde at omskrive udtrykket, så $ r<1 $. Hvis $ z-2 $ trækkes uden for nævneren fås
+	\begin{equation}
+		f(z) = \frac{1}{3-z} = \frac{1}{1-(z-2)} = \frac{1}{z-2} \frac{1}{\frac{1}{z-2} - 1} = -(z-2)\inverse \frac{1}{1- \frac{1}{z-2}}
+	\end{equation}
+	Idet $ |z-2| > 1 $ vil dennes inverse være mindre end 1. Da fås en geometrisk række med $ r = (z-2)\inverse $ og $ a =1 $, og resultatet bliver:
+	\begin{equation}
+		f(z) = (z-2)\inverse \sum_{n=0}^{\infty} (z-2)^{-n} = \sum_{n=0}^{\infty} (z-2)^{-n-1}
+	\end{equation}
+	
+	\section{Diverse trigonometriske identiteter}
+	
+	\subsection{Definitioner ved eksponentialfunktionen}
+	\begin{align}
+		\sin z &= \frac{-i}{2} \pp{e^{iz}-e^{-iz}} \\
+		\cos z &= \frac{1}{2} \pp{e^{iz}+e^{-iz}} \\
+		\tan z &= \frac{\sin z}{\cos z} = -i \frac{e^{iz}-e^{-iz}}{e^{iz}+e^{-iz}} \\
+		\cot z &= \frac{1}{\tan z} = \frac{\cos z}{\sin z} = i \frac{e^{iz}+e^{-iz}}{e^{iz}-e^{-iz}} \\
+		\sinh z &= \frac{1}{2} \pp{e^{z}-e^{-z}} \\
+		\cosh z &= \frac{1}{2} \pp{e^{z}+e^{-z}} \\
+		\tanh z &= \frac{\sinh z}{\cosh z} = \frac{e^{z}-e^{-z}}{e^{z}+e^{-z}} \\
+		\coth z &= \frac{1}{\tanh z} = \frac{\cosh z}{\sinh z} = \frac{e^{z}+e^{-z}}{e^{z}-e^{-z}}
+	\end{align}
+	
+	\subsection{Tabel over trigonometiske funktioner udtrykt ved hyperbokse funktioner og i}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{>{$} c <{$} >{=}c >{$} r <{$}}
+			\vspace{0.2cm}
+			\sin z && -i \sinh iz \\
+			\vspace{0.2cm}
+			\cos z && \cosh iz \\
+			\vspace{0.2cm}
+			\tan z && -i \tanh iz \\
+			\vspace{0.2cm}
+			\cot z && i \coth iz \\
+			\vspace{0.2cm}
+			\sinh z && -i \sin iz \\
+			\vspace{0.2cm}
+			\cosh z && \cos iz\\
+			\vspace{0.2cm}
+			\tanh z && -i \tan iz \\
+			\coth z && i \cot iz
+		\end{tabular}
+	\end{table}
+	
+	
+	\subsection{Rækkeudviklinger om z = 0 (Maclaurinrækker)}
+	Rækkeudviklingerne for $ \cos z $, $ \sin z $, $ \tan z $ og deres hyperbolske venner omkring 0 er givet ved
+	\begin{align}
+		\sin z &= \sum_{n=0}^{\infty} (-1)^{n} \frac{z^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \dots\\
+		\cos z &= \sum_{n=0}^{\infty} (-1)^{n} \frac{z^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \dots\\
+		\tan z &= z+\frac{z^3}{3} + \frac{2 z^5}{15} + \frac{17 z^7}{315} + \frac{62 z^9}{2835} + \dots \\
+		\sinh z &= \sum_{n=0}^{\infty}\frac{z^{2n+1}}{(2n+1)!} = x + \frac{x^3}{3!} + \frac{x^5}{5!} + \frac{x^7}{7!} + \dots \\
+		\cosh z &= \sum_{n=0}^{\infty} \frac{z^{2n}}{(2n)!} = 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \frac{x^6}{6!} + \dots\\
+		\tanh z &= z-\frac{z^3}{3} + \frac{2 z^5}{15} - \frac{17 z^7}{315} + \frac{62 z^9}{2835} + \dots 
+	\end{align}
+	Jeg har ikke taget sum-notationen med for $ \tan z $ og $ \tanh z $, da disse gør brug af de såkaldte ">Bernoulli-tal"<, som er ret grimme, og ikke spor sjove at udregne. Rækkeudviklinger (Taylorrækker) af denne type kaldes ofte for Maclaurinrækker (eksempelvis i EMM appendix A.6 og Schaums kapitel 22) 
+	
+	
+\end{document}

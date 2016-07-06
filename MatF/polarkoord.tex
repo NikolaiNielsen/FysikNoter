@@ -1,0 +1,109 @@
+\documentclass[MatFNoter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+% Hvis ikke dokumenterne (hoved & under) er i samme mappe, skal den relative stig bruges.
+
+
+
+\begin{document}
+	\section{Polarkoordinater}
+	Polarkoordinater er en anden form for koordinater (en anden basis, om man vil), hvor de alle har til fælles, at de bruger radius fra origo ud til punktet i planen, samt vinklen fra $ x $-aksen og ud til punktet, for at beskrive punktets lokation (i stedet for komponenterne af radius i $ x $- og $ y $-retning).
+	\subsection{Plane polarkoordinater}
+	For plane polarkoordinater ($ \Set{R}^2 $), bruges som sagt en radius $ r $ og vinkel $ \theta $, for at beskrive et punkts lokation i planen. Transformationsligningerne er som følger:
+	\begin{equation}
+		r=\sqrt{x^2+y^2}, \quad x=r \cos \theta, \quad y=r \sin \theta
+	\end{equation}
+	Og enhedsvektorerne er givet ved transformationsligningerne:
+	\begin{align}
+		\Vi &= \cos \theta \ \Vi_r - \sin \theta \ \Vi_{\theta} \\
+		\Vj &= \sin \theta \ \Vi_r + \cos \theta \ \Vi_{\theta}
+	\end{align}
+	Det vil sige, at et vektorfelt i polarkoordinater $ \V{v}= v_r\Vi_r+v_{\theta} \Vi_{\theta} $ kan transformeres til kartesiske koordinater ved
+	\begin{align}
+		v_x &= v_r \cos \theta - v_{\theta} \sin \theta \\
+		v_y &= v_r \sin \theta + v_{\theta} \cos \theta
+	\end{align}
+	Omvendt er transformationen (dette svarer til den inverse matrix af transformationen fra polar til kartesisk):
+	\begin{align}
+		\Vi_r &= \cos \theta \ \Vi + \sin \theta \ \Vj \\
+		\Vi_{\theta} &= -\sin \ \theta \Vi + \cos \ \theta \Vj
+	\end{align}
+	Vektorfeltets komponenter i polarkoordinater findes på lignende vis som den omvendte procedure.En illustration af definitionen på polarkoordinater og enhedsvektorerne ses herunder
+	\begin{figure}[H]
+		\includegraphics[width=.95\textwidth]{img/polar.png}
+		\caption{Illustration af definitionen på polarkoordinater, samt definitionen af enhedsvektorerne. Fra FV side 115}
+		\label{fig:polar}
+	\end{figure}
+	
+	
+	
+	\subsubsection*{Gradientvektor, rotation og divergens}
+	Gradienten i plane polarkoordinater er givet ved
+	\begin{equation}
+		\grad \beta = \diff{\beta}{r} \Vi_r + \frac{1}{r} \diff{\beta}{\theta} \Vi_{\theta}
+	\end{equation}
+	Divergens:
+	\begin{equation}
+		\grad \D \V{A} = \frac{1}{r} \diff{}{r}(r \, A_r) + \frac{1}{r} \diff{A_{\theta}}{\theta}
+	\end{equation}
+	Og rotationen
+	\begin{equation}
+		\grad \times \V{A} = \frac{1}{r} \bb{\diff{}{r}(r \, A_{\theta}) - \diff{A_r}{\theta} } \Vk
+	\end{equation}
+	Hvor $ A_r $ og $ A_{\theta} $ er komponenterne for vektorfeltet $ \V{A} $, og $ \Vk $ er normalvektoren til planen.
+	
+	Hvis man kender gradienten i polarkoordinater, kan skalarfeltet findes ved
+	\begin{equation}
+		\beta = \int \diff{\beta}{r} \ud r = \int r \diff{\beta}{\theta} \ud \theta
+	\end{equation}
+	
+	\subsection{Cylindriske koordinater}
+	Cylindriske koordinater er en basis for $ \Set{R}^3 $, hvor to af koordinaterne udgøres af de plane polarkoordinater, mens den tredje udgøres af højden $ z $.
+	
+	Koordinaterne er altså $ r $, $ \theta $ og $ z $, og den eneste reelle forskel på disse to koordinatsystemer tilførelsen af $ z $-koordinaten. Dermed er enhedsvektoren for denne tredje dimension
+	\begin{equation*}
+		\Vi_z = \Vk
+	\end{equation*}
+	En illustration af koordinatsystemet og enhedsvektorer ses herunder
+	
+	\subsubsection*{Gradientvektor, rotation og divergens}
+	Gradienten er givet ved
+	\begin{equation}
+	\grad \beta = \diff{\beta}{r} \Vi_r + \frac{1}{r} \diff{\beta}{\theta} \Vi_{\theta} + \diff{\beta}{z} \Vi_z
+	\end{equation}
+	Og divergensen
+	\begin{equation}
+		\grad \D \V{A} = \frac{1}{r} \diff{}{r}(r \, A_r) + \frac{1}{r} \diff{A_{\theta}}{\theta} + \diff{A_z}{z}
+	\end{equation}
+	Hvor $ A_z $ er den tredje komponent i vektorfeltet $ \V{A} $
+	
+	\subsection{Sfæriske koordinater}
+	Sfæriske koordinater bruger følgende koordinater $ r $, $ \theta $ og $ \varphi $, med enhedsvektorerne $ \Vi_r $, $ \Vi_{\theta} $ og $ \Vi_{\varphi} $, der henholdsvis beskriver radial, sonal og asimutal retning.
+	
+	$ r $ er radius ud til punktet (i tre dimensioner), mens $ \varphi $ er vinklen fra $ x $-aksen i $ xy $-planen (og denne har dermed overtaget $ \theta $'s plads fra polarkoordinaterne), og $ \theta $ er vinklen fra polen, og svarer altså til vinklen mellem $ r $ og $ z $-aksen. Dette er illustreret i figuren herunder.
+	
+	
+	
+	Transformationsligningerne er som følger:
+	\begin{align}
+		x &= r \sin \theta \cos \varphi, \quad y=r \sin \theta \sin \varphi, \quad z = r\cos \theta, \quad r= \sqrt{x^2+y^2+z^2} \\
+		\Vi &= \sin \theta \cos \varphi \, \Vi_r + \cos \theta \cos \varphi \, \Vi_{\theta} - \sin \varphi \Vi_{\varphi} \\
+		\Vj &= \sin \theta \sin \varphi \, \Vi_r + \cos \theta \sin \varphi \, \Vi_{\theta} + \cos \varphi \Vi_{\varphi} \\
+		\Vk &= \cos \theta \, \Vi_r - \sin \theta \, \Vi_{\theta}
+	\end{align}
+	
+	\subsubsection*{Gradientvektor, rotation og divergens}
+	Gradienten
+	\begin{equation}
+		\grad \beta = \diff{\beta}{r} \Vi_r + \frac{1}{r} \diff{\beta}{\theta} \Vi_{\theta} + \frac{1}{r \sin \theta} \diff{\beta}{\varphi} \Vi_{\varphi}
+	\end{equation}
+	Divergensen
+	\begin{equation}
+		\grad \D \V{A} = \frac{1}{r^2}\diff{}{r} (r^2 \, A_r)+\frac{1}{r \sin \theta} \diff{}{\theta} (\sin \theta \, A_{\theta}) + \frac{1}{r \sin \theta} \diff{A_{\varphi}}{\varphi}
+	\end{equation}
+	Og rotationen
+	\begin{equation}
+		\grad \times \V{A} = \frac{\Vi_r}{r \sin \theta}\bb{ \diff{}{\theta}(A_{\varphi} \sin \theta) - \diff{A_{\theta}}{\varphi} } + \frac{\Vi_{\theta}}{r}\bb{ \frac{1}{\sin \theta} \diff{A_r}{\varphi} - \diff{}{r} (r A_{\varphi}) } + \frac{\Vi_{\varphi}}{r} \bb{ \diff{}{r} (r A_{\theta}) - \diff{A_r}{\theta} }
+	\end{equation}
+	
+\end{document}
+

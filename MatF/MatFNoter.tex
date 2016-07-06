@@ -1,0 +1,130 @@
+% Nikolai Nielsens "Fysiske Fag" preamble
+\documentclass[a4paper,10pt]{article} 	% A4 papir, 10pt størrelse
+
+% Packages:
+\usepackage[Danish]{babel}		% Dansk og engelsk
+\usepackage[utf8]{inputenc}				% Vi bruger UTF-8 til Æ, Ø & Å
+\usepackage{amsmath,amssymb,url,graphicx} % Math-ting, URLs og illustrationer
+\usepackage{subfiles}
+\usepackage{mathtools, gauss}
+\usepackage{enumerate}
+
+\usepackage{bm}					% BoldMath
+
+
+% Forskellige pakker til illustrationer og figurer. Udkommenter hvis unødvendigt
+\usepackage{wrapfig}		% Ombrydning af tekst
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{floatrow}		% Float-rækker
+
+% Links i indholdsfortegnelsen. Udkommenter hvis unødvendig
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=blue,
+	breaklinks=true
+}
+
+% Commands:
+\newcommand{\D}{\cdot}					% Gange
+\newcommand{\V}[1]{\bm{#1}}				% Vektornotation
+\newcommand{\Set}[1]{\mathbb{#1}}		% Sæt, fx reelle tal
+\newcommand{\e}[1]{e^{#1}}				% e^x
+\newcommand{\DU}[1]{\underline{\underline{#1}}} % dobbelt understregning
+\newcommand{\Lim}[2]{\lim\limits_{#1 \rightarrow #2}}	% Nyttig grænseværdi
+\newcommand{\Maple}[2]{\\\includegraphics[width=#2cm]{img/maple#1.png}} % Til Matematikopgaver
+\newcommand{\diff}[3][\partial]{\frac{#1 #2}{#1 #3}}
+\newcommand{\Bf}[1]{\mathbf{#1}} 		% til fed matematikskrift
+\newcommand{\pp}[1]{\left( #1 \right)}	% Stor blød parentes
+\newcommand{\bb}[1]{\left[ #1 \right]}	% Stor firkantet parentes
+\newcommand{\kk}[1]{\left\{ #1 \right\}}% Stor tuborgklamme
+\newcommand{\inverse}{^{-1}}			% hvis man tit skal skrive ^{-1}, ie $X\inverse$
+\newcommand{\konj}[1]{\overline{#1}}	% Kompleks konjugeret
+
+
+% 'upright d'. Gør at du kan afslutte integraler med f.eks. \int x \ud x
+\DeclareMathOperator{\ud}{\,d\negthickspace\,}
+
+% LinAlg
+\usepackage{mathrsfs}
+\usepackage{ushort}					% kort understregning
+\usepackage{blkarray}				% blockarrays, til angivning af rækker/søjler i en matrix.
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\Pol}{Pol}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\id}{id}					% Identitetafbildning - LinAlg
+\newcommand{\morf}[3]{#1\colon #2 \to #3} 		% \morf{f}{A}{B} = f\colon A\to B
+\newcommand{\morffFF}[3][f]{#1 \colon \Set{F}^{#2} \to \Set{F}^{#3}} % Afbildning i Set(F) - LinAlg
+\newcommand{\U}[1]{\ushort{#1}} 				% vektornotation - LinAlg
+\newcommand{\mat}[1]{\ushortd{#1}}				% Matrixnotation - LinAlg
+\newcommand{\trans}[2]{{}_{#1}\mathsf{T}_{#2}}
+\newcommand{\bas}[1]{\mathscr{#1}}
+\newcommand{\ele}[2]{{}_{#1}[#2]}
+\newcommand{\transf}[3]{{}_{#1}[#2]_{#3}}
+
+% MatF
+% Standardenhedsvektorer
+\newcommand{\Vi}{\V{i}}
+\newcommand{\Vj}{\V{j}}
+\newcommand{\Vk}{\V{k}}
+\newcommand{\grad}{\nabla}
+\newcommand{\ind}[2]{\langle #1 | #2 \rangle}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\DeclareMathOperator{\erf}{erf}
+
+
+% Margen
+\usepackage[margin=1in]{geometry}
+
+% Max antal kolonner i en matrix. Default er 10
+%\setcounter{MaxMatrixCols}{20}
+
+% Hvor dybt skal kapitler labeles?
+%\setcounter{secnumdepth}{0}		
+
+% Til nummerering af ligninger. Så der står (afsnit.ligning) og ikke bare (ligning)
+\numberwithin{equation}{section}		
+
+% Header
+%\usepackage{fancyhdr}
+%\lhead{Nikolai Plambech Nielsen, 21-06-95\\Dato:. Klasse 5.C - De Fysiske Fag}
+%\pagestyle{fancy}
+
+%Titel
+\title{Noter til MatF på KU (Matematik for Fysikere 1)}
+\author{af Nikolai Plambech Nielsen, LPK331 \\ Version 1.0}
+
+
+\begin{document}
+	\selectlanguage{danish}
+	%Udkommenter ovenstående, hvis du skriver på engelsk.
+
+	\maketitle
+	\tableofcontents
+	
+	\newpage
+	\part{Feltteori og vektoranalyse}
+	\subfile{Intro}
+	\newpage
+	\subfile{vektorfluks}
+	\newpage
+	\subfile{integraler}
+%	\newpage
+	\subfile{polarkoord}
+%	\newpage
+	\subfile{divfri}
+%	\newpage
+	\subfile{fluid}
+	
+%	\newpage
+	\part{Essential Mathematical Methods}
+	\subfile{egenvaerdi}
+	\subfile{fourier}
+	\subfile{pde}
+\end{document}
+

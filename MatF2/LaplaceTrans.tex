@@ -1,0 +1,99 @@
+\documentclass[MatF2Noter.tex]{subfiles}
+
+
+\begin{document}
+	
+	
+	\section{Laplacetransformation}
+	Lige som man kan definere en Fouriertransformation, kan man også definere en Laplacetransformation. Et problem med Fouriertransformationen er, at man ofte gerne vil transformere en funktion $ f $, hvor $ f \not\to 0 $ for $ t \to \infty $, hvor $ \tilde{f} $ ikke konvergerer. Et eksempel er $ f(t) = t $, som bestemt ikke går mod 0 for store $ t $. Dette problem klarer Laplacetransformationen, samtidig med problemet, (eller begrænsningen) at man nogle gange kun vil kigge på en funktion for $ t>0 $, for eksempel til problemer med startbetingelser for $ f(0) $. Laplacetransformationen $ \Lap{f(t)} $ eller $ \lap{f} $ er defineret ved
+	\begin{equation}
+		\lap{f} = \int_{0}^{\infty} f(t) e^{-st} \ud t
+	\end{equation}
+	(såfremt det eksisterer, selvfølgelig). Til den generelle Laplacetransformation kan $ s $ godt ses som reel (idet der kun integreres langs den reelle akse, så den imaginære del er alligevel 0), men $ s $ er teknisk set kompleks, hvilket også bruges til den inverse laplacetransformation. Den inverse transformation er dog ikke identisk med den almindelige (i modsætning til Fouriertransformationen, hvor den almindelige og inverse transformation er ens, bortset fra et skift af integrationsvariabel), og denne kræver kompleks integration (og residuumsregning!)
+	
+	I praksis vil der, for en given funktion $ f(t) $, være et reelt tal $ s_0 $, hvor Laplacetransformationen eksisterer for $ s>s_0 $, men divergerer for $ s \leq s_0 $. Laplacetransformationen er lineær, hvormed det gælder at
+	\begin{equation}
+		\Lap{a f_1(t) + bf_2(t)} = a \Lap{f_1(t)} + b \Lap{f_2(t)} = a \lap{f_1} + b \lap{f_2}
+	\end{equation}
+	
+	Med disse egenskaber i tankerne, laves der en lille ">ordbog"< af Laplacetransformationer:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{*{3}{>{$} l <{$}}}
+			\hline
+			f(t) 			& \lap{f} 						& s_0 \\
+			\hline
+			c				& c/s							& 0 \\
+			ct^n			& cn!/s^{n+1}					& 0 \\
+			\sin bt			& b/(s^2+b^2)					& 0 \\
+			\cos bt 		& s/(s^2+b^2)					& 0 \\
+			e^(at)			& 1/(s-a) 						& a \\
+			t^n e^{at}		& n!/(s-a)^{n+1}				& a \\
+			\sinh at 		& a/(s^2-a^2) 					& |a| \\
+			\cosh at		& s/(s^2-a^2) 					& |a| \\
+			e^{at} \sin bt	& b/[(s^2-a^2)+b^2]				& a \\
+			e^{at} \cos bt	& (s-a)/[(s^2-a^2)+b^2] 		& a \\
+			t^{1/2}			& \frac{1}{2} (\pi/s^3)^{1/2}	& 0 \\
+			t^{-1/2} 		& (\pi/s)^{1/2}					& 0 \\
+			\delta (t-t_0)	& e^{-st_0}						& 0 \\
+			H(t-t_0)		& e^{-st_0}/s					& 0 \\
+			\hline
+		\end{tabular}
+		\label{tab:LaplaceOrdbog}
+		\caption{Lille ordbog over normale Laplacetransformationer. $ H $ er selvfølgelig Heavisidefunktionen, $ H(u) = \int_{-\infty}^{u} \delta(t) \ud t $}.
+	\end{table}
+	En række andre egenskaber er som følger
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{>{$\displaystyle} l <{$} >{=} c >{$\displaystyle} l <{$}}
+			\vspace{0.1cm}
+			\Lap{\diff[\ud]{f}{t}} & &  s\lap{f}-f(0), \quad s>0 \\
+			\vspace{0.1cm}
+			\Lap{\diff[\ud]{^2f}{t^2}} & & s^2\lap{f}-sf(0)-\diff[\ud]{f}{t}(0), \quad s>0 \\
+			\vspace{0.1cm}
+			\Lap{\diff[\ud]{^nf}{t^n}} & & s^n \lap{f} -s^{n-1} f(0) - s^{n-2} \diff[\ud]{f}{t} (0) - \dots  - \diff[\ud]{^{n-1} f}{t^{n-1}}(0), \quad s>0 \\
+			\vspace{0.1cm}
+			\Lap{\int_{0}^{t} f(u) \ud u} & & \frac{1}{s} \Lap{f} \\
+			\vspace{0.1cm}
+			\Lap{e^{at} f(t)} && \hat{f}(s-a) \\
+			\vspace{0.1cm}
+			\invLap{ e^{-bs} \lap{f} } && \begin{cases}
+				0, & \text{for } 0<t\leq b \\
+				f(t-b), & \text{for } t>b,
+			\end{cases}\\
+			\vspace{0.1cm}
+			\Lap{f(at)} && \frac{1}{a} \hat{f}\pp{\frac{s}{a}} \\
+			\vspace{0.1cm}
+			\Lap{t^n f(t)} && (-1)^n \diff[\ud]{^n \lap{f}}{s^n}, \quad n\in \Set{N} \\
+			\vspace{0.1cm}
+			\Lap{\frac{f(t)}{t}} && \int_{s}^{\infty} \hat{f}(u) \ud u, \quad \text{såfremt } \lim\limits_{t \to 0}[f(t)/t] \text{ eksisterer} \\
+			\vspace{0.1cm}
+			\Lap{ f(t) \ast g(t)} && \lap{f} \lap{g}
+		\end{tabular}
+	\end{table}
+	Hvor den sidste egenskab er foldningen af to funktioner $ f $ og $ g $:
+	\begin{equation}
+		f(t) \ast g(t) = \int_{0}^{t} f(u) g(t-u) \ud u
+	\end{equation}
+	Lige som med Fouriertransformationer er foldningen både kommutativ, associativ og distributiv.
+	
+	
+	
+	\section{Invers Laplacetransformation}
+	Den inverse Laplacetransformation er defineret ved
+	\begin{equation}
+		f(t) =  \frac{1}{2 \pi i}\int_{\lambda-i \infty}^{\lambda+i\infty} e^{st} \lap{f} \ud s, \quad \lambda>0
+	\end{equation}
+	hvor $ \lambda $ er et reelt, positivt tal, der er stort nok til, at alle integrandens poler ligger til venstre for $ \lambda $. Integrationen foregår altså langs en uendelig linje parallel med den imaginære akse. Denne linje lukkes med et cirkelafsnit $ \Gamma $, der har radius $ R $, således at residuumsætningen kan bruges. Dette sætter dog nogle restriktioner på integranten, idet denne konturs bidrag skal gå mod 0, for $ R \to \infty $. Dette opnås ved hjælp af en modificeret version af Jordans lemma, der siger, at hvis der findes et $ M>0 $ og $ \alpha>0 $, sådan så der på $ \Gamma $ gælder
+	\begin{equation}
+		|\lap{f}| \leq \frac{M}{R^{\alpha}}
+	\end{equation}
+	Dette er altid opfyldt, hvis $ \lap{f} $ er på formen
+	\begin{equation}
+		\lap{f} = \frac{P(s)}{Q(s)}
+	\end{equation}
+	Hvor $ P $ og $ Q $ er polynomier, og graden af $ Q $ er højere end graden af $ P $. Da bliver resultatet:
+	\begin{equation}
+		f(t) = \sum (\text{Residuer af } \lap{f}e^{st} \text{ i alle dennes poler}).
+	\end{equation}
+\end{document}

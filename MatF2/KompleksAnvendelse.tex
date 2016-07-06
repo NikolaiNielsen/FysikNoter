@@ -1,0 +1,272 @@
+\documentclass[MatF2Noter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+
+\begin{document}
+	\section{Anvendelse af kompleks variabelteori}
+	
+	\subsection{Komplekse potentialer}
+	Idet både den reelle og imaginære del, af en analytisk funktion $ f(z) $, er løsninger til Laplaces ligning i to dimensioner, kan de bruges til at løse en række fysiske problemer med potentialer, der opfylder $ \grad^2\psi = 0 $. Denne metode kaldes for komplekse potentialer.
+	
+	Hvis en funktion $ f = \phi +i \psi $ er en analytisk funktion, så vil $ \phi= $konstant skære enhver $ \psi= $konstant retvinklet. Dette vil sige, at hvis, for eksempel, $ \phi $=konstant svarer til ækvipotentialer, så vil $ \psi $=konstant svare til strøm-/feltlinjer, eller omvendt. Normalt bruges $ \phi $ til at beskrive ækvipotentialer og $ \psi $ til at beskrive feltlinjer (som i Feltteori og Vektoranalyse fra MatF1).
+	
+	For ethvert given komplekst elektrostatisk potential $ f(z) $ vil den elektriske feltstyrke være givet ved $ E = |f'(z)| $ og dennes retning vil danne en vinkel $ \pi - \arg [f'(z)] $ med $ x $-aksen. Dette ses ved at indse at det elektriske felt har komponenterne
+	\begin{equation}
+		E_x = -\diff{\phi}{x}, \quad E_y = - \diff{\phi}{y}
+	\end{equation}
+	Og hvis dette omskrives med Cauchy-Riemann relationerne fås at
+	\begin{equation}
+		\diff[\ud]{f}{z} = \diff[\partial]{\phi}{x} + i \diff[\partial]{\psi}{y} = -E_x + i E_y
+	\end{equation}
+	Da vil styrken af $ E $ være modulus af $ f'(z) $ og denne danner en vinkel med $ x $-aksen på $ \pi - \arg [f'(z)] $.
+	
+	Selve det elektriske felt $ \V{E} $ kan da beskrives ved
+	\begin{equation}
+		\V{E} = E_x + i E_y = -[f'(z)]^*
+	\end{equation} 
+	Og for en fluid, der er stationær, rotationsfri, inkompressibel og ikkeviskøs, vil fluidstrømmen $ \V{V} $ være givet ved
+	\begin{equation}
+		\V{V} = V_x + i V_y = \grad \phi = [f'(z)]^*
+	\end{equation}
+	Hvor fortegnsforskellen da antyder forskellen i definitionerne for felterne (feltstyrken mindskes med afstanden for elektrostatiske felter). Steder hvor $ f'(z)=0 $ kaldes for stagnationspunkter i strømmen. 
+	
+	Andre eksempler på komplekse potentialer er
+	\begin{itemize}
+		\item En linje\textit{kilde} af fluid i $ z=z_0 $, retvinklet på $ z $-planen (altså et punkt hvor en fluid opstår med konstant hastighed) er givet ved $ f(z) = k \ln (z-z_0) $. $ k $ er her kildens styrke, og et afløb vil da have et negativt fortegn.
+		\item strømmen af en fluid med konstant hastighed $ V_0 $, der danner en vinkel $ \alpha $ med $ x $-aksen, er beskrevet ved $ f(z) = V_0 \exp(i\alpha) z $.
+		\item Punkthvirvel omkring et punkt $ z=z_0 $ med strømhastigheden invers proportionel med afstanden fra $ z_0 $ er givet ved $ f(z) = -ik \ln(z-z_0) $, hvor $ k $ igen er styrken. Denne er med positiv omløbsretning, mens et fortegnsskift givet negativ omløbsretning.
+	\end{itemize}
+	
+	Et eksempel på anvendelse er forskellen i værdien af $ \psi $ mellem to punkter $ P $ og $ Q $, langs en kontur $ C $. Denne er givet ved
+	\begin{equation}
+		\psi(Q)-\psi(P) = \int_{P}^{Q}  \ud \psi = \int_{P}^{Q} \grad \phi \D \U{n} \ud s = \int_{P}^{Q} \diff[\partial]{\phi}{n} \ud s
+	\end{equation}
+	hvor Cauchy-Riemann relationerne er brugt, for at beskrive de afledte af $ \psi $, ved $ \phi $. Her er $ \U{n} $ vektornormalen til konturen $ C $, og denne har komponenterne $ \U{n} = (\diff[d]{y}{s},-\diff[d]{x}{s}) $, og $ \diff[\partial]{\phi}{n} $ er den retningsafledte af $ \phi $ i retningen $ \U{n} $.
+	
+	I tilfældet af elektrostatik, hvor $ \diff[\partial]{\phi}{n} = -\frac{\sigma}{\epsilon_0}$, beskriver $ -\epsilon_0 [\psi(Q)-\psi(P)] $ den samlede ladning per længdeenhed, normalt til $ xy $-planen på overfladen af en leder, mellem punkterne $ P $ og $ Q $. 
+	
+	I fluidmekanik, hvor fluiden har densiteten $ \rho $, vil $ \rho[\psi(Q)-\psi(P)] $ beskrive massefluksen mellem $ P $ og $ Q $ per enhedslængde, normalt på $ xy $-planen.
+	
+	
+	\subsection{Bestemte integraler ved kompleks konturintegration}
+	
+	\subsubsection{Integraler af trigonometriske funktioner}
+	Integraler af formen
+	\begin{equation}
+		\int_{0}^{2 \pi} F(\cos \theta, \sin \theta) \ud \theta
+	\end{equation}
+	hvor $ F $ altså er en eller anden funktion, der indeholder trigonometriske funktioner. Dette kan omdannes til et komplekts konturintegral omkring enhedscirklen. På enhedscirklen fås
+	\begin{equation}
+		z=\exp i\theta, \quad \cos n\theta = \frac{1}{2} (z^n+z^{-n}), \quad \sin n\theta = -\frac{1}{2}i (z^n-z^{-n}), \quad \ud \theta = -i z\inverse \ud z
+	\end{equation}
+	Ved hjælp af disse substitutioner skal der bare findes de singulariteter, som ligger inden for enhedscirklen, samt deres residuer. Da giver residuumsætningen resultatet. 
+	
+	\paragraph{Et eksempel.} Opgavesæt 5, opgave 2.a:
+	
+	\begin{equation}
+		I = \int_{0}^{2 \pi} \frac{\ud \theta}{5+4\sin \theta}
+	\end{equation}
+	Ved substitution fås
+	\begin{equation}
+		I = \oint_{|z|=1} \frac{-i z\inverse}{5-2i(z-z\inverse)} \ud z
+	\end{equation}
+	Ved forlængelse med $ z $ fås
+	\begin{equation}
+		I = \oint \frac{-i}{-2iz^2+5z+2i} \ud z
+	\end{equation}
+	Hvormed et komplekst andengradspolynomium optræder. Dette har rødderne $ -i/2 $ og $ -2i $ hvoraf altså kun den første ligger inden for enhedscirklen. Integranten kan da, ved hjælp af algebraens fundamentalsætning (kan du huske den?) omskrives til
+	\begin{equation}
+		I = -i\oint \frac{1}{-2i(z+\frac{i}{2})(z+2i)} \ud z = \oint \frac{1}{2(z+i/2)(z+2i)} \ud z
+	\end{equation}
+	Det ses da også, at disse er simple poler, idet algebraens fundamentalsætning siger, at multipliciteten af et $ n $-tegradspolynomiums rødder altid summerer til $ n $. I dette tilfælde er det et andengradspolynomium med 2 rødder, der hver altså har multipliciteten 1. Her er multipliciteten af polynomiet i nævneren altså lig med polens orden! Det er en virkelig smart ting at huske!
+	
+	Integralet bliver nu:
+	\begin{equation}
+		I = 2 \pi i \Res (-i/2)
+	\end{equation}
+	og da integranten kan skrives på formen $ g(z)/h(z) $, hvor $ g(z) = 1/2(z+2i) $ og $ h(z) = (z+\frac{1}{2}i) $ bruges formel \eqref{eq:SimpleSimpleRes}:
+	\begin{equation}
+		\Res (-i/2) = \frac{g(-i/2)}{h'(-i/2)} = \frac{1}{2(-i/2 + 2i)} \frac{1}{1} = \frac{1}{3i} = -\frac{i}{3} 
+	\end{equation}
+	Hele integralet bliver da
+	\begin{equation}
+		I = 2 \pi i \pp{-\frac{i}{3}} = \frac{2\pi}{3} 
+	\end{equation}
+
+
+	\subsubsection{Uendelige integraler}
+	Integraler på formen
+	\begin{equation}
+		\int_{-\infty}^{\infty} f(x) \ud x
+	\end{equation}
+	kan evalueres, hvor $ f(z) $ (funktionen $ f $, men nu af en kompleks variabel) har følgende egenskaber
+	\begin{itemize}
+		\item $ f(z) $ er analytisk i den øvre halvplan, altså $ \Im z \geq 0 $, ud over en tællelig antal poler, hvor ingen er på den reelle akse (der må faktisk godt være simple poler på den reelle akse, men resultatet bliver lidt anderledes, se næste afsnit).
+		\item På en halvcirkel $ \Gamma $ med radius $ R $, går $ \max (R \, |f|) \to 0$ for $ R \to \infty $ på $ \Gamma $ (en tilstrækkelig betingelse er at $ zf(z) \to 0 $ for $ |z| \to \infty $).
+		\item $ \int_{-\infty}^{0} f(x) dx $ og $ \int_{0}^{\infty} $ eksisterer begge (der bliver ikke stillet opgaver, hvor dette skal verificeres. Det sagde Joachim selv til en forelæsning). 
+	\end{itemize}
+	Den anden betingelse sikrer, at integralet langs kurven $ \Gamma $ går mod 0, for $ R \to \infty $, hvilket vil sige, at:
+	\begin{equation}
+		\int_{-\infty}^{\infty} f(x) \ud x + \int_{\Gamma} f(z) \ud z = \oint_{\Im z \geq 0} f(z) \ud z = \int_{-\infty}^{\infty} f(x) \ud x
+	\end{equation}
+	Idet det er et konturintegral langs en lukket kontur, fås svaret ved residuumsætningen:
+	\begin{equation}
+		\int_{-\infty}^{\infty} f(x) \ud x = 2 \pi i \sum \Res(\Im z \geq 0)
+	\end{equation}
+	
+	\paragraph{Et eksempel.} Integralet:
+	\begin{equation}
+		I = \int_{0}^{\infty} \frac{\ud x}{(x^2 + a^2)^4}, \quad a \in \Set{R}
+	\end{equation}
+	Integranten er her funktionen fra eksemplet på at finde residuer med binomialekspansioner. Denne har to poler af 4. orden, i $ \pm ai $.	Her ligger kun $ ai $ i det øvre halvplan, og altså kun dettes residuum bidrager til integralet. Idet residuummet blev udregnet i eksemplet gider jeg ikke også at gøre det her, og integralet fra negativ uendelig til positivt uendelig giver
+	\begin{equation}
+		\int_{-\infty}^{\infty}  \frac{\ud x}{(x^2 + a^2)^4} = 2 \pi i \frac{-5i}{32 a^7} = \frac{5 \pi}{16 a^7}
+	\end{equation}
+	(læg mærke til grænserne). Idet integranten er lige omkring $ x=0 $, vil $ I $ være givet ved halvdelen af dette:
+	\begin{equation}
+		I = \frac{1}{2} \frac{5 \pi}{16 a^7} = \frac{5 \pi}{32 a^7}
+	\end{equation}
+	
+	\subsubsection*{Simple poler på den reelle akse}
+	Metoden ovenfor kan udvides til at inkludere simple poler på den reelle akse. Dette gøres ved at ændre konturen, sådan så der integreres rundt i en halvcirkel $ \gamma $ med radius $ \rho $, om disse poler, og så lader man $ \rho \to 0 $. Da bliver integralet:
+	\begin{equation}
+		\int_{-\infty}^{\infty} f(x) \ud x = \int_{-\infty}^{z_0-\rho} + \int_{z_0+\rho}^{\infty} + \int_{\gamma} f(z)\ud z + \int_{\Gamma} f(z) \ud z = \oint_{\Im z\geq 0} f(z) \ud z
+	\end{equation}
+	Her er resultatet det samme som uden de simple poler på den reelle akse, bortset fra den simple pols bidrag på
+	\begin{equation}
+		\int_{\gamma} = -i \Res_{\text{simpel}} \pi
+	\end{equation}
+	hvilket fås fra ligning \eqref{eq:ResCirkel}. Det negative fortegn optræder idet der integreres i negativ omløbsretning (altså $ \theta_1 = \pi $, $ \theta_2 = 0 $). Resten af udregningerne forløber som normalt, men dette lille bidrag skal huskes i det endelige resultat.
+	
+	\subsubsection*{Jordans lemma og trigonometriske funktioner i uendelige integraler}
+	Jordans lemma siger at: For en funktion $ f(z) $, hvis det gælder at
+	\begin{itemize}
+		\item $ f(z) $ er analytisk i den øvre halvplan, ud over for en tællelig mængde poler med $ \Im > 0 $ (eller, simple poler på den reelle akse, se afsnittet lige ovenfor),
+		\item Maksimum af $ |f(z)| \to 0 $ for $ |z| \to \infty $ i den øvre halvplan,
+		\item $ m>0 $,
+	\end{itemize}
+	gælder det da også at
+	\begin{equation}
+		I_{\Gamma} = \int_{\Gamma} \exp(imz) f(z) \ud z \to 0, \quad R \to \infty
+	\end{equation}
+	hvor $ \Gamma $ er halvcirklen fra før.
+	
+	Det ses, at den anden betingelse i Jordans lemma faktisk er en mindre streng betingelse end den anden fra før. Et eksempel på brugen af både Jordans lemma, og simple poler på den reelle akse er:
+	\paragraph{Et eksempel.} Find principalværdien af
+	\begin{equation}
+		\int_{-\infty}^{\infty} \frac{\cos mx}{x-a} \ud x, \quad a \in \Set{R}, m>0.
+	\end{equation}
+	Her regnes først på funktionen $ \exp(imx)(x-a)\inverse $, da der da kan bruges Jordans lemma. Denne funktion (og integranden) har ingen poler i den øvre halvplan, men den har en simpel pol i $ x=a $, altså på den reelle akse. Ydermere går $ (x-a)\inverse $ mod 0, når $ |z| \to \infty $. Da vil det lukkede kurveintegral give
+	\begin{equation}
+		\oint_{\Im z\geq 0} f(z) \ud z = \int_{-R}^{a-\rho} + \int_{\gamma} + \int_{a+\rho}^{R} + \int_{\Gamma} = 0
+	\end{equation}
+	Det sidste integral går mod 0 når $ R\to \infty $, og det samlede integral bliver (når $ \rho \to 0 $)
+	\begin{equation}
+		P \int_{-\infty}^{\infty} \frac{\exp(imx)}{x-a} \ud x -i \pi \Res(a) = 0
+	\end{equation}
+	Residuummet er her $ \exp(ima) $ og ved at se på den reelle del og imaginære del af integralet hver for sig fås
+	\begin{align}
+		P \int_{-\infty}^{\infty} \frac{\exp(imx)}{x-a} \ud x &= i \pi \exp(ima) \\
+		P \int_{-\infty}^{\infty} \frac{\cos(mx)}{x-a} \ud x &= -\pi \sin ma \\
+		P \int_{-\infty}^{\infty} \frac{\sin(mx)}{x-a} \ud x &= \pi \cos ma
+	\end{align}
+	Hvor anden linje selvfølgelig er resultatet af det originale integral og tredje linje er en lille ekstra bonus for alt det hårde arbejde vi laver.
+	
+	
+	
+	
+	\subsubsection{Integraler af flertydige funktioner}
+	Tidligere i noterne er beskrevet, hvordan flertydige funktioner kan håndteres med forgreningssnit. Dette kan også bruges til at løse nogle uendelige integraler. Et eksempel er en funktion med et forgreningspunkt i origo, og et forgreningssnit langs den reelle akse (se \textbf{FIGUR}). Da kan en kontur bestående af et ydre cirkelsnit $ \Gamma $, med radius $ R $ og et indre cirkelsnit $ \gamma $ med radius $ \rho $, og begge med centrum i origo bruges, hvor de to cirkelsnit forbindes af to linjer, over og under den reelle akse. Den første linje er over, og forbinder punkterne A og B, mens den anden er under den reelle akse og forbinder punkterne C og D. Et integral fra 0 til uendelig langs den reelle akse vil da være integralet fra $ A $ til $ B $, når $ R \to \infty $ og $ \rho\to 0 $, hvormed linjen mellem $ A $ og $ B $ vil sammenfalde med den reelle akse. Det ses, at selvom $ CD $ også vil sammenfalde med den reelle akse, vil værdien af funktionen i disse punkter ikke være den samme, grundet forgreningspunktet!
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\textwidth]{img/branchcutintegral}
+		\label{fig:BranchCutIntegral}
+		\caption{Illustration af integrationsvejen for funktion med branch cut langs den reelle akse. Fra bogen, side 596.}
+	\end{figure}
+	
+	\paragraph{Et eksempel.}
+	Evaluer integralet
+	\begin{equation}
+		I = \int_{0}^{\infty} \frac{\ud x}{(x+a)^3 x^{1/2}}, \quad a>0
+	\end{equation}
+	Her ses, at integranden $ f(z) $ har et forgreningspunkt i $ z_0 = 0 $ og en pol af orden 3 i $ z_0 = -a $. Ydermere går $ |z\, f(z)| \to 0 $ på både den indre og ydre cirkel, når $ R \to \infty $ og $ \rho \to 0 $ (på den indre opfører funktionen sig som $ a^{-3}\rho^{1/2} $ og på den ydre som $ R^{-5/2} $). Disse bidrager dermed ikke til det samlede integral.
+	
+	Da konturen der integreres langs er lukket, og den eneste singularitet, som ligger inden for konturen er $ -a $, bliver det samlede integral:
+	\begin{equation}
+		\int_{AB} + \int_{\Gamma} + \int_{CD} + \int_{\gamma} = \int_{AB}+\int_{CD} = 2\pi i \Res (-a)
+	\end{equation}
+	For at finde residuummet for $ z_0 = -a $ sættes $ z=-a+\xi $ og der foretages en binomialekspansion (det ses at $ (-a)^{1/2} = ia^{1/2} $):
+	\begin{equation}
+		\frac{1}{(z+a)^3 z^{1/2}} = \frac{1}{(-a+\xi+a)^3 (-a+\xi)^{1/2}} = \frac{1}{\xi^3 (-a)^{1/2} (1-\xi/a)^{1/2}} = \frac{1}{i\xi^3 a^{1/2}} \bb{1-\frac{\xi}{a}}^{-1/2}
+	\end{equation}
+	Her ses det, at det tredje led ($ k=2 $) i binomialekspansionen giver residuummet i dette punkt. Dette er givet ved
+	\begin{equation}
+		{-1/2 \choose 2} \pp{-\frac{\xi}{a}}^2 = \frac{-1/2 (-1/2 - 1)}{2!} \frac{\xi^2}{a^2} = \frac{3 \xi^2}{8 a^2}
+	\end{equation}
+	og hele leddet bliver
+	\begin{equation}
+		\frac{-i}{\xi^3 a^{1/2}} \frac{3 \xi^2}{8 a^2} =\frac{-3i}{8 a^{5/2}} \xi\inverse
+	\end{equation}
+	Og residuummet er da $ -3i/(8 a^{5/2}) $. Sættes $ z=x $ langs $ AB $ og $ z=x \exp(2\pi i) $ langs $ CD $ og substitueres disse ind i integralerne fås ($ \exp(2\pi i) $ må først sættes lig 1 \textbf{efter} det er substitueret ind i integralet, ellers tages der ikke højde for forgreningspunktet!):
+	\begin{equation}
+		\int_{0}^{\infty} \frac{\ud x}{(x+a)^3 x^{1/2}} + \int_{\infty}^{0} \frac{\ud x}{(x \exp(2 \pi i) + a)^3 (x^{1/2} \exp(\frac{2}{2} \pi i))} = 2 \pi i \pp{-\frac{3i}{8 a^{5/2}}} = \frac{3 \pi }{4 a^{5/2}}
+	\end{equation}
+	Her sættes $ \exp(2\pi i) = 1 $, og grænserne på det andet integral vendes:
+	\begin{equation}
+		\int_{0}^{\infty} \frac{\ud x}{(x+a)^3 x^{1/2}} - \int_{0}^{\infty} \frac{\ud x}{(x + a)^3 x^{1/2} \exp(\pi i)} = \pp{1-\frac{1}{\exp \pi i}} \int_{0}^{\infty} \frac{\ud x}{(x+a)^3 x^{1/2}} = \frac{3 \pi }{4 a^{5/2}}
+	\end{equation}
+	og integralet bliver:
+	\begin{equation}
+		I = \frac{3 \pi}{4 a^{5/2}} \frac{1}{1-\frac{1}{-1}} = \frac{1}{2} \frac{3 \pi }{4 a^{5/2}} = \frac{3 \pi }{8 a^{5/2}}
+	\end{equation}
+	
+	
+	
+	
+	\subsection{Summation af serier}
+	Nogle gange kan resultatet af en uendelig serie med indeks $ n $ regnes ved hjælp af et passende konturintegral i den komplekse plan, hvor integranden har poler på den reelle akse i positionerne $ z=n $, hvor residuerne i disse poler er lig med leddene i den uendelige serie. Et eksempel er som følger
+	
+	\paragraph{Et eksempel.}
+	Regn
+	\begin{equation}
+		\sum_{n= -\infty}^{\infty} \frac{1}{(a+n)^2}
+	\end{equation}
+	ved hjælp af integralet
+	\begin{equation}
+		\oint_C \frac{\pi \cot \pi z}{(a+z)^2} \ud z, \quad \cot z = \frac{1}{\tan z} = \frac{\cos z}{\sin z}
+	\end{equation}
+	hvor $ a $ ikke er et heltal og hvor $ C $ er en cirkel af stor radius $ R $. Det ses at integranden har simple poler ved alle heltal $ n $, for $ -\infty < n < \infty $ grundet $ \cot \pi z $, og at integranden har en dobbeltpol i $ z=-a $.
+	
+	For at finde residuerne for $ z=n $ sættes $ z=n+\xi $, hvor $ \xi $ som altid er et lille tal. Da skrives $ \cot \pi z $ som $ \cos \pi z / \sin \pi z $, og både tæller og nævner Taylorekspanderes til den første orden, om punktet $ n \pi $, med variablen $ u = n \pi + \xi \pi $. Det huskes her at $ \sin n\pi = 0 $
+	
+	\begin{align*}
+		\cos(\pi z) &= \cos(n \pi + \xi \pi) \approx \cos(n\pi) - \sin(n\pi) (u - n \pi) = \cos (n \pi) \\
+		\sin(\pi z) &= \sin(n \pi + \xi \pi) \approx \sin(n\pi) + \cos(n\pi) (u - n \pi) = \cos (n \pi) (n \pi + \xi \pi - n \pi) = \cos (n \pi) \xi \pi \\
+		\cot (\pi z) &\approx \frac{\cos n \pi}{\xi \pi \cos n \pi} =  (\xi \pi)\inverse
+	\end{align*} 
+	Da fås residuummet til
+	\begin{equation}
+		\Res(n) = \frac{\pi \ \pi \inverse}{(a+n)^2} = \frac{1}{(a+n)^2}
+	\end{equation}
+	
+	For at finde residuerne for $ z=-a $ sættes $ z=-a+\xi $, og der ekspanderes for små $ \xi $. Da vil førsteordensleddet i $ \xi $ give anledning til residuummet:
+	\begin{equation}
+		\frac{\pi \cot \pi z}{(a+z)^2} = \frac{\pi}{(a-a+\xi)^2} \cot(-a \pi + \xi \pi) = \frac{\pi}{\xi^2} \kk{ \cot(-a\pi) + \xi \bb{\diff[\ud]{}{z} \cot \pi z}_{z=-a} + \dots},
+	\end{equation}
+	Hvor $ \diff[\ud]{}{z} \cot \pi z = - \pi \csc^2 \pi z = -\pi / \sin^2 \pi z$. Dette giver da
+	\begin{equation}
+		\Res(-a) = \pi \frac{-\pi}{\sin^2(-\pi a)} = \frac{-\pi^2}{\sin^2(\pi a)}
+	\end{equation}
+	Til sammen giver disse residuer:
+	\begin{equation}
+		I = \oint_C \frac{\pi\cot \pi z}{(a+z)^2} \ud z = 2 \pi i \bb{\sum_{n=-N}^{N} \frac{1}{(a+n)^2} - \frac{\pi^2}{\sin^2 (\pi a)}}
+	\end{equation}
+	hvor $ N $ er $ R $ rundet ned til nærmeste heltal. Når $ R\to\infty $ går $ \cot \pi z  \to \mp i$ (alt afhængig af, om $ \Im z $ er henholdsvis større eller mindre end 0). Dermed fås at
+	\begin{equation}
+		|I| < \vv{k \oint_C \frac{\ud z}{(a+z)^2}},
+	\end{equation}
+	der går mod 0 for $ R \to \infty $. Dermed går $ I \to 0 $ for $ R $ (og $ N $) $ \to \infty $. Dermed fås:
+	\begin{equation}
+		0 = 2 \pi i \bb{\sum_{n=-\infty}^{\infty} \frac{1}{(a+n)^2} - \frac{\pi^2}{\sin^2 (\pi a)}} \Leftrightarrow \sum_{n=-\infty}^{\infty} \frac{1}{(a+n)^2} = \frac{\pi^2}{\sin^2 (\pi a)}
+	\end{equation}
+\end{document}

@@ -1,0 +1,397 @@
+\documentclass[EL1Noter.tex]{subfiles} % HUSK FOR FANDEN AT REDIGERE DENNE LINJE
+
+\begin{document}
+	\section{Kort note om integraler og koordinattransformationer}
+	Det er til tider gavnligt at skifte fra ét koordinatsystem til et andet - kartesisk til polært, eksempelvis. Man kan dog ikke ">bare"< skifte fra $ \ud x \ud y $ til $ \ud r \ud \theta $. Der skal ganges en ekstra faktor på funktionen i det nye koordinatsystem. Dette kaldes for ">Jakobianten"<, og er en specifik determinant. Dette blev meget, meget kort gennemgået til sidst i MatIntro (afsnit 5.2 og 5.3 i Funktioner af flere variable), men da stoffet fra LinAlg ikke er gennemgået, var det ikke muligt selv at regne Jakobianten.
+	
+	Den generelle koordinattransformation er givet ved:
+	\begin{equation}
+		\int f(x_1,x_2,x_3) \ud x_1 \ud x_2 \ud x_3 = \int f[x_1(y),x_2(y),x_2(y)] \D|\V{J}| \ \ud y_1 \ud y_2 \ud y_3
+	\end{equation}
+	Hvor prikken altså er helt almindelig multiplikation, og ikke et prikprodukt (det er skalarer, så det giver egentlig det samme, hvis skalarene ses som endimensionale vektorer, men whatever). I tilfældet af transformation fra kartesisk til sfærisk er $ x_1,x_2,x_3 = x,y,x $ og $ y_1,y_2,y_3 = r, \theta, \phi $. Den generelle Jakobiant $ \V{J} $ er givet ved
+	
+	\begin{equation}
+		\V{J} = \begin{bmatrix}
+			\diff{x_1(y)}{y_1} & \diff{x_1(y)}{y_2} & \diff{x_1(y)}{y_3} \\[0.5em]
+			\diff{x_2(y)}{y_1} & \diff{x_2(y)}{y_2} & \diff{x_2(y)}{y_3} \\[0.5em]
+			\diff{x_3(y)}{y_1} & \diff{x_3(y)}{y_2} & \diff{x_3(y)}{y_3} 
+		\end{bmatrix}
+	\end{equation}
+	Hvor $ x_i(y) $ er koordinaten $ x_i $ udtrykt ved $ y $. Eksempelvis er $ x(r,\theta) = r \cos \theta = x $ i polære koordinater. For at gøre det lidt mere overskueligt, kan matricen ses som følger:
+	\begin{equation}
+		\V{J} = \begin{blockarray}{c c c c }
+			& y_1 & y_2 & y_3 \\
+			\begin{block}{c [ c c c ]}
+				x_1(y) & \partial & \partial & \partial \\[0.5em]
+				x_2(y) & \partial & \partial & \partial \\[0.5em]
+				x_3(y) & \partial & \partial & \partial \\
+			\end{block}
+		\end{blockarray}
+	\end{equation}
+	Hvor ">rækkerne"< altså skal differentieres med hensyn til ">kolonnerne"<. For sfæriske koordinater, hvor $ y = r,\theta,\phi $ er Jakobianten givet ved
+	
+	\begin{equation}
+		\V{J} = \begin{bmatrix}
+			\diff{x}{r} & \diff{x}{\theta} & \diff{x}{\phi} \\[0.5em]
+			\diff{y}{r} & \diff{y}{\theta} & \diff{y}{\phi} \\[0.5em]
+			\diff{z}{r} & \diff{z}{\theta} & \diff{z}{\phi} 
+		\end{bmatrix}
+	\end{equation}
+	For \textbf{plane polære koordinater} er $ x_1 = x $, $ x_2 = y $, $ y_1 = r $, $ y_2 = \theta $, og Jakobianten er givet ved
+	
+	\begin{align*}
+		x &= r \cos \theta, \quad y = r \sin \theta\\
+		\V{J}_{pol} &= \begin{bmatrix}
+			\diff{r \cos \theta}{r} & \diff{r \cos \theta}{\theta} \\[0.5em]
+			\diff{r \sin \theta}{r} & \diff{r \sin \theta}{\theta}
+		\end{bmatrix} = \begin{bmatrix}
+			\cos \theta & - r\sin \theta \\
+			\sin \theta & r \cos \theta
+		\end{bmatrix} \\
+		|\V{J}_{pol}| &= r
+	\end{align*}
+	For \textbf{sfæriske koordinater} er de tre koordinater $ r, \phi, \theta $. Husk at $ \phi_{\text{sfærisk}}=\theta_{\text{polær}} $
+	\begin{equation*}
+	x = r \sin \theta \cos \phi, \quad y = r \sin \theta \sin \phi, \quad z = r \cos \theta, \quad |\V{J}_{sph}| = r^2 \sin \theta 
+	\end{equation*}
+	Og for \textbf{cylinderkoordinater}
+	\begin{equation*}
+	x = r \cos \theta, \quad y = r \sin \theta, \quad z = z, \quad  |\V{J}_{cyl}| = r
+	\end{equation*}
+	Et fladeintegral for $ f(x,y) $ bliver da
+	\begin{equation}
+	\iint f(x,y) \ud x \ud y = \iint f[x(r,\theta), y(r,\theta)] \,r \ud r \ud \theta
+	\end{equation}
+	Og ligeledes for de andre koordinattransformationer.
+	
+	
+	
+	
+	\section{Elektrostatik}
+	Hele dette afsnit kan opsummeres i følgende: Start med Coulumbs lov og superpositionsprincippet:
+	\begin{equation}
+		\V{F} = \kc \frac{q\, Q}{\sr^2} \usr, \quad \V{F} =Q \V{E} = \sum_{i = 1}^{n} \V{F}_i
+	\end{equation}
+	Superposition gælder for krafter, felter og potentialer. Som oftest opgives en ladningsfordeling $ \rho $, og det elektriske felt $ \V{E} $ skal findes. De 6 formler for regning mellem ladningsfordelingen $ \rho $, det elektriske felt $ \V{E} $ og potentialet $ \V{V} $ er givet ved følgende figur
+	
+	\begin{figure}[H]
+		\includegraphics[width=.5\textwidth]{img/rhove.png}
+		\caption{Opsummering af elektrostatik. Fra bogen, side 87}
+		\label{fig:elektrostatik}
+	\end{figure}
+	
+	
+	
+	\subsection{Introduktion og Coulombs lov}
+	I elektrostatik arbejdes der med kildeladninger $ q_i $, der alle er punktladninger, og derfor ingen udstrækning har, og den kraft de påvirker en testladning $ Q $ med. Alle kildeladningerne er stillestående, men testladningen kan bevæge sig.
+	
+	Der gås ud fra princippet om superposition, hvor den samlede kraft på testladningen $ Q $, som følge af testladningerne $ q_i $ er beskrevet ved
+	\begin{equation*}
+		\V{F} = \V{F}_1 + \V{F}_2 + \V{F}_3 + \dots = \sum_{i = 1}^{n} \V{F}_i
+	\end{equation*}
+	Kraften fra en punktpartikel er givet ved Coulumbs lov:
+	\begin{equation}
+		\V{F} = \kc \frac{q\, Q}{\sr^2} \usr, \quad \epsilon_0 = 8.85 \D 10^{-12} \frac{C^2}{N\D m^2}
+	\end{equation}
+	hvor $ \epsilon_0 $ er \textit{vakuumpermittiviteten} og $ \sr $ er separationsvektoren mellem punktladningen og testladningen.$ \bsr $ er defineret ved
+	\begin{equation}
+	 	\bsr = \V{r}-\V{r}'
+	\end{equation}
+	Hvor $ \V{r} $ er testladningens position og $ \V{r}' $ er punktladningen/kildeladningens position. vektoren peger altså fra $ q $ mod $ Q $. $ \sr $ er længden af separationsvektoren, og $ \usr=\bsr/\sr $ er retningsvektoren for separationsvektoren. Hvis $ q $ og $ Q $ har samme fortegn, er kraften frastødende, og hvis de har modsat fortegn er kraften tiltrækkende. Den samlede kraft som $ Q $ oplever er da givet ved
+	\begin{equation}
+		\V{F} = \sum_{i=1}^n \V{F_i} = \sum_{i=1}^n  \pp{\kc \frac{q_i\, Q}{\sr_i^2}} \usr_i = \kc[Q] \sum_{i=1}^n \frac{q_i}{\sr_i^2} \usr_i
+	\end{equation}
+	Dette giver anledning til definitionen af det elektriske felt.
+	
+	\subsection{Elektriske felter}
+	Summen af kræfterne på en testladning som følge af en række punktladninger er givet ved
+	\begin{equation*}
+		\V{F} = \kc[Q] \sum_{i=1}^n \frac{q_i}{\sr_i^2} \usr_i = Q \V{E}
+	\end{equation*}
+	hvor $ \V{E} $ kaldes for det elektriske felt, og er givet ved
+	\begin{equation}
+		\V{E}(\V{r}) = \kc \sum_{i=1}^n \frac{q_i}{\sr_i^2} \usr_i \label{eq:discE}
+	\end{equation}
+	Det ses, at det elektriske felt er en funktion af testladningens position $ \V{r} $, da $ \bsr $ afhænger af $ \V{r} $.
+	
+	\subsubsection{Kontinuerte ladningsfordelinger}
+	I $ \eqref{eq:discE} $ er feltet opbygget af en diskret samling punktpartikler $ q_i $, men hvis der er en kontinuert ladningsfordeling bliver summen til et integral, der har formen
+	\begin{equation}
+		\V{E}(\V{r}) = \kc[1] \int \frac{1}{\sr^2} \usr \ud q
+	\end{equation}
+	Der er da tre forskellige typer af ">$ \ud q $"<. Hvis ladningen er fordelt langs en kurve med ladningsfordeling $ \lambda $, bliver $ \ud q = \lambda \ud l $, hvor $\ud l $ er et kurveelement langs denne kurve. Hvis ladningen er fordelt over en overflade (som ikke nødvendigvis ligger i planen eller er fladt), bliver $ \ud q =\sigma \ud a$, hvor $ \sigma $ er overfladens ladningstæthed og $ \ud a $ er et arealelement. Til sidst kan ladningen være fordelt over en volumen. Da er $ \ud q = \rho \ud \tau $, hvor $ \rho $ er ladningstætheden og $ \ud \tau $ er et volumenelement. De tre integraler bliver da
+	\begin{align}
+		\V{E}(\V{r}) &= \int_{\mathcal{P}} \frac{\lambda(\V{r}') }{\sr^2} \usr \ud l' \\
+		\V{E}(\V{r}) &= \int_{\mathcal{S}} \frac{\sigma(\V{r}') }{\sr^2}  \usr \ud a' \\
+		\V{E}(\V{r}) &= \int_{\mathcal{V}} \frac{\rho(\V{r}') }{\sr^2}    \usr \ud \tau'
+	\end{align}
+	hvor de respektive ladningsfordelinger altså afhænger af kildeladningernes position, men kan være konstante.
+	
+	Det skal understreges, at $ \usr $ generelt set \textbf{IKKE} er konstant, men varierer langs ladningsfordelingen. Derfor skal denne beskrives i kartesiske koordinater, også selvom der integreres i eksempelvis polære eller sfæriske koordinater.
+	
+	\subsubsection{Rotation, divergens og Gauss's lov for elektrostatiske felter}
+	Divergensen af det elektriske felt er givet ved
+	\begin{equation}
+		\grad \D \V{E} = \frac{1}{\epsilon_0}\rho
+	\end{equation}
+	Dette er \textbf{Gauss's lov} i differentialform. Denne gælder for enhver lukket volumen, og kan skrives om til integralform ved at integrere over en volumen, bruge divergensteoremet (Gauss' sætning fra MatF1), og omskrive $ \rho $ til den samlede ladning inden for volumenet:
+	\begin{equation*}
+		\int_{\mathcal{V}} \grad \D \V{E} \ud \tau = \oint_{\mathcal{S}} \V{E} \D \ud \V{a} = \frac{1}{\epsilon_0} \int_{\mathcal{V}} \rho \ud \tau = \frac{1}{\epsilon_0} Q_{enc}
+	\end{equation*}
+	hvor $ Q_{enc} $ er den samlede ladning inden for volumenet. Integralformen af Gauss's lov er da det andet og fjerde udtryk i ligningen ovenfor:
+	\begin{equation}
+		\oint_{\mathcal{S}} \V{E} \D \ud \V{a} = \frac{1}{\epsilon_0} Q_{enc}
+	\end{equation}
+	og igen, dette gælder for \textbf{alle} lukkede overflader. Dette betyder da, at man i mange tilfælde, hvor der er symmetri af én eller anden art, kan eliminere brugen af integraler, for at udregne det elektriske felt. Her refereres til afsnit 2.2.3 i Introduction to Electromechanics, tredje udgave: ">Applications of Gauss's Law"<. Her beskrives de tre former for symmetri, hvor Gauss's lov hjælper:
+	
+	\begin{enumerate}
+		\item Sfærisk symmetri: Her er den valgte overflade en sfære med samme centrum som ladningsfordelingen
+		\item Cylindrisk symmetri: Her er den valgte overflade en cylinder med samme symmetri som ladningsfordelingen
+		\item Plansymmetri: Her bruges en lille ">kasse"<, kaldet en Gaussisk dåse, der dækker over og under en del af overfladen. 
+	\end{enumerate}
+	Situation 2 og 3 ovenfor kræver teknisk set en uendelig lang cylinder og en uendelig plan, kan svarene bruges som en approksimation for ">lange"< cylindre og ">store"< plane overflader, langt fra dennes kanter.
+	
+	Ud fra dette kan det vises, at det elektriske felt uden for en \textbf{sfærisk, konstant ladningsfordeling} har identisk form som en punktpartikel i sfærens centrum, med den samlede ladning:
+	\begin{equation*}
+		\V{E} = \kc[1] \frac{q}{\sr^2} \usr
+	\end{equation*}
+	
+	Det elektriske felt for en \textbf{lang cylinder}, med radius $ s $, og ladningsfordeling proportionel med radius $ \rho = ks $, hvor $ k $ er en konstant, er givet ved
+	\begin{equation}
+		\V{E} \frac{1}{3 \epsilon_0} ks^2  \U{s}
+	\end{equation}
+	hvor $ \U{s} $ er normalvektoren til cylinderens krumme overflade.
+	
+	Til sidst, for \textbf{en uendelig plan, der har konstant ladningsfordeling} $ \sigma $, er det elektriske felt givet ved
+	\begin{equation}
+		\V{E} = \frac{\sigma}{2 \epsilon_0} \U{n}
+	\end{equation}
+	hvor $ \U{n} $ er normalvektoren til planen.
+	
+
+	
+	\subsubsection{Rotation for \texorpdfstring{$ \V{E} $}{det elektriske felt}}
+	Det elektriske felt for en punktpartikel i origo er givet ved
+	\begin{equation}
+		\V{E} = \kc[1] \frac{q}{r^2} \U{r}
+	\end{equation}
+	Dette er et radialt felt, og dermed et rotationsfrit felt, og dermed
+	\begin{equation}
+		\grad \times \V{E} = \oint \V{E} \D \ud \V{l} = 0
+	\end{equation}
+	hvor Stokes' sætning er blevet brugt. Dette indeholder dog ingen reference til ladningens position, og grundet superpositionsprincippet gælder dette også for enhver ladningsfordeling:
+	\begin{equation}
+	\V{E} = \sum_{i=1}^{n}  \V{E}_i, \quad \grad \times \V{E} = \grad \times \pp{\sum_{i=1}^{n}  \V{E}_i} = \sum_{i=1}^{n} \pp{\grad \times \V{E}_i} = 0
+	\end{equation}
+	
+	
+	
+	
+	\subsection{Elektrisk potentiale}
+	Idet det elektriske felt er rotationsfrit, kan det skrives som gradienten til et skalarfelt. Dette kaldes for det elektriske potentiale, $ V $:
+	\begin{equation}
+		\V{E} = -\grad V
+	\end{equation}
+	hvor minustegnet bare er konvention. Potentialet er givet ved linjeintegralet af det elektriske felt, fra et referencepunkt $ \mathcal{O} $ til punktet $ \V{r} $:
+	\begin{equation}
+		V(\V{r}) = -\int_{\mathcal{O}}^{\V{r}} \V{E} \D \ud \V{l}
+	\end{equation}
+	hvor minus igen er konvention. Forskellen i potentialet er givet ved
+	\begin{equation}
+		\Delta V = V(\V{b}) - V(\V{a}) = - \int_{\V{a}}^{\V{b}} \V{E} \D \ud \V{l}
+	\end{equation}
+	En lille liste over småegenskaber for vektorpotentialet:
+	\begin{itemize}
+		\item Potentialet har enhederne Volt: $ V = J/C $
+		\item Potentialet overholder superpositionsprincippet
+		\item Potentialet er også givet ved Poissons ligning og Laplaces ligning, når der henholdsvis er og ikke er nogen ladning:
+		\begin{equation}
+			\grad^2 V = -\frac{\rho}{\epsilon_0}
+		\end{equation}
+		hvor $ \rho = 0 $  antyder ingen ladning, og ligningen reduceres til Laplaces ligning
+	\end{itemize}
+		
+	\subsubsection*{Valg af referencepunkt}
+	Valget af referencepunkt er i og for sig lige meget, da den eneste fysiske relevans er \textit{forskellen} i potentialet mellem to punkter. Et skift af referencepunkt resulterer kun i at der lægges en konstant $ K $ til potentialet, hvor $ K $ er linjeintegralet fra det gamle til det nye referencepunkt.
+	
+	Når det så er sagt, så er der nogle referencepunkter, der er mere hensigtsmæssige end andre. I reelle, fysiske situationer (hvor objekter ikke strækker sig ud i uendelighed) bruges uendeligt oftest som referencepunkt (helt analogt til gravitation, hvor den potentielle energi er 0, når afstanden er uendelig. Det noteres også, at der er et minustegn som konvention i formlen for gravitationel potentiel energi).
+	
+	Dette bevirker at den ene af grænserne som oftest går mod 0 ($ 1/\infty $, eksempelvis). Problemet er i situationer, hvor systemet strækker sig ud mod det uendelige. Her vil integralets ene grænse divergere mod uendeligt, hvis der vælges uendeligt som referencepunkt. Her må da vælges et andet ">smart"< referencepunkt, eksempelvis origo, ellers må der bare opgives et generelt punkt. Nogle gange (som ved en uendelig ledning, se problem 2.22 i bogen) vil potentialet dog stadig divergere, hvis origo bruges.
+	
+	\subsubsection{Potentialet af lokale ladningsfordelinger. Obs! kun for \texorpdfstring{$ \mathcal{O} = \infty $}{referencepunktet uendeligt!}}
+	Potentialet for en punktladning $ q $ er givet ved
+	\begin{equation}
+		V(\V{r}) = \kc[1] \frac{q}{\sr}
+	\end{equation}
+	\textbf{Dette gælder dog kun for ladninger, hvor referencepunktet er uendeligheden! Dermed gælder de næste formler også kun for $ \mathcal{O} = \infty $!} Da potentialet overholder superpositionsprincippet, er potentialet for en diskret mængde punktpartikler
+	\begin{equation}
+		V(\V{r}) = \kc[1] \sum_{i=1}^{n} \frac{q_i}{\sr_i}
+	\end{equation}
+	Og for kontinuerte ladninsfordelinger (henholdsvis volumen, overflade og linjer) er potentialet
+	\begin{align}
+		V(\V{r}) &= \kc[1] \int\frac{\rho(\V{r}')}{\sr} \ud \tau',\\
+		V(\V{r}) &= \kc[1] \int\frac{\sigma(\V{r}')}{\sr} \ud a',\\
+		V(\V{r}) &= \kc[1] \int\frac{\lambda(\V{r}')}{\sr} \ud l'
+	\end{align}
+	Det ses her, at i alle tilfælde er $ \usr $ forsvundet! Dette gør det ofte lettere at finde potentialet først, og derefter tage gradienten, for på den måde at finde det elektriske felt.
+	
+	
+	
+	\subsubsection{Grænseovergange for overfladeladninger}
+	\label{seq:E-graenser}
+	Det elektriske felt for en overfladeladning undergår en diskontinuitet i selve overfladen: Feltet er positivt over fladen, men negativt under den. Dette beskrives ved følgende ligning:
+	\begin{equation}
+		\V{E}_{\text{over}} - \V{E}_{\text{under}} = \frac{\sigma}{\epsilon_0} \U{n} \label{eq:randpis}
+	\end{equation}
+	hvor $ \U{n} $ er normalvektoren til overfladen. Den positive retning defineres som normalvektorens retning for E-feltet både over og under overfladen. Det vil sige at ">over"< er positiv, men ">under"< er negativ.
+	
+	Til forskel er potentialet \textit{ikke} diskontinuert igennem en overfladeladning. Idet E-feltet er den negative gradient til potentialet, er der også en diskontinuitet i gradienten:
+	\begin{align*}
+		\grad V_{\text{over}} - \grad V_{\text{under}} &= -\frac{\sigma}{\epsilon_0}\U{n}\\
+		\diff{V_{\text{over}}}{n} - \diff{V_{\text{under}}}{n} &= -\frac{\sigma}{\epsilon_0}, \quad \diff{V}{n} = \grad V \D \U{n}
+	\end{align*}
+	
+	
+	
+	
+	\subsection{Arbejde og energi}
+	Arbejdet, der skal til for at flytte en ladning, er den elektrostatiske kraft, integreret langs kurven, som partiklen flyttes. Da det elektriske felt er rotationsfrit, er den elektrostatiske kraft konservativ, og linjeintegralet er uafhængigt af den valgte kurve:
+	\begin{equation}
+		W = \int_{\V{a}}^{\V{b}} \V{F} \D \ud \V{l} = -Q \int_{\V{a}}^{\V{b}} \V{E} \D \ud \V{l} = Q[ V( \V{b} ) - V( \V{a} ) ], \quad \Delta V = \V{b}-\V{a} = \frac{W}{Q}
+	\end{equation}
+	Potentialeforskellen er da arbejdet per enhed ladning, der skal til for at flytte denne fra $ \V{a} $ til $ \V{b} $. Hvis referencepunktet sættes som uendeligt, og en partikel med ladning $ Q $ skal flyttes fra uendeligt til $ \V{r} $, er arbejdet
+	\begin{equation}
+		W = Q V(\V{r})
+	\end{equation}
+	Da kan potentialet ses som den potentielle energi, per ladningsenhed.
+	
+	For at flytte en samling af partikler skal den første flyttes ind, hvilket ikke kræver nogen energi, da der ikke er noget elektrisk felt. Den næste partikel oplever et elektrisk felt fra den første partikel. Den tredje partikel oplever et felt fra den første og anden, og så videre for de næste partikler.
+	
+	Det samlede arbejde, der skal til for at flytte partiklerne er givet ved
+	\begin{equation}
+		W = \kc[1] \sum_{i=1}^{n} \sum_{\substack{j=1 \\ j>i}}^{n} \frac{q_i q_j}{\sr_{ij}}  = \frac{1}{8 \pi \epsilon_0} \sum_{i = 1}^{n} \sum_{\substack{j=1 \\ j\neq i}}^{n} \frac{q_i q_j}{\sr_{ij}} 
+	\end{equation}
+	hvor $ \sr_{ij} $ er separationsvektoren mellem den $ i $'te og $ j $'te partikel. Forskellen på de to formler er, at i den anden tælles hvert partikelpar to gange, og der divideres da med to. I den anden formel afhænger arbejdet ikke af, hvilken rækkefølge partiklerne samles, mens den første gør.
+	
+	Den anden formel kan også skrives som
+	\begin{equation}
+		W = \frac{1}{2} \sum_{i=1}^{n} q_i V(\V{r}_i) \label{eq:workwork}
+	\end{equation}
+	hvor $ V(\V{r}_i) $ er det samlede potentialet i punktet $ \V{r}_i $, hvor den $ i $'te partikel (med ladning $ q_i $) bliver flyttet til.
+	
+	
+	\subsubsection{Energien i kontinuerte ladningsfordelinger}
+	For henholdvis en volumenladning, overfladeladning og kurveladning bliver \eqref{eq:workwork} til
+	\begin{equation}
+		W = \frac{1}{2} \int \rho V \ud \tau, \quad W = \frac{1}{2} \int \sigma V \ud a, \quad W = \frac{1}{2} \int \lambda V \ud l
+	\end{equation}
+	For volumenladninger kan dette også omskrives til
+	\begin{equation}
+		W = \frac{\epsilon_0}{2} \pp{ \int_{\mathcal{V}} E^2 \ud \tau + \oint_{\mathcal{S}} V \V{E} \D \ud \V{a}}
+	\end{equation}
+	hvor der i volumenintegralet integreres over volumenet (men enhver større volumen kan også bruges), mens overfladeintegralet er overfladen af den volumen der integreres over. Specielt kan der integreres over hele rummet, da går overfladeintegralet mod 0 (fordi potentialet går mod 0), og vi står tilbage med:
+	\begin{equation}
+		W = \frac{\epsilon_0}{2} \int\displaylimits_{\text{hele rummet}} E^2 \ud \tau \label{eq:NoEdge}
+	\end{equation}
+	Denne formel giver også, at energien kan ses som at være indeholdt i feltet, med en energitæthed på
+	\begin{equation}
+		\frac{\epsilon_0}{2} E^2 = \text{ energi per volumenenhed}
+	\end{equation}
+	Dette gøres blandt andet i generel relativitetsteori, men i elektrostatik kan energien også ses som værende i ladningsfordelingen, med en densitet på $ \rho V / 2 $.
+	
+
+	
+	\subsubsection*{To kommentarer om elektrostatisk energi}
+	\begin{itemize}
+		\item Energi overholder IKKE superpositionsprincippet, da det ikke er en lineær størrelse!
+		\item Ligningen \eqref{eq:workwork} antyder at arbejdet, der skal til for at flytte en partikel, enten kan være positivt eller negativt (hvis to positive partikler bringes sammen kræver det arbejde, mens to partikler af forskellig fortegn ">afgiver"< arbejde). Ligning \eqref{eq:NoEdge} antyder dog, idet der integreres over noget der altid er positivt (eller 0), at arbejdet altid er positivt. Forskellen mellem de to formler er, at den første ikke medregner energien af selve punktpartiklen, mens \eqref{eq:NoEdge} gør. Faktisk antyder \eqref{eq:NoEdge} at energien af en punktpartikel er uendelig. \eqref{eq:workwork} angiver da arbejdet, der skal til at \textbf{samle} en ladningsfordeling af punktpartikler, mens \eqref{eq:NoEdge} angiver den \textbf{totale} energi i en ladningsfordeling. 
+	\end{itemize}
+	
+	
+	
+	\subsection{Ladere}
+	En lader er et materiale, der har en mængde fri ladning, der kan bevæge sig gennem materialet uden at det koster nogen energi. Ledere har blandt andet følgende egenskaber:
+	\begin{itemize}
+		\item $ \V{E} = 0 $ inde i en leder. Et eksternt elektrisk felt vil få fri ladning til at bevæge sig med feltet (negativ ladning søger \textit{mod} feltet, og positiv ladning søger \textit{med} feltet). Disse \textbf{inducerede ladninger} danner deres eget elektriske felt, der præcis modvirker det elektriske felt inden i lederen. Hvis det \textit{ikke} modvirkede det præcis, ville mere ladning bare flyde til, indtil det gjorde.
+		\item $ \rho = 0 $ inde i en leder. Dette følger af Gauss' lov. Der er stadig ladning - men præcis lige store mængder af positiv og negativ ladning.
+		\item Enhver ekstra ladning fordeler sig på overfladen af lederen. Denne konfiguration kræver nemlig mindre energi, end at fordele det homogent gennem hele volumenet ($ q^2/8R\pi\epsilon_0 $ kontra $ 3q^2/20 R \pi \epsilon_0 $).
+		\item En leder er et ækvipotentiale. Da $ \V{E}  = 0 $ er potentialet konstant.
+		\item $ \V{E} $ står altid vinkelret på overfladen af lederen, lige uden for lederen. Hvis det \textit{ikke} gjorde det, ville ladning løbe rundt indtil den tangentielle komponent bliver udslukket.
+	\end{itemize}
+	
+	\subsubsection{Inducerede ladninger og hulrum i ledere}
+	Når en ladning $ +q $ bringes nær en uladet leder, vil denne tiltrække negativ ladning og frastøde positiv ladning i lederen. Dette sker dog kun inde i selve lederen - hvis der er hulrum i lederen med en ladning $ q $ i, så vil det elektriske felt inde i selve hullet ikke være 0. Det vil stadig være 0 i selve lederen. 
+	
+	Hvis der dog ikke er nogen ladning inde i hulrummet, vil der heller ikke være noget elektrisk felt. Hulrum er altså elektrisk isolerede fra omverdenen, grundet den inducerede ladning i lederen. 
+	
+	På lige vis er feltet grundet ladningen i hulrummet modvirket af lederen. Der er dog stadig $ q $ ">overskydende"< ladning fordelt på lederens yderside. Dette er præcis som hvis selve lederen bare havde en ladning. Så for en sfære er det elektriske felt grundet denne overskydende ladning givet ved
+	\begin{equation*}
+		\V{E} = \kc[1] \frac{q}{r^2} \U{r}
+	\end{equation*}
+	
+	
+	\subsubsection{Overfladeladninger og kraften på en leder}
+	Feltet lige uden for en leder er, givet \eqref{eq:randpis}
+	\begin{equation}
+		\V{E} = \frac{\sigma}{\epsilon_0} \U{n}, \quad \sigma = -\epsilon \diff{V}{n} \label{eq:overfladeladning}
+	\end{equation}
+	Dette giver anledning til en kraft, hvor kraften per arealenhed er
+	\begin{equation}
+		\V{f} = \frac{1}{2}\sigma (\V{E}_{\text{over}}+\V{E}_{\text{under}}) = \frac{1}{2 \epsilon_0} \sigma^2 \U{n}, \quad \V{E}_{\text{under}} = 0
+	\end{equation}
+	Dette giver et udadrettet elektrostatisk tryk på overfladen, der trækker lederen ind i feltet. Trykket er, udtrykt ved feltet lige uden for overfladen, givet ved
+	\begin{equation}
+		P = \frac{\epsilon_0}{2} E^2
+	\end{equation}
+	
+	\subsubsection{Kapacitorer}
+	Hvis vi har 2 ledere, med ladning henholdsvis $ +Q $ og $ -Q $, kan der snakkes om potentialforskellen mellem disse, da potentialet over en leder er konstant:
+	\begin{equation}
+		V = V_+ - V_- = - \int_{(-)}^{(+)} \V{E} \D \ud \V{l}
+	\end{equation}
+	Feltet er derimod ikke synderligt nemt at udregne. Men hvis ladningen på hver lader øges, vil $ \V{E} $ også øges. Fordobles $ Q $, vil $ \rho $ og dermed $ \V{E} $ også fordobles. Ydermere er $ V $ også proportionel med $ \V{E} $. Proportionalitetskonstanten kaldes for \textbf{kapacitansen} og er 
+	\begin{equation}
+		C = \frac{Q}{V}
+	\end{equation}
+	Kapacitansen måles i farad $ F $ (som oftest micro- eller picofarad) og bestemmes kun af geometrien for et givent system. Kapacitansen er altid positiv, da potentialet over kapacitoren er defineret som potentialet af den positive leder minus potentialet af den negative leder.
+	
+	\textbf{To parallelforbundne kapacitorer} har en samlet kapacitans:
+	\begin{equation}
+		C=C_1+C_2
+	\end{equation}
+	Og \textbf{to kapacitorer i serie} har samlet kapacitans
+	\begin{equation}
+		\frac{1}{C} = \frac{1}{C_1} + \frac{1}{C_2} = \frac{C_2+C_1}{C_2 C_1}
+	\end{equation}
+	eller
+	\begin{equation}
+		C = \frac{C_1 C_2}{C_1+C_2}
+	\end{equation}
+	Disse resultater kan selvfølgelig generaliseres til flere end 2:
+	\begin{align}
+		C &= \sum_{i=1}^{n} C_i, \quad \text{for parallelforbundne kapacitorer,} \\
+		\frac{1}{C} &= \sum_{i=1}^{n} \frac{1}{C_i}, \quad \text{for serieforbundne kapacitorer.}
+	\end{align}
+	
+	For en \textbf{pladekapacitor}, hvor hver plade har arealet $ A $ og afstanden mellem dem er $ \V{d} $ er potentialet og kapacitansen givet ved
+	\begin{equation}
+		V = \frac{Q}{A \epsilon_0}d, \quad C = \frac{A \epsilon_0}{d}
+	\end{equation}
+	såfremt arealet er forholdsvis stort, og afstanden mellem pladerne er forholdsvist lille (bogen nævner kapacitansen af en kapacitor hvor $ A = 1 \text{ cm}^2$ og $ d = 1 \text{ mm} $, så disse størrelser kan altså betragtes som i hvert fald den nedre grænse - eller større, i tilfældet af $ d $).
+	
+	For \textbf{to koncentriske kugleskaller}, hvor den indre har radius $ a $ og ladning $ +Q $, og den ydre har radius $ b $ og ladning $ -Q $, er potentialet og kapacitansen
+	\begin{equation}
+		V = \kc[Q] \pp{\frac{1}{a}-\frac{1}{b}}, \quad C = 4\pi\epsilon_0 \frac{ab}{b-a}
+	\end{equation}
+	hvis der byttes om på ladningerne byttes der om på fortegnene af brøkerne i potentialet, samt i nævneren af kapacitancen.
+	
+	For at oplade en kapacitor skal der flyttes elektroner fra den negative plade over til den positive plade. For en infinitisemal mængde ladning er arbejdet
+	\begin{equation*}
+		\ud W = \frac{q}{C} \ud q
+	\end{equation*}
+	Og det samlede arbejde, der skal til for at oplade kapacitoren er da givet ved
+	\begin{equation}
+		W = \int_{0}^{Q} \frac{q}{C} \ud q = \frac{1}{2} \frac{Q^2}{C} = \frac{1}{2} C V^2
+	\end{equation}
+	
+\end{document}
