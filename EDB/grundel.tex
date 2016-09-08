@@ -1,0 +1,31 @@
+\documentclass[EL2Noter.tex]{subfiles}
+
+\begin{document}
+	\section{Grundlæggende elektronik (Noter kap 2)}
+	\subsection{Passive komponenter}
+	Passive komponenter er komponenter, der ikke kan forstærke strømmen i et kredsløb. Dette vil sige resistorer (modstande), kapacitorer (kondensatorer) og induktorer (spoler). Kapitlet omhandler også batterier, strømforsyninger og vekselstrømme, selvom dette ikke helt har med passive komponenter at gøre.
+	
+	Elektronerne i en leder bevæger sig fordi de bliver påvirket af en spædningsforskel (også kendt som et elektrisk felt). Hvis materialet er helt rent, så der ingen andre typer atomer der er, og hvis atomerne i materialet overhovedet ikke bevægede sig, men sad helt fast i krystalgitteret, ville der ingen modstand være i materialet, og alle de frie atomer ville falde gennem materialet i frit fald (indtil bevægelsen skaber et stort nok elektrisk felt til at modvirke tyngdekraften, selvfølgelig)
+	
+	\subsubsection{Modstande}
+	Materialer er dog ikke perfekte, og det viser sig, at det elektriske felt og volumenstrømmen er lineært proporitonelle, med proportionalitetskontanten $ \sigma $, kaldet for konduktiviteten:
+	\begin{equation}\label{key}
+		\V{J} = \sigma \V{E}
+	\end{equation}
+	Dette er en form af Ohms lov. Konduktiviteten er den inverse af \textit{resistiviteten} $ \rho $: $ \sigma = \rho\inverse $. I insulatorer er konduktiviteten høj, mens det omvendte er sandt for metaller og generelt ledere. Forskellen i konduktiviteten mellem et metal og en insulator er ofte i størrelsesordnen $ 10^{22} $. Derfor kan metaller som oftest regnes for perfekte ledere.
+	
+	Ohms lov er egentlig en approksimering, idet den egentlig har formen
+	\begin{equation}\label{key}
+		\V{J} = \sigma \V{f} = \sigma (\V{E} +  \V{v}\times \V{B})
+	\end{equation}
+	hvor $ \V{f} $ er kræften per ladningsenhed. Som regel er de magnetiske kræfter mange størrelsesordner mindre end de elektriske kræfter (det er normalt kun i plasmaer, at approksimationen i Ohms lov bryder ned).
+	
+	Ved at omregne volumenstrømmen til den samlede strøm med $ \int_{\mathcal{S}} \V{J} \D \ud \V{a} $ og omregne det elektriske felt til potentialet med $ \int \V{E}\D \ud \V{l} $, fås den mere velkendte form af Ohms lov:
+	\begin{equation}\label{key}
+		V = RI
+	\end{equation}
+	Hvor proportionalitetskonstanten selvfølgelig er modstanden $ R $. Denne er $ R = L/(\sigma A) $, hvor $ L $ og $ A $ er henholdsvis ledningens længde og tværsnitsareal.
+	
+	
+	
+\end{document}

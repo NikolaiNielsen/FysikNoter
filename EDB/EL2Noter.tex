@@ -1,0 +1,44 @@
+% Nikolai Nielsens "Fysiske Fag" preamble
+\documentclass[a4paper,10pt]{article} 	% A4 papir, 10pt størrelse
+
+\usepackage{Nikolai} 					% Min hjemmelavede pakke
+\renewcommand{\konj}{^*}
+
+% Margen
+\usepackage[margin=1in]{geometry}
+
+% Max antal kolonner i en matrix. Default er 10
+%\setcounter{MaxMatrixCols}{20}
+
+% Hvor dybt skal kapitler labeles?
+%\setcounter{secnumdepth}{0}	
+
+% Hvilket nummer skal der startes med i sections? (n-1)
+\setcounter{section}{0}	
+
+% Til nummerering af ligninger. Så der står (afsnit.ligning) og ikke bare (ligning)
+\numberwithin{equation}{section}
+
+% Header
+%\usepackage{fancyhdr}
+%\lhead{Nikolai Plambech Nielsen, 21-06-95\\Dato:. Klasse 5.C - De Fysiske Fag}
+%\pagestyle{fancy}
+
+%Titel
+\title{}
+\author{Nikolai Plambech Nielsen, LPK331}
+
+\begin{document}
+
+	\selectlanguage{danish}
+
+	%Udkommenter ovenstående, hvis du skriver på engelsk.
+
+	\subfile{kompleks}
+	\newpage
+	\subfile{grundel}
+
+
+
+\end{document}
+
