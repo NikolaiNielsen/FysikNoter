@@ -1,4 +1,5 @@
 \documentclass[EL2Noter.tex]{subfiles}
+\externaldocument{udregninger.tex}
 
 \begin{document}
 	\section{Grundlæggende elektronik (Noter kap 2)}
@@ -7,25 +8,224 @@
 	
 	Elektronerne i en leder bevæger sig fordi de bliver påvirket af en spædningsforskel (også kendt som et elektrisk felt). Hvis materialet er helt rent, så der ingen andre typer atomer der er, og hvis atomerne i materialet overhovedet ikke bevægede sig, men sad helt fast i krystalgitteret, ville der ingen modstand være i materialet, og alle de frie atomer ville falde gennem materialet i frit fald (indtil bevægelsen skaber et stort nok elektrisk felt til at modvirke tyngdekraften, selvfølgelig)
 	
-	\subsubsection{Modstande}
+	\subsubsection{Resistor}
 	Materialer er dog ikke perfekte, og det viser sig, at det elektriske felt og volumenstrømmen er lineært proporitonelle, med proportionalitetskontanten $ \sigma $, kaldet for konduktiviteten:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\V{J} = \sigma \V{E}
 	\end{equation}
-	Dette er en form af Ohms lov. Konduktiviteten er den inverse af \textit{resistiviteten} $ \rho $: $ \sigma = \rho\inverse $. I insulatorer er konduktiviteten høj, mens det omvendte er sandt for metaller og generelt ledere. Forskellen i konduktiviteten mellem et metal og en insulator er ofte i størrelsesordnen $ 10^{22} $. Derfor kan metaller som oftest regnes for perfekte ledere.
+	Dette er en form af Ohms lov. Konduktiviteten er den inverse af \textit{resistiviteten} $ \rho $: $ \sigma = \rho\inverse $. I insulatorer er konduktiviteten høj, mens det omvendte er sandt for metaller og generelt ledere. Forskellen i konduktiviteten mellem et metal og en insulator er ofte i størrelsesordnen $ 10^{22} $. Derfor kan ledninger som oftest regnes for perfekte ledere, og man kan 
 	
 	Ohms lov er egentlig en approksimering, idet den egentlig har formen
-	\begin{equation}\label{key}
+	\begin{equation}
 		\V{J} = \sigma \V{f} = \sigma (\V{E} +  \V{v}\times \V{B})
 	\end{equation}
 	hvor $ \V{f} $ er kræften per ladningsenhed. Som regel er de magnetiske kræfter mange størrelsesordner mindre end de elektriske kræfter (det er normalt kun i plasmaer, at approksimationen i Ohms lov bryder ned).
 	
 	Ved at omregne volumenstrømmen til den samlede strøm med $ \int_{\mathcal{S}} \V{J} \D \ud \V{a} $ og omregne det elektriske felt til potentialet med $ \int \V{E}\D \ud \V{l} $, fås den mere velkendte form af Ohms lov:
-	\begin{equation}\label{key}
+	\begin{equation}
 		V = RI
 	\end{equation}
 	Hvor proportionalitetskonstanten selvfølgelig er modstanden $ R $. Denne er $ R = L/(\sigma A) $, hvor $ L $ og $ A $ er henholdsvis ledningens længde og tværsnitsareal.
 	
+	Når elektronerne passerer gennem en modstand, vil noget af deres energi blive omsat til varme, givet ved Joules varmelov:
+	\begin{equation}
+		P = VI = RI^2
+	\end{equation}
 	
+	Hvis man sætter to (eller flere) modstande i serie, vil den samlede modstand være givet ved summen af de enkelte:
+	\begin{equation}
+		R_{serie} = \sum R_i
+	\end{equation}
+	Men hvis man sætter dem i parallelforbindelse, er den inverse af den samlede modstand lig summen af de enkelte inverse modstande:
+	\begin{equation}
+		\frac{1}{R_{parallel}} = \sum \frac{1}{R_i} 
+	\end{equation}
+	
+	
+	\subsubsection{Kapacitor}
+	En kapacitor er en komponent i et kredsløb, der tillader kontrolleret ophobning af ladninger, hvormed der dannes et elektrisk felt og en tilhørende spændingsforskel. Der er en lineær sammenhæng mellem ladningen der ophobes og spændingsforskellen der dannes. Proportionalitetskonstanten mellem disse kaldes kapacitansen $ C $:
+	\begin{equation}\label{eq:kapacitor}
+		Q = CV
+	\end{equation}
+	Denne afhænger af geometrien af kapacitoren, samt de materialer den er lavet af. For pladekondensatorer er denne givet ved
+	\begin{equation}
+		C = \epsilon_r \epsilon_0 \frac{A}{d}
+	\end{equation}
+	hvor $ \epsilon_r $ er den relative permativitet af materialet mellem pladerne, $ A $ er arealet af dem og $ d $ afstanden mellem dem. $ \epsilon_r $ er 1 for vakuum og lige omkring 1 for luft.
+	
+	Der kan normalt set ikke passere strøm gennem en kapacitor, men mens den oplader, svarer det til at der løber en strøm gennem komponenten. Dette sker kun i ret kort tid, og det koster energi:
+	\begin{equation}
+		W = \frac{Q^2}{2C}
+	\end{equation}
+	Opladningen af en kondensator (eller afledningen) er bestemt af "Ohms lov" for denne komponent, givet ved
+	\begin{equation}
+		I = C \diff[d]{V}{t}, \quad V = \frac{1}{C} \int I \ud t
+	\end{equation}
+	Denne fås ud fra ligning \eqref{eq:kapacitor} og definitionen af strøm: $ I = \diff[d]{Q}{t} $.
+	
+	Sættes kapacitorer i serie er den samlede kapacitans givet ved
+	\begin{equation}
+		\frac{1}{C_{serie}} = \sum \frac{1}{C_i}
+	\end{equation}
+	Altså som for modstande i parallelforbindelse. Ligeledes står det til med parallelforbindelse af kapacitorer (altså, at det er som modstande i serie):
+	\begin{equation}
+		C_{parallel}  = \sum C_i
+	\end{equation}
+	
+	
+	
+	\subsubsection{Induktor}
+	Når vi har med vekselstrømme at gøre, vil der dannes et varierende magnetfelt, hvilket resulterer i et induceret elektrisk felt og emf. For at danne så kraftigt et magnetfelt som muligt, bruger man spoler eller \textit{induktorer}. Den inducerede emf er beskrevet ved Faradays lov i integralform, og fluxreglen:
+	\begin{equation}
+		\emf = \oint \V{E} \D \ud \V{l} = - \diff[d]{\Phi}{t}
+	\end{equation}
+	Dette er et lukket kurveintegral, så der skal altså integreres rundt i hele kredsen. Størstedelen af den samlede emf i kredsløbet vil komme fra spolen, og ved hjælp af formlen $ \Phi = LI $, hvor $ L $ er spolens induktans, kan man opstille en slags "Ohms lov" for spoler:
+	\begin{equation}
+		\emf = - L \diff[d]{I}{t}
+	\end{equation}
+	Det ses at hvis der løber en konstant strøm er $ \emf = 0$, præcis som forventet. Hvis man derimod vil ændre strømmen kræver det energi, idet der dannes et magnetfelt, der som bekendt lagrer energi. Denne er givet ved
+	\begin{equation}
+		W = \frac{1}{2} LI^2
+	\end{equation}
+	Det skal huskes, at det ikke kun er spoler, der har en induktans. Ethvert kredsløb har en induktans, hvad end der er en spole til stede eller ej (et kredsløb kan ses som en spole med én vinding). Men så fremt antallet af vindinger i en spole er meget større end 1, vil induktansbidraget herfra være langt det største.
+	
+	\subsubsection{Batterier og spændingsforsyninger}
+	Batterier og spændingsforsyninger er egentlig ikke passive komponenter, men det giver bedst mening at beskrive dem her, sammen med de passive komponenter. Batterier og spændingsforsyninger virker generelt ved at udføre en kraft per ladning $ \V{f} $, over en afstand, hvilket medfører en emf:
+	\begin{equation}
+		\emf_0 = \oint \V{f} \D \ud \V{l}
+	\end{equation}
+	hvor integralet er over hele kredsløbet, men $ \V{f} $  er selvfølgelig kun forskellig fra 0 i batteriet/spændingsforsyningen (jeg skriver altså bare batteri herfra, jeg gider ikke skrive dem begge længere). Det samlede arbejde fås ved at gange $ \emf_0 $ med antallet af ladningsenheder $ Q $. Og arbejdet per sekund (effekten) er da:
+	\begin{equation}
+		\diff[d]{W}{t} = \diff[d]{}{t}(Q\emf_0) = I\emf_0
+	\end{equation}
+	
+	
+	\subsection{Kirchhoffs love}
+	Kirchhoffs 2 love, er love som alle elektriske kredsløb overholder (med den antagelse at signaler udbreder sig med uendelig hastighed, hvilket jo ikke er sandt, men mere om det, om lidt.). Disse love er direkte konsekvenser af lovene om ladningsbevarelse og energibevarelse. 
+	
+	\subsubsection{Kirchhoffs 1. lov}	
+	Kirchhoffs 1. lov er en konsekvens af ladningsbevarelse. Denne siger, at enhver strøm der løber ind i kredsløbet, må nødvendigvis komme ud igen. Der kan ikke ophobe sig ladninger nogen steder i ledninger, og i knudepunkter, hvor 3 eller flere ledninger mødes, vil den samlede strøm, der løber ind i knudepunktet gennem nogle ledninger, løbe ud af de andre ledninger. Hvis man regner strømmens retning med fortegn kan dette beskrives ved
+	\begin{equation}
+		\sum_i I_i = 0
+	\end{equation}
+	Så al den strøm der løber ind (positivt fortegn) vil præcis modsvare den strøm der løber ud (negativt fortegn).
+	
+	Hvis der et sted ophober sig ladninger i et kredsløb er dette ikke et knudepunkt, men betragtes som en del af en kapacitor.
+	
+	\subsubsection{Kirchhoffs 2. lov}
+	Kirchhoffs 2. lov kommer fra energibevarelse i et kredsløb. Et større kredsløb kan som oftest betragtes som en masse mindre delkredsløb, kaldet for \textit{masker}. Energien per ladning udført af alle krafter (elektriske og andre) er givet ved:
+	\begin{equation}
+		\int (\V{f} + \V{E}) \D \V{J} \ud \tau
+	\end{equation}
+	hvor dette volumenintegral er over hele den strømførende del af kredsen. 
+	I den $ i $'te \textit{gren} af masken (en gren er et understykke af masken, med eventuelle komponenter) vil energien til sidst blive afsat som varme, hvilket giver anledning til følgende ligning for lokal energibevarelse:
+	\begin{equation}
+		\int_{i} (\V{f} + \V{E}) \D \V{J} \ud \tau = R_i I_i^2
+	\end{equation}
+	hvis det antages, at kraftfelterne er konstante over ledningens tværsnit, udtrykket omskrives til
+	\begin{equation}
+	\emf_i + \int_i \V{E} \D \ud \V{l} = R_i I_i
+	\end{equation}
+	Udregningen af dette kan ses i appendiks, kapitel \ref{udregning:kap2kraft}. Her er $ \emf_i $ den elektromotoriske kraft fra hvad end batterier der er i den $ i $'te gren af masken. Hvis grenen indeholder en kapacitor, vil kurveintegralet ikke gå gennem kapacitorens plader. Så for at få bidraget fra eventuelle kapacitorer med, trækkes dette fra på venstre side:
+	\begin{equation}
+		\emf_i + \int_i \V{E} \D \ud \V{l} - V_{Ci} = R_i I_i
+	\end{equation}
+	hvor $ V_{Ci} = \int_{a}^{b} \V{E} \D \ud \V{l} $ er spændingen over kapacitoren. Hvis bidragene fra alle grene i masken fås
+	\begin{equation}
+		\sum_{batterier} \emf_i + \oint \V{E} \D \ud \V{l} - \sum_{kapacitorer} V_{Ci} = \sum_{modstande} R_i I_i
+	\end{equation}
+	Her ligner det lukkede kurveintegral jo noget, vi kender, nemlig Faradays lov i integralform! Insættes denne:
+	\begin{equation}
+		\oint \V{E} \D \ud \V{l} = - \sum_{spoler} L_i \diff[d]{I_i}{t}
+	\end{equation}
+	Ved indsætning af dette fås den samlede, endelige ligning: Kirchhoffs 2. lov. Også kaldet maskeligningen:
+	\begin{equation}
+		\sum_{batterier} \emf_i = \sum_{spoler} L_i \diff[d]{I_i}{t} + \sum_{kapacitorer} V_{Ci} \sum_{modstande} R_i I_i
+	\end{equation}
+	hvor $ V_{Ci} = C\inverse \int^t I(t') \ud t' $. Denne ligning gælder for alle de steder i et kredsløb, hvor man kan tegne en lukket kurve (så generelt set rigtig, rigtig mange steder).
+	
+	Der er en huskeregel for denne ligning, nemlig at hver komponent i en kreds bidrager med en emf, der er karakteristisk for den pågældende komponent. Den $ i $'te modstand bidrager med $ I_i R_i $, den $ i $'te kapacitor bidrager med $ V_{Ci} $ og den $ i $'te spole bidrager med $ L_i dI_i/dt $. Summen af alle disse bidrag vil da være lig den emf, som batteriet (eller batterierne) bidrager med. 
+	
+	
+	\subsection{Eksempler (kun svingningskreds/RCL)}
+	De tre første, simple eksempler (en R, RL og RC kreds) vil jeg ikke beskrive her, da afsnittende er ret korte og simple. Jeg vil til gengæld behandle det sidste eksempel, en RCL- eller svingningskreds. Denne kreds består af et batteri, serieforbundet med en spole, kapacitor og en modstand. Når batteriet tilsluttes vil der begynde at løbe en strøm, hvilket inducerer et magnetisk felt, der prøver at modvirke strømmen (tænk Lenz' lov). Dette sker indtil kapacitoren er ladt op, og der ikke længere kan løbe en strøm. Men så ændres fluxen i kredsløbet jo igen, hvilket inducerer en strøm, der løber den modsatte vej, hvilket aflader kapacitoren igen. Hvis der ikke var nogen modstand i kredsløbet ville systemet bare stå at oscillere frem og tilbage, oplade og aflade. Men idet der er en modstand vil der gradvist tabes energi i form af varme, indtil fænomenet ophører, og kapacitoren slutter med at være opladt.
+	
+	Matematisk set er det en eksponentielt dæmpet, harmonisk oscillator, med svingningsfrekvens $ \omega_0 = \sqrt{LC}\inverse $, og dæmpningskoefficient $ R/2L $. Dette giver anledning til tre tilfælde: $ \omega_0 > R/2L $, $ \omega_0 = R/2l $ og $ \omega_0 < R/2L $. Det første tilfælde er \textit{underdæmpning}, der har løsningen:
+	\begin{equation}
+		I(t) = e^{-Rt/2L} \pp{A \cos \omega t + B \sin \omega t}, \quad \omega = \sqrt{\omega_0^2 - \pp{\frac{R}{2L}}^2}
+	\end{equation}
+	Hvor $ A $ og $ B $ bestemmes ved randbetingelser. I dette tilfælde vil strømmen oscillere frem og tilbage, indtil ækvilibriummet er mødt. Denne oscillation vil dø ud i løbet af en tid $ \tau = 2L/R $. Forholdet mellem denne og svingningstiden $ T = 2\pi/\omega_0 $ kaldes for \textit{godheden} $ Q $ (ikke at forveksle med ladningen...), og er givet ved
+	\begin{equation}
+		Q = \pi \frac{\tau}{T} = \frac{L\omega_0}{R}
+	\end{equation}
+	Og læg også mærke til faktoren af $ \pi $! (ikke fakultet.)
+	
+	Det andet tilfælde, hvor $ \omega_0 = R/2L $, kaldes for \textit{kritisk dæmpning} og har løsningen
+	\begin{equation}
+		I(t) = (A+Bt) e^{-Rt/2L}
+	\end{equation}
+	hvor igen $ A $ og $ B $ er konstante, bestemt ved randbetingelser. Her svinger kredsen ikke frem og tilbage, men opnår blot ækvilibrium i løbet af én "periode".
+	
+	Det sidste tilfælde kaldes for \textit{overdæmpning} og resulterer i at systemet heller ikke oscillerer. Til gengæld vil det tage systemet længere tid at nå ækvilibrium, end ved kritisk dæmpning. Løsningen er:
+	\begin{equation}
+		I(t) = A e^{-\lambda_+ t} + B e^{-\lambda_- t}, \quad \lambda_{\pm} = \frac{R}{2L} \pm i \sqrt{\omega_0^2 - \pp{\frac{R}{2L}}^2}
+	\end{equation}
+	Og du får selv lov at gætte, hvad $ A $ og $ B $ er.
+	
+	Normalt bruges begyndelsesbetingelserne, at $ Q(0) = 0 $ og $ I(0) = 0 $. \textbf{Der er noget sludder her. Figurerne i noterne stemmer ikke overens med hinanden. Jeg håber på at finde ud af det, på et tidspunkt}
+	
+	
+	
+	\subsection{Vekselstrøm}
+	Vekselstrøm er tilfælde, hvor den elektromotoriske kraft er tidsafhængig (den \textit{veksler} mellem værdier, oftest positive og negative). Mest almindeligt er $ \emf $ en harmonisk svingning:
+	\begin{equation}
+		\emf(t) = \emf_0 \cos(\omega t + \theta)
+	\end{equation}
+	hvor $ \emf_0 $ er amplituden, $ \theta $ er fasen og $ \omega $ er vinkelfrekvensen, der relaterer til signalets almindelige frekvens ved $ \omega = 2 \pi \nu = 2 \pi T\inverse $ ($ \nu $ er frekvensen og $ T $ er perioden). Denne type tidsafhængighed er både at finde i radiobølger og stikkontakter, så den er gængs. Den er forholdsvis nem at arbejde med, da integralet og differentialkvotienten af trigonometriske funktioner er forholdsvis nemme (ud over fortegnene, selvfølgelig). Endnu nemmere er det dog at differentiere og integrere eksponentialfunktionen, også hvis denne er kompleks! Grunden til dette bringes på banen, er fordi $ \cos \omega t $ netop er realdelen af den komplekse eksponentialfunktion (normalt er ses der bort fra $ \theta $, men den er ret simpel at inkludere, bare gang $ e^{i\theta} $ på emf'en, så har du din faseforskydning). Da er den elektromotoriske kraft:
+	\begin{equation}
+		\emf(t) = \Re[\T{\emf}(t)] = \Re\bb{\emf_0 e^{-i\omega t}} = \Re\bb{\T{\emf}_0 e^{-i\omega t}}
+	\end{equation}
+	hvor der indført den komplekse amplitude $ \T{\emf}_0 = \emf_0 $. Grunden til dette, er egentlig bare for at holde notation og udregninger konsistente. 
+	
+	Hvis det nu antages, at strømmen kan skrives som den reelle del af en kompleks strømfunktion, på lignende form af emf'en, og det viser sig denne overholder Kirchhoffs love, så må denne form for strøm være gyldig (på samme måde, som enhver funktion der opfylder bølgeligningen er en bølge, hvad end det er hvad vi normalt tænker på som bølger). Det postuleres da, at strømmen har formen:
+	\begin{equation}\label{key}
+		I(t) = \Re[\T{I}(t)] = \Re\bb{\T{I}_0 e^{-i\omega t}}
+	\end{equation}
+	Hvis der da ses på Kirchhoffs anden lov, uden kapacitorer fås
+	\begin{equation}\label{key}
+		\T{\emf}(t) = \pp{L \diff[d]{\T{I}(t)}{t} + R \T{I}(t)}
+	\end{equation}
+	Hvor det indses at da både differentiation og det at tage den reelle del af et komplekst tal er lineære operatorer, så er rækkefølgen hvori vi anvender dem lige meget (\textbf{følg lige op på dette, jeg er nemlig ikke helt sikker!}), i hvert fald hvis vi ikke skalerer med komplekse tal (for der ændrer realdelen af en størrelse). Hvis funktionerne for emf og strøm indsættes, og der differentieres samt forkortes, fås
+	\begin{equation}\label{key}
+		\T{\emf_0} = (-i\omega L + R) \T{I}_0
+	\end{equation}
+	hvilket jo minder ualmindeligt meget om Ohms lov, men med $ R \rightarrow R-i \omega L $. På denne måde defineres \textit{impedansen} $ Z = R-i \omega L $, der kan ses som en form for "kompleks modstand". I jævnstrømstilfældet ($ \omega = 0 $) reducerer denne til den almindelige, reelle resistans $ R $. Den imaginære del af impedansen kan ses som en form for ekstra modstand, som kun opstår i vekselstrømstilfælde. I disse tilfælde vil der blive induceret strømme i kredsløbet selv (men i modsat retning, grundet Lenz lov), hvilket dermed modvirker den "eksterne" strøm, man tilfører systemet med et batteri eller lignende. På denne måde virker det netop som en modstand.
+	
+	Med impedansen findes amplituden af den komplekse strøm:
+	\begin{equation}\label{key}
+		\T{I}_0 = \frac{\T{\emf}_0}{Z}  = \frac{\emf_0}{R-i \omega L}
+	\end{equation}
+	Hvis impedansen skrives på polær form, med $ Z = |Z| \exp(i\phi) $, $ |Z| = \sqrt{R^2+(\omega L)^2} $
+	og $ \tan \phi = -\omega L R\inverse $, kan den komplekse amplitude også skrives på polær form, med $ \T{I}_0 = |\T{I}_0| \exp(-i \phi) $ og
+	\begin{equation}\label{key}
+		|\T{I}_0| = \frac{\emf_0}{|Z|} = \frac{\emf_0}{\sqrt{R^2+(\omega L)^2}}
+	\end{equation}
+	Og den reelle strøm er da
+	\begin{equation}\label{key}
+		I(t) = \Re \bb{|\T{I}_0| e^{-i(\omega t + \phi)}} = |\T{I}_0|\cos(\omega t + \phi)
+	\end{equation}
+	
+	\subsubsection{Kirchhoffs love på kompleks form}
+	Hvis der indføres en lignende form for kompleks ladning: $ Q(t) = \Re \bb{\T{Q}(t)} = \Re\bb{\T{Q}_0 e^{-i\omega t}} $, kan begge Kirchhoffs love skrives på kompleks form. Fordelen ved dette er, at disse er rene, algebraiske ligninger, og der er ingen grimme differentialkvotienter eller integraler. Efter lidt regnehygge i stil med det fra første omgang af Kirchhoffs love (igen, se appendiks, når jeg engang får skrevet det), fås:
+	\begin{equation}\label{key}
+		\sum_{\text{knudepunkt}} \T{I}_0 = 0
+	\end{equation}
+	og
+	\begin{equation}\label{key}
+		\sum_{\text{batterier}} \T{\emf}_{0,j} = \sum_{\text{spoler}}-i \omega L_j \T{I}_{0,j} + \sum_{\text{kapacitorer}} \frac{\T{I}_{0,j}}{-i \omega C_j} + \sum_{\text{modstande}} R_j\T{I}_{0,j}
+	\end{equation}
+	hvor der her bruges $ j $ som indeks, for ikke at forvirre mht den imaginære enhed.
+	
+	Kapacitorer har impedansen $ (-i\omega C)\inverse $, altså høj impedans ved lave frekvenser, mens spoler har impedansen $ -i\omega L $, altså høj impedans ved høje frekvenser (igen, fordi det er et mål for den modvirkende inducerede strøm i kredsløbet.). Hvis der optræder flere, forskellige impedanser i et kredsløb, adderes disse præcis som modstande (med tilhørende formler for serie-/parallelforbindelse).
 	
 \end{document}

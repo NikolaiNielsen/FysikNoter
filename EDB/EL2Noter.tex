@@ -2,6 +2,7 @@
 \documentclass[a4paper,10pt]{article} 	% A4 papir, 10pt størrelse
 
 \usepackage{Nikolai} 					% Min hjemmelavede pakke
+\usepackage{xr}
 \renewcommand{\konj}{^*}
 
 % Margen
@@ -25,19 +26,25 @@
 %\pagestyle{fancy}
 
 %Titel
-\title{}
-\author{Nikolai Plambech Nielsen, LPK331}
+\title{Noter til EM2 på KU (Elektromagnetisme 2)}
+\author{af Nikolai Plambech Nielsen, LPK331. Version 1.0}
 
 \begin{document}
 
 	\selectlanguage{danish}
-
-	%Udkommenter ovenstående, hvis du skriver på engelsk.
-
+	
+	\maketitle
+	\tableofcontents
+	\newpage
+	
 	\subfile{kompleks}
 	\newpage
 	\subfile{grundel}
-
+	
+	
+	\newpage
+	\appendix
+	\subfile{udregninger}
 
 
 \end{document}

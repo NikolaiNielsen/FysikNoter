@@ -1,0 +1,26 @@
+\documentclass[EL2Noter.tex]{subfiles}
+
+\begin{document}
+	
+	
+	\section{Udregninger til kapitler}
+	
+	
+	\subsection{Kapitel 2}
+	
+	
+	\subsubsection{Kraftfelter, der er konstante ledningens tværsnit}\label{udregning:kap2kraft}
+	Volumenintegralet kan splittes op i to mindre integraler: et planintegral over grenens tværsnit (ai), og et kurveintegral langs strømmens retning (li):
+	\begin{equation}\label{key}
+		\int_i (\V{f} + \V{E}) \D \V{J} \ud \tau = \int_{li} \int_{ai} (\V{f} + \V{E}) \D \V{J} \ud a \ud l
+	\end{equation}
+	Hvis kraftfelterne $ \V{E} $ og $ \V{f} $ da er konstante over tværsnittene (hvilket de i stort set alle tilfælde er, til en rigtig god approksimation. Enhver ledning har trods alt et ret lille tværsnit), så kan disse smides uden for planintegralet, hvorved dette kun er over volumenstrømmen. Men dette er jo bare den helt almindelige strøm $ I $: $ \int \V{J} \D \ud \V{a} = I $. Indsættes dette fås:
+	\begin{equation}\label{key}
+		\int_{li} \int_{ai} (\V{f} + \V{E}) \D \V{J} \ud a \ud l = \int_{li} (\V{f} + \V{E}) \D \int_{ai} \V{J} \D \ud \V{a} \ud \V{l} = \int_{li} I_i (\V{f} + \V{E}) \D \ud \V{l}
+	\end{equation}
+	hvor jeg har introducerede vektoriale arealer og kurver i andet skridt, for at få det hele til at gå op (det kan godt være det ikke er formelt korrekt, men det bør i hvert fald give en forståelse for, hvordan denne udregning foregår). Strømmen tages nu ud fra integralet, da denne ikke varierer langs grenen (ellers ville der jo være ophobning!). Til sidst bruges definitionen på emf: $ \emf = \int \V{f} \D \ud \V{l} $, til at få det ønskede resultat:
+	\begin{equation}\label{key}
+		I_i \int_i (\V{f}+ \V{E}) \D \ud \V{l} = I_i \pp{\int_i \V{f} \D \ud \V{l} + \int_i \V{E} \D \ud \V{l}} = I_i \pp{\emf_i + \int_i \V{E} \D \ud \V{l}}
+	\end{equation}
+	
+\end{document}
