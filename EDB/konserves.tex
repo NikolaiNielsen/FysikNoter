@@ -1,0 +1,44 @@
+\documentclass[EL2Noter.tex]{subfiles}
+
+\begin{document}
+	\section{Bevaringslove (Griffiths kapitel 8)}
+	Der er flere forskellige bevaringslove i universet. Både energi, ladnings, impuls og impulsmomentsbevarelse. I dette afsnit beskrives kun de to første, nemlig energibevarelse og ladningsbevarelse (i omvendt rækkefølge. Ladningen først).
+	
+	\subsection{Kontinuitetsligningen og ladningsbevarelse}
+	Fra EL1 kan vi måske huske kontinuitetsligningen, der beskriver ladningsbevarelsen. Den siger noget i retning af, at den samlede mængde ladning, der forsvinder (eller kommer ind) i et givent volumen, må nødvendigvis komme ind gennem den omsluttende overflade. I formler lyder den:
+	\begin{equation}
+		\diff{\rho}{t}= - \grad \D \V{J} \ud
+	\end{equation}
+	Denne ligning holder for enhver volumen, og der kan frit integreres over disse (eller integralet af divergensen af volumenstrømmen kan laves om til et overfladeintegral over volumenstrømmen prikket med arealet, ved hjælp af divergenssætningen).
+	
+	\subsection{Poyntingvektoren og energibevarelse}
+	Energien, der indeholdes af elektromagnetiske felter er givet ved
+	\begin{equation}
+		U_{em} = \frac{1}{2} \int \pp{\epsilon_0 E^2 + \frac{1}{\mu_0} B^2} \ud \tau
+	\end{equation}
+	hvor første led er det elektriske felts energi, og det andet led er det magnetiske felts energi.
+	
+	En mere generel udledning af denne formel fås ved at kigge på energien, der bliver brugt på at flytte en ladning $ q $ er infinitisemalt stykke (Lorentz's kraftlov, prikket med $ \ud \V{l} $). Efter en god gang udregninger fås følgende:
+	\begin{equation}
+		\diff{W}{t} = - \diff{}{t} \int_{\mathcal{V}} \frac{1}{2} \pp{\epsilon_0 E^2 + \frac{1}{\mu_0} B^2} \ud \tau - \frac{1}{\mu_0} \oint_{\mathcal{S}} (\V{E} \times \V{B}) \D \ud \V{a},
+	\end{equation}
+	hvor $ \mathcal{S} $ er det omsluttende areal af volumenet $ \mathcal{V} $. Det første led er den negative ændring i energien i felterne, mens det andet led er den energi, der flyttes ud af volumenets overflade (igen, energibevarelse). Dette kaldes for \textbf{Poyntings Teorem}. Energien per enheds tid, per enheds areal, der transporteres af felterne, kalds for \textbf{Poyntingvektoren}:
+	\begin{equation}
+		\V{S} = \frac{1}{\mu_0} (\V{E} \times \V{B}).
+	\end{equation}
+	Al den energi, der bliver ført ud af volumenet, må nødvendigvis blive til mekanisk energi (potentiel, kinetisk, what ever). Hvilket giver
+	\begin{equation}
+		\diff{W}{t} =  - \diff{}{t} \int_{\mathcal{V}} u_{\text{em}} \ud \tau - \oint_{\mathcal{S}} \V{S} \D \ud \V{a} = \diff{}{t} \int_{\mathcal{V}} u_{\text{mek}} \ud \tau
+	\end{equation}
+	hvor $ u_{\text{mek}} $ er den mekaniske energitæthed og $ u_{\text{em}} $ er den elektromagnetiske energitæthed, givet ved
+	\begin{equation}
+		u_{\text{em}} = \frac{1}{2} \pp{\epsilon_0 E^2 + \frac{1}{\mu_0} B^2}.
+	\end{equation}
+	Ved at rykke lidt om, bruge divergensteoremet på overfladeintegralet og se bort fra de nu tre volumenintegraler (som det altid gøres), fås:
+	\begin{equation}
+		\diff{}{t} (u_{\text{mek}} + u_{\text{em}}) = - \grad \D \V{S},
+	\end{equation}
+	der er Poyntings Teorem i differentialform. Læg mærke til ligheden mellem denne og kontinuitetsligningen. Det giver, at $ \V{S} $ svarer til energistrømmen, på samme måde som $ \V{J} $ svarer til ladningsstrømmen.
+	
+	
+\end{document}

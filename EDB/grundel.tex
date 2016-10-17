@@ -1,8 +1,7 @@
 \documentclass[EL2Noter.tex]{subfiles}
-\externaldocument{udregninger.tex}
 
 \begin{document}
-	\section{Grundlæggende elektronik (Noter kap 2)}
+	\section{Grundlæggende elektronik (Noter kapitel 2)}
 	\subsection{Passive komponenter}
 	Passive komponenter er komponenter, der ikke kan forstærke strømmen i et kredsløb. Dette vil sige resistorer (modstande), kapacitorer (kondensatorer) og induktorer (spoler). Kapitlet omhandler også batterier, strømforsyninger og vekselstrømme, selvom dette ikke helt har med passive komponenter at gøre.
 	
@@ -126,7 +125,7 @@
 	\begin{equation}
 	\emf_i + \int_i \V{E} \D \ud \V{l} = R_i I_i
 	\end{equation}
-	Udregningen af dette kan ses i appendiks, kapitel \ref{udregning:kap2kraft}. Her er $ \emf_i $ den elektromotoriske kraft fra hvad end batterier der er i den $ i $'te gren af masken. Hvis grenen indeholder en kapacitor, vil kurveintegralet ikke gå gennem kapacitorens plader. Så for at få bidraget fra eventuelle kapacitorer med, trækkes dette fra på venstre side:
+	Udregningen af dette kan ses i appendiks. Her er $ \emf_i $ den elektromotoriske kraft fra hvad end batterier der er i den $ i $'te gren af masken. Hvis grenen indeholder en kapacitor, vil kurveintegralet ikke gå gennem kapacitorens plader. Så for at få bidraget fra eventuelle kapacitorer med, trækkes dette fra på venstre side:
 	\begin{equation}
 		\emf_i + \int_i \V{E} \D \ud \V{l} - V_{Ci} = R_i I_i
 	\end{equation}
@@ -192,11 +191,11 @@
 	Dette afsnit giver kun mening hvis du har læst det næste, men jeg har alligevel valgt at indsætte dette afsnit her, for at holde materialet om svingningskredsen samlet.
 	
 	Med impedansen og den komplekse version af Kirchhoffs love i hånden, er maskeligningen for svingningskredsen givet ved
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{\emf}_0 = \pp{R-i\omega L + \frac{I}{\omega C}} \T{I}_0 
 	\end{equation}
 	Hvor udtrykket i parentesen er kredsens impedans. Det ses da, at strømmen i kredsen er frekvensafhængig, og for at finde den største strøm, skal den imaginære del af impedansen minimeres: $ \omega L - (\omega C)\inverse = 0 $. Dette giver netop kredsens svingningsfrekvens:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\omega_0 = \frac{1}{\sqrt{LC}}
 	\end{equation}
 	Dette er også fænomenet kaldet resonans. Og jo større godhed svingningskredsen har, jo større gavn vil man få af resonansfrekvensen.
@@ -263,7 +262,7 @@
  	
  	
  	\paragraph{Lav-pas filter.} Byttes der om på kapacitoren og modstanden (så den ukendte kreds og kapacitoren er parallelforbundne, og de tilsammen sidder i serie med modstanden), fås et lav-pas filter. Her er spændingen $ \T{\emf}_{\text{out}} $ givet ved
- 	\begin{align}\label{key}
+ 	\begin{align}
  		\T{\emf}_{\text{out}} &= \frac{1}{1+ \frac{R}{Z}-i \omega RC} \T{\emf}_{\text{in}} \\
  		&\approx \frac{1}{1-i \omega RC} \T{\emf}_{\text{in}}
  	\end{align}
@@ -273,21 +272,21 @@
  	
  	\subsection{Arbejde og energi}
  	I en kreds med harmonisk svingende spænding, hvor alle komponenterne samles i en samlet, effektiv impedans $ Z $, vil denne være en funktion af $ \omega $, og vil have en reel og imaginær del
- 	\begin{equation}\label{key}
+ 	\begin{equation}
 	 	Z = R+iX
  	\end{equation}
  	hvor $ R $ kaldes resistansen, og $ X $ reaktansen (dette er den imaginære, frekvensafhængige del af impedansen). Jeg går kraftigt ud fra, at reaktansen har dette navn fordi det er kredsløbets ">reaktion"< på den varierende elektromotoriske kraft (selvinduktans, for eksempel). 
  	
  	Hvis der så kigges på den effekt, der bliver afsat i kredsløbet ($ P(t) = \emf(t)I(t) $), integrerer den, over én periode $ T $, og dividerer med $ T $, for at få den gennemsnitlige effekt over én periode, fås:
  	\begin{equation}
-	 	\langle P \rangle = \frac{\emf^2_0 R}{2|Z|^2} = \frac{1}{2} |\T{I}_0|^2 R
+	 	\langle P \rangle = \frac{\emf^2_0 R}{2|Z|^2} = \frac{1}{2} |\T{I}_0|^2 R, \quad \text{Kun ren harmonisk svingning}
  	\end{equation}
  	hvor $ \emf_0 $ og $ \T{I}_0 $ er amplituden for henholdsvis den elektromotoriske kraft og strømmen. Det ses, at der er en faktor 1/2 til forskel fra jævnstrømstilfældene, hvor $ P = \emf I = \emf^2 / R = I^2 R $. Derfor introduceres ofte de ">effektive amplituder"< for strømmen og den elektromotoriske kraft:
- 	\begin{equation}\label{key}
+ 	\begin{equation}
 	 	I_{\text{eff}} = \frac{|\T{I}_0|}{\sqrt{2}}, \quad \emf_{\text{eff}} = \frac{\emf_0}{\sqrt{2}}
  	\end{equation}
  	Dette gør nemlig, at faktoren, der var til forskel, forsvinder:
- 	\begin{equation}\label{key}
+ 	\begin{equation}
 	 	\langle P \rangle = I_{\text{eff}}^2 R
  	\end{equation}
  	De 220V i vores stikkontakter (eller 110V i Amerika, eksempelvis) er også $ \emf_{\text{eff}} $, og ikke den egentlige amplitude.
