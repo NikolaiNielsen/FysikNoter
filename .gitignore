@@ -14,5 +14,8 @@
 *.bbl
 *.blg
 
+
+*.pdf
+
 # Generelle filer
 *.zip
