@@ -20,11 +20,11 @@
 	
 	\subsubsection{Sinusbølger}
 	Den mest kendte funktion af den førnævnte type er sinusbølgen (eller cosinus. Den bruges mere). Det er primært denne, vi beskæftiger os med i kurset. Dennes generelle form er
-	\begin{equation}\label{key}
+	\begin{equation}
 		f(z,t) = A \cos[k(z-vt) + \delta]
 	\end{equation}
 	hvor $ A $ er bølgens \textit{amplitude}, $ k $ er \textit{bølgetallet}, $ v $ er \textit{udbredelseshastigheden} og $ \delta $ er \textit{faseforskydningen}. Af disse, er $ A $, $ v $ og $ k $ \textbf{altid positive}, mens $ \delta $ kan være enten positiv eller negativ (eller selvfølgelig 0). Generelt er størrelsen $ \delta/k $ den afstand, hvormed bølgen er forsinket, i forhold til origo (dette fås ved at sætte $ t = 0$ og sætte det resterende udtryk lig 0). Ud over disse introducerede størrelser, er der nogle flere, der relaterer sig til $ k $ og $ v $. Disse er \textit{bølgelængden} $ \lambda $, \textit{perioden} $ T $ (ikke at forveksle med snorkraften!), \textit{frekvensen} $ \nu $ (græsk bogstav ">nu"<) og \textit{vinkelfrekvensen} $ \omega $. Nedenunder ses en række småformler for, hvordan disse størrelser relaterer til hinanden:
-	\begin{align}\label{key}
+	\begin{align}
 		\lambda &= \frac{2 \pi}{k} = \frac{v}{\nu} = Tv = \frac{2\pi v}{\omega}, \\
 		T &= \frac{2 \pi}{k v} = \frac{1}{\nu} = \frac{\lambda}{v} = \frac{2 \pi}{\omega}, \\
 %		v & = \frac{\lambda}{T} = \frac{\omega}{k} = \frac{2 \pi}{k T}, \\
@@ -32,11 +32,11 @@
 		\omega &= 2 \pi \nu = \frac{2 \pi}{T} = kv = \frac{2\pi v}{\lambda}.
 	\end{align}
 	lige som $ v $ og $ k $, er disse størrelser \textbf{altid positive}! Normalt skrives sinusbølger med $ \omega $ i stedet for $ v $, så man slipper for parentesen inde i argumentet af cosinus:
-	\begin{equation}\label{key}
+	\begin{equation}
 		f(z,t) = A \cos (kz-\omega t + \delta)
 	\end{equation}
 	En bølge der bevæger sig den anden vej kan beskrives ved blot at skifte fortegn på $ k $ (dette er fordi cosinus er en \textit{lige} funktion):
-	\begin{equation}\label{key}
+	\begin{equation}
 		f(z,t) = A \cos (-kz-\omega t + \delta)
 	\end{equation}
 	Bølger af disse typer kan også skrives på kompleks form (som før i kurset):
@@ -47,34 +47,34 @@
 	
 	\subsubsection{Randbetingelser: reflektion og transmission}
 	En stor del af det, der sker med bølgerne på en streng, afhænger af, hvordan denne er fastgjort i enden. Generelt vil der i enden ske to ting: Der vil opstå en \textbf{reflekteret bølge} og en \textbf{transmitteret bølge}. Hvis der ses på en streng med $ \mu_1 $, bundet til en streng med $ \mu_2 $, i punktet $ z=0 $, vil $ T $ være konstant for strengene. Da vil den indkommende bølge være
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{f}_I(z,t) = \T{A}_I e^{i(k_1 z-\omega t)}, \quad (z<0),
 	\end{equation}
 	den reflekterede bølge vil være
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{f}_R(z,t) = \T{A}_R e^{i(-k_1 z-\omega t)}, \quad (z<0),
 	\end{equation}
 	og den transmitterede bølge vil være
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{f}_T(z,t) = \T{A}_T e^{i(k_2 z-\omega t)}, \quad (z>0),
 	\end{equation}
 	hvor alle bølger svinger med samme frekvens $ \omega $, og har gjort det i al uendelighed. Med andre ord, så gælder disse ligninger \textbf{kun}, hvis det er uendeligt lange bølger. En bølgepuls kan ikke beskrives på denne måde, idet den ikke har en veldefineret frekvens. Den skal opbygges af en uendelig serie af sinusbølger (Fouriertransformation), men såfremt bølgen har oscilleret i lang tid, vil den langt dominerende frekvens være den ønskede. Dermed kan disse ligninger \textit{tilnærmelsesvist} bruges i dette tilfælde.
 	
 	Idet de to strenge har forskellige masser, vil hastigheden, bølgelængden og bølgetallet være forskellige:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\frac{\lambda_1}{\lambda_2} = \frac{k_2}{k_1} = \frac{v_1}{v_2}.
 	\end{equation}
 	Den samlede bølge vil da være summen af disse tre bølger (eller rettere, den indkomne og reflekterede for $ z<0 $ og den transmitterede for $ z>0 $). I selve knuden må de være kontinuerte (ellers er de jo ikke bundet sammen!), så $ f(0^+,t) = f(0^-,t) $, og hvis knuden har negligibel masse, vil den rumligt afledte også være kontinuert i punktet 0: $ f'(0^+,t) = f'(0^-,t) $. Dette gælder også for den komplekse bølgeform. Dermed kan to ligninger for amplituderne opstilles:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{A}_I + \T{A}_R = \T{A}_T, \quad k_1(\T{A}_I + \T{A}_R) = k_2 \T{A}_T,
 	\end{equation}
 	Og dermed:
-	\begin{align*}\label{key}
+	\begin{align*}
 		\T{A}_R &= \frac{k_1-k_2}{k_1+k_2} \T{A}_I = \frac{v_2-v_1}{v_2+v_1} \T{A}_I, \\
 		\T{A}_T &= \frac{2 k_1}{k_1+k_2} \T{A}_I = \frac{2 v_2}{v_2+v_1} \T{A}_I.
 	\end{align*}
 	og de reelle amplituder er
-	\begin{equation}\label{key}
+	\begin{equation}
 		A_R e^{i\delta_R} = \frac{v_2-v_1}{v_2+v_1} A_I e^{i\delta_I}, \quad 	A_T e^{i\delta_T} = \frac{2 v_2}{v_2+v_1} A_I e^{i\delta_I}.
 	\end{equation}
 	Hvis den første streng er \textit{lettere} end den anden, så $ \mu_1 < \mu_2 $ og $ v_1 > v_2 $ vil alle tre bølger være i fase, og de reflekterede og transmitterede bølger vil begge have amplituder, der er \textit{mindre} end den indgående bølges amplitude.
@@ -85,30 +85,30 @@
 		\mu_1 > \mu_2, \ v_1 < v_2, \quad \Rightarrow \quad A_R &= \frac{v_1-v_2}{v_2+v_1} A_I, \quad A_T = \frac{2 v_2}{v_2 + v_1} A_I.
 	\end{align}
 	I grænsen hvor $ \mu_2 = \infty$ (hvor den sidder fast i en væg), fås $ v_2 = 0 $ og:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\mu_2 = \infty, \quad \Rightarrow \quad A_R = A_I, \quad A_T = 0
 	\end{equation}
 	
 	
 	\subsubsection{Polarisation}
 	Der findes i grunden to forskellige typer bølger, når man ser på ">hvordan"< de svinger. Enten kan de svinge parallelt med bevægelsesretningen (lydbølger, eksempelvis, der er trykbølger i luften), ellers kan de svinge vinkelret på bevægelsesretningen (bølger på en streng, eller elektromagnetiske bølger). Disse kaldes for henholdsvis longitudinale og transverse bølger. I dette kursus arbejdes der kun med transverse bølger, idet dette indebærer elektromagnetiske bølger. Hvis en bølge udbreder sig i $ z $-retningen, kan den svinge i to, lineært uafhængige retninger: lodret og vandret ($ x $ og $ y $. Hvad, der er hvad, kan man egentlig selv bestemme, så længe man vælger et højrehåndskoordinatsystem til at beskrive dem med), eller en superposition af disse retninger. Dette kaldes for bølgen \textit{polarisation} (ikke at forvirre med polariserede materialer, der er insulatorer i et elektrisk felt, oh no!) Hvis en bølge er lodret polariseret fås
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{f}_v(z,t) = \T{A} e^{i(kz-\omega t)} \Vx.
 	\end{equation}
 	Er den vandret polariseret fås
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{f}_h(z,t) = \T{A} e^{i(kz-\omega t)} \Vy.
 	\end{equation}
 	hvis den svinger i en hvilken som helst anden retning (i $ xy $-planen) er den givet ved
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{f}(z,t) = \T{A} e^{i(kz-\omega t)} \U{n}
 	\end{equation}
 	hvor $ \U{n} $ kaldes for \textit{polarisationsvektoren}. Idet den er vinkelret på bevægelsesretningen gælder det også at $ \U{n} \D \Vz = 0 $. Udtrykt ved polarisationsvinklen $ \theta $ (0$ \degree $ ved $ \Vx $ og 90$ \degree $ ved $ \Vy $) er polarisationsvektoren givet ved
-	\begin{equation}\label{key}
+	\begin{equation}
 		\U{n} = \cos \theta \Vx + \sin \theta \Vy,
 	\end{equation}
 	hvilket giver, at en tilfældig polariseret bølge kan skrives som en superposition af to lodret og vandret polariserede bølger, ved hjælp af polarisationsvinklen:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{f}(z,t) = (\T{A} \cos \theta) e^{i(kz-\omega t)} \Vx + (\T{A} \sin \theta) e^{i(kz-\omega t)} \Vy
 	\end{equation}
 	
@@ -123,11 +123,11 @@
 		(\text{ii})	\quad	&\diverg{B} = 0,  	(\text{iv}) 	\quad &\curl{B} = \mu_0 \epsilon_0 \diff{E}{t}, 
 	\end{align}
 	der er et sæt koblede, \textit{lineære}, førsteordens differentialligninger. For at afkoble dem tages curlen af Faradays (iii) og Ampéres (iv) lov. Hermed fås
-	\begin{equation}\label{key}
+	\begin{equation}
 		\grad^2 \V{E} = \mu_0 \epsilon_0 \diff{^2 \V{E}}{t^2}, \quad \grad^2 \V{B} = \mu_0 \epsilon_0 \diff{^2 \V{B}}{t^2}
 	\end{equation}
 	der nu er afkoblede, \textit{lineære}, andenordens differentialligninger. De er faktisk et eksempel på den tredimensionale bølgeligning:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\grad^2 f = \frac{1}{v^2} \diff{^2 f}{t^2}
 	\end{equation}
 	med udbredelseshastigheden $ v = 1/\sqrt{\mu_0 \epsilon_0} = c $. 
@@ -137,7 +137,7 @@
 	Som ved bølger i én dimension, begrænser vi os her til sinusbølger med en enkelt frekvens $ \omega $. Idet forskellige frekvenser af lysbølger svarer til forskellige farver (såfremt vi er i det synlige område), kaldes disse for \textit{monokromatiske} bølger (enkeltfarvede, fra latin). En liste over det elektromagnetiske spektrum ses tabuleret herunder \textbf{indsæt tabel}.
 	
 	Ydermere begrænser vi os lige til bølger der kun bevæger sig i én retning ($ z $ for nemhedens skyld), og som dermed ikke afhænger af andre koordinater, vinkelret på bevægelsesretningen ($ x $ og $ y $ i det simple tilfælde). Disse kaldes for \textbf{planbølger} fordi det kan ses som planer med samme fase (altså altid bølgedal/bølgetop eller lignende), der står vinkelret på bevægelsesretningen. Disse har formen
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{\V{E}} (z,t) = \T{\V{E}}_0 e^{i(kz-\omega t)}, \quad \T{\V{B}} (z,t) = \T{\V{B}}_0 e^{i(kz-\omega t)},
 	\end{equation}
 	hvor $ \T{\V{E}}_0 $ og $ \T{\V{B}}_0 $ er de komplekse amplituder, og de fysiske felter selvfølgelig er den reelle del af disse komplekse felter.
@@ -145,11 +145,11 @@
 	Disse ligninger overholder de respektive felters bølgeligning, men idet de også er nødt til at overholde Maxwells ligninger for at være elektriske/magnetiske felter, kommer der yderligere restriktioner på, der relaterer felterne til hinanden.
 	
 	For det første skal divergensen af begge felter være 0. Dette giver at \textbf{elektromagnetiske bølger er transverse}. Og Faradays lov giver følgende resultat, efter lidt hyggelig differentiation og gode ideer:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{\V{B}}_0 = \frac{k}{\omega} (\Vz \times \T{\V{E}}_0).
 	\end{equation}	
 	(Ampéres lov giver helt samme resultat). Dette vil altså sige at $ \V{E} $ og $ \V{B} $ er \textbf{i fase}, og \textbf{vinkelrette på hinanden \textit{og} bevægelsesretningen}. Den reelle amplitude af $ B $-bølgen er
-	\begin{equation}\label{key}
+	\begin{equation}
 		B_0 = \frac{k}{\omega} = \frac{1}{c} E_0
 	\end{equation}
 	
@@ -168,4 +168,25 @@
 	
 	
 	\subsubsection{Energi i elektromagnetiske bølger}
+	Energien per volumenenhed i elektromagnetiske felter er
+	\begin{equation}
+		u = \frac{1}{2} \pp{\epsilon_0 E^2 + \frac{B^2}{\mu_0}}
+	\end{equation}
+	og idet $ B^2 = (E/c)^2 =\mu_0 \epsilon_0 E^2 $ indeholder felterne fra elektromagnetiske bølger lige meget elektrisk og magnetisk energi, dermed er $ u = \epsilon_0 E^2 $. Energifluxen af denne bølge er givet ved Poyntingvektoren, $ \V{S} = \mu_0^{-1} (\V{E} \times \V{B}) $. Hvis bølgen bevæger sig i $ z $-retningen, fås
+	\begin{equation}
+		\V{S} = c\epsilon_0 E^2 \U{z} = cu \U{z}, \quad E = E_0 \cos(kz-\omega t + \delta)
+	\end{equation}
+	Men idet bølgerne har så høj en frekvens, giver det ikke rigtig mening at opgive disse størrelser, idet de svinger så hurtigt. Derfor bruger man igen tidsligt midlede størrelser. Den tidsligt midlede størrelse af $ \cos^2 $ er $ 1/2 $, og den tidsligt midlede energi og Poyntingvektor er da
+	\begin{equation}
+		\langle u \rangle = \frac{1}{2} \epsilon_0 E_0^2, \quad \langle \V{S} \rangle = \frac{1}{2} c \epsilon_0 E_0^2 \U{z}
+	\end{equation}
+	Størrelsen af Poyntingvektoren kaldes også for intensiteten $ I $ (igen må man endelig ikke forveksle den med andre størrelser. Navnlig strøm):
+	\begin{equation}
+		I = \langle S \rangle = \frac{1}{2} c \epsilon_0 E_0^2.
+	\end{equation}
+	
+	
+	\subsection{Elektromagnetiske bølger i materialer}
+	
+	
 \end{document}
