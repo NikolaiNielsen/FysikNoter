@@ -182,7 +182,7 @@
 	\end{equation}
 	Størrelsen af Poyntingvektoren kaldes også for intensiteten $ I $ (igen må man endelig ikke forveksle den med andre størrelser. Navnlig strøm):
 	\begin{equation}
-		I = \langle S \rangle = \frac{1}{2} c \epsilon_0 E_0^2.
+		I \equiv \langle S \rangle = \frac{1}{2} c \epsilon_0 E_0^2.
 	\end{equation}
 	
 	
@@ -196,7 +196,7 @@
 	\end{align}
 	Altså er der kun den forskel, at $ \epsilon_0 \to \epsilon $ og $ \mu_0 \to \mu $, hvilket egentlig er ret cool! Det vil sige at elektromagnetiske bølger bevæger sig gennem lineære, homogene medier med hastigheden
 	\begin{equation}\label{key}
-		v = \frac{1}{\sqrt{\epsilon\mu}} = \frac{c}{n}, \quad n = \sqrt{\frac{\epsilon\mu}{\epsilon_0 \mu_0}}
+		v = \frac{1}{\sqrt{\epsilon\mu}} = \frac{c}{n}, \quad n \equiv \sqrt{\frac{\epsilon\mu}{\epsilon_0 \mu_0}}
 	\end{equation}
 	hvor $ n $ kaldes \textbf{refraktionsindekset}. Som oftest er $ \mu \approx \mu_0 $, så $ n \approx \sqrt{\epsilon_r} $, og da $ \epsilon_r $ (næsten) altid er større end 1, så er $ n $ det også, og lys bevæger sig dermed næsten altid langsommere i materialer, som i vakuum.
 	
@@ -241,7 +241,7 @@
 	\end{equation}
 	hvor den anden betingelse kan skrives som
 	\begin{equation}\label{key}
-		\T{E}_{0_I} - \T{E}_{0_R} = \beta\T{E}_{0_T}, \quad \beta = \frac{\mu_1 v_1}{\mu_2 v_2} = \frac{\mu_1 n_2}{\mu_2 n_1}
+		\T{E}_{0_I} - \T{E}_{0_R} = \beta\T{E}_{0_T}, \quad \beta \equiv \frac{\mu_1 v_1}{\mu_2 v_2} = \frac{\mu_1 n_2}{\mu_2 n_1}
 	\end{equation}
 	Dette giver amplituderne
 	\begin{equation}\label{key}
@@ -258,11 +258,11 @@
 	
 	Intensiteten af lyset er $ I = \epsilon v E_0^2 / 2 $, og hvis igen $ \mu_1 = \mu_2 = \mu_0 $ fås at brøkdelen af energi, som reflekteres er:
 	\begin{equation}\label{key}
-		R = \frac{I_R}{I_I} = \pp{\frac{E_{0_R}}{E_{0_I}}}^2 = \pp{\frac{n_1-n_2}{n_1+n_2}}^2,
+		R \equiv \frac{I_R}{I_I} = \pp{\frac{E_{0_R}}{E_{0_I}}}^2 = \pp{\frac{n_1-n_2}{n_1+n_2}}^2,
 	\end{equation}
 	og brøkdelen der transmitteres er
 	\begin{equation}\label{key}
-		T = \frac{I_T}{I_I} = \frac{\epsilon_2 v_2}{\epsilon_1 v_1} \pp{\frac{E_{0_T}}{E_{0_I}}}^2 = \frac{4 n_1 n_2}{(n_1+n_2)^2},
+		T \equiv \frac{I_T}{I_I} = \frac{\epsilon_2 v_2}{\epsilon_1 v_1} \pp{\frac{E_{0_T}}{E_{0_I}}}^2 = \frac{4 n_1 n_2}{(n_1+n_2)^2},
 	\end{equation}
 	hvor disse kaldes for henholdsvis \textbf{refleksionskoefficienten} og \textbf{transmissionskoefficienten}. Det ses også at $ R+T = 1 $, hvilket stemmer overens med energibevarelse. Et eksempel på størrelserne er for overgangen mellem luft ($ n_1 = 1 $) og glas ($ n_2 = 1.5 $). Da er $ R=0.04 $ og $ T=0.96 $, hvilket giver god mening, da glas er gennemsigtigt.
 	
@@ -312,7 +312,7 @@
 	
 	Nu skal de 4 randbetingelser fra Maxwells ligninger behandles. Hvis det antages, at bølgerne polariseres i indfaldsplanen (altså at $ \U{n} $ ligger i samme plan som alle $ \V{k}_j $), kan man med en dejlig gang algebra få et par ligninger ud, der giver den komplekse amplitude for de reflekterede og transmitterede bølger:
 	\begin{equation}\label{key}
-		\T{E}_{0_R} = \frac{\alpha-\beta}{\alpha+\beta} \T{E}_{0_I}, \quad \T{E}_{0_T} = \frac{2}{\alpha+\beta} \T{E}_{0_I}, \quad \alpha = \frac{\cos \theta_T}{\cos \omega_I}, \quad \beta = \frac{\mu_1 v_1}{\mu_2 v_2} = \frac{\mu_1 n_2}{\mu_2 n_1}
+		\T{E}_{0_R} = \frac{\alpha-\beta}{\alpha+\beta} \T{E}_{0_I}, \quad \T{E}_{0_T} = \frac{2}{\alpha+\beta} \T{E}_{0_I}, \quad \alpha \equiv \frac{\cos \theta_T}{\cos \omega_I}, \quad \beta \equiv \frac{\mu_1 v_1}{\mu_2 v_2} = \frac{\mu_1 n_2}{\mu_2 n_1}
 	\end{equation}
 	Disse ligninger kaldes \textbf{Fresnel's ligninger} for polarisering i indfaldsplanen. Hvis $ \alpha > \beta $ er den reflekterede bølge \textbf{i fase} med de to andre, men hvis $ \alpha < \beta $ er den reflekterede bølge 180\Deg \textbf{ude af fase}. Størrelsen $ \alpha $ kan også udtrykkes kun ved refraktionsindeksene og indfaldsvinklen $ \theta_I $:
 	\begin{equation}\label{key}
@@ -336,8 +336,8 @@
 	\end{align}
 	Refleksions- og refraktionskoefficienterne for bølger polariseret i indfaldsplanen er da
 	\begin{align}
-		R &= \frac{I_R}{I_I} = \pp{\frac{E_{0_R}}{E_{0_I}}}^2 = \pp{\frac{\alpha-\beta}{\alpha+\beta}}^2, \\
-		T &= \frac{I_T}{I_I} = \frac{\epsilon_2 v_2 \cos \theta_T}{\epsilon_1 v_1 \cos \theta_I} \pp{\frac{E_{0_T}}{E_{0_I}}}^2 = \alpha \beta \pp{\frac{2}{\alpha + \beta}}^2.
+		R &\equiv \frac{I_R}{I_I} = \pp{\frac{E_{0_R}}{E_{0_I}}}^2 = \pp{\frac{\alpha-\beta}{\alpha+\beta}}^2, \\
+		T &\equiv \frac{I_T}{I_I} = \frac{\epsilon_2 v_2 \cos \theta_T}{\epsilon_1 v_1 \cos \theta_I} \pp{\frac{E_{0_T}}{E_{0_I}}}^2 = \alpha \beta \pp{\frac{2}{\alpha + \beta}}^2.
 	\end{align}
 	Og det ses igen, at summen af disse giver 1, i overenstemmelse med energibevarelse.
 	
@@ -346,5 +346,103 @@
 	
 	
 	
-	\subsection{Absorbering og svækkelse, elektromagnetiske bølger i ledere}
+	\subsection{Absorbering og spredning, elektromagnetiske bølger i ledere}
+	I tilfældet, hvor de elektromagnetiske bølger bevæger sig gennem ledere, er $ \V{J}_f $ og $ \rho_f $ ikke nødvendigvis 0. I følge Ohms lov er $ \V{J}_f = \sigma \V{E} $ og Maxwells ligninger siger
+	\begin{align}
+		\diverg{E} = \frac{1}{\epsilon_0} \rho_f, \quad &\curl{E} = -\diff{\V{B}}{t}, \\
+		\diverg{B} = 0, \quad &\curl{B} = \mu \sigma \V{E} + \mu \epsilon \diff{\V{E}}{t}.
+	\end{align}
+	Kontinuitetsligningen, sammen med Ohms lov og Faradays lov, siger
+	\begin{equation}\label{key}
+		\grad \D \V{J}_f = -\diff{\rho_f}{t}, \quad \diff{\rho_f}{t} = -\sigma (\diverg{E}) = -\frac{\sigma}{\epsilon} \rho_f.
+	\end{equation}
+	Og i homogene, lineære ledere giver dette
+	\begin{equation}\label{key}
+		\rho_f(t) = e^{-\sigma t / \epsilon} \rho_f(0),
+	\end{equation}
+	der er et eksponentielt henfald, med karakteristisk tid $ \tau = \epsilon/\sigma $. Dette vil sige, at hvis du smider noget fri ladning på en leder, så vil det bevæge sig ud i enderne af lederen. $ \tau $ siger, hvor lang tid dette tager. For en perfekt leder er $ \sigma = \infty $ og $ \tau = 0 $. For en \textit{god} leder er $ \tau $ meget mindre end andre relevante tider (eksempelvis i oscillerende systemer er $ \tau \ll 1/\omega $) og for en \textit{dårlig} leder er $ \tau $ meget større end disse tider (oscillerende systemer: $ \tau \gg 1/\omega $).
+	
+	Men nok om det, resten af dette afsnit forudsætter at \textbf{al fri ladning er forsvundet}, så $ \rho_f = 0 $. Da bliver Faradays lov $ \diverg{E} = 0 $. Og den eneste forskel der er fra elektromagnetiske bølger i lineære medier, er det ekstra led i Ampères lov. Hvis vi igen tager curlen af Faradays og Ampères lov, kan disse ligninger afkobles til en modificeret bølgeligning, hvor der inkluderes en førsteordensafledet:
+	\begin{equation}\label{key}
+		\grad^2 \V{E} = \mu \epsilon \diff{^2 \V{E}}{t^2} + \mu \sigma \diff{\V{E}}{t}
+	\end{equation}
+	og identisk for $ \V{B} $. Denne ligning tillader stadig løsninger, der er planbølger. Dog er de modificerede, med komplekse bølgetal:
+	\begin{equation}\label{key}
+		\tv{E}(z,t) = \tv{E}_0 e^{i(\T{k}z-\omega t)}, \quad \tv{B}(z,t) = \tv{B}_0 e^{i(\T{k}z-\omega t)}, \quad \T{k}^2 = \mu \epsilon \omega^2 + i \mu \sigma \omega,
+	\end{equation}
+	hvor bølgetallet fås ved at tage kvadratroden.
+	\begin{equation}\label{key}
+		\T{k} = k+i\kappa, \quad k \equiv \omega \sqrt{\frac{\epsilon \mu}{2}} \bb{\sqrt{1+\pp{\frac{\sigma}{\epsilon \omega}}^2}+1}^{1/2}, \quad \kappa \equiv \omega \sqrt{\frac{\epsilon \mu}{2}} \bb{\sqrt{1+\pp{\frac{\sigma}{\epsilon \omega}}^2}-1}^{1/2}
+	\end{equation}
+	den imaginære del $ \kappa $ af det komplekse bølgetal resulterer i en eksponentiel svækkelse af bølgen (som funktion af rummet):
+	\begin{equation}\label{key}
+		\tv{E}(z,t) = \tv{E}_0 e^{-\kappa z} e^{i(kz-\omega t)}, \quad \tv{B}(z,t) = \tv{B}_0 e^{-\kappa z} e^{i(kz-\omega t)}.
+	\end{equation}
+	Den afstand det tager for bølgen at svækkes med en faktor $ e \approx 1/3 $ kaldes for \textbf{hudtykkelsen} (eller noget i den dur), og er givet ved $ d \equiv \kappa\inverse $. Dette er et mål for, hvor langt ind i lederen som bølgerne trænger. Den reelle del $ k $ af det komplekse bølgetal bestemmer bølgelængden, udbredelseshastigheden og refraktionsindekset, som normalt:
+	\begin{equation}\label{key}
+		\lambda = \frac{2\pi}{k}, \quad v = \frac{\omega}{k}, \quad n = \frac{ck}{\omega}.
+	\end{equation}
+	
+	Som før kommer der dog ekstra begrænsninger på bølgernes komplekse amplituder, der bestemmer den reelle amplitude, fase og polarisation, som følge af Maxwells ligninger. Gauss' lov siger at der ikke kan være noget udsving i bevægelsesretningen, og bølgerne er igen transverse. Da kan vi lige så godt orientere vores felter, så det elektriske felt er polariseret langs $ x $-aksen: $ \tv{E} = \T{E}\U{x} $. Da giver Faradays lov (og Ampères lov) at
+	\begin{equation}\label{key}
+		\tv{B}(z,t) = \frac{\T{k}}{\omega} \T{E}_0 e^{-\kappa z} e^{i(kz-\omega t)} \U{y}.
+	\end{equation}
+	De to felter er igen indbyrdes vinkelrette med bevægelsesretningen. De reelle amplituder og faser kan fås ved at skrive det komplekse bølgetal på polær form:
+	\begin{equation}\label{key}
+		\T{k} = K e^{i\phi}, \quad K \equiv |\T{k}| = \sqrt{k^2+\kappa^2} = \omega \sqrt{\epsilon \mu \sqrt{1+\pp{\frac{\sigma}{\epsilon \omega}}^2}}, \quad \phi \equiv \tan\inverse(\kappa/k).
+	\end{equation}
+	Da er de komplekse amplituder relaterede ved
+	\begin{equation}\label{key}
+		B_0 e^{i \delta_B} = \frac{K e^{i\phi}}{\omega} E_0 e^{i\delta_E}.
+	\end{equation}
+	Dermed er de to felter ikke længere i fase! faktisk fås $ \delta_B-\delta_E = \phi $, hvilket giver at B-felter ">halter bagefter"< E-feltet. Forholdet mellem de reelle amplituder er givet ved
+	\begin{equation}\label{key}
+		\frac{B_0}{E_0} = \frac{K}{\omega} = \sqrt{\epsilon \mu \sqrt{1+\pp{\frac{\sigma}{\epsilon \omega}}^2}}.
+	\end{equation}
+	De reelle elektriske og magnetiske felter er da
+	\begin{equation}\label{key}
+		\V{E}(z,t) = E_0 e^{-\kappa z} \cos (kz-\omega t+ \delta_E) \U{x}, \quad \V{B}(z,t) = B_0 e^{-\kappa z} \cos (kz-\omega t + \delta_B + \phi) \U{y}.
+	\end{equation}
+	
+	\subsubsection{Reflektion ved en ledende overflade}
+	Randbetignelserne, der blev brugt ved overgangen mellem to dielektriske materialer kan ikke bruges her. I stedet skal ligningerne fra slutningen af \textbf{afsnit 4} bruges:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{*{2}{r >{$\displaystyle} l <{$} }}
+			\vspace{0.3cm}
+			(i) & \epsilon_1 E_1^{\perp} - \epsilon_2 E_2^{\perp} = \sigma_f, & (iii) & \V{E}_1^{\parallel} - \V{E}_2^{\parallel} = 0, \\
+			(ii) & B_1^{\perp} - B_2^{\perp} = 0, & (iv) & \frac{1}{\mu_1} \V{B}_1^{\parallel} - \frac{1}{\mu_2} \V{B}_2^{\parallel} = \V{K}_f \times \U{n}.
+		\end{tabular}
+	\end{table}
+	hvor $ \sigma_f $ er den frie overfladeladning (ikke at forveksle med ledeevnen!), $ \V{K}_f $ den frie overfladestrøm og $ \U{n} $ en enhedsvektor der peger fra medium 2 ind i 1 (altså ">modsatrettet"< bevægelsen af bølgen. Ikke at forveksle med polarisationsvektoren!) . I Ohmske materialer (materialer, hvor Ohms lov gælder), kan der ikke være nogen overfladestrøm, så $ \V{K}_f= 0 $. 
+	
+	Vi antager igen, at overgangen er i $ xy $-planen, med første medium et lineært dielektrisk materiale (luft, eksempelvis) og det andet medium en leder. En monokromatrisk planbølge bevæger sig i $ z $-retningen, fra medium 1 mod medium 2. For nemhedens skyld er denne også polariseret i $ x $-retningen, så de forskellige bølger er
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{*{2}{ >{$\displaystyle} l <{$}}}
+			\vspace{0.3cm}
+			\tv{E}_I(z,t) = \T{E}_{0_I} e^{i(k_1 z-\omega t)} \U{x}, &
+			\tv{B}_I(z,t) = \frac{1}{v_1} \T{E}_{0_I} e^{i (k_1 z - \omega t)} \U{y}, \\
+			\tv{E}_R(z,t) = \T{E}_{0_R} e^{i(-k_1 z-\omega t)} \U{x}, &
+			\tv{B}_R(z,t) = -\frac{1}{v_1} \T{E}_{0_I} e^{i (-k_1 z - \omega t)} \U{y}, \\
+			\tv{E}_T(z,t) = \T{E}_{0_T} e^{i(\T{k}_2 z-\omega t)} \U{x}, & 
+			\tv{B}_T(z,t) = \frac{\T{k}_2}{\omega} \T{E}_{0_T} e^{i (\T{k}_2 z - \omega t)} \U{y}.
+		\end{tabular}
+	\end{table}
+	hvor den reflekterede bølge bevæger sig i den negative $ z $-retning, og den transmitterede bølge er svækket som den udbreder sig i lederen. Randbetingelse (i) siger nu at $ \sigma_f = 0$, og fordi $ \tv{B} $ er transvers, er (ii) automatisk overholdt. (iii) og (iv) (med $ \V{K}_f = 0$) giver
+	\begin{equation}\label{key}
+		\T{E}_{0_I} + \T{E}_{0_R} = \T{E}_{0_T}, \quad 	\T{E}_{0_I}-T{E}_{0_R} = \T{\beta} \T{E}_{0_T}, \ \T{\beta} = \frac{\mu_1 v_1}{\mu_2 \omega} \T{k}_2
+	\end{equation}
+	Det følger da at
+	\begin{equation}\label{key}
+		\T{E}_{0_R} = \frac{1-\T{\beta}}{1+\T{\beta}} \T{E}_{0_I}, \quad \T{E}_{0_T} = \frac{2}{1+\T{\beta}}\T{E}_{0_I}.
+	\end{equation}
+	Disse ligner da meget amplituderne fra refleksion og transmission mellem to dielektriske materialer. Forskellen er bare at $ \T{\beta} $ nu er kompleks i stedet for reel. I en perfekt leder, med $ \sigma = \infty $, giver $ k_2 = \infty $ og $ |\T{\beta}| = \infty $, og dermed
+	\begin{equation}\label{key}
+		\T{E}_{0_R} = -\T{E}_{0_I}, \quad \T{E}_{0_T} = 0.
+	\end{equation}
+	Bølgen er da totalt reflekteret og oplever en faseforskydning på 180\Deg. Dette betyder at gode ledere udgør gode spejle. For eksempel er \textbf{hudtykkelsen} af sølv i omegnen af 100 Å, så der skal kun bruges en meget lille mængde sølv til at lave et godt spejl.
+	
+
 \end{document}
