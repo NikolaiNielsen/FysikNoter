@@ -3,7 +3,7 @@
 \begin{document}
 	\section{Bølger (Griffiths kapitel 9, noter kapitel 4)}
 	\subsection{Bølger i 1 dimension}
-	Bølger er svære at definere, men en start er (direkte oversat fra kapitlet): \textit{En forstyrrelse af et kontinuert medium, der udbredes med en bestemt, fast form, og konstant hastighed}. Der er dog flere forskellige ">variationer"< her: Hvis der er absorbering i mediet, så vil bølgens størrelse formindskes, som den udbredes. Hvis der er \textbf{dispersion} (find god oversættelse) vil bølger med forskellige frekvenser bevæge sig med forskellige hastigheder. Hvis det er i to eller tre dimensioner, vil amplituden af bølgen mindskes, som bølgen spredes ud i rummet (eller planen). Og til sidst findes stående bølger, der slet ikke udbreder sig.
+	Bølger er svære at definere, men en start er (direkte oversat fra kapitlet): \textit{En forstyrrelse af et kontinuert medium, der udbredes med en bestemt, fast form, og konstant hastighed}. Der er dog flere forskellige ">variationer"< her: Hvis der er absorbering i mediet, så vil bølgens størrelse formindskes, som den udbredes. Hvis der er spredning vil bølger med forskellige frekvenser bevæge sig med forskellige hastigheder. Hvis det er i to eller tre dimensioner, vil amplituden af bølgen mindskes, som bølgen spredes ud i rummet (eller planen). Og til sidst findes stående bølger, der slet ikke udbreder sig.
 	
 	Det nemmeste er dog endimensionale bølger med fast form og konstant hastighed. Disse kan beskrives ved enhver funktion, der afhænger af variablen $ z-vt $. Hvor $ z $ er bevægelsesretningen og $ v $ er udbredelseshastigheden. Minusset er til for at sørge for udbredelsen af bølgen, langs bevægelsesretningen. Det kan virke spøjst, at det er et minus, og ikke et plus, der giver bevægelse i positiv retning. Man skulle jo tro, det var omvendt (plus giver positiv, ikke?). Men i mit hoved virker det kun spøjst, hvis man kigger på origo, og forventer at se fremtiden. Hvis man derimod står et sted langs $ z $-aksen (for bekvemmelighedens skyld), og skal se, hvordan man ser ud, så kigger man \textit{tilbage} langs $ z $-aksen for at se, hvordan bølgen så ud på et tidligere tidspunkt. Grundet bølgens faste form, vil dette så også være den form, man selv vil have, når bølgen når det punkt man befinder sig ved.
 	
@@ -79,7 +79,7 @@
 	\end{equation}
 	Hvis den første streng er \textit{lettere} end den anden, så $ \mu_1 < \mu_2 $ og $ v_1 > v_2 $ vil alle tre bølger være i fase, og de reflekterede og transmitterede bølger vil begge have amplituder, der er \textit{mindre} end den indgående bølges amplitude.
 	
-	Hvis den første streng er \textit{tungere} end den anden, så $ \mu_1 > \mu_2 $ og $ v_1 < v_2 $ vil den reflekterede bølge være 180$\degree$ ude af fase, hvilket ses matematisk ved, at den komplekse amplitude bliver negativ i størrelse, netop fordi $ v_1 < v_2 $. Men fordi amplituden ikke må være negativ, så trækkes et $ -1 = e^{i\pi} $ ud fra størrelsen, og lægges til fasen. Dermed er de reelle amplituder:
+	Hvis den første streng er \textit{tungere} end den anden, så $ \mu_1 > \mu_2 $ og $ v_1 < v_2 $ vil den reflekterede bølge være 180\Deg ude af fase, hvilket ses matematisk ved, at den komplekse amplitude bliver negativ i størrelse, netop fordi $ v_1 < v_2 $. Men fordi amplituden ikke må være negativ, så trækkes et $ -1 = e^{i\pi} $ ud fra størrelsen, og lægges til fasen. Dermed er de reelle amplituder:
 	\begin{align}
 		\mu_1 < \mu_2, \ v_1 > v_2, \quad \Rightarrow \quad A_R &= \frac{v_2-v_1}{v_2+v_1} A_I, \quad A_T = \frac{2 v_2}{v_2 + v_1} A_I,\\
 		\mu_1 > \mu_2, \ v_1 < v_2, \quad \Rightarrow \quad A_R &= \frac{v_1-v_2}{v_2+v_1} A_I, \quad A_T = \frac{2 v_2}{v_2 + v_1} A_I.
@@ -103,7 +103,7 @@
 	\begin{equation}
 		\T{f}(z,t) = \T{A} e^{i(kz-\omega t)} \U{n}
 	\end{equation}
-	hvor $ \U{n} $ kaldes for \textit{polarisationsvektoren}. Idet den er vinkelret på bevægelsesretningen gælder det også at $ \U{n} \D \Vz = 0 $. Udtrykt ved polarisationsvinklen $ \theta $ (0$ \degree $ ved $ \Vx $ og 90$ \degree $ ved $ \Vy $) er polarisationsvektoren givet ved
+	hvor $ \U{n} $ kaldes for \textit{polarisationsvektoren}. Idet den er vinkelret på bevægelsesretningen gælder det også at $ \U{n} \D \Vz = 0 $. Udtrykt ved polarisationsvinklen $ \theta $ (0\Deg ved $ \Vx $ og 90\Deg ved $ \Vy $) er polarisationsvektoren givet ved
 	\begin{equation}
 		\U{n} = \cos \theta \Vx + \sin \theta \Vy,
 	\end{equation}
@@ -116,13 +116,13 @@
 	
 	
 	
-	\subsection{Elektromagnetiske bølger i vakuum}
+	\subsection{Elektromagnetiske bølger i vakuum og bølger i 3 dimensioner}
 	I vakuum reduceres Maxwells ligninger til (\textbf{Layout fixes senere})
 	\begin{align}
 		(\text{i})	\quad	&\diverg{E} = 0,	(\text{iii}) 	\quad &\curl{E} = -\diff{\V{B}}{t}, \\
 		(\text{ii})	\quad	&\diverg{B} = 0,  	(\text{iv}) 	\quad &\curl{B} = \mu_0 \epsilon_0 \diff{E}{t}, 
 	\end{align}
-	der er et sæt koblede, \textit{lineære}, førsteordens differentialligninger. For at afkoble dem tages curlen af Faradays (iii) og Ampéres (iv) lov. Hermed fås
+	der er et sæt koblede, \textit{lineære}, førsteordens differentialligninger. For at afkoble dem tages curlen af Faradays (iii) og Ampères (iv) lov. Hermed fås
 	\begin{equation}
 		\grad^2 \V{E} = \mu_0 \epsilon_0 \diff{^2 \V{E}}{t^2}, \quad \grad^2 \V{B} = \mu_0 \epsilon_0 \diff{^2 \V{B}}{t^2}
 	\end{equation}
@@ -138,25 +138,25 @@
 	
 	Ydermere begrænser vi os lige til bølger der kun bevæger sig i én retning ($ z $ for nemhedens skyld), og som dermed ikke afhænger af andre koordinater, vinkelret på bevægelsesretningen ($ x $ og $ y $ i det simple tilfælde). Disse kaldes for \textbf{planbølger} fordi det kan ses som planer med samme fase (altså altid bølgedal/bølgetop eller lignende), der står vinkelret på bevægelsesretningen. Disse har formen
 	\begin{equation}
-		\T{\V{E}} (z,t) = \T{\V{E}}_0 e^{i(kz-\omega t)}, \quad \T{\V{B}} (z,t) = \T{\V{B}}_0 e^{i(kz-\omega t)},
+		\tv{E} (z,t) = \tv{E}_0 e^{i(kz-\omega t)}, \quad \tv{B} (z,t) = \tv{B}_0 e^{i(kz-\omega t)},
 	\end{equation}
-	hvor $ \T{\V{E}}_0 $ og $ \T{\V{B}}_0 $ er de komplekse amplituder, og de fysiske felter selvfølgelig er den reelle del af disse komplekse felter.
+	hvor $ \tv{E}_0 $ og $ \tv{B}_0 $ er de komplekse amplituder, og de fysiske felter selvfølgelig er den reelle del af disse komplekse felter.
 	
 	Disse ligninger overholder de respektive felters bølgeligning, men idet de også er nødt til at overholde Maxwells ligninger for at være elektriske/magnetiske felter, kommer der yderligere restriktioner på, der relaterer felterne til hinanden.
 	
 	For det første skal divergensen af begge felter være 0. Dette giver at \textbf{elektromagnetiske bølger er transverse}. Og Faradays lov giver følgende resultat, efter lidt hyggelig differentiation og gode ideer:
 	\begin{equation}
-		\T{\V{B}}_0 = \frac{k}{\omega} (\Vz \times \T{\V{E}}_0).
+		\tv{B}_0 = \frac{k}{\omega} (\Vz \times \tv{E}_0).
 	\end{equation}	
-	(Ampéres lov giver helt samme resultat). Dette vil altså sige at $ \V{E} $ og $ \V{B} $ er \textbf{i fase}, og \textbf{vinkelrette på hinanden \textit{og} bevægelsesretningen}. Den reelle amplitude af $ B $-bølgen er
+	(Ampères lov giver helt samme resultat). Dette vil altså sige at $ \V{E} $ og $ \V{B} $ er \textbf{i fase}, og \textbf{vinkelrette på hinanden \textit{og} bevægelsesretningen}. Den reelle amplitude af $ B $-bølgen er
 	\begin{equation}
 		B_0 = \frac{k}{\omega} = \frac{1}{c} E_0
 	\end{equation}
 	
 	For at generalisere dette resultat, skal \textbf{bølgevektoren} $ \V{k}=k \U{k} $ indføres. Denne har størrelsen $ k $ (bølgetallet) og peger i bevægelsesretningen. Da er $ \V{k} \D \V{r} $ generaliseringen af $ kz $ og generaliseringen af de monokromatiske planbølger er
 	\begin{align}
-		\T{\V{E}}(\V{r},t) &= \T{E}_0 e^{i(\V{k}\D \V{r} - \omega t)} \U{n},\\
-		\T{\V{B}}(\V{r},t) &= \frac{1}{c} \T{E}_0 e^{i(\V{k}\D \V{r} - \omega t)} (\U{k} \times \U{n}) = \frac{1}{c} \U{k} \times \T{\V{E}}_0,
+		\tv{E}(\V{r},t) &= \T{E}_0 e^{i(\V{k}\D \V{r} - \omega t)} \U{n},\\
+		\tv{B}(\V{r},t) &= \frac{1}{c} \T{E}_0 e^{i(\V{k}\D \V{r} - \omega t)} (\U{k} \times \U{n}) = \frac{1}{c} \U{k} \times \tv{E}_0,
 	\end{align}
 	hvor $ \U{n} $ som før er polarisationsvektoren. Og fordi $ \V{E} $ er transvers er $ \U{n} \D \U{k} = 0$. Man kan så spørge sig selv om, hvorfor $ \U{n} $ defineres ud fra $ \V{E} $-bølgen: dette er tradition, idet det er E-felter, der accelerer partikler, og $ \U{n} $ beskriver den retning de ladede partikler vil begynde at svinge i, hvis de bliver ramt af elektromagnetiske bølger.
 	
@@ -186,7 +186,165 @@
 	\end{equation}
 	
 	
+	
+	
 	\subsection{Elektromagnetiske bølger i materialer}
+	I materialer, hvor der ingen fri ladning eller strøm er, og som er både er \textit{lineære} (så $ \V{D} = \epsilon \V{E} $ og $ \V{H} = \V{B}/\mu $, med $ \epsilon = \epsilon_r \epsilon_0 $ og ligeledes for $ \mu $) og \textit{homogene} (så $ \epsilon$ og $ \mu $ ikke varierer i rummet), bliver Maxwells ligninger (\textbf{Layout Layout Layout...})
+	\begin{align}
+		(\text{i})	\quad	&\diverg{E} = 0,	(\text{iii}) 	\quad &\curl{E} = -\diff{\V{B}}{t}, \\
+		(\text{ii})	\quad	&\diverg{B} = 0,  	(\text{iv}) 	\quad &\curl{B} = \mu \epsilon \diff{E}{t}, 
+	\end{align}
+	Altså er der kun den forskel, at $ \epsilon_0 \to \epsilon $ og $ \mu_0 \to \mu $, hvilket egentlig er ret cool! Det vil sige at elektromagnetiske bølger bevæger sig gennem lineære, homogene medier med hastigheden
+	\begin{equation}\label{key}
+		v = \frac{1}{\sqrt{\epsilon\mu}} = \frac{c}{n}, \quad n = \sqrt{\frac{\epsilon\mu}{\epsilon_0 \mu_0}}
+	\end{equation}
+	hvor $ n $ kaldes \textbf{refraktionsindekset}. Som oftest er $ \mu \approx \mu_0 $, så $ n \approx \sqrt{\epsilon_r} $, og da $ \epsilon_r $ (næsten) altid er større end 1, så er $ n $ det også, og lys bevæger sig dermed næsten altid langsommere i materialer, som i vakuum.
+	
+	Med disse ting på plads, kan alle ligninger for sidste afsnit direkte kopieres med $ \epsilon_0 \to \epsilon $, $ \mu_0 \to \mu $ og $ c \to v $. Dermed er energidensiteten
+	\begin{equation}\label{key}
+		u = \frac{1}{2} \pp{\epsilon E^2+ \frac{1}{\mu} B^2}
+	\end{equation}
+	og Poyntingvektoren
+	\begin{equation}\label{key}
+		\V{S} = \frac{1}{\mu} (\V{E} \times \V{B})
+	\end{equation}
+	og amplituderne af felterne er
+	\begin{equation}\label{key}
+		B_0 = \frac{1}{v} E_0
+	\end{equation}
+	Og da er intensiteten
+	\begin{equation}\label{key}
+		I = \frac{1}{2} \epsilon v E_0^2
+	\end{equation}
 	
 	
+	\subsubsection{Vinkelret refleksion og transmission}
+	Som i det endimensionale tilfælde, opstår der refleksion og transmission, når elektromagnetiske bølger når randen mellem to materialer. I dette tilfælde skal de dog overholde nogle lidt andre randbetingelser. Der er 4 randbetingelser, hvoraf de to første har med vinkelrette komponenter at gøre (altså i bevægelsesretningen) og de to sidste har med parallelle komponenter at gøre (parallel på randen, og dermed vinkelret på bevægelsen). Da elektromagnetiske bølger er transverse, er det kun de sidste to, der er interessante. Disse lyder
+	\begin{equation}\label{key}
+		\V{E}_1 ^{\parallel} = \V{E}_2 ^{\parallel}, \quad \frac{1}{\mu_1} \V{B}_1^{\parallel} = \frac{1}{\mu_2} \V{B}_2^{\parallel}.
+	\end{equation}
+	I det simple tilfælde for bølger, der bevæger sig i $ z $-retningen, med randen i $ xy $-planen ($ z=0 $), er de indkomne bølger
+	\begin{equation}\label{key}
+		\tv{E}_I(z,t) = \T{E}_{0_I} e^{i(k_1 z- \omega t)} \U{x}, \quad \tv{B}_I(z,t) = \frac{1}{v_1} \T{E}_{0_I} e^{i (k_1 z - \omega t)}\U{y},
+	\end{equation}
+	de reflekterede bølger
+	\begin{equation}\label{key}
+		\tv{E}_R(z,t) = \T{E}_{0_R} e^{i(-k_1 z- \omega t)} \U{x}, \quad \tv{B}_R(z,t) = -\frac{1}{v_1} \T{E}_{0_R} e^{i (-k_1 z - \omega t)}\U{y},
+	\end{equation}
+	og de transmitterede bølger
+	\begin{equation}\label{key}
+		\tv{E}_T(z,t) = \T{E}_{0_T} e^{i(k_2 z- \omega t)} \U{x}, \quad \tv{B}_T(z,t) = \frac{1}{v_2} \T{E}_{0_T} e^{i (k_2 z - \omega t)}\U{y},
+	\end{equation}
+	hvor minusset i den reflekterede magnetiske bølger kommer af, at bølgen (og dermed også Poyntingvektoren) peger i den anden retning, og de skal udgøre et højrehåndskoordinatsystem. I randbetingelserne er $ \V{E}_1 = \tv{E}_I+\tv{E}_R $ og $ \V{E}_2 = \tv{E}_T $. De to randbetingelser giver henholdsvis:
+	\begin{equation}\label{key}
+		\T{E}_{0_I} + \T{E}_{0_R} = \T{E}_{0_T}, \qquad \frac{1}{\mu_1} \pp{\frac{1}{v_1}\T{E}_{0_I} - \frac{1}{v_1} \T{E}_{0_R}} = \frac{1}{\mu_2} \frac{1}{v_2} \T{E}_{0_T}
+	\end{equation}
+	hvor den anden betingelse kan skrives som
+	\begin{equation}\label{key}
+		\T{E}_{0_I} - \T{E}_{0_R} = \beta\T{E}_{0_T}, \quad \beta = \frac{\mu_1 v_1}{\mu_2 v_2} = \frac{\mu_1 n_2}{\mu_2 n_1}
+	\end{equation}
+	Dette giver amplituderne
+	\begin{equation}\label{key}
+		\T{E}_{0_R} = \frac{1-\beta}{1+\beta} \T{E}_{0_I}, \quad \T{E}_{0_T} = \frac{2}{1+\beta} \T{E}_{0_I},
+	\end{equation}
+	og hvis $ \mu_1 = \mu_2 = \mu_0 $, hvilket ofte er tilfældet, er $ \beta = v_1/v_2 $, og resultaterne er \textit{identiske} med de endimensionale tilfælde:
+	\begin{equation}\label{key}
+		\T{E}_{0_R} = \frac{v_2-v_1}{v_2+v_1} \T{E}_{0_I}, \quad \T{E}_{0_T} = \frac{2 v_2}{v_2+v_1} \T{E}_{0_I}.
+	\end{equation}
+	I dette tilfælde er den reflekterede bølge \textbf{i fase}, hvis $ v_2 > v_1 $ og 180$\degree$ \textbf{ude af fase}, hvis $ v_2 < v_1 $. De reelle amplituder er
+	\begin{equation}\label{key}
+		E_{0_R} = \vv{\frac{v_2-v_1}{v_2+v_1}} E_{0_I}= \vv{\frac{n_1-n_2}{n_1+n_2}} E_{0_I}, \quad E_{0_T} = \frac{2v_2}{v_2+v_1} E_{0_I} = \frac{2n_1}{n_1+n_2} E_{0_I}.
+	\end{equation}
+	
+	Intensiteten af lyset er $ I = \epsilon v E_0^2 / 2 $, og hvis igen $ \mu_1 = \mu_2 = \mu_0 $ fås at brøkdelen af energi, som reflekteres er:
+	\begin{equation}\label{key}
+		R = \frac{I_R}{I_I} = \pp{\frac{E_{0_R}}{E_{0_I}}}^2 = \pp{\frac{n_1-n_2}{n_1+n_2}}^2,
+	\end{equation}
+	og brøkdelen der transmitteres er
+	\begin{equation}\label{key}
+		T = \frac{I_T}{I_I} = \frac{\epsilon_2 v_2}{\epsilon_1 v_1} \pp{\frac{E_{0_T}}{E_{0_I}}}^2 = \frac{4 n_1 n_2}{(n_1+n_2)^2},
+	\end{equation}
+	hvor disse kaldes for henholdsvis \textbf{refleksionskoefficienten} og \textbf{transmissionskoefficienten}. Det ses også at $ R+T = 1 $, hvilket stemmer overens med energibevarelse. Et eksempel på størrelserne er for overgangen mellem luft ($ n_1 = 1 $) og glas ($ n_2 = 1.5 $). Da er $ R=0.04 $ og $ T=0.96 $, hvilket giver god mening, da glas er gennemsigtigt.
+	
+	
+	
+	\subsubsection{Ikkevinkelret refleksion og transmission (bølger polariseret i indfaldsplanen)}
+	Nu kommer det sjove! Nu er det en bølge, der kommer mod randen mellem to materialer (for simpelhedens skyld er randen stadig i $ xy $-planen, hvor $ z=0 $). Her er bølgerne
+	\begin{align}\label{key}
+		\tv{E}_I (\V{r},t) &= \tv{E}_{0_I} e^{i (\V{k}_I \D \V{r} - \omega t)}, \quad 
+		\tv{B}_I (\V{r},t) = \frac{1}{v_1} (\U{k}_I \times \tv{E}_I), \\
+		\tv{E}_R (\V{r},t) &= \tv{E}_{0_R} e^{i (\V{k}_R \D \V{r} - \omega t)}, \quad 
+		\tv{B}_R (\V{r},t) = \frac{1}{v_1} (\U{k}_I \times \tv{E}_I), \\
+		\tv{E}_T (\V{r},t) &= \tv{E}_{0_T} e^{i (\V{k}_T \D \V{r} - \omega t)}, \quad 
+		\tv{B}_T (\V{r},t) = \frac{1}{v_2} (\U{k}_T \times \tv{E}_T).
+	\end{align}
+	Hvor den indkomne bølge kommer med en eller anden vinkel $ \omega_I $, i forhold til vinkelret på overgangen mellem de to materialer. Alle bølgerne svinger med samme frekvens $ \omega $, bestemt af bølgernes kilde, der i sin tid producerede dem. Da $ \omega = kv $ fås
+	\begin{equation}\label{key}
+		\omega = k_I v_1 = k_R v_1 = k_T v_2, \quad k_I = k_R = \frac{v_2}{v_1} k_T = \frac{n_1}{n_2} k_T.
+	\end{equation}
+	Felterne $ \tv{E}_I +\tv{E}_R $ og $ \tv{B}_I + \tv{B}_R $ i det første materiale skal nu sammenføres med $ \tv{E}_T $ og $ \tv{B}_T $ i det andet materiale, i overensstemmelse med de samme randbetingelser som før.
+	
+	Først kigges der dog kun på, at de skal være kontinuerte: Idet alle felterne har en ens struktur, hvor alle rumlige og tidslige størrelser står i eksponenten, og at de skal sammenføres i alle punkter i $ xy $-planen, til alle tider, giver at eksponenterne nødvendigvis må være ens. De tidslige er altid ens, da de svinger med samme frekvens. Dette giver bare:
+	\begin{equation}\label{key}
+		\V{k}_I \D \V{r} = \V{k}_R \D \V{r} = \V{k}_T \D \V{r}, \quad \text{for}\ z=0.
+	\end{equation}
+	Dette kan kun lade sig høre, hvis alle vektorerne $ \V{k}_j $ ligger i samme plan. Dette giver den første lov: (\textbf{Lav en eller anden form for fremhævelse})
+	
+	De indkomne, reflekterede og transmitterede bølger danner et plan, kaldet \textbf{indfaldsplanen}, der også inkluderer normalvektoren til overfladen.
+	
+	Dette giver også at
+	\begin{equation}\label{key}
+		k_I \sin \theta_I = k_R \sin \theta_R = k_T \sin \theta_T,
+	\end{equation}
+	og da $ k_I = k_R $ fås den anden lov, også kaldet refleksionsloven:
+	
+	Den indkomne bølges vinkel er lig den reflekterede bølges vinkel:
+	\begin{equation}\label{key}
+		\theta_I = \theta_R.
+	\end{equation}
+	
+	Og for den transmitterede bølges vinkel fås den tredje lov, kaldet for refraktionsloven eller Snell's lov:
+	\begin{equation}\label{key}
+		\frac{\sin \theta_T}{\sin \theta_I} = \frac{n_1}{n_2}.
+	\end{equation}
+	
+	Disse tre love er den geometriske optiks fundamentale love. 
+	
+	Nu skal de 4 randbetingelser fra Maxwells ligninger behandles. Hvis det antages, at bølgerne polariseres i indfaldsplanen (altså at $ \U{n} $ ligger i samme plan som alle $ \V{k}_j $), kan man med en dejlig gang algebra få et par ligninger ud, der giver den komplekse amplitude for de reflekterede og transmitterede bølger:
+	\begin{equation}\label{key}
+		\T{E}_{0_R} = \frac{\alpha-\beta}{\alpha+\beta} \T{E}_{0_I}, \quad \T{E}_{0_T} = \frac{2}{\alpha+\beta} \T{E}_{0_I}, \quad \alpha = \frac{\cos \theta_T}{\cos \omega_I}, \quad \beta = \frac{\mu_1 v_1}{\mu_2 v_2} = \frac{\mu_1 n_2}{\mu_2 n_1}
+	\end{equation}
+	Disse ligninger kaldes \textbf{Fresnel's ligninger} for polarisering i indfaldsplanen. Hvis $ \alpha > \beta $ er den reflekterede bølge \textbf{i fase} med de to andre, men hvis $ \alpha < \beta $ er den reflekterede bølge 180\Deg \textbf{ude af fase}. Størrelsen $ \alpha $ kan også udtrykkes kun ved refraktionsindeksene og indfaldsvinklen $ \theta_I $:
+	\begin{equation}\label{key}
+		\alpha =\frac{\cos \theta_T}{\cos \theta_I} = \frac{\sqrt{1-[(n_1/n_2) \sin \theta_I]^2}}{\cos \theta_I}
+	\end{equation}
+	hvor det ses, at ved $ \theta_I = 0 $ er $ \alpha = 1 $ og de vinkelrette amplituder igen opnås. Ved $ \theta_I = 90\degree $ divergerer $ \alpha $ og hele bølgen reflekteres. Der er også en vinkel mellem disse to, hvor $ \alpha = \beta $, hvor den reflekterede bølge helt udslukkes. Denne kaldes for \textbf{Brewster's vinkel}, $ \theta_B $, og er givet ved
+	\begin{equation}\label{key}
+		\sin^2 \theta_B = \frac{1-\beta^2}{(n_1/n_2)^2 - \beta^2}.
+	\end{equation}
+	Typisk er $ \mu_1 \approx \mu_2 $, og $ \beta \approx n_2/n_1 $, hvormed $ \sin^2 \theta_B \approx \beta^2 /(1+\beta^2) $. Dermed fås
+	\begin{equation}\label{key}
+		\tan \theta_B \approx \frac{n_2}{n_1}
+	\end{equation}
+	
+	
+	Effekten per enhedsareal, der rammer overgangen mellem de to materialer er prikproduktet mellem Poyntingvektorerne og fladenormalen: $ \V{S} \D \U{k} $. For de tre bølger er disse:
+	\begin{align}\label{key}
+		I_I &= \frac{1}{2} \epsilon_1 v_1 E^2_{0_I} \cos \theta_I, \\
+		I_R &= \frac{1}{2} \epsilon_1 v_1 E^2_{0_R} \cos \theta_R, \\
+		I_T &= \frac{1}{2} \epsilon_2 v_2 E^2_{0_T} \cos \theta_T.
+	\end{align}
+	Refleksions- og refraktionskoefficienterne for bølger polariseret i indfaldsplanen er da
+	\begin{align}
+		R &= \frac{I_R}{I_I} = \pp{\frac{E_{0_R}}{E_{0_I}}}^2 = \pp{\frac{\alpha-\beta}{\alpha+\beta}}^2, \\
+		T &= \frac{I_T}{I_I} = \frac{\epsilon_2 v_2 \cos \theta_T}{\epsilon_1 v_1 \cos \theta_I} \pp{\frac{E_{0_T}}{E_{0_I}}}^2 = \alpha \beta \pp{\frac{2}{\alpha + \beta}}^2.
+	\end{align}
+	Og det ses igen, at summen af disse giver 1, i overenstemmelse med energibevarelse.
+	
+	
+	
+	
+	
+	
+	\subsection{Absorbering og svækkelse, elektromagnetiske bølger i ledere}
 \end{document}
