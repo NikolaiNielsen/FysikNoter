@@ -444,5 +444,90 @@
 	\end{equation}
 	Bølgen er da totalt reflekteret og oplever en faseforskydning på 180\Deg. Dette betyder at gode ledere udgør gode spejle. For eksempel er \textbf{hudtykkelsen} af sølv i omegnen af 100 Å, så der skal kun bruges en meget lille mængde sølv til at lave et godt spejl.
 	
-
+	
+	
+	
+	\section{Mere om bølger (Noter kap 4)}
+	\subsection{Stående bølger}
+	Stående bølger, er bølger der ikke bevæger sig, men som derimod ">står stille"< og oscillerer. Dette kendes for eksempel fra en guitar, og er kendetegnet ved, at strengen sidder fast i enderne:
+	\begin{equation}\label{eq:bounds}
+		f(0,t) = f(L,t) = 0,
+	\end{equation}
+	hvor $ L $ er strengens længde. Ligesom før arbejder vi med komplekse bølgefunktioner, så $ f(z,t) = \Re[\T{f}(z,t)] $, og som er opbygget af sinusbølger. Den mest generelle bølge af denne type er
+	\begin{equation}\label{key}
+		\T{f}(z,t) = \pp{\T{A}_- e^{-ikz}+\T{A}_+ e^{ikz}} e^{-i\omega t},
+	\end{equation}
+	der er superpositionen af to bølger, der bevæger sig i hver sin retning, med $ v = \omega/k $. Ved at indføre randbetingelserne fra \eqref{eq:bounds}, fås
+	\begin{equation}\label{key}
+		f(0,t)=0 \Rightarrow \T{A}_- = -\T{A}_+, \quad f(L,t)=0 \Rightarrow \sin kL=0 \Rightarrow kL=n\pi, \ n \in \Set{N}.
+	\end{equation}
+	Og skrevet som frekvenser ses det, at det kun er meget bestemte frekvenser, der er tilladt, som følge af disse randbetingelser:
+	\begin{equation}\label{key}
+		\omega_n = n \frac{v\pi}{L}, \quad n\in \Set{N}
+	\end{equation}
+	Hvor $ \omega_1 = v\pi/L $ kaldes for strengens \textit{grundfrekvens} og $ \omega_n $ kaldes for strengens $ n-1 $'te overtone (\textbf{Ret endelig, hvis det er forkert terminologi}). Når bølgen svinger med disse frekvenser, danner den en stående bølge, der kan skrives som
+	\begin{equation}\label{key}
+		f_n(z,t) = A \sin(k_n z) \cos (\omega_n t), \quad k_n = \omega_n/v.
+	\end{equation}
+	For $ n>1 $ er der steder på strengen, hvor $ f(z_0,t) = 0 $, til alle tider $ t $ (ud over enderne, selvfølgelig). Disse kaldes for \textit{noder} eller \textit{knudepunkter} (enderne er \textit{trivielle noder}), mens der andre steder på strengen, hvor $ \sin(k_n z_0) =\pm 1$. Her er oscillationerne størst, og punkterne kaldes for \textit{antinoder}. Disse steder optræder med regelmæssig afstand, og fra Mek2 ved vi, at afstanden mellem to nærmeste noder er $ \lambda/2 $ (UP, 13. udgave, side 492). Dette er også afstanden mellem en antinode og dennes nærmeste. Afstanden mellem en node og dennes tætteste antinode er halvdelen af afstanden mellem to noder, altså $ \lambda/4 $.
+	
+	\subsection{Bølger i 3 dimensioner}
+	I dette afsnit behandles bølgeligningen i 3 dimensioner, samt to forskellige løsninger til denne: planbølger og sfæriske bølger. Idet planbølger allerede er beskrevet, vil jeg kun beskrive sfæriske bølger i dette afsnit.
+	
+	Bølgeligningen i 3 dimensioner er, som bekendt:
+	\begin{equation}\label{key}
+		\grad^2 f = \frac{1}{v^2} \diff{^2 f}{t^2}
+	\end{equation}
+	hvor $ \grad^2 $ er Laplaceoperatoren (summen af de dobbelte rumafledte). Sfæriske bølger har dette navn fordi bølgefronten bevæger sig ud fra udbredelsespunktet som en sfære med aftagende amplitude. 
+	
+	Den todimensionale ækvivalent er bølgerne i vand, der kommer fra en sten smidt ned i pølen. Her udbredes bølgerne fra nedslagspunktet, med mindre amplitude som afstanden stiger. Et 2D plot af dette kan ses herunder:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=12cm]{img/2dWave.png}
+		\label{fig:2dWave}
+		\caption{Et plot af $ 2 \sin(2r)/r $ for $ x,y = [-4\pi,4\pi] $. MATLAB-koden kan hentes fra min GitHub: https://github.com/NikolaiNielsen/FysikNoter/blob/master/EDB/2dWaves.m}
+	\end{figure}
+	Her aftager bølgen som $ 2/r $, og hvis denne funktion blev lagt ind over bølgen, vil man tydelig kunne se, at alle bølgetoppene rører funktionen $ 2/r $. Dette bliver lagt som en øvelse til læseren, da det bliver ualmindelig grimt, med mindre man har interaktivitet (eller gider at gøre rigtig meget ved det, som gennemsigtighed og sådan noget). Det kan også visualiseres nemmere i én dimension, hvor koden til sådan et plot også ligger i filen på GitHub.
+	
+	Men nok om kedelige én og to dimensioner. Vi har jo tre at gøre godt med! Den simpleste sfæriske bølge er givet ved
+	\begin{equation}\label{key}
+		\T{f}(\V{r},t) = \T{A} \frac{e^{i(kr-\omega t)}}{r},
+	\end{equation}
+	der har en diskontinuitet i origo, hvor $ r = 0 $. Hvis der ses på bølgen et punkt langt væk fra origo, for eksempel $ z_0 \gg x,y $, og $ z=z_0+z' $ med $ z_0 \gg z' $. Her bliver $ r $:
+	\begin{equation}\label{key}
+		r = \sqrt{(z_0+z')^2+x^2+y^2} = (z_0+z') \sqrt{1+ \frac{x^2+y^2}{(z_0+z')^2}} \approx z_0+z' + \frac{x^2+y^2}{2z_0} \approx z_0
+	\end{equation}
+	hvor det er udnyttet at $ \sqrt{1+x} \approx 1+\frac{1}{2} x $, for små $ x $ (Taylorudvikling af $ \sqrt{1+x} $ omkring 0, til første orden). Denne approksimation kan dog kun bruges uden for eksponenten, da eksponenter er dumme med approksimationer. Eksempelvis er $ kz_0 \gg kz' $, men $ kz' $ kan sagtens være stort, og dermed have en stor indflydelse på eksponenten. Dette er dog ikke tilfældet for $ k(x^2+y^2)/z_0 $, der er småt nok til at ignorere. Med alt dette fås
+	\begin{equation}\label{key}
+		\T{f} (\V{r},t) = \T{A}' e^{i(kz'-\omega t)}, \quad \T{A}' = \T{A} \frac{e^{ikz_0}}{z_0},
+	\end{equation}
+	der jo er en planbølge! Dette giver matematisk grundlag for, at når vi ser på en kugle meget tæt på dennes overflade, så ligner den et plan (eller omvendt, hvis kuglen bare er meget stor, og vi dermed er langt væg fra centrum. Det der betyder noget, er bare forholdet mellem afstanden af dig til overfladen og radius af kuglen).
+	
+	\subsection{Interferens}
+	Idet bølgeligningen er lineær, er enhver sum af løsninger til ligningen også en løsning til ligningen. Det er netop dette vi udnytter i studiet af stående bølger, hvor det er to modsatrettede bølger, med samme frekvens amplitude og bølgetal, der producerer fænomenet. Dette er et eksempel på \textit{interferens}. Der findes to typer: \textbf{konstruktiv} og \textbf{destruktiv}. Konstruktiv interferens er steder, hvor bølgerne er i fase, og der dermed er bølgetop/bølgedal for begge bølger. Dette resulterer i den dobbelte amplitude for den samlede bølge. Dette er jo præcis de steder på en streng, hvor der er antinoder! Destruktiv interferens er der, hvor bølgerne er præcis en halv bølgelængde ude af fase. Her mødes bølgetop med bølgedal, og resultatet er en præcist udslukket bølge: noderne på en streng!
+	
+	Der findes to ">steder"< hvor interferens kan opstå: i rummet og i tiden.
+	\subsubsection{Rumlig interferens og smarte tricks}
+	I stående bølger er det rumlig interferens der sker. Navnet kommer af, at interferensen sker i bestemte steder i rummet, og til alle tider (noderne og antinoderne er faste punkter i rummet, og interferensen sker så længe strengen vibrerer). Men stående bølger på en streng er uden tvivl det nemmeste tilfælde.
+	
+	I notesættet behandler de eksemplet med to højttalere i $ x= \pm L/2 $, og de kigger på området omkring $ z_0 $ for $ z_0 \gg x, y, L $. Jeg vil ikke gå i dybden med udregningerne, men blot nævne nogle af de smarte tricks de bruger, så I selv kan få alle de der ">gode ideer"< man skal bruge, til at løse opgaverne.
+	
+	For det første, skal to eksponentialfunktioner lægges sammen, hvilket er et helvede fordi det er meget nemmere at gange dem sammen. Og hvis der ikke lige er en fælles faktor, man \textit{lige} kan trække ud, så er det endnu mere træls. Men frygt ej! Man kan \textit{altid} finde en fælles faktor. Man skal blot indse følgende:
+	\begin{equation}\label{key}
+		\frac{a_1+a_2}{2}+\frac{a_1-a_2}{2} = a_1, \quad \frac{a_1+a_2}{2}-\frac{a_1-a_2}{2} = a_2.
+	\end{equation}
+	Regn selv gerne efter. Hvis vi nu antager at de to bølger har formen $ e^{ia_1} $ og $ e^{ia_2} $ hvor $ a_1 $ og $ a_2 $ afhænger af rum og tid, så er summen af disse:
+	\begin{equation}\label{key}
+		e^{ia_1} + e^{ia_2} = e^{i(a_1/2 + a_2/2)} \pp{e^{i(a_1/2-a_2/2)} + e^{-i(a_1/2-a_2/2)}} =  2 e^{i(a_1+a_2)/2} \cos\pp{\frac{a_1+a_2}{2}}.
+	\end{equation}
+	Se nu, hvor pænt det blev! Da er den nye amplitude $ 2 \cos((a_1+a_2)/2) $. Dette resultat kan direkte overføres til \textit{alle} opgaver af denne type. Dette trick bliver brugt på side 81 i notesættet.
+	
+	Det andet trick de bruger, er approksimationer. Jeg har benævnt den stort set lige før, i afsnittet om sfæriske bølger, men det er så smart, så det er værd at nævne en anden gang. Taylorudviklingen af funktionen $ a\sqrt{1+x} $ for små $ x $ (altså omkring punktet $ x=0 $) kan bruges til at komme af med drilske kvadratrødder, så man nemt kan lægge to af disse sammen:
+	\begin{equation}\label{key}
+		a \sqrt{1+x} \approx a\pp{1+\frac{1}{2} x}, \quad x \approx 0
+	\end{equation}
+	Dette er en Taylorudvikling til første orden ($ x $ står i første potens). Dette trick bliver brugt både på side 79 og 82 i notesættet, når der snakkes om sfæriske bølger og interferens.
+	
+	
+	\subsubsection{Tidslig interferens}
 \end{document}
