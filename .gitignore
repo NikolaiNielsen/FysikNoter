@@ -16,3 +16,6 @@
 
 # Generelle filer
 *.zip
+
+# Matlablort
+*.asv
