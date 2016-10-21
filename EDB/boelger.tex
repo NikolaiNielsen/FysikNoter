@@ -195,73 +195,73 @@
 		(\text{ii})	\quad	&\diverg{B} = 0,  	(\text{iv}) 	\quad &\curl{B} = \mu \epsilon \diff{E}{t}, 
 	\end{align}
 	Altså er der kun den forskel, at $ \epsilon_0 \to \epsilon $ og $ \mu_0 \to \mu $, hvilket egentlig er ret cool! Det vil sige at elektromagnetiske bølger bevæger sig gennem lineære, homogene medier med hastigheden
-	\begin{equation}\label{key}
+	\begin{equation}
 		v = \frac{1}{\sqrt{\epsilon\mu}} = \frac{c}{n}, \quad n \equiv \sqrt{\frac{\epsilon\mu}{\epsilon_0 \mu_0}}
 	\end{equation}
 	hvor $ n $ kaldes \textbf{refraktionsindekset}. Som oftest er $ \mu \approx \mu_0 $, så $ n \approx \sqrt{\epsilon_r} $, og da $ \epsilon_r $ (næsten) altid er større end 1, så er $ n $ det også, og lys bevæger sig dermed næsten altid langsommere i materialer, som i vakuum.
 	
 	Med disse ting på plads, kan alle ligninger for sidste afsnit direkte kopieres med $ \epsilon_0 \to \epsilon $, $ \mu_0 \to \mu $ og $ c \to v $. Dermed er energidensiteten
-	\begin{equation}\label{key}
+	\begin{equation}
 		u = \frac{1}{2} \pp{\epsilon E^2+ \frac{1}{\mu} B^2}
 	\end{equation}
 	og Poyntingvektoren
-	\begin{equation}\label{key}
+	\begin{equation}
 		\V{S} = \frac{1}{\mu} (\V{E} \times \V{B})
 	\end{equation}
 	og amplituderne af felterne er
-	\begin{equation}\label{key}
+	\begin{equation}
 		B_0 = \frac{1}{v} E_0
 	\end{equation}
 	Og da er intensiteten
-	\begin{equation}\label{key}
+	\begin{equation}
 		I = \frac{1}{2} \epsilon v E_0^2
 	\end{equation}
 	
 	
 	\subsubsection{Vinkelret refleksion og transmission}
 	Som i det endimensionale tilfælde, opstår der refleksion og transmission, når elektromagnetiske bølger når randen mellem to materialer. I dette tilfælde skal de dog overholde nogle lidt andre randbetingelser. Der er 4 randbetingelser, hvoraf de to første har med vinkelrette komponenter at gøre (altså i bevægelsesretningen) og de to sidste har med parallelle komponenter at gøre (parallel på randen, og dermed vinkelret på bevægelsen). Da elektromagnetiske bølger er transverse, er det kun de sidste to, der er interessante. Disse lyder
-	\begin{equation}\label{key}
+	\begin{equation}
 		\V{E}_1 ^{\parallel} = \V{E}_2 ^{\parallel}, \quad \frac{1}{\mu_1} \V{B}_1^{\parallel} = \frac{1}{\mu_2} \V{B}_2^{\parallel}.
 	\end{equation}
 	I det simple tilfælde for bølger, der bevæger sig i $ z $-retningen, med randen i $ xy $-planen ($ z=0 $), er de indkomne bølger
-	\begin{equation}\label{key}
+	\begin{equation}
 		\tv{E}_I(z,t) = \T{E}_{0_I} e^{i(k_1 z- \omega t)} \U{x}, \quad \tv{B}_I(z,t) = \frac{1}{v_1} \T{E}_{0_I} e^{i (k_1 z - \omega t)}\U{y},
 	\end{equation}
 	de reflekterede bølger
-	\begin{equation}\label{key}
+	\begin{equation}
 		\tv{E}_R(z,t) = \T{E}_{0_R} e^{i(-k_1 z- \omega t)} \U{x}, \quad \tv{B}_R(z,t) = -\frac{1}{v_1} \T{E}_{0_R} e^{i (-k_1 z - \omega t)}\U{y},
 	\end{equation}
 	og de transmitterede bølger
-	\begin{equation}\label{key}
+	\begin{equation}
 		\tv{E}_T(z,t) = \T{E}_{0_T} e^{i(k_2 z- \omega t)} \U{x}, \quad \tv{B}_T(z,t) = \frac{1}{v_2} \T{E}_{0_T} e^{i (k_2 z - \omega t)}\U{y},
 	\end{equation}
 	hvor minusset i den reflekterede magnetiske bølger kommer af, at bølgen (og dermed også Poyntingvektoren) peger i den anden retning, og de skal udgøre et højrehåndskoordinatsystem. I randbetingelserne er $ \V{E}_1 = \tv{E}_I+\tv{E}_R $ og $ \V{E}_2 = \tv{E}_T $. De to randbetingelser giver henholdsvis:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{E}_{0_I} + \T{E}_{0_R} = \T{E}_{0_T}, \qquad \frac{1}{\mu_1} \pp{\frac{1}{v_1}\T{E}_{0_I} - \frac{1}{v_1} \T{E}_{0_R}} = \frac{1}{\mu_2} \frac{1}{v_2} \T{E}_{0_T}
 	\end{equation}
 	hvor den anden betingelse kan skrives som
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{E}_{0_I} - \T{E}_{0_R} = \beta\T{E}_{0_T}, \quad \beta \equiv \frac{\mu_1 v_1}{\mu_2 v_2} = \frac{\mu_1 n_2}{\mu_2 n_1}
 	\end{equation}
 	Dette giver amplituderne
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{E}_{0_R} = \frac{1-\beta}{1+\beta} \T{E}_{0_I}, \quad \T{E}_{0_T} = \frac{2}{1+\beta} \T{E}_{0_I},
 	\end{equation}
 	og hvis $ \mu_1 = \mu_2 = \mu_0 $, hvilket ofte er tilfældet, er $ \beta = v_1/v_2 $, og resultaterne er \textit{identiske} med de endimensionale tilfælde:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{E}_{0_R} = \frac{v_2-v_1}{v_2+v_1} \T{E}_{0_I}, \quad \T{E}_{0_T} = \frac{2 v_2}{v_2+v_1} \T{E}_{0_I}.
 	\end{equation}
 	I dette tilfælde er den reflekterede bølge \textbf{i fase}, hvis $ v_2 > v_1 $ og 180$\degree$ \textbf{ude af fase}, hvis $ v_2 < v_1 $. De reelle amplituder er
-	\begin{equation}\label{key}
+	\begin{equation}
 		E_{0_R} = \vv{\frac{v_2-v_1}{v_2+v_1}} E_{0_I}= \vv{\frac{n_1-n_2}{n_1+n_2}} E_{0_I}, \quad E_{0_T} = \frac{2v_2}{v_2+v_1} E_{0_I} = \frac{2n_1}{n_1+n_2} E_{0_I}.
 	\end{equation}
 	
 	Intensiteten af lyset er $ I = \epsilon v E_0^2 / 2 $, og hvis igen $ \mu_1 = \mu_2 = \mu_0 $ fås at brøkdelen af energi, som reflekteres er:
-	\begin{equation}\label{key}
+	\begin{equation}
 		R \equiv \frac{I_R}{I_I} = \pp{\frac{E_{0_R}}{E_{0_I}}}^2 = \pp{\frac{n_1-n_2}{n_1+n_2}}^2,
 	\end{equation}
 	og brøkdelen der transmitteres er
-	\begin{equation}\label{key}
+	\begin{equation}
 		T \equiv \frac{I_T}{I_I} = \frac{\epsilon_2 v_2}{\epsilon_1 v_1} \pp{\frac{E_{0_T}}{E_{0_I}}}^2 = \frac{4 n_1 n_2}{(n_1+n_2)^2},
 	\end{equation}
 	hvor disse kaldes for henholdsvis \textbf{refleksionskoefficienten} og \textbf{transmissionskoefficienten}. Det ses også at $ R+T = 1 $, hvilket stemmer overens med energibevarelse. Et eksempel på størrelserne er for overgangen mellem luft ($ n_1 = 1 $) og glas ($ n_2 = 1.5 $). Da er $ R=0.04 $ og $ T=0.96 $, hvilket giver god mening, da glas er gennemsigtigt.
@@ -270,7 +270,7 @@
 	
 	\subsubsection{Ikkevinkelret refleksion og transmission (bølger polariseret i indfaldsplanen)}
 	Nu kommer det sjove! Nu er det en bølge, der kommer mod randen mellem to materialer (for simpelhedens skyld er randen stadig i $ xy $-planen, hvor $ z=0 $). Her er bølgerne
-	\begin{align}\label{key}
+	\begin{align}
 		\tv{E}_I (\V{r},t) &= \tv{E}_{0_I} e^{i (\V{k}_I \D \V{r} - \omega t)}, \quad 
 		\tv{B}_I (\V{r},t) = \frac{1}{v_1} (\U{k}_I \times \tv{E}_I), \\
 		\tv{E}_R (\V{r},t) &= \tv{E}_{0_R} e^{i (\V{k}_R \D \V{r} - \omega t)}, \quad 
@@ -279,13 +279,13 @@
 		\tv{B}_T (\V{r},t) = \frac{1}{v_2} (\U{k}_T \times \tv{E}_T).
 	\end{align}
 	Hvor den indkomne bølge kommer med en eller anden vinkel $ \omega_I $, i forhold til vinkelret på overgangen mellem de to materialer. Alle bølgerne svinger med samme frekvens $ \omega $, bestemt af bølgernes kilde, der i sin tid producerede dem. Da $ \omega = kv $ fås
-	\begin{equation}\label{key}
+	\begin{equation}
 		\omega = k_I v_1 = k_R v_1 = k_T v_2, \quad k_I = k_R = \frac{v_2}{v_1} k_T = \frac{n_1}{n_2} k_T.
 	\end{equation}
 	Felterne $ \tv{E}_I +\tv{E}_R $ og $ \tv{B}_I + \tv{B}_R $ i det første materiale skal nu sammenføres med $ \tv{E}_T $ og $ \tv{B}_T $ i det andet materiale, i overensstemmelse med de samme randbetingelser som før.
 	
 	Først kigges der dog kun på, at de skal være kontinuerte: Idet alle felterne har en ens struktur, hvor alle rumlige og tidslige størrelser står i eksponenten, og at de skal sammenføres i alle punkter i $ xy $-planen, til alle tider, giver at eksponenterne nødvendigvis må være ens. De tidslige er altid ens, da de svinger med samme frekvens. Dette giver bare:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\V{k}_I \D \V{r} = \V{k}_R \D \V{r} = \V{k}_T \D \V{r}, \quad \text{for}\ z=0.
 	\end{equation}
 	Dette kan kun lade sig høre, hvis alle vektorerne $ \V{k}_j $ ligger i samme plan. Dette giver den første lov: (\textbf{Lav en eller anden form for fremhævelse})
@@ -293,43 +293,43 @@
 	De indkomne, reflekterede og transmitterede bølger danner et plan, kaldet \textbf{indfaldsplanen}, der også inkluderer normalvektoren til overfladen.
 	
 	Dette giver også at
-	\begin{equation}\label{key}
+	\begin{equation}
 		k_I \sin \theta_I = k_R \sin \theta_R = k_T \sin \theta_T,
 	\end{equation}
 	og da $ k_I = k_R $ fås den anden lov, også kaldet refleksionsloven:
 	
 	Den indkomne bølges vinkel er lig den reflekterede bølges vinkel:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\theta_I = \theta_R.
 	\end{equation}
 	
 	Og for den transmitterede bølges vinkel fås den tredje lov, kaldet for refraktionsloven eller Snell's lov:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\frac{\sin \theta_T}{\sin \theta_I} = \frac{n_1}{n_2}.
 	\end{equation}
 	
 	Disse tre love er den geometriske optiks fundamentale love. 
 	
 	Nu skal de 4 randbetingelser fra Maxwells ligninger behandles. Hvis det antages, at bølgerne polariseres i indfaldsplanen (altså at $ \U{n} $ ligger i samme plan som alle $ \V{k}_j $), kan man med en dejlig gang algebra få et par ligninger ud, der giver den komplekse amplitude for de reflekterede og transmitterede bølger:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{E}_{0_R} = \frac{\alpha-\beta}{\alpha+\beta} \T{E}_{0_I}, \quad \T{E}_{0_T} = \frac{2}{\alpha+\beta} \T{E}_{0_I}, \quad \alpha \equiv \frac{\cos \theta_T}{\cos \omega_I}, \quad \beta \equiv \frac{\mu_1 v_1}{\mu_2 v_2} = \frac{\mu_1 n_2}{\mu_2 n_1}
 	\end{equation}
 	Disse ligninger kaldes \textbf{Fresnel's ligninger} for polarisering i indfaldsplanen. Hvis $ \alpha > \beta $ er den reflekterede bølge \textbf{i fase} med de to andre, men hvis $ \alpha < \beta $ er den reflekterede bølge 180\Deg \textbf{ude af fase}. Størrelsen $ \alpha $ kan også udtrykkes kun ved refraktionsindeksene og indfaldsvinklen $ \theta_I $:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\alpha =\frac{\cos \theta_T}{\cos \theta_I} = \frac{\sqrt{1-[(n_1/n_2) \sin \theta_I]^2}}{\cos \theta_I}
 	\end{equation}
 	hvor det ses, at ved $ \theta_I = 0 $ er $ \alpha = 1 $ og de vinkelrette amplituder igen opnås. Ved $ \theta_I = 90\degree $ divergerer $ \alpha $ og hele bølgen reflekteres. Der er også en vinkel mellem disse to, hvor $ \alpha = \beta $, hvor den reflekterede bølge helt udslukkes. Denne kaldes for \textbf{Brewster's vinkel}, $ \theta_B $, og er givet ved
-	\begin{equation}\label{key}
+	\begin{equation}
 		\sin^2 \theta_B = \frac{1-\beta^2}{(n_1/n_2)^2 - \beta^2}.
 	\end{equation}
 	Typisk er $ \mu_1 \approx \mu_2 $, og $ \beta \approx n_2/n_1 $, hvormed $ \sin^2 \theta_B \approx \beta^2 /(1+\beta^2) $. Dermed fås
-	\begin{equation}\label{key}
+	\begin{equation}
 		\tan \theta_B \approx \frac{n_2}{n_1}
 	\end{equation}
 	
 	
 	Effekten per enhedsareal, der rammer overgangen mellem de to materialer er prikproduktet mellem Poyntingvektorerne og fladenormalen: $ \V{S} \D \U{k} $. For de tre bølger er disse:
-	\begin{align}\label{key}
+	\begin{align}
 		I_I &= \frac{1}{2} \epsilon_1 v_1 E^2_{0_I} \cos \theta_I, \\
 		I_R &= \frac{1}{2} \epsilon_1 v_1 E^2_{0_R} \cos \theta_R, \\
 		I_T &= \frac{1}{2} \epsilon_2 v_2 E^2_{0_T} \cos \theta_T.
@@ -353,54 +353,54 @@
 		\diverg{B} = 0, \quad &\curl{B} = \mu \sigma \V{E} + \mu \epsilon \diff{\V{E}}{t}.
 	\end{align}
 	Kontinuitetsligningen, sammen med Ohms lov og Faradays lov, siger
-	\begin{equation}\label{key}
+	\begin{equation}
 		\grad \D \V{J}_f = -\diff{\rho_f}{t}, \quad \diff{\rho_f}{t} = -\sigma (\diverg{E}) = -\frac{\sigma}{\epsilon} \rho_f.
 	\end{equation}
 	Og i homogene, lineære ledere giver dette
-	\begin{equation}\label{key}
+	\begin{equation}
 		\rho_f(t) = e^{-\sigma t / \epsilon} \rho_f(0),
 	\end{equation}
 	der er et eksponentielt henfald, med karakteristisk tid $ \tau = \epsilon/\sigma $. Dette vil sige, at hvis du smider noget fri ladning på en leder, så vil det bevæge sig ud i enderne af lederen. $ \tau $ siger, hvor lang tid dette tager. For en perfekt leder er $ \sigma = \infty $ og $ \tau = 0 $. For en \textit{god} leder er $ \tau $ meget mindre end andre relevante tider (eksempelvis i oscillerende systemer er $ \tau \ll 1/\omega $) og for en \textit{dårlig} leder er $ \tau $ meget større end disse tider (oscillerende systemer: $ \tau \gg 1/\omega $).
 	
 	Men nok om det, resten af dette afsnit forudsætter at \textbf{al fri ladning er forsvundet}, så $ \rho_f = 0 $. Da bliver Faradays lov $ \diverg{E} = 0 $. Og den eneste forskel der er fra elektromagnetiske bølger i lineære medier, er det ekstra led i Ampères lov. Hvis vi igen tager curlen af Faradays og Ampères lov, kan disse ligninger afkobles til en modificeret bølgeligning, hvor der inkluderes en førsteordensafledet:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\grad^2 \V{E} = \mu \epsilon \diff{^2 \V{E}}{t^2} + \mu \sigma \diff{\V{E}}{t}
 	\end{equation}
 	og identisk for $ \V{B} $. Denne ligning tillader stadig løsninger, der er planbølger. Dog er de modificerede, med komplekse bølgetal:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\tv{E}(z,t) = \tv{E}_0 e^{i(\T{k}z-\omega t)}, \quad \tv{B}(z,t) = \tv{B}_0 e^{i(\T{k}z-\omega t)}, \quad \T{k}^2 = \mu \epsilon \omega^2 + i \mu \sigma \omega,
 	\end{equation}
 	hvor bølgetallet fås ved at tage kvadratroden.
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{k} = k+i\kappa, \quad k \equiv \omega \sqrt{\frac{\epsilon \mu}{2}} \bb{\sqrt{1+\pp{\frac{\sigma}{\epsilon \omega}}^2}+1}^{1/2}, \quad \kappa \equiv \omega \sqrt{\frac{\epsilon \mu}{2}} \bb{\sqrt{1+\pp{\frac{\sigma}{\epsilon \omega}}^2}-1}^{1/2}
 	\end{equation}
 	den imaginære del $ \kappa $ af det komplekse bølgetal resulterer i en eksponentiel svækkelse af bølgen (som funktion af rummet):
-	\begin{equation}\label{key}
+	\begin{equation}
 		\tv{E}(z,t) = \tv{E}_0 e^{-\kappa z} e^{i(kz-\omega t)}, \quad \tv{B}(z,t) = \tv{B}_0 e^{-\kappa z} e^{i(kz-\omega t)}.
 	\end{equation}
 	Den afstand det tager for bølgen at svækkes med en faktor $ e \approx 1/3 $ kaldes for \textbf{hudtykkelsen} (eller noget i den dur), og er givet ved $ d \equiv \kappa\inverse $. Dette er et mål for, hvor langt ind i lederen som bølgerne trænger. Den reelle del $ k $ af det komplekse bølgetal bestemmer bølgelængden, udbredelseshastigheden og refraktionsindekset, som normalt:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\lambda = \frac{2\pi}{k}, \quad v = \frac{\omega}{k}, \quad n = \frac{ck}{\omega}.
 	\end{equation}
 	
 	Som før kommer der dog ekstra begrænsninger på bølgernes komplekse amplituder, der bestemmer den reelle amplitude, fase og polarisation, som følge af Maxwells ligninger. Gauss' lov siger at der ikke kan være noget udsving i bevægelsesretningen, og bølgerne er igen transverse. Da kan vi lige så godt orientere vores felter, så det elektriske felt er polariseret langs $ x $-aksen: $ \tv{E} = \T{E}\U{x} $. Da giver Faradays lov (og Ampères lov) at
-	\begin{equation}\label{key}
+	\begin{equation}
 		\tv{B}(z,t) = \frac{\T{k}}{\omega} \T{E}_0 e^{-\kappa z} e^{i(kz-\omega t)} \U{y}.
 	\end{equation}
 	De to felter er igen indbyrdes vinkelrette med bevægelsesretningen. De reelle amplituder og faser kan fås ved at skrive det komplekse bølgetal på polær form:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{k} = K e^{i\phi}, \quad K \equiv |\T{k}| = \sqrt{k^2+\kappa^2} = \omega \sqrt{\epsilon \mu \sqrt{1+\pp{\frac{\sigma}{\epsilon \omega}}^2}}, \quad \phi \equiv \tan\inverse(\kappa/k).
 	\end{equation}
 	Da er de komplekse amplituder relaterede ved
-	\begin{equation}\label{key}
+	\begin{equation}
 		B_0 e^{i \delta_B} = \frac{K e^{i\phi}}{\omega} E_0 e^{i\delta_E}.
 	\end{equation}
 	Dermed er de to felter ikke længere i fase! faktisk fås $ \delta_B-\delta_E = \phi $, hvilket giver at B-felter ">halter bagefter"< E-feltet. Forholdet mellem de reelle amplituder er givet ved
-	\begin{equation}\label{key}
+	\begin{equation}
 		\frac{B_0}{E_0} = \frac{K}{\omega} = \sqrt{\epsilon \mu \sqrt{1+\pp{\frac{\sigma}{\epsilon \omega}}^2}}.
 	\end{equation}
 	De reelle elektriske og magnetiske felter er da
-	\begin{equation}\label{key}
+	\begin{equation}
 		\V{E}(z,t) = E_0 e^{-\kappa z} \cos (kz-\omega t+ \delta_E) \U{x}, \quad \V{B}(z,t) = B_0 e^{-\kappa z} \cos (kz-\omega t + \delta_B + \phi) \U{y}.
 	\end{equation}
 	
@@ -431,15 +431,15 @@
 		\end{tabular}
 	\end{table}
 	hvor den reflekterede bølge bevæger sig i den negative $ z $-retning, og den transmitterede bølge er svækket som den udbreder sig i lederen. Randbetingelse (i) siger nu at $ \sigma_f = 0$, og fordi $ \tv{B} $ er transvers, er (ii) automatisk overholdt. (iii) og (iv) (med $ \V{K}_f = 0$) giver
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{E}_{0_I} + \T{E}_{0_R} = \T{E}_{0_T}, \quad 	\T{E}_{0_I}-T{E}_{0_R} = \T{\beta} \T{E}_{0_T}, \ \T{\beta} = \frac{\mu_1 v_1}{\mu_2 \omega} \T{k}_2
 	\end{equation}
 	Det følger da at
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{E}_{0_R} = \frac{1-\T{\beta}}{1+\T{\beta}} \T{E}_{0_I}, \quad \T{E}_{0_T} = \frac{2}{1+\T{\beta}}\T{E}_{0_I}.
 	\end{equation}
 	Disse ligner da meget amplituderne fra refleksion og transmission mellem to dielektriske materialer. Forskellen er bare at $ \T{\beta} $ nu er kompleks i stedet for reel. I en perfekt leder, med $ \sigma = \infty $, giver $ k_2 = \infty $ og $ |\T{\beta}| = \infty $, og dermed
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{E}_{0_R} = -\T{E}_{0_I}, \quad \T{E}_{0_T} = 0.
 	\end{equation}
 	Bølgen er da totalt reflekteret og oplever en faseforskydning på 180\Deg. Dette betyder at gode ledere udgør gode spejle. For eksempel er \textbf{hudtykkelsen} af sølv i omegnen af 100 Å, så der skal kun bruges en meget lille mængde sølv til at lave et godt spejl.
@@ -454,19 +454,19 @@
 		f(0,t) = f(L,t) = 0,
 	\end{equation}
 	hvor $ L $ er strengens længde. Ligesom før arbejder vi med komplekse bølgefunktioner, så $ f(z,t) = \Re[\T{f}(z,t)] $, og som er opbygget af sinusbølger. Den mest generelle bølge af denne type er
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{f}(z,t) = \pp{\T{A}_- e^{-ikz}+\T{A}_+ e^{ikz}} e^{-i\omega t},
 	\end{equation}
 	der er superpositionen af to bølger, der bevæger sig i hver sin retning, med $ v = \omega/k $. Ved at indføre randbetingelserne fra \eqref{eq:bounds}, fås
-	\begin{equation}\label{key}
+	\begin{equation}
 		f(0,t)=0 \Rightarrow \T{A}_- = -\T{A}_+, \quad f(L,t)=0 \Rightarrow \sin kL=0 \Rightarrow kL=n\pi, \ n \in \Set{N}.
 	\end{equation}
 	Og skrevet som frekvenser ses det, at det kun er meget bestemte frekvenser, der er tilladt, som følge af disse randbetingelser:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\omega_n = n \frac{v\pi}{L}, \quad n\in \Set{N}
 	\end{equation}
 	Hvor $ \omega_1 = v\pi/L $ kaldes for strengens \textit{grundfrekvens} og $ \omega_n $ kaldes for strengens $ n-1 $'te overtone (\textbf{Ret endelig, hvis det er forkert terminologi}). Når bølgen svinger med disse frekvenser, danner den en stående bølge, der kan skrives som
-	\begin{equation}\label{key}
+	\begin{equation}
 		f_n(z,t) = A \sin(k_n z) \cos (\omega_n t), \quad k_n = \omega_n/v.
 	\end{equation}
 	For $ n>1 $ er der steder på strengen, hvor $ f(z_0,t) = 0 $, til alle tider $ t $ (ud over enderne, selvfølgelig). Disse kaldes for \textit{noder} eller \textit{knudepunkter} (enderne er \textit{trivielle noder}), mens der andre steder på strengen, hvor $ \sin(k_n z_0) =\pm 1$. Her er oscillationerne størst, og punkterne kaldes for \textit{antinoder}. Disse steder optræder med regelmæssig afstand, og fra Mek2 ved vi, at afstanden mellem to nærmeste noder er $ \lambda/2 $ (UP, 13. udgave, side 492). Dette er også afstanden mellem en antinode og dennes nærmeste. Afstanden mellem en node og dennes tætteste antinode er halvdelen af afstanden mellem to noder, altså $ \lambda/4 $.
@@ -475,7 +475,7 @@
 	I dette afsnit behandles bølgeligningen i 3 dimensioner, samt to forskellige løsninger til denne: planbølger og sfæriske bølger. Idet planbølger allerede er beskrevet, vil jeg kun beskrive sfæriske bølger i dette afsnit.
 	
 	Bølgeligningen i 3 dimensioner er, som bekendt:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\grad^2 f = \frac{1}{v^2} \diff{^2 f}{t^2}
 	\end{equation}
 	hvor $ \grad^2 $ er Laplaceoperatoren (summen af de dobbelte rumafledte). Sfæriske bølger har dette navn fordi bølgefronten bevæger sig ud fra udbredelsespunktet som en sfære med aftagende amplitude. 
@@ -490,15 +490,15 @@
 	Her aftager bølgen som $ 2/r $, og hvis denne funktion blev lagt ind over bølgen, vil man tydelig kunne se, at alle bølgetoppene rører funktionen $ 2/r $. Dette bliver lagt som en øvelse til læseren, da det bliver ualmindelig grimt, med mindre man har interaktivitet (eller gider at gøre rigtig meget ved det, som gennemsigtighed og sådan noget). Det kan også visualiseres nemmere i én dimension, hvor koden til sådan et plot også ligger i filen på GitHub.
 	
 	Men nok om kedelige én og to dimensioner. Vi har jo tre at gøre godt med! Den simpleste sfæriske bølge er givet ved
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{f}(\V{r},t) = \T{A} \frac{e^{i(kr-\omega t)}}{r},
 	\end{equation}
 	der har en diskontinuitet i origo, hvor $ r = 0 $. Hvis der ses på bølgen et punkt langt væk fra origo, for eksempel $ z_0 \gg x,y $, og $ z=z_0+z' $ med $ z_0 \gg z' $. Her bliver $ r $:
-	\begin{equation}\label{key}
+	\begin{equation}
 		r = \sqrt{(z_0+z')^2+x^2+y^2} = (z_0+z') \sqrt{1+ \frac{x^2+y^2}{(z_0+z')^2}} \approx z_0+z' + \frac{x^2+y^2}{2z_0} \approx z_0
 	\end{equation}
 	hvor det er udnyttet at $ \sqrt{1+x} \approx 1+\frac{1}{2} x $, for små $ x $ (Taylorudvikling af $ \sqrt{1+x} $ omkring 0, til første orden). Denne approksimation kan dog kun bruges uden for eksponenten, da eksponenter er dumme med approksimationer. Eksempelvis er $ kz_0 \gg kz' $, men $ kz' $ kan sagtens være stort, og dermed have en stor indflydelse på eksponenten. Dette er dog ikke tilfældet for $ k(x^2+y^2)/z_0 $, der er småt nok til at ignorere. Med alt dette fås
-	\begin{equation}\label{key}
+	\begin{equation}
 		\T{f} (\V{r},t) = \T{A}' e^{i(kz'-\omega t)}, \quad \T{A}' = \T{A} \frac{e^{ikz_0}}{z_0},
 	\end{equation}
 	der jo er en planbølge! Dette giver matematisk grundlag for, at når vi ser på en kugle meget tæt på dennes overflade, så ligner den et plan (eller omvendt, hvis kuglen bare er meget stor, og vi dermed er langt væg fra centrum. Det der betyder noget, er bare forholdet mellem afstanden af dig til overfladen og radius af kuglen).
@@ -513,21 +513,30 @@
 	I notesættet behandler de eksemplet med to højttalere i $ x= \pm L/2 $, og de kigger på området omkring $ z_0 $ for $ z_0 \gg x, y, L $. Jeg vil ikke gå i dybden med udregningerne, men blot nævne nogle af de smarte tricks de bruger, så I selv kan få alle de der ">gode ideer"< man skal bruge, til at løse opgaverne.
 	
 	For det første, skal to eksponentialfunktioner lægges sammen, hvilket er et helvede fordi det er meget nemmere at gange dem sammen. Og hvis der ikke lige er en fælles faktor, man \textit{lige} kan trække ud, så er det endnu mere træls. Men frygt ej! Man kan \textit{altid} finde en fælles faktor. Man skal blot indse følgende:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\frac{a_1+a_2}{2}+\frac{a_1-a_2}{2} = a_1, \quad \frac{a_1+a_2}{2}-\frac{a_1-a_2}{2} = a_2.
 	\end{equation}
 	Regn selv gerne efter. Hvis vi nu antager at de to bølger har formen $ e^{ia_1} $ og $ e^{ia_2} $ hvor $ a_1 $ og $ a_2 $ afhænger af rum og tid, så er summen af disse:
-	\begin{equation}\label{key}
+	\begin{equation}
 		e^{ia_1} + e^{ia_2} = e^{i(a_1/2 + a_2/2)} \pp{e^{i(a_1/2-a_2/2)} + e^{-i(a_1/2-a_2/2)}} =  2 e^{i(a_1+a_2)/2} \cos\pp{\frac{a_1+a_2}{2}}.
 	\end{equation}
 	Se nu, hvor pænt det blev! Da er den nye amplitude $ 2 \cos((a_1+a_2)/2) $. Dette resultat kan direkte overføres til \textit{alle} opgaver af denne type. Dette trick bliver brugt på side 81 i notesættet.
 	
 	Det andet trick de bruger, er approksimationer. Jeg har benævnt den stort set lige før, i afsnittet om sfæriske bølger, men det er så smart, så det er værd at nævne en anden gang. Taylorudviklingen af funktionen $ a\sqrt{1+x} $ for små $ x $ (altså omkring punktet $ x=0 $) kan bruges til at komme af med drilske kvadratrødder, så man nemt kan lægge to af disse sammen:
-	\begin{equation}\label{key}
+	\begin{equation}
 		a \sqrt{1+x} \approx a\pp{1+\frac{1}{2} x}, \quad x \approx 0
 	\end{equation}
 	Dette er en Taylorudvikling til første orden ($ x $ står i første potens). Dette trick bliver brugt både på side 79 og 82 i notesættet, når der snakkes om sfæriske bølger og interferens.
 	
 	
 	\subsubsection{Tidslig interferens}
+	Nu skal der ses på tidslig interferens. Denne type interferens sker kun til forskellige tidspunkter, i rummet. Et eksempel er to endimensionale bølger:
+	\begin{equation}
+		\T{f}_1 (z,t) = \T{A} e^{i(k_1 z - \omega_1 t)}, \quad \T{f}_2 (z,t) = \T{A} e^{i(k_2 z - \omega_2 t)}, \quad k_i = \frac{\omega_i}{v}
+	\end{equation}
+	hvis der kigges på punktet $ z=0 $, og samme trick som før bruges (med at finde en fælles koefficient) fås:
+	\begin{equation}
+		\T{f}(0,t) = \T{f}_1(0,t)+\T{f}_2(0,t) = \T{A}(e^{-i\omega_1 t}+ e^{-i\omega_2 t}) = 2\T{A} \cos \pp{\frac{\omega_1-\omega_2}{2} t} e^{-i(\omega_1+\omega_2)t/2}.
+	\end{equation}
+	Her er amplituden da harmonisk varierende i tid, med frekvensen $ \omega = (\omega_1-\omega_2)/2 $. Hvis de to frekvenser er tætte på hinanden i størrelse, vil amplituden variere langsomt, og hvis de er ens ses det, at amplituden bliver konstant igen.
 \end{document}
