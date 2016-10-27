@@ -29,3 +29,16 @@ z = 2*sin(2*r)./r;
 surf(x2,y2,z); 
 colormap jet; 
 shading interp;
+
+%% Til N 5.D (regneøvelser)
+x = linspace(-pi,pi,400);
+[x2,y2] = meshgrid(x);
+figure
+z2 = cos(3*x2).*cos(4*y2);
+surfc(x2,y2,z2)
+colormap jet;
+shading interp;
+
+n = -3:3;
+y = pi*n/4;
+x = pi*n/3;
