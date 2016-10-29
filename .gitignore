@@ -1,21 +1,30 @@
 ## Core latex/pdflatex auxiliary files:
-*.aux
-*.lof
-*.log
-*.lot
-*.fls
-*.out
-*.toc
-*.fmt
-*.fot
-*.cb
-*.cb2
-*.synctex.gz
-*.bbl
-*.blg
+#*.aux
+#*.lof
+#*.log
+#*.lot
+#*.fls
+#*.out
+#*.toc
+#*.fmt
+#*.fot
+#*.cb
+#*.cb2
+#*.synctex.gz
+#*.bbl
+#*.blg
+#
+## Generelle filer
+#*.zip
+#
+## Matlablort
+#*.asv
 
-# Generelle filer
-*.zip
+*
 
-# Matlablort
-*.asv
+!.gitignore
+!*.tex
+!*.pdf
+!*.m
+!*.MD
+!*.png
