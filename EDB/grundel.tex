@@ -7,12 +7,12 @@
 	
 	Elektronerne i en leder bevæger sig fordi de bliver påvirket af en spændingsforskel (også kendt som et elektrisk felt). Hvis materialet er helt rent, så der ingen andre typer atomer der er, og hvis atomerne i materialet overhovedet ikke bevægede sig, men sad helt fast i krystalgitteret, ville der ingen modstand være i materialet, og alle de frie atomer ville falde gennem materialet i frit fald (indtil bevægelsen skaber et stort nok elektrisk felt til at modvirke tyngdekraften, selvfølgelig)
 	
-	\subsubsection{Resistor}
-	Materialer er dog ikke perfekte, og det viser sig, at det elektriske felt og volumenstrømmen er lineært proportionelle, med proportionalitetskonstanten $ \sigma $, kaldet for konduktiviteten:
+	\subsubsection{Resistor}\index{Resistorer}\index{Modstande|see {Resistorer}}
+		Materialer er dog ikke perfekte, og det viser sig, at det elektriske felt og volumenstrømmen er lineært proportionelle, med proportionalitetskonstanten $ \sigma $, kaldet for konduktiviteten:
 	\begin{equation}
 		\V{J} = \sigma \V{E}
 	\end{equation}
-	Dette er en form af Ohms lov. Konduktiviteten er den inverse af \textit{resistiviteten} $ \rho $: $ \sigma = \rho\inverse $. I insulatorer er konduktiviteten høj, mens det omvendte er sandt for metaller og generelt ledere. Forskellen i konduktiviteten mellem et metal og en insulator er ofte i størrelsesordnen $ 10^{22} $. Derfor kan ledninger som oftest regnes for perfekte ledere, og man kan 
+	Dette er en form af Ohms lov\index{Ohms lov}. Konduktiviteten er den inverse af \textit{resistiviteten} $ \rho $: $ \sigma = \rho\inverse $. I insulatorer er konduktiviteten høj, mens det omvendte er sandt for metaller og generelt ledere. Forskellen i konduktiviteten mellem et metal og en insulator er ofte i størrelsesordnen $ 10^{22} $. Derfor kan ledninger som oftest regnes for perfekte ledere, og man kan 
 	
 	Ohms lov er egentlig en approksimering, idet den egentlig har formen
 	\begin{equation}
@@ -26,17 +26,17 @@
 	\end{equation}
 	Hvor proportionalitetskonstanten selvfølgelig er modstanden $ R $. Denne er $ R = L/(\sigma A) $, hvor $ L $ og $ A $ er henholdsvis ledningens længde og tværsnitsareal.
 	
-	Når elektronerne passerer gennem en modstand, vil noget af deres energi blive omsat til varme, givet ved Joules varmelov:
+	Når elektronerne passerer gennem en modstand, vil noget af deres energi blive omsat til varme, givet ved Joules varmelov:\index{Effekt!Joulevarme}\index{Effekt!I resistorer}
 	\begin{equation}
 		P = VI = RI^2
 	\end{equation}
 	
 	Hvis man sætter to (eller flere) modstande i serie, vil den samlede modstand være givet ved summen af de enkelte:
-	\begin{equation}
+	\begin{equation}\index{Resistorer!I serie}
 		R_{serie} = \sum R_i
 	\end{equation}
 	Men hvis man sætter dem i parallelforbindelse, er den inverse af den samlede modstand lig summen af de enkelte inverse modstande:
-	\begin{equation}
+	\begin{equation}\index{Resistorer!I parallel}
 		\frac{1}{R_{parallel}} = \sum \frac{1}{R_i} 
 	\end{equation}
 	
@@ -54,9 +54,9 @@
 	
 	Der kan normalt set ikke passere strøm gennem en kapacitor, men mens den oplader, svarer det til at der løber en strøm gennem komponenten. Dette sker kun i ret kort tid, og det koster energi:
 	\begin{equation}
-		W = \frac{Q^2}{2C}
+		W = \frac{Q^2}{2C}\index{Energi!I kapacitorer}
 	\end{equation}
-	Opladningen af en kondensator (eller afledningen) er bestemt af "Ohms lov" for denne komponent, givet ved
+	Opladningen af en kondensator (eller afledningen) er bestemt af ">Ohms lov"< for denne komponent, givet ved
 	\begin{equation}
 		I = C \diff[d]{V}{t}, \quad V = \frac{1}{C} \int I \ud t
 	\end{equation}
@@ -73,17 +73,17 @@
 	
 	
 	
-	\subsubsection{Induktor}
+	\subsubsection{Induktor}\index{Induktorer}\index{Spoler|see {Induktorer}}
 	Når vi har med vekselstrømme at gøre, vil der dannes et varierende magnetfelt, hvilket resulterer i et induceret elektrisk felt og emf. For at danne så kraftigt et magnetfelt som muligt, bruger man spoler eller \textit{induktorer}. Den inducerede emf er beskrevet ved Faradays lov i integralform, og fluxreglen:
 	\begin{equation}
 		\emf = \oint \V{E} \D \ud \V{l} = - \diff[d]{\Phi}{t}
 	\end{equation}
-	Dette er et lukket kurveintegral, så der skal altså integreres rundt i hele kredsen. Størstedelen af den samlede emf i kredsløbet vil komme fra spolen, og ved hjælp af formlen $ \Phi = LI $, hvor $ L $ er spolens induktans, kan man opstille en slags "Ohms lov" for spoler:
+	Dette er et lukket kurveintegral, så der skal altså integreres rundt i hele kredsen. Størstedelen af den samlede emf i kredsløbet vil komme fra spolen, og ved hjælp af formlen $ \Phi = LI $, hvor $ L $ er spolens induktans, kan man opstille en slags ">Ohms lov"< for spoler:
 	\begin{equation}
 		\emf = - L \diff[d]{I}{t}
 	\end{equation}
 	Det ses at hvis der løber en konstant strøm er $ \emf = 0$, præcis som forventet. Hvis man derimod vil ændre strømmen kræver det energi, idet der dannes et magnetfelt, der som bekendt lagrer energi. Denne er givet ved
-	\begin{equation}
+	\begin{equation}\index{Energi!I induktorer}
 		W = \frac{1}{2} LI^2
 	\end{equation}
 	Det skal huskes, at det ikke kun er spoler, der har en induktans. Ethvert kredsløb har en induktans, hvad end der er en spole til stede eller ej (et kredsløb kan ses som en spole med én vinding). Men så fremt antallet af vindinger i en spole er meget større end 1, vil induktansbidraget herfra være langt det største.
@@ -93,7 +93,7 @@
 	\begin{equation}
 		\emf_0 = \oint \V{f} \D \ud \V{l}
 	\end{equation}
-	hvor integralet er over hele kredsløbet, men $ \V{f} $  er selvfølgelig kun forskellig fra 0 i batteriet/spændingsforsyningen (jeg skriver altså bare batteri herfra, jeg gider ikke skrive dem begge længere). Det samlede arbejde fås ved at gange $ \emf_0 $ med antallet af ladningsenheder $ Q $. Og arbejdet per sekund (effekten) er da:
+	hvor integralet er over hele kredsløbet, men $ \V{f} $  er selvfølgelig kun forskellig fra 0 i batteriet/spændingsfor-syningen (jeg skriver altså bare batteri herfra, jeg gider ikke skrive dem begge længere). Det samlede arbejde fås ved at gange $ \emf_0 $ med antallet af ladningsenheder $ Q $. Og arbejdet per sekund (effekten) er da:
 	\begin{equation}
 		\diff[d]{W}{t} = \diff[d]{}{t}(Q\emf_0) = I\emf_0
 	\end{equation}

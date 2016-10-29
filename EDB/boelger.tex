@@ -27,10 +27,11 @@
 	\begin{align}
 		\lambda &= \frac{2 \pi}{k} = \frac{v}{\nu} = Tv = \frac{2\pi v}{\omega}, \\
 		T &= \frac{2 \pi}{k v} = \frac{1}{\nu} = \frac{\lambda}{v} = \frac{2 \pi}{\omega}, \\
-%		v & = \frac{\lambda}{T} = \frac{\omega}{k} = \frac{2 \pi}{k T}, \\
+		v & = \frac{\lambda}{T} = \frac{\omega}{k} = \frac{2 \pi}{k T}, \\
 		\nu &= \frac{1}{T} = \frac{kv}{2 \pi} = \frac{v}{\lambda} = \frac{\omega}{2\pi}, \\
-		\omega &= 2 \pi \nu = \frac{2 \pi}{T} = kv = \frac{2\pi v}{\lambda}.
-	\end{align}
+		\omega &= 2 \pi \nu = \frac{2 \pi}{T} = kv = \frac{2\pi v}{\lambda}, \\
+		k &= \frac{2\pi}{\lambda} = \frac{\omega}{v} = \frac{2 \pi}{vT} = \frac{2 \pi\nu }{v}.
+	\end{align} 
 	lige som $ v $ og $ k $, er disse størrelser \textbf{altid positive}! Normalt skrives sinusbølger med $ \omega $ i stedet for $ v $, så man slipper for parentesen inde i argumentet af cosinus:
 	\begin{equation}
 		f(z,t) = A \cos (kz-\omega t + \delta)
@@ -117,11 +118,15 @@
 	
 	
 	\subsection{Elektromagnetiske bølger i vakuum og bølger i 3 dimensioner}
-	I vakuum reduceres Maxwells ligninger til (\textbf{Layout fixes senere})
-	\begin{align}
-		(\text{i})	\quad	&\diverg{E} = 0,	(\text{iii}) 	\quad &\curl{E} = -\diff{\V{B}}{t}, \\
-		(\text{ii})	\quad	&\diverg{B} = 0,  	(\text{iv}) 	\quad &\curl{B} = \mu_0 \epsilon_0 \diff{E}{t}, 
-	\end{align}
+	I vakuum reduceres Maxwells ligninger til
+	\begin{table}[H]
+	\centering
+		\begin{tabular}{r >{$\displaystyle} p{3cm} <{$} r>{$\displaystyle} l <{$}}
+			\vspace{0.3cm}
+			(i) & \grad \D \V{E} = 0, & (iii) & \grad \times \V{E} = -\diff{\V{B}}{t},\\
+			(ii) & 	\grad \D \V{B} = 0, & (iv) & \grad \times\V{B} = \mu_0 \epsilon_0 \diff{\V{E}}{t},
+		\end{tabular}
+	\end{table}
 	der er et sæt koblede, \textit{lineære}, førsteordens differentialligninger. For at afkoble dem tages curlen af Faradays (iii) og Ampères (iv) lov. Hermed fås
 	\begin{equation}
 		\grad^2 \V{E} = \mu_0 \epsilon_0 \diff{^2 \V{E}}{t^2}, \quad \grad^2 \V{B} = \mu_0 \epsilon_0 \diff{^2 \V{B}}{t^2}
@@ -189,11 +194,15 @@
 	
 	
 	\subsection{Elektromagnetiske bølger i materialer}
-	I materialer, hvor der ingen fri ladning eller strøm er, og som er både er \textit{lineære} (så $ \V{D} = \epsilon \V{E} $ og $ \V{H} = \V{B}/\mu $, med $ \epsilon = \epsilon_r \epsilon_0 $ og ligeledes for $ \mu $) og \textit{homogene} (så $ \epsilon$ og $ \mu $ ikke varierer i rummet), bliver Maxwells ligninger (\textbf{Layout Layout Layout...})
-	\begin{align}
-		(\text{i})	\quad	&\diverg{E} = 0,	(\text{iii}) 	\quad &\curl{E} = -\diff{\V{B}}{t}, \\
-		(\text{ii})	\quad	&\diverg{B} = 0,  	(\text{iv}) 	\quad &\curl{B} = \mu \epsilon \diff{E}{t}, 
-	\end{align}
+	I materialer, hvor der ingen fri ladning eller strøm er, og som er både er \textit{lineære} (så $ \V{D} = \epsilon \V{E} $ og $ \V{H} = \V{B}/\mu $, med $ \epsilon = \epsilon_r \epsilon_0 $ og ligeledes for $ \mu $) og \textit{homogene} (så $ \epsilon$ og $ \mu $ ikke varierer i rummet), bliver Maxwells ligninger
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{r >{$\displaystyle} p{3cm} <{$} r>{$\displaystyle} l <{$}}
+			\vspace{0.3cm}
+			(i) & \grad \D \V{E} = 0, & (iii) & \grad \times \V{E} = -\diff{\V{B}}{t},\\
+			(ii) & 	\grad \D \V{B} = 0, & (iv) & \grad \times\V{B} =\mu \epsilon \diff{\V{E}}{t},
+		\end{tabular}
+	\end{table}
 	Altså er der kun den forskel, at $ \epsilon_0 \to \epsilon $ og $ \mu_0 \to \mu $, hvilket egentlig er ret cool! Det vil sige at elektromagnetiske bølger bevæger sig gennem lineære, homogene medier med hastigheden
 	\begin{equation}
 		v = \frac{1}{\sqrt{\epsilon\mu}} = \frac{c}{n}, \quad n \equiv \sqrt{\frac{\epsilon\mu}{\epsilon_0 \mu_0}}
@@ -348,10 +357,14 @@
 	
 	\subsection{Absorbering og spredning, elektromagnetiske bølger i ledere}
 	I tilfældet, hvor de elektromagnetiske bølger bevæger sig gennem ledere, er $ \V{J}_f $ og $ \rho_f $ ikke nødvendigvis 0. I følge Ohms lov er $ \V{J}_f = \sigma \V{E} $ og Maxwells ligninger siger
-	\begin{align}
-		\diverg{E} = \frac{1}{\epsilon_0} \rho_f, \quad &\curl{E} = -\diff{\V{B}}{t}, \\
-		\diverg{B} = 0, \quad &\curl{B} = \mu \sigma \V{E} + \mu \epsilon \diff{\V{E}}{t}.
-	\end{align}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{r >{$\displaystyle} p{3cm} <{$} r>{$\displaystyle} l <{$}}
+			\vspace{0.3cm}
+			(i) & \grad \D \V{E} = \frac{1}{\epsilon_0} \rho_f, & (iii) & \grad \times \V{E} = -\diff{\V{B}}{t},\\
+			(ii) & 	\grad \D \V{B} = 0, & (iv) & \curl{B} = \mu \sigma \V{E} + \mu \epsilon \diff{\V{E}}{t},
+		\end{tabular}
+	\end{table}
 	Kontinuitetsligningen, sammen med Ohms lov og Faradays lov, siger
 	\begin{equation}
 		\grad \D \V{J}_f = -\diff{\rho_f}{t}, \quad \diff{\rho_f}{t} = -\sigma (\diverg{E}) = -\frac{\sigma}{\epsilon} \rho_f.
@@ -362,11 +375,20 @@
 	\end{equation}
 	der er et eksponentielt henfald, med karakteristisk tid $ \tau = \epsilon/\sigma $. Dette vil sige, at hvis du smider noget fri ladning på en leder, så vil det bevæge sig ud i enderne af lederen. $ \tau $ siger, hvor lang tid dette tager. For en perfekt leder er $ \sigma = \infty $ og $ \tau = 0 $. For en \textit{god} leder er $ \tau $ meget mindre end andre relevante tider (eksempelvis i oscillerende systemer er $ \tau \ll 1/\omega $) og for en \textit{dårlig} leder er $ \tau $ meget større end disse tider (oscillerende systemer: $ \tau \gg 1/\omega $).
 	
-	Men nok om det, resten af dette afsnit forudsætter at \textbf{al fri ladning er forsvundet}, så $ \rho_f = 0 $. Da bliver Faradays lov $ \diverg{E} = 0 $. Og den eneste forskel der er fra elektromagnetiske bølger i lineære medier, er det ekstra led i Ampères lov. Hvis vi igen tager curlen af Faradays og Ampères lov, kan disse ligninger afkobles til en modificeret bølgeligning, hvor der inkluderes en førsteordensafledet:
+	Men nok om det, \textbf{resten af dette afsnit forudsætter at al fri ladning er forsvundet}, så $ \rho_f = 0 $:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{r >{$\displaystyle} p{3cm} <{$} r>{$\displaystyle} l <{$}}
+			\vspace{0.3cm}
+			(i) & \grad \D \V{E} = 0, & (iii) & \grad \times \V{E} = -\diff{\V{B}}{t},\\
+			(ii) & 	\grad \D \V{B} = 0, & (iv) & \curl{B} = \mu \sigma \V{E} + \mu \epsilon \diff{\V{E}}{t},
+		\end{tabular}
+	\end{table}
+	så den eneste forskel der er fra elektromagnetiske bølger i lineære medier, er det ekstra led i Ampères lov. Hvis vi igen tager curlen af Faradays og Ampères lov, kan disse ligninger afkobles til en modificeret bølgeligning, hvor der inkluderes en førsteordensafledet:
 	\begin{equation}
-		\grad^2 \V{E} = \mu \epsilon \diff{^2 \V{E}}{t^2} + \mu \sigma \diff{\V{E}}{t}
+		\grad^2 \V{E} = \mu \epsilon \diff{^2 \V{E}}{t^2} + \mu \sigma \diff{\V{E}}{t}, \quad \grad^2 \V{B} = \mu \epsilon \diff{^2 \V{B}}{t^2} + \mu \sigma \diff{\V{B}}{t}.
 	\end{equation}
-	og identisk for $ \V{B} $. Denne ligning tillader stadig løsninger, der er planbølger. Dog er de modificerede, med komplekse bølgetal:
+	Disse ligninger tillader stadig løsninger, der er planbølger. Dog er de modificerede, med komplekse bølgetal:
 	\begin{equation}
 		\tv{E}(z,t) = \tv{E}_0 e^{i(\T{k}z-\omega t)}, \quad \tv{B}(z,t) = \tv{B}_0 e^{i(\T{k}z-\omega t)}, \quad \T{k}^2 = \mu \epsilon \omega^2 + i \mu \sigma \omega,
 	\end{equation}
@@ -378,7 +400,7 @@
 	\begin{equation}
 		\tv{E}(z,t) = \tv{E}_0 e^{-\kappa z} e^{i(kz-\omega t)}, \quad \tv{B}(z,t) = \tv{B}_0 e^{-\kappa z} e^{i(kz-\omega t)}.
 	\end{equation}
-	Den afstand det tager for bølgen at svækkes med en faktor $ e \approx 1/3 $ kaldes for \textbf{hudtykkelsen} (eller noget i den dur), og er givet ved $ d \equiv \kappa\inverse $. Dette er et mål for, hvor langt ind i lederen som bølgerne trænger. Den reelle del $ k $ af det komplekse bølgetal bestemmer bølgelængden, udbredelseshastigheden og refraktionsindekset, som normalt:
+	Den afstand det tager for bølgen at svækkes med en faktor $ e \approx 1/3 $ kaldes for \textbf{hudtykkelsen} (skin depth), og er givet ved $ d \equiv \kappa\inverse $. Dette er et mål for, hvor langt ind i lederen som bølgerne trænger. Den reelle del $ k $ af det komplekse bølgetal bestemmer bølgelængden, udbredelseshastigheden og refraktionsindekset, som normalt:
 	\begin{equation}
 		\lambda = \frac{2\pi}{k}, \quad v = \frac{\omega}{k}, \quad n = \frac{ck}{\omega}.
 	\end{equation}

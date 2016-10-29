@@ -1,9 +1,12 @@
 % Nikolai Nielsens "Fysiske Fag" preamble
-\documentclass[a4paper,10pt]{report} 	% A4 papir, 10pt størrelse
+\documentclass[a4paper,10pt]{article} 	% A4 papir, 10pt størrelse
 
 \usepackage{Nikolai} 					% Min hjemmelavede pakke
 \usepackage{xr}
 \renewcommand{\konj}{^*}
+\newtheorem{theorem}{Theorem}[section]
+\usepackage{makeidx}
+\makeindex
 
 % Margen
 \usepackage[margin=1in]{geometry}
@@ -12,10 +15,14 @@
 %\setcounter{MaxMatrixCols}{20}
 
 % Hvor dybt skal kapitler labeles?
-%\setcounter{secnumdepth}{0}	
+%\setcounter{secnumdepth}{4}	
+%\setcounter{tocdepth}{4}
+
+% Til de første fire side i Griffiths
+\newcounter{VektorListe}
 
 % Hvilket nummer skal der startes med i sections? (n-1)
-\setcounter{section}{0}	
+%\setcounter{section}{0}	
 
 % Til nummerering af ligninger. Så der står (afsnit.ligning) og ikke bare (ligning)
 \numberwithin{equation}{section}
@@ -36,25 +43,24 @@
 	\maketitle
 	\tableofcontents
 	
-	\section*{Forslag til andet layout}
-	Jeg overvejer at opdele noterne i 3/4 forskellige dele:
+	\section*{Ting der mangler}
+	Jeg mangler umiddelbart følgende
 	\begin{itemize}
-		\item Kredsløb
-		\item Bølger og anden elektrodynamik
-		\item Andet (komplekse tal / Fourier)
-		\item evt bilag/udregninger
+		\item Stikordsregister fra side 7 og efter
+		\item Elektrisk dipolstråling
+		\item Teoremopstillinger til Optiklovene
+		\item Eksempler til G 9, 10 og 11, plus teoremopstilling
+		\item teoremopstilling til G 7
+		\item Evt. illustrationer
 	\end{itemize}
-	Det kræver en lille omrokering af afsnittene, og kommer til at indebære enten ">chapters"< eller ">parts"< af dokumentet. Jeg ved ikke helt, hvilken jeg bruger endnu, og det er mest af alt for min egen skyld, jeg skriver dette ned. I behøver ikke lægge mærke til det. (med mindre, selvfølgelig, I har nogle vildt gode forslag). 
-	
 	\newpage
+	\subfile{intro}
 	
-	
-	\subfile{kompleks}
-	\newpage
+	\part{Kredsløbsregning}
 	\subfile{grundel}
 	\newpage
-	\subfile{fourier}
-	\newpage
+	
+	\part{Elektrodynamik og bølger}
 	\subfile{maxwell}
 	\newpage
 	\subfile{konserves}
@@ -64,11 +70,19 @@
 	\subfile{potentialer}
 	\newpage
 	\subfile{radiation}
-	
 	\newpage
+	
+	\part{Andet}
+	\subfile{kompleks}
+	\newpage
+	\subfile{fourier}
+	\newpage
+	
 	\appendix
 	\subfile{udregninger}
-
+	
+	\newpage
+	\printindex
 
 \end{document}
 

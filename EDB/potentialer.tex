@@ -5,11 +5,11 @@
 	I dette kapitel findes de generelle løsninger til Maxwells fire ligninger. Så hvis $ \rho(\V{r},t) $ og $ \V{J}(\V{r},t) $ kendes, hvad er så $ \V{E}(\V{r},t) $ og $ \V{B}(\V{r},t) $? I statiske tilfælde giver Coulombs lov og Biot-Savarts lov os svarene, men generaliseringen til dynamiske systemer er lidt mindre enkel.
 	
 	I det elektrostatiske tilfælde, kan E-feltet skrives som gradienten til en skalar, idet rotationen er 0. Men i dynamiske tilfælde spænder Faradays lov ben for os, idet rotationen af E-feltet er den tidsligt afledte af B-feltet: $ \curl{E} = -\partial \V{B}/\partial t $. Men ved at bruge vektorpotentialet $ \V{A} $ (der stadig kan bruges i dynamikken, idet divergensen af $ \V{B} $ stadig er 0), kan disse kombineres, så man får:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\curl{E} = - \diff{}{t} (\curl{A}), \quad \Leftrightarrow \quad \nabla \times \pp{\V{E}+\diff{\V{A}}{t}} = 0.
 	\end{equation}
 	Dermed kan denne størrelse skrives som gradienten af en skalar $ V $. Hvis der rykkes lidt om fås:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\V{E} = -\grad V - \diff{\V{A}}{t}.
 	\end{equation}
 	Men dette er jo bare at sparke lorten ned ad gaden - Nu skal vi finde potentialerne. Ved at smide denne formel ind i Gauss' lov, fås 
@@ -31,23 +31,23 @@
 	
 	Man kan lægge gradienten af enhver skalar $ \lambda $ til $ \V{A} $, såfremt man også trækker dennes tidsafledte fra $ V $. Denne slags transformationer af $ V $ og $ \V{A} $ kaldes for \textbf{gaugetransformationer}, og i magnetostatik var det ofte smartest at være skalaren så $ \diverg{A} = 0 $, hvilket dog ikke altid er tilfældet her. To af de mest berømte gauges er Coulombs og Lorenz (i bogen skriver de Lorentz, da alle andre bøger gør det, men man ved egentlig ikke om det stammer fra Lorenz eller Lorentz. Lorenz var dansker, så jeg skriver det uden t.)
 	
-	\paragraph{Coulombgaugen.} Som i magnetostatik vælges, at $ \diverg{A} = 0 $. Dette giver at ligning \eqref{eq_genPoisson} reducerer til Poissons ligning:
-	\begin{equation}\label{key}
+	\paragraph{Coulombgaugen.} Som i magnetostatik vælges, at $ \diverg{A} = 0 $. Dette giver at ligning \eqref{eq:genPoisson} reducerer til Poissons ligning:
+	\begin{equation}
 		\grad^2 V = \frac{-\rho}{\epsilon_0}.
 	\end{equation}
 	Man skal dog stadig kende både $ V $ \textit{og} $ \V{A} $, førend $ \V{E} $ kan regnes. $ V $ er da givet ved
-	\begin{equation}\label{key}
+	\begin{equation}
 		V(\V{r},t) = \frac{1}{4 \pi \epsilon_0} \int \frac{\rho(\V{r}',t)}{\sr} \ud \tau'.
 	\end{equation}
 	hvor $ \sr = |r-r'| $, $ r $ er afstanden til testpunktet $ \V{r} $ og $ r' $ er afstanden til kildepunktet i integrationen. Det ses, at denne afhænger af ladningsfordelingen til netop \textit{dette} tidspunkt (men nu dette! og så dette! Hold nu fast, hvad?) hvilket kan virke lidt spøjst med hvad vi ved fra det fremtidige kapitel om retarderede (forsinkede) potentialer. Men sådan er det nu engang. Til gengæld er der stadig en forsinkelse på $ \V{E} $ idet det fysiske signal udbreder sig med lysets hastighed. Det vil altså sige, at selvom $ V $ ser ud til at bryde kausalitet, så bryder $ -\grad V - (\partial \V{A}/\partial t) $ det ikke. Det er da ret spøjst.
 	
 	Det smarte ved denne gauge er, at skalarpotentialet er nemt at regne, men bagsiden af medajlen er så at $ \V{A} $ stadig er grimt. Formlen for denne er
-	\begin{equation}\label{key}
+	\begin{equation}
 		\grad^2 \V{A} - \mu_0 \epsilon_0 \diff{^2 \V{A}}{t^2} = - \mu_0 \V{J} + \mu_0 \epsilon_0 \grad \pp{\diff{V}{t}}.
 	\end{equation}
 	
 	\paragraph{Lorenzgaugen.} I denne gauge vælges
-	\begin{equation}\label{key}
+	\begin{equation}
 		\diverg{A} = - \mu_0 \epsilon_0 \diff{V}{t},
 	\end{equation}
 	således at andet led i ligning \eqref{eq:genAmpere} forsvinder. Dermed lyder ligningerne
@@ -56,11 +56,11 @@
 		\grad^2 V - \mu_0 \epsilon_0 \diff{^2 V}{t^2} &= - \frac{\rho}{\epsilon_0},\label{eq:dale2}
 	\end{align}
 	der er to ganske symmetriske ligninger. Faktisk er det \textbf{inhomogene bølgeligninger}. Grundet denne symmetri kan der indføres en differentialoperator kaldet for \textbf{d'Alembertianen}:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\Box^2 = \grad^2 - \mu_0 \epsilon_0 \diff{^2}{t^2},
 	\end{equation}
 	der i speciel relativitetsteori er generaliseringen af Laplaceoperatoren. Ligningerne bliver her
-	\begin{equation}\label{key}
+	\begin{equation}
 		\Box^2 V = - \frac{\rho}{\epsilon_0}, \quad \Box^2 \V{A} = - \mu_0 \V{J}.
 	\end{equation}
 	Disse ligninger kan også ses som de firedimensionale versioner af Poissons ligning.
@@ -68,15 +68,15 @@
 	
 	\subsection{Kontinuerte fordelinger og retarderede potentialer}
 	I statiske tilfælde reducerer ligningerne \eqref{eq:dale1} og \eqref{eq:dale2} til fire kopier af Poissons ligning, med løsningerne
-	\begin{equation}\label{key}
+	\begin{equation}
 		V(\V{r}) = \frac{1}{4 \pi \epsilon_0} \int \frac{\rho(\V{r}')}{\sr} \ud \tau', \quad \V{A}(\V{r}) = \frac{\mu_0}{4 \pi} \int \frac{\V{J}(\V{r}')}{\sr} \ud \tau'.
 	\end{equation}
 	Idet elektromagnetiske signaler propagerer med lysets hastighed, vil den naturlige generalisering til ikkestatiske tilfælde være at potentialerne afhænger af ladnings/strømfordelingerne til et \textit{tidligere} tidspunkt, $ t_r $ kaldet den retarderede tid. Idet signalet skal bevæge sig i afstanden $ \sr $, må den tidslige forsinkelse være $ \sr/c $, og den retarderede tid er
-	\begin{equation}\label{key}
+	\begin{equation}
 		t_r \equiv t- \frac{\sr}{c}.
 	\end{equation}
 	Og potentialerne lyder
-	\begin{equation}\label{key}
+	\begin{equation}
 		V(\V{r},t) = \frac{1}{4 \pi \epsilon_0} \int \frac{\rho(\V{r}',t_r)}{\sr} \ud \tau', \quad \V{A}(\V{r},t) = \frac{\mu_0}{4 \pi} \int \frac{\V{J}(\V{r}',t_r)}{\sr} \ud \tau',
 	\end{equation}
 	hvor $ \rho(\V{r}',t_r) $ er ladningsfordelingen i punktet $ \V{r}' $ til den retarderede tid $ t_r $. Denne afhænger selvfølgelig af positionen grundet leddet med faktoren $ \sr $. Disse potentialer kaldes for \textbf{retarderede potentialer}, og de reducerer til deres statiske versioner, i tilfældet af statiske ladningskonfigurationer.
@@ -89,27 +89,27 @@
 	
 	\subsection{Punktladninger og Liénard-Wiechertpotentialerne}
 	Lad os antage, at en punktladning $ q $ bevæger sig i en given bane
-	\begin{equation}\label{key}
+	\begin{equation}
 		\V{w}(t) \equiv q\text{s position til tiden } t.
 	\end{equation}
 	Da der den retarderede tid defineret gennem ligningen
-	\begin{equation}\label{key}
+	\begin{equation}
 		|\V{r} - \V{w}(t_r)| = c(t-t_r),
 	\end{equation}
 	idet venstre side er afstanden fra kildepartiklens retarderede position $ \V{w}(t_r) $ til testpositionen $ \V{r} $, og højre side er $ c $ ganget med forskellen mellem nutid og retarderet tid. Da defineres en ny $ \bsr $:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\bsr = \V{r}-\V{w}(t_r), \quad \sr = |\V{r} - \V{w}(t_r)| = c(t-t_r).
 	\end{equation}
 	Det er værd at nævne, at testpositionen $ \V{r} $ kun kan modtage signal fra ét punkt langs $ \V{w}  $  til ethvert tidspunkt. Grunden til dette er, at hvis der var to eller flere tidspunkter, så må ladningen nødvendigvis bevæge sig med mindst lysets hastighed, hvilket ikke kan lade sig gøre.
 	
-	Man kan da tro, at potentialet for en punktladning i bevægelse er det samme som i det statiske tilfælde, blot med den nye definition af $ \bsr $. Dette er dog ikke tilfældet, idet den ">effektive volumen"< af en ladning i bevægelse ændres med en faktor $ (1-\usr \D \V{v}/c)\inverse $. Grunden til dette gives i detaljer i \textbf{appendiks}, men den korte er, at det har noget med toge i bevægelse at gøre. Så tak opfinderen af toge for, at vi ikke har simple elformler! På den anden side, er det nu nok meget godt, for før togenes opfindelse har elektromagnetismen tydeligvis ikke opført sig ordenligt. Det er også af den grund, at verden på det tidspunkt var i sort og hvid, som set på historiske film. At der er en periode, hvorfra toge blev opfundet, til verden var i farve, er fordi elektromagnetiske signaler bevæger sig med lysets hastighed, og derfor tog det noget tid, førend farven kom helt hertil.
+	Man kan da tro, at potentialet for en punktladning i bevægelse er det samme som i det statiske tilfælde, blot med den nye definition af $ \bsr $. Dette er dog ikke tilfældet, idet den ">effektive volumen"< af en ladning i bevægelse ændres med en faktor $ (1-\usr \D \V{v}/c)\inverse $. Grunden til dette gives i detaljer i \textbf{appendiks}.\footnote{Men den korte er, at det har noget med toge i bevægelse at gøre. Så tak opfinderen af toge for, at vi ikke har simple elformler! På den anden side, er det nu nok meget godt, for før togenes opfindelse har elektromagnetismen tydeligvis ikke opført sig ordenligt. Det er også af den grund, at verden på det tidspunkt var i sort og hvid, som set på historiske film. At der er en periode, hvorfra toge blev opfundet, til verden var i farve, er fordi elektromagnetiske signaler bevæger sig med lysets hastighed, og derfor tog det noget tid, førend farven kom helt hertil.}
 	
 	Med dette sagt, så er skalarpotentialet givet ved
-	\begin{equation}\label{key}
+	\begin{equation}
 		V(\V{r},t) = \frac{1}{4 \pi \epsilon_0} \frac{qc}{\sr c - \bsr \D \V{v}},
 	\end{equation}
 	og vektorpotentialet
-	\begin{equation}\label{key}
+	\begin{equation}
 		\V{A}(\V{r},t)  = \frac{\mu_0}{4 \pi} \frac{qc \V{v}}{\sr c - \bsr \D \V{v}} = \frac{\V{v}}{c^2} V(\V{r},t),
 	\end{equation}
 	hvor $ \bsr = \V{r}-\V{w}(t_r) $ og $ t_r $ implicit er givet ved $ |\V{r}-\V{w}(t_r)| = c(t-t_r) $. Disse potentialer kaldes for \textbf{Liénard-Wiechertpotentialerne} for punktladninger i bevægelse.
@@ -117,19 +117,23 @@
 	
 	\subsubsection{Felterne af punkladning i bevægelse}
 	Ud fra Liénard-Wiechertpotentialerne kan man udlede felterne for en punktladning i bevægelse, ved hjælp af
-	\begin{equation}\label{key}
+	\begin{equation}
 		\V{E} = -\grad V - \diff{\V{A}}{t}, \quad \V{B} = \curl{A}.
 	\end{equation}
 	Dette er dog svært grundet den komplicerede relation mellem $ \bsr, \V{r} $ og $ t_r $. Udregningerne til dette fylder lige over to sider i bogen, og jeg det forventes heller ikke, at vi forstår dem. Så uden videre \textbf{omsvøb} (without further ado. Er det ikke den danske oversættelse?) er felterne
-	\begin{equation}\label{key}
+	\begin{equation}
 		\V{E}(\V{r},t) = \frac{q}{4\pi\epsilon_0} \frac{\sr}{(\bsr\D \V{u})^3} [ (c^2-v^2) \V{u} + \bsr \times(\V{u} \times \V{a}) ], \quad \V{B}(\V{r},t) = \frac{1}{c} \usr \times \V{E}(\V{r},t),
 	\end{equation}
-	hvor $ \bsr = \V{r}-\V{w}(t_r) $, $ \V{u} \equiv c \usr - \V{v} $ og $ \V{a} $ er kildepartiklen $ q $'s accelerationsvektor. Det ses ud fra krydsproduktet i B-feltet, at dette altid er vinkelret på både det elektriske felt og vektoren fra det retarderede punkt.
+	hvor 
+	\begin{equation}
+		\bsr = \V{r}-\V{w}(t_r), \quad \V{u} \equiv c \usr - \V{v},
+	\end{equation} 
+	og $ \V{a} $ er kildepartiklen $ q $'s accelerationsvektor. Det ses ud fra krydsproduktet i B-feltet, at dette altid er vinkelret på både det elektriske felt og vektoren fra det retarderede punkt.
 	
 	Det første led i E-feltet går som $ \sr^{-2} $, og hvis både hastigheden og accelerationen er 0, reducerer feltet til det elektrostatiske resultat. Derfor kaldes dette led ofte for det \textbf{generaliserede Coulombfelt} eller, fordi det ikke afhænger af accelerationen, for \textbf{hastighedsfeltet}. Det andet led er ansvarligt for elektromagnetisk stråling, og går som $ \sr\inverse $, og kaldes derfor for \textbf{strålingsfeltet} eller \textbf{accelerationsfeltet} (kan du gætte hvorfor?). De samme navne bruges om leddene i B-feltet.
 	
 	Og med disse formler for elektriske og magnetiske felter, samt superpositionsprincippet, kan enhver elektromagnetisk kraft udregnes, ved hjælp af Lorentzkraften:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\V{F} = \frac{qQ}{4 \pi \epsilon_0} \frac{\sr}{(\bsr \D \V{u})^3} \kk{[(c^2-v^2)\V{u}+\bsr \times (\V{u}\times \V{a})] + \frac{\V{V}}{c} \times \bb{\usr \times [(c^2-v^2)\V{u}+\bsr \times (\V{u}\times \V{a})]}},
 	\end{equation}
 	hvor $ \V{V} $ er $ Q $'s hastighed og $ \bsr,\V{u},\V{v} $ og $ \V{a} $ alle sammen regnes ved den retarderede tid. Og dermed er al information i klassisk elektrodynamik indeholdt i én ligning.
