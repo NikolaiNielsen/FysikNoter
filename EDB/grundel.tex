@@ -7,12 +7,12 @@
 	
 	Elektronerne i en leder bevæger sig fordi de bliver påvirket af en spændingsforskel (også kendt som et elektrisk felt). Hvis materialet er helt rent, så der ingen andre typer atomer der er, og hvis atomerne i materialet overhovedet ikke bevægede sig, men sad helt fast i krystalgitteret, ville der ingen modstand være i materialet, og alle de frie atomer ville falde gennem materialet i frit fald (indtil bevægelsen skaber et stort nok elektrisk felt til at modvirke tyngdekraften, selvfølgelig)
 	
-	\subsubsection{Resistor}\index{Resistorer}\index{Modstande|see {Resistorer}}
+	\subsubsection{Resistor og Ohms lov}\index{Resistorer}\index{Modstande|see {Resistorer}}
 		Materialer er dog ikke perfekte, og det viser sig, at det elektriske felt og volumenstrømmen er lineært proportionelle, med proportionalitetskonstanten $ \sigma $, kaldet for konduktiviteten:
 	\begin{equation}
 		\V{J} = \sigma \V{E}
 	\end{equation}
-	Dette er en form af Ohms lov\index{Ohms lov}. Konduktiviteten er den inverse af \textit{resistiviteten} $ \rho $: $ \sigma = \rho\inverse $. I insulatorer er konduktiviteten høj, mens det omvendte er sandt for metaller og generelt ledere. Forskellen i konduktiviteten mellem et metal og en insulator er ofte i størrelsesordnen $ 10^{22} $. Derfor kan ledninger som oftest regnes for perfekte ledere, og man kan 
+	Dette er en form af Ohms lov\index{Ohms lov}. Konduktiviteten er den inverse af \textit{resistiviteten}\index{Resistivitet ($ \rho $)} $ \rho $: $ \sigma = \rho\inverse $. I insulatorer er konduktiviteten\index{Konduktivitet ($ \sigma $)} høj, mens det omvendte er sandt for metaller og generelt ledere. Forskellen i konduktiviteten mellem et metal og en insulator er ofte i størrelsesordnen $ 10^{22} $. Derfor kan ledninger som oftest regnes for perfekte ledere, og man kan antage $ \sigma = \infty $.
 	
 	Ohms lov er egentlig en approksimering, idet den egentlig har formen
 	\begin{equation}
@@ -41,7 +41,7 @@
 	\end{equation}
 	
 	
-	\subsubsection{Kapacitor}
+	\subsubsection{Kapacitor}\index{Kapacitorer}\index{Kondensatorer |see {Kapacitorer }}
 	En kapacitor er en komponent i et kredsløb, der tillader kontrolleret ophobning af ladninger, hvormed der dannes et elektrisk felt og en tilhørende spændingsforskel. Der er en lineær sammenhæng mellem ladningen der ophobes og spændingsforskellen der dannes. Proportionalitetskonstanten mellem disse kaldes kapacitansen $ C $:
 	\begin{equation}\label{eq:kapacitor}
 		Q = CV
@@ -52,12 +52,12 @@
 	\end{equation}
 	hvor $ \epsilon_r $ er den relative permativitet af materialet mellem pladerne, $ A $ er arealet af dem og $ d $ afstanden mellem dem. $ \epsilon_r $ er 1 for vakuum og lige omkring 1 for luft.
 	
-	Der kan normalt set ikke passere strøm gennem en kapacitor, men mens den oplader, svarer det til at der løber en strøm gennem komponenten. Dette sker kun i ret kort tid, og det koster energi:
+	Der kan normalt set ikke passere strøm gennem en kapacitor, men mens den oplader, svarer det til at der løber en strøm gennem komponenten. Dette sker kun i ret kort tid, og det koster energi\index{Energi!I kapacitorer}:
 	\begin{equation}
-		W = \frac{Q^2}{2C}\index{Energi!I kapacitorer}
+		W = \frac{Q^2}{2C}
 	\end{equation}
-	Opladningen af en kondensator (eller afledningen) er bestemt af ">Ohms lov"< for denne komponent, givet ved
-	\begin{equation}
+	Opladningen af en kondensator (eller afledningen) er bestemt af ">Ohms lov"<\index{Ohms lov!for kapacitorer} for denne komponent, givet ved
+	\begin{equation}\index{Strøm! I kapacitor} \index{Spænding! I Kapacitor}
 		I = C \diff[d]{V}{t}, \quad V = \frac{1}{C} \int I \ud t
 	\end{equation}
 	Denne fås ud fra ligning \eqref{eq:kapacitor} og definitionen af strøm: $ I = \diff[d]{Q}{t} $.
@@ -78,7 +78,7 @@
 	\begin{equation}
 		\emf = \oint \V{E} \D \ud \V{l} = - \diff[d]{\Phi}{t}
 	\end{equation}
-	Dette er et lukket kurveintegral, så der skal altså integreres rundt i hele kredsen. Størstedelen af den samlede emf i kredsløbet vil komme fra spolen, og ved hjælp af formlen $ \Phi = LI $, hvor $ L $ er spolens induktans, kan man opstille en slags ">Ohms lov"< for spoler:
+	Dette er et lukket kurveintegral, så der skal altså integreres rundt i hele kredsen. Størstedelen af den samlede emf i kredsløbet vil komme fra spolen, og ved hjælp af formlen $ \Phi = LI $, hvor $ L $ er spolens induktans, kan man opstille en slags ">Ohms lov"< \index{Ohms lov!For spoler} for spoler:
 	\begin{equation}
 		\emf = - L \diff[d]{I}{t}
 	\end{equation}
@@ -88,7 +88,7 @@
 	\end{equation}
 	Det skal huskes, at det ikke kun er spoler, der har en induktans. Ethvert kredsløb har en induktans, hvad end der er en spole til stede eller ej (et kredsløb kan ses som en spole med én vinding). Men så fremt antallet af vindinger i en spole er meget større end 1, vil induktansbidraget herfra være langt det største.
 	
-	\subsubsection{Batterier og spændingsforsyninger}
+	\subsubsection{Batterier og spændingsforsyninger}\index{Batterier} \index{Spændingsforsyninger|see {Batterier}}
 	Batterier og spændingsforsyninger er egentlig ikke passive komponenter, men det giver bedst mening at beskrive dem her, sammen med de passive komponenter. Batterier og spændingsforsyninger virker generelt ved at udføre en kraft per ladning $ \V{f} $, over en afstand, hvilket medfører en emf:
 	\begin{equation}
 		\emf_0 = \oint \V{f} \D \ud \V{l}
@@ -99,11 +99,11 @@
 	\end{equation}
 	
 	
-	\subsection{Kirchhoffs love}
+	\subsection{Kirchhoffs love}\index{Kirchhoffs love}
 	Kirchhoffs 2 love, er love som alle elektriske kredsløb overholder (med den antagelse at signaler udbreder sig med uendelig hastighed, hvilket jo ikke er sandt, men mere om det, om lidt.). Disse love er direkte konsekvenser af lovene om ladningsbevarelse og energibevarelse. 
 	
-	\subsubsection{Kirchhoffs 1. lov}	
-	Kirchhoffs 1. lov er en konsekvens af ladningsbevarelse. Denne siger, at enhver strøm der løber ind i kredsløbet, må nødvendigvis komme ud igen. Der kan ikke ophobe sig ladninger nogen steder i ledninger, og i knudepunkter, hvor 3 eller flere ledninger mødes, vil den samlede strøm, der løber ind i knudepunktet gennem nogle ledninger, løbe ud af de andre ledninger. Hvis man regner strømmens retning med fortegn kan dette beskrives ved
+	\subsubsection{Kirchhoffs 1. lov}\index{Kirchhoffs love!1. lov}
+	Kirchhoffs 1. lov er en konsekvens af ladningsbevarelse. Denne siger, at enhver strøm der løber ind i kredsløbet, må nødvendigvis komme ud igen. Der kan ikke ophobe sig ladninger nogen steder i ledninger, og i knudepunkter\index{Knudepunkt}, hvor 3 eller flere ledninger mødes, vil den samlede strøm, der løber ind i knudepunktet gennem nogle ledninger, løbe ud af de andre ledninger. Hvis man regner strømmens retning med fortegn kan dette beskrives ved
 	\begin{equation}
 		\sum_i I_i = 0
 	\end{equation}
@@ -111,33 +111,8 @@
 	
 	Hvis der et sted ophober sig ladninger i et kredsløb er dette ikke et knudepunkt, men betragtes som en del af en kapacitor.
 	
-	\subsubsection{Kirchhoffs 2. lov}
-	Kirchhoffs 2. lov kommer fra energibevarelse i et kredsløb. Et større kredsløb kan som oftest betragtes som en masse mindre delkredsløb, kaldet for \textit{masker}. Energien per ladning udført af alle krafter (elektriske og andre) er givet ved:
-	\begin{equation}
-		\int (\V{f} + \V{E}) \D \V{J} \ud \tau
-	\end{equation}
-	hvor dette volumenintegral er over hele den strømførende del af kredsen. 
-	I den $ i $'te \textit{gren} af masken (en gren er et understykke af masken, med eventuelle komponenter) vil energien til sidst blive afsat som varme, hvilket giver anledning til følgende ligning for lokal energibevarelse:
-	\begin{equation}
-		\int_{i} (\V{f} + \V{E}) \D \V{J} \ud \tau = R_i I_i^2
-	\end{equation}
-	hvis det antages, at kraftfelterne er konstante over ledningens tværsnit, udtrykket omskrives til
-	\begin{equation}
-	\emf_i + \int_i \V{E} \D \ud \V{l} = R_i I_i
-	\end{equation}
-	Udregningen af dette kan ses i appendiks. Her er $ \emf_i $ den elektromotoriske kraft fra hvad end batterier der er i den $ i $'te gren af masken. Hvis grenen indeholder en kapacitor, vil kurveintegralet ikke gå gennem kapacitorens plader. Så for at få bidraget fra eventuelle kapacitorer med, trækkes dette fra på venstre side:
-	\begin{equation}
-		\emf_i + \int_i \V{E} \D \ud \V{l} - V_{Ci} = R_i I_i
-	\end{equation}
-	hvor $ V_{Ci} = \int_{a}^{b} \V{E} \D \ud \V{l} $ er spændingen over kapacitoren. Hvis bidragene fra alle grene i masken fås
-	\begin{equation}
-		\sum_{batterier} \emf_i + \oint \V{E} \D \ud \V{l} - \sum_{kapacitorer} V_{Ci} = \sum_{modstande} R_i I_i
-	\end{equation}
-	Her ligner det lukkede kurveintegral jo noget, vi kender, nemlig Faradays lov i integralform! Insættes denne:
-	\begin{equation}
-		\oint \V{E} \D \ud \V{l} = - \sum_{spoler} L_i \diff[d]{I_i}{t}
-	\end{equation}
-	Ved indsætning af dette fås den samlede, endelige ligning: Kirchhoffs 2. lov. Også kaldet maskeligningen:
+	\subsubsection{Kirchhoffs 2. lov}\index{Kirchhoffs love!2. lov for jævnstrøm}
+	Kirchhoffs 2. lov kommer fra energibevarelse i et kredsløb. Selve udledningen af denne lov kan ses i appendiks. Et større kredsløb kan som oftest betragtes som en masse mindre delkredsløb, kaldet for \textit{masker}\index{Maske (kredsløb)}. For hver af disse masker gælder Kirchhoffs 2. lov, også kaldet \textit{maskeligningen}
 	\begin{equation}
 		\sum_{\text{batterier}} \emf_i = \sum_{\text{spoler}} L_i \diff[d]{I_i}{t} + \sum_{\text{kapacitorer}} V_{Ci} \sum_{\text{modstande}} R_i I_i
 	\end{equation}
@@ -146,28 +121,28 @@
 	Der er en huskeregel for denne ligning, nemlig at hver komponent i en kreds bidrager med en emf, der er karakteristisk for den pågældende komponent. Den $ i $'te modstand bidrager med $ I_i R_i $, den $ i $'te kapacitor bidrager med $ V_{Ci} $ og den $ i $'te spole bidrager med $ L_i dI_i/dt $. Summen af alle disse bidrag vil da være lig den emf, som batteriet (eller batterierne) bidrager med. 
 	
 	
-	\subsection{Eksempler (kun svingningskreds/RCL)}
+	\subsection{Eksempler (kun svingningskreds/RCL)}\index{Transienter!I elektriske kredsløb}
 	De tre første, simple eksempler (en R, RL og RC kreds) vil jeg ikke beskrive her, da afsnittende er ret korte og simple, andet end selvfølgelig at skrive resultaterne derfra:
 	
-	\paragraph{Strømmen gennem en spole.} I et kredsløb, bestående af en spændingsforsyning, $ \emf $, en modstand $ R $ og en spole $ L $ i serie, fås at strømmen gennem spolen er givet ved differentialligningen med tilhørende løsning (begyndelsesbetingelse $ I(0) = 0 $)
+	\paragraph{Strømmen gennem en spole.}\index{RL-kreds}\index{Strøm! I spole}  \index{Spænding! I spole} I et kredsløb, bestående af en spændingsforsyning, $ \emf $, en modstand $ R $ og en spole $ L $ i serie, fås at strømmen gennem spolen er givet ved differentialligningen med tilhørende løsning (begyndelsesbetingelse $ I(0) = 0 $)
 	\begin{equation}
 		\emf = L \diff[d]{I}{t} + RI, \quad \Rightarrow \quad I(t) = \frac{\emf}{R} (1-e^{-Rt/L})
 	\end{equation} 
 	Og det tager ca tiden $ \tau ~ L/R $, førend strømmen når sin slutværdi.
 	 
-	\paragraph{Ladning på kapacitor.} I et lignende kredsløb, men med en kapacitor $ C $ i stedet for en spole, er ladningen på kapacitoren givet ved følgende differentialligning og løsning (med $ Q(0) = 0 $):
+	\paragraph{Ladning på kapacitor.}\index{RC-kreds} I et lignende kredsløb, men med en kapacitor $ C $ i stedet for en spole, er ladningen på kapacitoren givet ved følgende differentialligning og løsning (med $ Q(0) = 0 $):
 	\begin{equation}
 		\emf = R \diff[d]{Q}{t} + \frac{Q}{C}, \quad  \Rightarrow \quad Q(t) = \emf C (1-e^{-t/RC})
 	\end{equation}
 	Det tager ca tiden $ \tau ~ RC $ førend kapacitoren er opladt.
 	
-	\paragraph{Svingningskredsen.} Nu det sidste kredsløb: en RCL- eller svingningskreds. Denne kreds består af et batteri, serieforbundet med en spole, kapacitor og en modstand. Når batteriet tilsluttes vil der begynde at løbe en strøm, hvilket inducerer et magnetisk felt, der prøver at modvirke strømmen (tænk Lenz' lov). Dette sker indtil kapacitoren er ladt op, og der ikke længere kan løbe en strøm. Men så ændres fluxen i kredsløbet jo igen, hvilket inducerer en strøm, der løber den modsatte vej, hvilket aflader kapacitoren igen. Hvis der ikke var nogen modstand i kredsløbet ville systemet bare stå at oscillere frem og tilbage, oplade og aflade. Men idet der er en modstand vil der gradvist tabes energi i form af varme, indtil fænomenet ophører, og kapacitoren slutter med at være opladt.
+	\paragraph{Svingningskredsen.}\index{Svingningskreds}\index{RCL-kreds|see {svingningskreds}} Nu det sidste kredsløb: en RCL- eller svingningskreds. Denne kreds består af et batteri, serieforbundet med en spole, kapacitor og en modstand. Når batteriet tilsluttes vil der begynde at løbe en strøm, hvilket inducerer et magnetisk felt, der prøver at modvirke strømmen (tænk Lenz' lov). Dette sker indtil kapacitoren er ladt op, og der ikke længere kan løbe en strøm. Men så ændres fluxen i kredsløbet jo igen, hvilket inducerer en strøm, der løber den modsatte vej, hvilket aflader kapacitoren igen. Hvis der ikke var nogen modstand i kredsløbet ville systemet bare stå at oscillere frem og tilbage, oplade og aflade. Men idet der er en modstand vil der gradvist tabes energi i form af varme, indtil fænomenet ophører, og kapacitoren slutter med at være opladt.
 	
 	Matematisk set er det en eksponentielt dæmpet, harmonisk oscillator, med svingningsfrekvens $ \omega_0 = \sqrt{LC}\inverse $, og dæmpningskoefficient $ R/2L $. Dette giver anledning til tre tilfælde: $ \omega_0 > R/2L $, $ \omega_0 = R/2l $ og $ \omega_0 < R/2L $. Det første tilfælde er \textit{underdæmpning}, der har løsningen:
 	\begin{equation}
 		I(t) = e^{-Rt/2L} \pp{A \cos \omega t + B \sin \omega t}, \quad \omega = \sqrt{\omega_0^2 - \pp{\frac{R}{2L}}^2}
 	\end{equation}
-	Hvor $ A $ og $ B $ bestemmes ved randbetingelser. I dette tilfælde vil strømmen oscillere frem og tilbage, indtil ækvilibriummet er mødt. Denne oscillation vil dø ud i løbet af en tid $ \tau = 2L/R $. Forholdet mellem denne og svingningstiden $ T = 2\pi/\omega_0 $ kaldes for \textit{godheden} $ Q $ (ikke at forveksle med ladningen...), og er givet ved
+	Hvor $ A $ og $ B $ bestemmes ved randbetingelser. I dette tilfælde vil strømmen oscillere frem og tilbage, indtil ækvilibriummet er mødt. Denne oscillation vil dø ud i løbet af en tid $ \tau = 2L/R $. Forholdet mellem denne og svingningstiden $ T = 2\pi/\omega_0 $ kaldes for \textit{godheden}\index{Svingningskreds!Godhed} $ Q $ (ikke at forveksle med ladningen...), og er givet ved
 	\begin{equation}
 		Q = \pi \frac{\tau}{T} = \frac{L\omega_0}{R}
 	\end{equation}
@@ -177,7 +152,7 @@
 	\begin{equation}
 		I(t) = (A+Bt) e^{-Rt/2L}
 	\end{equation}
-	hvor igen $ A $ og $ B $ er konstante, bestemt ved randbetingelser. Her svinger kredsen ikke frem og tilbage, men opnår blot ækvilibrium i løbet af én "periode".
+	hvor igen $ A $ og $ B $ er konstante, bestemt ved randbetingelser. Her svinger kredsen ikke frem og tilbage, men opnår blot ækvilibrium i løbet af én ">periode"<.
 	
 	Det sidste tilfælde kaldes for \textit{overdæmpning} og resulterer i at systemet heller ikke oscillerer. Til gengæld vil det tage systemet længere tid at nå ækvilibrium, end ved kritisk dæmpning. Løsningen er:
 	\begin{equation}
@@ -187,11 +162,11 @@
 	
 	Normalt bruges begyndelsesbetingelserne, at $ Q(0) = 0 $ og $ I(0) = 0 $. \textbf{Der er noget sludder her. Figurerne i noterne stemmer ikke overens med hinanden. Jeg håber på at finde ud af det, på et tidspunkt}
 	
-	\subsubsection{Svingningskreds og vekselstrøm}
+	\subsubsection{Svingningskreds og vekselstrøm} \index{Vekselsstrøm!Svingningskreds} \index{Svingningskreds!Vekselstrøm}
 	Dette afsnit giver kun mening hvis du har læst det næste, men jeg har alligevel valgt at indsætte dette afsnit her, for at holde materialet om svingningskredsen samlet.
 	
 	Med impedansen og den komplekse version af Kirchhoffs love i hånden, er maskeligningen for svingningskredsen givet ved
-	\begin{equation}
+	\begin{equation}\index{Impedans!I svingningskreds}
 		\T{\emf}_0 = \pp{R-i\omega L + \frac{I}{\omega C}} \T{I}_0 
 	\end{equation}
 	Hvor udtrykket i parentesen er kredsens impedans. Det ses da, at strømmen i kredsen er frekvensafhængig, og for at finde den største strøm, skal den imaginære del af impedansen minimeres: $ \omega L - (\omega C)\inverse = 0 $. Dette giver netop kredsens svingningsfrekvens:
@@ -200,18 +175,18 @@
 	\end{equation}
 	Dette er også fænomenet kaldet resonans. Og jo større godhed svingningskredsen har, jo større gavn vil man få af resonansfrekvensen.
 	
-	\subsection{Vekselstrøm}
+	\subsection{Vekselstrøm}\index{Vekselstrøm}
 	Vekselstrøm er tilfælde, hvor den elektromotoriske kraft er tidsafhængig (den \textit{veksler} mellem værdier, oftest positive og negative). Mest almindeligt er $ \emf $ en harmonisk svingning:
 	\begin{equation}
 		\emf(t) = \emf_0 \cos(\omega t + \theta)
 	\end{equation}
-	hvor $ \emf_0 $ er amplituden, $ \theta $ er fasen og $ \omega $ er vinkelfrekvensen, der relaterer til signalets almindelige frekvens ved $ \omega = 2 \pi \nu = 2 \pi T\inverse $ ($ \nu $ er frekvensen og $ T $ er perioden). Denne type tidsafhængighed er både at finde i radiobølger og stikkontakter, så den er gængs. Den er forholdsvis nem at arbejde med, da integralet og differentialkvotienten af trigonometriske funktioner er forholdsvis nemme (ud over fortegnene, selvfølgelig). Endnu nemmere er det dog at differentiere og integrere eksponentialfunktionen, også hvis denne er kompleks! Grunden til dette bringes på banen, er fordi $ \cos \omega t $ netop er realdelen af den komplekse eksponentialfunktion (normalt er ses der bort fra $ \theta $, men den er ret simpel at inkludere, bare gang $ e^{i\theta} $ på emf'en, så har du din faseforskydning). Da er den elektromotoriske kraft:
+	hvor $ \emf_0 $ er amplituden, $ \theta $ er fasen og $ \omega $ er vinkelfrekvensen, der relaterer til signalets almindelige frekvens ved $ \omega = 2 \pi \nu = 2 \pi T\inverse $ ($ \nu $ er frekvensen og $ T $ er perioden). Denne type tidsafhængighed er både at finde i radiobølger og stikkontakter, så den er gængs. Den er forholdsvis nem at arbejde med, da integralet og differentialkvotienten af trigonometriske funktioner er forholdsvis nemme (ud over fortegnene, selvfølgelig). Endnu nemmere er det dog at differentiere og integrere eksponentialfunktionen, også hvis denne er kompleks! Grunden til dette bringes på banen, er fordi $ \cos \omega t $ netop er realdelen af den komplekse eksponentialfunktion (normalt er ses der bort fra $ \theta $, men den er ret simpel at inkludere, bare gang $ e^{i\theta} $ på emf'en, så har du din faseforskydning). Da er den elektromotoriske kraft: \index{Komplekse størrelser!Spænding}\index{Komplekse størrelser!emf}
 	\begin{equation}
 		\emf(t) = \Re[\T{\emf}(t)] = \Re\bb{\emf_0 e^{-i\omega t}} = \Re\bb{\T{\emf}_0 e^{-i\omega t}}
 	\end{equation}
 	hvor der indført den komplekse amplitude $ \T{\emf}_0 = \emf_0 $. Grunden til dette, er egentlig bare for at holde notation og udregninger konsistente. 
 	
-	Hvis det nu antages, at strømmen kan skrives som den reelle del af en kompleks strømfunktion, på lignende form af emf'en, og det viser sig denne overholder Kirchhoffs love, så må denne form for strøm være gyldig (på samme måde, som enhver funktion der opfylder bølgeligningen er en bølge, hvad end det er hvad vi normalt tænker på som bølger). Det postuleres da, at strømmen har formen:
+	Hvis det nu antages, at strømmen kan skrives som den reelle del af en kompleks strømfunktion, på lignende form af emf'en, og det viser sig denne overholder Kirchhoffs love, så må denne form for strøm være gyldig (på samme måde, som enhver funktion der opfylder bølgeligningen er en bølge, hvad end det er hvad vi normalt tænker på som bølger). Det postuleres da, at strømmen har formen: \index{Komplekse størrelser!Strøm}
 	\begin{equation}
 		I(t) = \Re[\T{I}(t)] = \Re\bb{\T{I}_0 e^{-i\omega t}}
 	\end{equation}
@@ -223,7 +198,7 @@
 	\begin{equation}
 		\T{\emf_0} = (-i\omega L + R) \T{I}_0
 	\end{equation}
-	hvilket jo minder ualmindeligt meget om Ohms lov, men med $ R \rightarrow R-i \omega L $. På denne måde defineres \textit{impedansen} $ Z = R-i \omega L $, der kan ses som en form for "kompleks modstand". I jævnstrømstilfældet ($ \omega = 0 $) reducerer denne til den almindelige, reelle resistans $ R $. Den imaginære del af impedansen kan ses som en form for ekstra modstand, som kun opstår i vekselstrømstilfælde. I disse tilfælde vil der blive induceret strømme i kredsløbet selv (men i modsat retning, grundet Lenz lov), hvilket dermed modvirker den "eksterne" strøm, man tilfører systemet med et batteri eller lignende. På denne måde virker det netop som en modstand.
+	hvilket jo minder ualmindeligt meget om Ohms lov, men med $ R \rightarrow R-i \omega L $. På denne måde defineres \textbf{impedansen}\index{Impedans!I RL-kreds} $ Z = R-i \omega L $, der kan ses som en form for "kompleks modstand". I jævnstrømstilfældet ($ \omega = 0 $) reducerer denne til den almindelige, reelle resistans $ R $. Den imaginære del af impedansen kan ses som en form for ekstra modstand, som kun opstår i vekselstrømstilfælde. I disse tilfælde vil der blive induceret strømme i kredsløbet selv (men i modsat retning, grundet Lenz lov)\index{Lenz's lov}, hvilket dermed modvirker den "eksterne" strøm, man tilfører systemet med et batteri eller lignende. På denne måde virker det netop som en modstand.
 	
 	Med impedansen findes amplituden af den komplekse strøm:
 	\begin{equation}
@@ -239,7 +214,7 @@
 		I(t) = \Re \bb{|\T{I}_0| e^{-i(\omega t + \phi)}} = |\T{I}_0|\cos(\omega t + \phi)
 	\end{equation}
 	
-	\subsubsection{Kirchhoffs love på kompleks form}
+	\subsubsection{Kirchhoffs love på kompleks form}\index{Kirchhoffs love!2. lov for vekselstrøm}
 	Hvis der indføres en lignende form for kompleks ladning: $ Q(t) = \Re \bb{\T{Q}(t)} = \Re\bb{\T{Q}_0 e^{-i\omega t}} $, kan begge Kirchhoffs love skrives på kompleks form. Fordelen ved dette er, at disse er rene, algebraiske ligninger, og der er ingen grimme differentialkvotienter eller integraler. Efter lidt regnehygge i stil med det fra første omgang af Kirchhoffs love (igen, se appendiks, når jeg engang får skrevet det), fås:
 	\begin{equation}
 		\sum_{\text{knudepunkt}} \T{I}_0 = 0
@@ -250,10 +225,10 @@
 	\end{equation}
 	hvor der her bruges $ j $ som indeks, for ikke at forvirre mht den imaginære enhed.
 	
-	Kapacitorer har impedansen $ (-i\omega C)\inverse $, altså høj impedans ved lave frekvenser, mens spoler har impedansen $ -i\omega L $, altså høj impedans ved høje frekvenser (igen, fordi det er et mål for den modvirkende inducerede strøm i kredsløbet.). Hvis der optræder flere, forskellige impedanser i et kredsløb, adderes disse præcis som modstande (med tilhørende formler for serie-/parallelforbindelse).
+	Kapacitorer har impedansen $ (-i\omega C)\inverse $, altså høj impedans ved lave frekvenser, mens spoler har impedansen $ -i\omega L $, altså høj impedans ved høje frekvenser (igen, fordi det er et mål for den modvirkende inducerede strøm i kredsløbet.). Hvis der optræder flere, forskellige impedanser i et kredsløb, adderes disse præcis som modstande (med tilhørende formler for serie-/parallelforbindelse).\index{Impedans!Karakteristisk impedans} \index{Impedans!For spoler} \index{Impedans! For modstande} \index{Impedans! For kapacitorer}
 	
 	
-	\paragraph{Høj-pas filter.} Et høj-pas filter er en kreds, der lader signaler med høj frekvens passere kredsen, men blokerer lav-frekvenssignaler. Dette gøres med en variabel spændingsforsyning $ \T{\emf}_{\text{in}} $ forbundet til en kreds af ukendt impedans $ Z $. Denne kreds er parallelforbundet med en modstand $ R $, og tilsammen er de serieforbundet med en kapacitor $ C $. Hvis der kigges på spændingen over den ukendte kreds med impedans $ Z $ fås:
+	\paragraph{Høj-pas filter.} \index{Filter! Høj-pas} Et høj-pas filter er en kreds, der lader signaler med høj frekvens passere kredsen, men blokerer lav-frekvenssignaler. Dette gøres med en variabel spændingsforsyning $ \T{\emf}_{\text{in}} $ forbundet til en kreds af ukendt impedans $ Z $. Denne kreds er parallelforbundet med en modstand $ R $, og tilsammen er de serieforbundet med en kapacitor $ C $. Hvis der kigges på spændingen over den ukendte kreds med impedans $ Z $ fås:
 	\begin{align}
 		\T{\emf}_{\text{out}} &= \frac{-i\omega RC}{1+ \frac{R}{Z} - i \omega RC} \T{\emf}_{\text{in}}\\
 		&\approx \frac{-i\omega RC}{1- i \omega RC} \T{\emf}_{\text{in}}
@@ -261,7 +236,7 @@
  	hvor, hvis $ |Z| \gg R $, reducerer udtrykket til anden linje. For små frekvenser, med $ \omega RC \ll 1 $ vil spændingen over komponenten være dæmpet, hvorimod de to spændinger er approksimativt ens i tilfældet $ \omega RC \gg 1 $. Fysisk set er det, der sker, at kun højfrekvente signaler kan "passere gennem" kapacitoren, idet hvis det går for lang tid, vil denne være opladt, og der kan ingen strøm løbe, og der vil dermed heller ikke være et spændingsfald.
  	
  	
- 	\paragraph{Lav-pas filter.} Byttes der om på kapacitoren og modstanden (så den ukendte kreds og kapacitoren er parallelforbundne, og de tilsammen sidder i serie med modstanden), fås et lav-pas filter. Her er spændingen $ \T{\emf}_{\text{out}} $ givet ved
+ 	\paragraph{Lav-pas filter.} \index{Filter! Lav-pas} Byttes der om på kapacitoren og modstanden (så den ukendte kreds og kapacitoren er parallelforbundne, og de tilsammen sidder i serie med modstanden), fås et lav-pas filter. Her er spændingen $ \T{\emf}_{\text{out}} $ givet ved
  	\begin{align}
  		\T{\emf}_{\text{out}} &= \frac{1}{1+ \frac{R}{Z}-i \omega RC} \T{\emf}_{\text{in}} \\
  		&\approx \frac{1}{1-i \omega RC} \T{\emf}_{\text{in}}
@@ -270,18 +245,18 @@
  	
  	
  	
- 	\subsection{Arbejde og energi}
- 	I en kreds med harmonisk svingende spænding, hvor alle komponenterne samles i en samlet, effektiv impedans $ Z $, vil denne være en funktion af $ \omega $, og vil have en reel og imaginær del
+ 	\subsection{Arbejde og energi} \index{Energi! I kredsløb} \index{Arbejde|see {energi}}
+ 	I en kreds med harmonisk svingende spænding, hvor alle komponenterne samles i en samlet, effektiv impedans $ Z $ \index{Impedans} \index{Reaktans |see {impedans}}, vil denne være en funktion af $ \omega $, og vil have en reel og imaginær del
  	\begin{equation}
 	 	Z = R+iX
  	\end{equation}
  	hvor $ R $ kaldes resistansen, og $ X $ reaktansen (dette er den imaginære, frekvensafhængige del af impedansen). Jeg går kraftigt ud fra, at reaktansen har dette navn fordi det er kredsløbets ">reaktion"< på den varierende elektromotoriske kraft (selvinduktans, for eksempel). 
  	
- 	Hvis der så kigges på den effekt, der bliver afsat i kredsløbet ($ P(t) = \emf(t)I(t) $), integrerer den, over én periode $ T $, og dividerer med $ T $, for at få den gennemsnitlige effekt over én periode, fås:
+ 	Hvis der så kigges på den effekt, der bliver afsat i kredsløbet ($ P(t) = \emf(t)I(t) $), integrerer den, over én periode $ T $, og dividerer med $ T $, for at få den gennemsnitlige effekt over én periode, fås:\index{Tidsligt midlet!Effekt i kredsløb}\index{Effekt! I kredsløb}
  	\begin{equation}
 	 	\langle P \rangle = \frac{\emf^2_0 R}{2|Z|^2} = \frac{1}{2} |\T{I}_0|^2 R, \quad \text{Kun ren harmonisk svingning}
  	\end{equation}
- 	hvor $ \emf_0 $ og $ \T{I}_0 $ er amplituden for henholdsvis den elektromotoriske kraft og strømmen. Det ses, at der er en faktor 1/2 til forskel fra jævnstrømstilfældene, hvor $ P = \emf I = \emf^2 / R = I^2 R $. Derfor introduceres ofte de \textbf{effektive amplituder} for strømmen og den elektromotoriske kraft:
+ 	hvor $ \emf_0 $ og $ \T{I}_0 $ er amplituden for henholdsvis den elektromotoriske kraft og strømmen. Det ses, at der er en faktor 1/2 til forskel fra jævnstrømstilfældene, hvor $ P = \emf I = \emf^2 / R = I^2 R $. Derfor introduceres ofte de \textbf{effektive amplituder} for strømmen og den elektromotoriske kraft: \index{Effektiv strøm} \index{Effektiv spænding}
  	\begin{equation}
 	 	I_{\text{eff}} = \frac{|\T{I}_0|}{\sqrt{2}}, \quad \emf_{\text{eff}} = \frac{\emf_0}{\sqrt{2}}
  	\end{equation}

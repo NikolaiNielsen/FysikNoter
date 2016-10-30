@@ -6,21 +6,52 @@
 	\section{Udregninger til kapitler}
 	
 	
-	\subsection{Kapitel 2}
+	\subsection{Kapitel 1}
+	\subsubsection{Kirchhoffs anden lov}
+	Energien per ladning udført af alle krafter (elektriske og andre) er givet ved:
+	\begin{equation}
+	\int (\V{f} + \V{E}) \D \V{J} \ud \tau
+	\end{equation}
+	hvor dette volumenintegral er over hele den strømførende del af kredsen. 
+	I den $ i $'te \textit{gren} af masken (en gren er et understykke af masken, med eventuelle komponenter) vil energien til sidst blive afsat som varme, hvilket giver anledning til følgende ligning for lokal energibevarelse:
+	\begin{equation}
+	\int_{i} (\V{f} + \V{E}) \D \V{J} \ud \tau = R_i I_i^2
+	\end{equation}
+	hvis det antages, at kraftfelterne er konstante over ledningens tværsnit, udtrykket omskrives således:
 	
-	
-	\subsubsection{Kraftfelter, der er konstante ledningens tværsnit}\label{udregning:kap2kraft}
 	Volumenintegralet kan splittes op i to mindre integraler: et planintegral over grenens tværsnit (ai), og et kurveintegral langs strømmens retning (li):
 	\begin{equation}
-		\int_i (\V{f} + \V{E}) \D \V{J} \ud \tau = \int_{li} \int_{ai} (\V{f} + \V{E}) \D \V{J} \ud a \ud l
+	\int_i (\V{f} + \V{E}) \D \V{J} \ud \tau = \int_{li} \int_{ai} (\V{f} + \V{E}) \D \V{J} \ud a \ud l
 	\end{equation}
 	Hvis kraftfelterne $ \V{E} $ og $ \V{f} $ da er konstante over tværsnittene (hvilket de i stort set alle tilfælde er, til en rigtig god approksimation. Enhver ledning har trods alt et ret lille tværsnit), så kan disse smides uden for planintegralet, hvorved dette kun er over volumenstrømmen. Men dette er jo bare den helt almindelige strøm $ I $: $ \int \V{J} \D \ud \V{a} = I $. Indsættes dette fås:
 	\begin{equation}
-		\int_{li} \int_{ai} (\V{f} + \V{E}) \D \V{J} \ud a \ud l = \int_{li} (\V{f} + \V{E}) \D \int_{ai} \V{J} \D \ud \V{a} \ud \V{l} = \int_{li} I_i (\V{f} + \V{E}) \D \ud \V{l}
+	\int_{li} \int_{ai} (\V{f} + \V{E}) \D \V{J} \ud a \ud l = \int_{li} (\V{f} + \V{E}) \D \int_{ai} \V{J} \D \ud \V{a} \ud \V{l} = \int_{li} I_i (\V{f} + \V{E}) \D \ud \V{l}
 	\end{equation}
 	hvor jeg har introducerede vektoriale arealer og kurver i andet skridt, for at få det hele til at gå op (det kan godt være det ikke er formelt korrekt, men det bør i hvert fald give en forståelse for, hvordan denne udregning foregår). Strømmen tages nu ud fra integralet, da denne ikke varierer langs grenen (ellers ville der jo være ophobning!). Til sidst bruges definitionen på emf: $ \emf = \int \V{f} \D \ud \V{l} $, til at få det ønskede resultat:
 	\begin{equation}
-		I_i \int_i (\V{f}+ \V{E}) \D \ud \V{l} = I_i \pp{\int_i \V{f} \D \ud \V{l} + \int_i \V{E} \D \ud \V{l}} = I_i \pp{\emf_i + \int_i \V{E} \D \ud \V{l}}
+	I_i \int_i (\V{f}+ \V{E}) \D \ud \V{l} = I_i \pp{\int_i \V{f} \D \ud \V{l} + \int_i \V{E} \D \ud \V{l}} = I_i \pp{\emf_i + \int_i \V{E} \D \ud \V{l}},
+	\end{equation}
+	og ved omrykning fås
+	\begin{equation}
+	\emf_i + \int_i \V{E} \D \ud \V{l} = R_i I_i
+	\end{equation}
+	
+	
+	Her er $ \emf_i $ den elektromotoriske kraft fra hvad end batterier der er i den $ i $'te gren af masken. Hvis grenen indeholder en kapacitor, vil kurveintegralet ikke gå gennem kapacitorens plader. Så for at få bidraget fra eventuelle kapacitorer med, trækkes dette fra på venstre side:
+	\begin{equation}
+	\emf_i + \int_i \V{E} \D \ud \V{l} - V_{Ci} = R_i I_i
+	\end{equation}
+	hvor $ V_{Ci} = \int_{a}^{b} \V{E} \D \ud \V{l} $ er spændingen over kapacitoren. Hvis bidragene fra alle grene i masken fås
+	\begin{equation}
+	\sum_{batterier} \emf_i + \oint \V{E} \D \ud \V{l} - \sum_{kapacitorer} V_{Ci} = \sum_{modstande} R_i I_i
+	\end{equation}
+	Her ligner det lukkede kurveintegral jo noget, vi kender, nemlig Faradays lov i integralform! Insættes denne:
+	\begin{equation}
+	\oint \V{E} \D \ud \V{l} = - \sum_{spoler} L_i \diff[d]{I_i}{t}
+	\end{equation}
+	Ved indsætning af dette fås den samlede, endelige ligning: Kirchhoffs 2. lov. Også kaldet maskeligningen:
+	\begin{equation}
+	\sum_{\text{batterier}} \emf_i = \sum_{\text{spoler}} L_i \diff[d]{I_i}{t} + \sum_{\text{kapacitorer}} V_{Ci} \sum_{\text{modstande}} R_i I_i
 	\end{equation}
 	
 \end{document}

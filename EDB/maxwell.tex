@@ -3,47 +3,9 @@
 \begin{document}
 	\section{Elektrodynamik (Griffiths kapitel 7)}
 	
-	\subsection{Elektromotorisk kraft}
+	\subsection{Elektromagnetisk induktion} \index{Induktion}
 	
-	\subsubsection{Ohms lov}
-	For at få en strøm til at strømme skal der skubbes til ladningerne. For det meste er strømmen $ \V{J} $ proportionel med kraften per enhed af ladning (i vores tilfælde oftest elektromagnetiske krafter):
-	\begin{equation}
-		\V{J} = \sigma \V{f} = \sigma (\V{E}+\V{v} \times \V{B})
-	\end{equation}
-	hvor $ \sigma $ kaldes materialets ledeevne eller konduktivitet (denne gang ikke en overfladeladningsdensitet, husk det). Oftest opgives den inverse af ledeevnen, kaldet resistiviteten $ \rho = \sigma \inverse $ (igen, ikke volumenladningsdensiteten, sorry)\footnote{Og selvom hr Griffiths siger, at ">vi er ved at løbe tør for græske bogstaver"< så er det \textbf{fuldstændig løgn}. Jeg har talt, og der er brugt godt og vel 14 forskellige græske symboler, 12 små og 2 stort, så der er stadig masser tilbage! Hvad med $ \xi $ (lille xi), eller $ \zeta $ (lille zeta)? Sure, $ \sigma $ og $ \rho $ er kendte og ser godt ud, men der er stadig en masse, helt og aldeles fine bogstaver tilbage.} Typiske værdier er tabuleret i næste tabel. Selv materialer der kaldes isolatorer leder faktisk en lille smule strøm, men det er nærmest uhåndgribeligt små mængder i forhold til metal. Typisk er forskellen af størrelsesordenen $ 10^{22} $, så til en god approksimation er metaller \textbf{perfekte ledere} med $ \sigma = \infty $.
-	
-	Normalt set er hastighederne så små, at bidraget fra magnetiske felter kan ses bort fra, hvormed Ohms lov optræder:
-	\begin{equation}
-		\V{J} = \sigma \V{E}
-	\end{equation}
-	Det ses da, at i en leder er E-feltet faktisk ikke altid 0! (det er bare et almindelig udråbstegn, ikke 0 fakultet). Det gælder kun for stationære ladninger, hvor $ \V{J}=0 $. Dog for en perfekt leder er $ \V{E} = \V{J}/\sigma = 0 $, og som oftest er metallers ledeevne så stor, at der kan ses bort fra $ \V{E} $, og den bare kan regnes som værende 0. Omvendt, så laves resistorer (modstande) af materialer, med stor resistivitet (altså en lille / dårlig ledeevne).
-	
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{*{2}{l >{$} r <{$}}}
-			\hline
-			Materiale & \text{Resistivitet} & Materiale  & \text{Resistivitet} \\
-			\hline
-			\textit{Ledere}: & 			  & \textit{Halvledere}:& \\
-			Sølv 		& 1.59 \D 10^{-8} & Saltvand (mættet)	& 4.4 \D 10^{-2} \\
-			Kobber 		& 1.68 \D 10^{-8} & Germanium			& 4.6 \D 10^{-1} \\
-			Guld 		& 2.21 \D 10^{-8} & Diamant 			& 2.7 \\
-			Aluminium 	& 2.65 \D 10^{-8} & Silicium			& 2.5 \D 10^{3} \\
-			Jern 		& 9.61 \D 10^{-8} & \textit{Isolatorer}:& \\
-			Kviksølv 	& 9.58 \D 10^{-7} & Vand (rent) 		& 2.5 \D 10^{5} \\
-			Nichrome 	& 1.00 \D 10^{-6} & Træ	 				& 10^{8} - 10^{11} \\
-			Mangan		& 1.44 \D 10^{-6} & Glas				& 10^{10} - 10^{14}\\
-			Grafit		&  1.4 \D 10^{-5} & Kvartsglas  		& \approx 10^{16} \\
-			\hline
-		\end{tabular}
-		\label{tab:resistivitet}
-		\caption{Resistiviteter i Ohm-meter. Alle værdier er ved 1 atm og 20$ \degree $ C. Fra \textit{Handbook of Chemistry and Physics}, 78. udgave.}
-	\end{table}
-	
-	
-	\subsection{Elektromagnetisk induktion}
-	
-	\subsubsection{Faradays lov}
+	\subsubsection{Faradays lov} \index{Faradays lov}
 	En gang i atten-hundrede-og-grønlangkål udførte Michael Faraday 3 eksperimenter, der foregik nogenlunde således:
 	\begin{enumerate}
 		\item Han trak en ledning gennem et magnetisk felt, og der løb en strøm.
@@ -92,7 +54,7 @@
 	Situationer hvor det magnetostatiske metoder kan bruges, uden det rent faktisk er magnetostatik, kaldes for \textbf{quasistatik} (lige som tilfældene fra termodynamik, hvor en process kan regnes som tilnærmelsesvist adiabatisk, hvis den er quasistatisk).
 	 
 	
-	\subsubsection{Induktans}
+	\subsubsection{Induktans} \index{Induktans}
 	Hvis man har to løkker af ledning, der begge er i hvile, og man lader en jævn strøm $ I_1 $ gennem den ene, vil den danne et magnetfelt, noget af hvilken, der giver anledning til en flux gennem den anden ledning: $ \Phi_2 $. Fra Biot-Savart-loven ses det, at det magnetiske felt er proportionalt med strømmen:
 	\begin{equation*}
 		\V{B}_1 = \frac{\mu_0}{4 \pi} I_1 \oint \frac{\ud \V{l}_1 \times \usr}{\sr^2}
@@ -101,11 +63,11 @@
 	\begin{equation}
 		\Phi_2 = \int \V{B}_1 \D \U{n} \ud a_2 = M_{21} I_1
 	\end{equation}
-	hvor $ M_{21} $ er proportionalitetskonstanten, kaldet den ">gensidige induktans"< for de to løkker. En formel for denne kan findes ved at skrive fluxen ved vektorpotentialet, og så bruge Stokes sætning. Da fås
+	hvor $ M_{21} $ er proportionalitetskonstanten, kaldet den ">gensidige induktans"<\index{Induktans!Gensidig induktans} for de to løkker. En formel for denne kan findes ved at skrive fluxen ved vektorpotentialet, og så bruge Stokes sætning. Da fås
 	\begin{equation}
 		M_{21} = \frac{\mu_0}{4 \pi} \oint \oint \frac{\ud \V{l}_1 \D \ud \V{l}_2}{\sr}
 	\end{equation}
-	Denne kaldes for \textbf{Neumannformlen} og er et dobbelt kurveintegral. Først langs den ene, så langs den anden. Den er ikke særlig praktisk, men den viser dog to ting:
+	Denne kaldes for \textbf{Neumannformlen} \index{Induktans!Neumannformlen} og er et dobbelt kurveintegral. Først langs den ene, så langs den anden. Den er ikke særlig praktisk, men den viser dog to ting:
 	\begin{enumerate}
 		\item $ M_{21} $ er en ren geometrisk størrelse
 		\item Hvis der byttes om på de to integralers roller i formlen er resultatet uændret. Det vil sige at $ M_{21}=M_{12} $, så vi smider bare tallene væk, så formlen for fluxen bliver
@@ -125,38 +87,28 @@
 	\begin{equation}
 		\Phi = LI
 	\end{equation}
-	hvor $ L $ kaldes \textbf{selvinduktansen} (eller bare \textbf{induktansen}) af løkken. Den måles i \textbf{henries} (H), der er et volt-sekund per ampere. Induktansen er, lige som $ M $, ren geometrisk, og den er, lige som kapacitansen $ C $, en udelukkende positiv størrelse. Den inducerede emf er givet ved
+	hvor $ L $ kaldes \textbf{selvinduktansen} \index{Selvinduktans|see {Induktans}} (eller bare \textbf{induktansen}) af løkken. Den måles i \textbf{henries} (H), der er et volt-sekund per ampere. Induktansen er, lige som $ M $, ren geometrisk, og den er, lige som kapacitansen $ C $, en udelukkende positiv størrelse. Den inducerede emf er givet ved
 	\begin{equation}
 		\emf = -L \diff[\ud]{I}{t}
 	\end{equation}
 	Denne emf kaldes også for \textbf{modspænding} (back emf), da den har en retning, der modstrider ændringen i strøm. Der skal altså kæmpes mod denne modspænding, når strømmen skal ændres. Dermed svarer $ L $ lidt til en ">elektrisk masse"<, idet en større induktans gør at et kredsløb er sværere at drive, ligesom en større masse, gør det sværere at accelerere et objekt.
 	
-	\subsection{Maxwells ligninger}
+	\subsection{Maxwells ligninger}\index{Maxwells ligninger}
 	Der er fundet 4 love, der specificerer divergensen og rotationen af elektriske og magnetiske felter. De er som følger:
 	
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{r >{$\displaystyle} c <{$} l}
+		\index{Maxwells ligning!Integralform}
+		\begin{tabular}{r >{$\displaystyle} l <{$} p{1cm} >{$\displaystyle} l <{$}}
 			\vspace{0.3cm}
-			(i)		& \diverg{E} = \frac{1}{\epsilon_0} \rho 					& (Gauss's lov) \\
+			& \text{Differentialform} & & \text{Integralform} \\
 			\vspace{0.3cm}
-			(ii)	& \diverg{B} = 0 											& (Intet navn) \\
+			(i)		& \diverg{E} = \frac{1}{\epsilon_0} \rho 					& & \oint_{\mathcal{S}} \V{E} \D \U{n} \ud a = \frac{1}{\epsilon_0} Q_{\text{enc}} \\
 			\vspace{0.3cm}
-			(iii)	& \curl{E} = - \diff{\V{B}}{t} 								& (Faradays lov) \\
-			(iv) 	& \curl{B} = \mu_0 \V{J} + \mu_0 \epsilon_0 \diff{\V{E}}{t}	& (Ampères lov)
-		\end{tabular}
-	\end{table}
-	I integralform lyder ligningerne
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{r >{$\displaystyle} c <{$} l}
+			(ii)	& \diverg{B} = 0 											& & \oint_{\mathcal{S}} \V{B} \D \U{n} \ud a = 0 \\
 			\vspace{0.3cm}
-			(i)		& \oint_{\mathcal{S}} \V{E} \D \U{n} \ud a = \frac{1}{\epsilon_0} Q_{\text{enc}}	& (Gauss's lov) \\
-			\vspace{0.3cm}
-			(ii)	& \oint_{\mathcal{S}} \V{B} \D \U{n} \ud a = 0	& (Intet navn) \\
-			\vspace{0.3cm}
-			(iii)	& \oint_{\mathcal{P}} \V{E} \D \ud \V{l} = - \int_{\mathcal{S}} \diff{\V{B}}{t} \D \U{n} \ud a	& (Faradays lov) \\
-			(iv) 	& \oint_{\mathcal{P}} \V{B} \D \ud \V{l} = \mu_0 I_{\text{enc}}+\mu_0 \epsilon_0 \int_{\mathcal{S}} \diff{\V{E}}{t} \D \U{n} \ud a	& (Ampères lov)
+			(iii)	& \curl{E} = - \diff{\V{B}}{t} 								& & \oint_{\mathcal{P}} \V{E} \D \ud \V{l} = - \int_{\mathcal{S}} \diff{\V{B}}{t} \D \U{n} \ud a \\
+			(iv) 	& \curl{B} = \mu_0 \V{J} + \mu_0 \epsilon_0 \diff{\V{E}}{t}	& &\oint_{\mathcal{P}} \V{B} \D \ud \V{l} = \mu_0 I_{\text{enc}}+\mu_0 \epsilon_0 \int_{\mathcal{S}} \diff{\V{E}}{t} \D \U{n} \ud a
 		\end{tabular}
 	\end{table}
 	\noindent
@@ -169,29 +121,18 @@
 	
 	Maxwells love er I dette tilfælde
 	\begin{table}[H]
+		\index{Maxwells ligninger!I lineære medier}
 		\centering
-		\begin{tabular}{r >{$\displaystyle} c <{$} l}
+		\begin{tabular}{r >{$\displaystyle} l <{$} p{1cm} >{$\displaystyle} l <{$}}
 			\vspace{0.3cm}
-			(i)		& \diverg{E} = \frac{1}{\epsilon}\rho_f 				& (Gauss's lov) \\
+			& \text{Differentialform} & & \text{Integralform} \\
 			\vspace{0.3cm}
-			(ii)	& \diverg{B} = 0 										& (Intet navn) \\
+			(i)		& \diverg{E} = \frac{1}{\epsilon} \rho_f & & \oint_{\mathcal{S}} \V{E} \D \U{n} \ud a = \frac{1}{\epsilon} Q_{f_{\text{enc}}} \\
 			\vspace{0.3cm}
-			(iii)	& \curl{E} = - \diff{\V{B}}{t} 							& (Faradays lov) \\
-			(iv) 	& \curl{B} = \mu\V{J}_f + \mu \epsilon\diff{\V{E}}{t}	& (Ampères lov)
-		\end{tabular}
-	\end{table}
-	\noindent
-	Og i integralform
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{r >{$\displaystyle} c <{$} l}
+			(ii)	& \diverg{B} = 0 											& & \oint_{\mathcal{S}} \V{B} \D \U{n} \ud a = 0 \\
 			\vspace{0.3cm}
-			(i)		& \oint_{\mathcal{S}} \V{E} \D \U{n} \ud a = \frac{1}{\epsilon}Q_{f_{\text{enc}}} 	& (Gauss's lov) \\
-			\vspace{0.3cm}
-			(ii)	& \oint_{\mathcal{S}} \V{B} \D \U{n} \ud a = 0	& (Intet navn) \\
-			\vspace{0.3cm}
-			(iii)	& \oint_{\mathcal{P}} \V{E} \D \ud \V{l} = - \int_{\mathcal{S}} \diff{\V{B}}{t} \D \U{n} \ud a	& (Faradays lov) \\
-			(iv) 	& \oint_{\mathcal{P}} \V{B} \D \ud \V{l} = \mu I_{f_{\text{enc}}} +\mu \epsilon \diff{}{t} \int_{\mathcal{S}} \V{E} \D \U{n} \ud a	& (Ampères lov)
+			(iii)	& \curl{E} = - \diff{\V{B}}{t} 								& & \oint_{\mathcal{P}} \V{E} \D \ud \V{l} = - \int_{\mathcal{S}} \diff{\V{B}}{t} \D \U{n} \ud a \\
+			(iv) 	& \curl{B} = \mu \V{J}_f + \mu \epsilon \diff{\V{E}}{t}	& &\oint_{\mathcal{P}} \V{B} \D \ud \V{l} = \mu I_{f_{\text{enc}}}+\mu \epsilon \int_{\mathcal{S}} \diff{\V{E}}{t} \D \U{n} \ud a
 		\end{tabular}
 	\end{table}
 	\noindent

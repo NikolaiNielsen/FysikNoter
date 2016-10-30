@@ -21,8 +21,7 @@
 #*.asv
 
 *
-
-!.gitignore
+!*/
 !*.tex
 !*.pdf
 !*.m
