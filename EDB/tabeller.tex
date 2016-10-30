@@ -1,0 +1,87 @@
+\documentclass[EL2Noter.tex]{subfiles}
+
+\begin{document}
+	\section{Tabeller}
+	\subsection{Tabel over relative permitiviteter \texorpdfstring{$ \epsilon_r $, $ \epsilon_r = \epsilon/\epsilon_0 $}{}}
+	Relative permitiviteter, også kaldet for dielektriske konstanter, er givet ved
+	\begin{equation}\label{key}
+		\epsilon_r = \frac{\epsilon}{\epsilon_0},
+	\end{equation}
+	hvor $ \epsilon $ er det lineære mediums permitivitet.
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{ll|ll}
+			Materiale					& $ \epsilon_r $	& Materiale 					& $ \epsilon_r $ \\
+			\hline
+			Vakuum 						& 1 					& Benzene 						& 2.28 \\
+			Helium 						& 1.000065 				& Diamant 						& 5.7 \\
+			Neon 						& 1.00013 				& Salt 							& 5.9 \\
+			Hydrogen 					& 1.00025 				& Silicium 						& 11.8 \\
+			Argon 						& 1.00052 				& Methanol 						& 33.0 \\
+			Luft (tør) 					& 1.00054 				& Vand 							& 80.1 \\
+			Nitrogen 					& 1.00055 				& Ice (-30$ \degree $ C) 		& 99 \\
+			Vanddamp (100$ \degree $ C)	& 1.00587 				& KTaNbO$ _3 $ (0$ \degree $ C)	& $ 34\D 10^3 $
+		\end{tabular}
+		\label{tab:DielektrikKonstant}
+		\caption{Tabel over dielektriske konstanter, ved 1 atm, 20$ \degree $ C (medmindre andet er opgivet). Fra \textit{Handbook of Chemistry and Physics}, 78. udgave.}
+	\end{table}
+	
+	
+	
+	\subsection{Tabel over magnetiske susceptibiliteter \texorpdfstring{$ \chi_m $, $ \mu = \mu_0 (1+\chi_m) $}{}}
+	Lineære medier bliver magnetiserede, hvis de udsættes for et magnetfelt. Denne magnetisering bruger den magnetiske susceptibilitet $ \chi_m $, og permeabiliteten $ \mu $, som mere ofte bruges, er givet ved
+	\begin{equation}\label{key}
+		\mu = \mu_0 (1+\chi_m), \quad \mu_0 = 4\pi \D 10^{-7}
+	\end{equation}
+	Materialer der har en \textit{negativ} susceptibilitet er diamagnetiske, og deres magnetfelt peger mod det eksterne magnetfelt. Omvendt er \textit{positive} susceptibiliteter tilhørende paramagnetiske materialer, hvis magnetfelt peger \textit{med} det eksterne.
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{*{2}{l >{$} r <{$}}}
+			\hline
+			Materiale (dia) & \text{Susceptibilitet} & Materiale (para) & \text{Susceptibilitet} \\
+			\hline
+			Bismut 		& -1.6 \D 10^{-4} & Oxygen 		& 1.9 \D 10^{-6} \\
+			Guld 		& -3.4 \D 10^{-5} & Natrium		& 8.5 \D 10^{-6} \\
+			Sølv 		& -2.4 \D 10^{-5} & Aluminium 	& 2.1 \D 10^{-5} \\
+			Kobber 		& -9.7 \D 10^{-6} & Wolfram		& 7.8 \D 10^{-5} \\
+			Vand 		& -9.0 \D 10^{-6} & Platin 		& 2.8 \D 10^{-4} \\
+			Kuldioxid 	& -1.2 \D 10^{-8} & Flydende oxygen (-200$\degree  $ C) & 3.9 \D 10^{-3} \\
+			Hydrogen 	& -2.2 \D 10^{-9} & Gadolinium 	& 4.8 \D 10^{-1} \\
+			\hline
+		\end{tabular}
+		\label{tab:chi_m}
+		\caption{Tabel over magnetiske susceptibiliteter. Værdierne er for 1 atm og $ 20\degree $ C, med mindre andet er skrevet. Fra \textit{Handbook of Chemistry and Physics}, 67. udgave}
+	\end{table}
+	
+	
+	
+	
+	
+	
+	
+	\subsection{Tabel over konduktiviteter \texorpdfstring{$ \sigma $}{}}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{*{2}{l >{$} r <{$}}}
+			\hline
+			Materiale & \text{Konduktivitet} & Materiale  & \text{Konduktivitet} \\
+			\hline
+			\textit{Ledere}: & 			  & \textit{Halvledere}:& \\
+			Sølv 		& 6.29 \D 10^{7} & Saltvand (mættet)	& 22.72 \\
+			Kobber 		& 5.95 \D 10^{7} & Germanium			& 2.17 \\
+			Guld 		& 4.52 \D 10^{7} & Diamant 				& 0.37 \\
+			Aluminium 	& 3.77 \D 10^{7} & Silicium				& 4.0 \D 10^{-4} \\
+			Jern 		& 1.04 \D 10^{7} & \textit{Isolatorer}:	& \\
+			Kviksølv 	& 1.04 \D 10^{6} & Vand (rent) 			& 4.0 \D 10^{4} \\
+			Nichrome 	& 1.00 \D 10^{6} & Træ	 				& 10^{-11} - 10^{-8} \\
+			Mangan		& 6.94 \D 10^{5} & Glas					& 10^{-14} - 10^{-10}\\
+			Grafit		& 7.14 \D 10^{4} & Kvartsglas  			& \approx 10^{-16} \\
+			\hline
+		\end{tabular}
+		\label{tab:konduktivitet}
+		\caption{Konduktiviteter i $ (\Omega m)\inverse $. Alle værdier er ved 1 atm og 20$ \degree $ C. Fra \textit{Handbook of Chemistry and Physics}, 78. udgave.}
+	\end{table}
+
+	
+\end{document}
