@@ -2,5 +2,49 @@
 
 
 \begin{document}
-	\section{Elektrisk dipolstråling}
+	\section{Elektrisk dipolstråling}\index{Stråling!Elekrisk dipol}\index{Elektrisk Dipol}\index{Elektrisk Dipol!Stråling}
+	Stråling er elektromagnetiske bølger, der bevæger sig fra centrum i et koordinatsystem ud mod uendelighed. Fællestræk for dette er, at det er energi, der bevæger sig mod uendelighed, og som ikke kan fås tilbage. For en stor sfære med radius $ r $, er den mængde effekt, der strømmer ud af sfæren givet ved overfladeintegralet over Poyntingvektoren:
+	\begin{equation}
+		P(r) = \oint \V{S} \D \ud \V{a} = \frac{1}{\mu_0} \oint (\V{E}\times\V{B}) \D \ud \V{a}, \quad P_{\text{rad}} \equiv \lim\limits_{r \to \infty} P(r),
+	\end{equation}
+	hvor $ P_{\text{rad}} $ er strålingseffekten. Da overfladearealet af sfæren går som $ r^{-2} $, må Poyntingvektoren maks gå som $ r^{-2} $, for at der er strålingseffekt. Hvis den går som $ r^{-3} $ eller en højere, negativ potens, vil strålingseffekten gå mod 0, og hvis den går som $ r\inverse $, vil der være \textit{mere} stråling, jo længere ud man kommer, hvilket bryder energibevarelse. 
+	
+	For statiske ladninger og strømme, går både B- og E-feltet som $ r^{-2} $, og Poyntingvektoren da som $ r^{-4} $. Dette betyder, at statiske ladninge og strømme \textit{ikke} producerer elektromagnetisk stråling. Til gengæld, hvis der ses på feltet, af accelererende partikler, ligning \eqref{eq:feltbevaeg}, ses det, at det andet led i parentesen, det som afhænger af partiklens acceleration, går som $ r\inverse $, både for elektriske og magnetiske felter. Dette betyder altså, at Poyntingvektoren går som $ r^{-2} $, og accelererede partikler udsender elektromagnetiske bølger!
+	
+	I dette afsnit behandles kun strålingen fra elektriske dipoler. Der ses på to små metalsfærer, som befinder sig på $ z $-aksen i en afstand $ d $ fra hinanden, med en lige ledning mellem dem. Hvis der drives ladninger harmonisk op og ned af ledningen, med vinkelfrekvensen $ \omega $ fås
+	\begin{equation}
+		q(t) = q_0 \cos \omega t,
+	\end{equation}
+	og resultatet er en oscillerende elektrisk dipol
+	\begin{equation}
+		\V{p}(t) = p_0 \cos (\omega t) \U{z}, \quad p_0 = q_0 d,
+	\end{equation}
+	hvor $ p_0 $ er den maksimale værdi af dipolmomentet. Med følgende 3 antagelser:
+	\begin{align}
+		\text{Antagelse 1}\ &: \ d\ll r, \\
+		\text{Antagelse 2}\ &: \ d\ll \frac{c}{\omega} \equiv d \ll \lambda, \\
+		\text{Antagelse 3}\ &: \ r \gg \frac{c}{\omega}.
+	\end{align}
+	hvor $ r $ er afstanden til punktet der måles på, og dette skal være meget større end både separationsafstanden og bølgelængden af de elektromagnetiske bølger. Ydermere skal separationsafstanden være meget mindre end bølgelængden af strålingen. Og med en ordentlig spandfuld approksimationer fås
+	\begin{align}
+		v(r,\theta,t) &= -\frac{p_0 \omega}{4 \pi \epsilon_0 c} \pp{\frac{\cos \theta}{r}} \sin[\omega (t-r/c)],\\
+		\V{A}(r,\omega,t) &= -\frac{\mu_0 p_0 \omega}{4 \pi r} \sin [\omega(t-r/c)] \U{z}, \\
+		\V{E} &= - \frac{\mu_0 p_0 \omega^2}{4 \pi} \pp{\frac{\sin \theta}{r}} \cos[\omega(t-r/c)] \Vt,\label{eq:edipE} \\
+		\V{B} &= - \frac{\mu_0 p_0 \omega^2}{4 \pi c} \pp{\frac{\sin \theta}{r}} \cos[\omega (t-r/c)] \Vp. \label{eq:edipB}
+	\end{align}
+	Ligning \eqref{eq:edipE} og \eqref{eq:edipB} er monokromatiske bølger, der bevæger sig radialt ud fra dipolen, med lysets hastighed. De er i fase, indbyrdes vinkelrette, transverse og forholdet mellem deres amplituder er $ E_0/B_0 = c $, præcis som forventet. De er sfæriske bølger (eller, rette toroidiale, eller hvad det hedder; donutformede og dermed \textit{ikke} simple), og deres amplitude går som $ r\inverse $, også som forventet. Poyntingvektoren er givet ved
+	\begin{equation}
+		\V{S} = \frac{\mu_0}{c} \kk{\frac{p_0 \omega^2}{4 \pi} \pp{\frac{\sin \theta}{r}} \cos[\omega(t-r/c)]}^2 \Vr
+	\end{equation}
+	Den tidsligt midlede over én periode er
+	\begin{equation}
+		\langle \V{S} \rangle = \pp{\frac{\mu_0 p_0^2 \omega^4}{32 \pi^2 c}} \frac{\sin^2 \theta}{r^2} \Vr,
+	\end{equation}
+	og den totalt midlede effekt over en sfære med radius $ r $ er
+	\begin{equation}
+		\langle P \rangle = \frac{\mu_0 p_0^2 \omega^4}{12 \pi c}.
+	\end{equation}
+	Det ses at denne ikke afhænger af $ r $ (igen, som forventet, grundet energibevarelse). Den samme mængde energi stråler ud fra origo, og bliver smurt ud over et større og større areal med radius.
+	
+	
 \end{document}

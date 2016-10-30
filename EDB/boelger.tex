@@ -24,14 +24,14 @@
 		f(z,t) = A \cos[k(z-vt) + \delta]
 	\end{equation}
 	hvor $ A $ er bølgens \textit{amplitude}, $ k $ er \textit{bølgetallet}, $ v $ er \textit{udbredelseshastigheden} og $ \delta $ er \textit{faseforskydningen}. Af disse, er $ A $, $ v $ og $ k $ \textbf{altid positive}, mens $ \delta $ kan være enten positiv eller negativ (eller selvfølgelig 0). Generelt er størrelsen $ \delta/k $ den afstand, hvormed bølgen er forsinket, i forhold til origo (dette fås ved at sætte $ t = 0$ og sætte det resterende udtryk lig 0). Ud over disse introducerede størrelser, er der nogle flere, der relaterer sig til $ k $ og $ v $. Disse er \textit{bølgelængden} $ \lambda $, \textit{perioden} $ T $ (ikke at forveksle med snorkraften!), \textit{frekvensen} $ \nu $ (græsk bogstav ">nu"<) og \textit{vinkelfrekvensen} $ \omega $. Nedenunder ses en række småformler for, hvordan disse størrelser relaterer til hinanden:
-	\begin{align}
+	\begin{align*}
 		\lambda &= \frac{2 \pi}{k} = \frac{v}{\nu} = Tv = \frac{2\pi v}{\omega}, \\
 		T &= \frac{2 \pi}{k v} = \frac{1}{\nu} = \frac{\lambda}{v} = \frac{2 \pi}{\omega}, \\
 		v & = \frac{\lambda}{T} = \frac{\omega}{k} = \frac{2 \pi}{k T}, \\
 		\nu &= \frac{1}{T} = \frac{kv}{2 \pi} = \frac{v}{\lambda} = \frac{\omega}{2\pi}, \\
 		\omega &= 2 \pi \nu = \frac{2 \pi}{T} = kv = \frac{2\pi v}{\lambda}, \\
 		k &= \frac{2\pi}{\lambda} = \frac{\omega}{v} = \frac{2 \pi}{vT} = \frac{2 \pi\nu }{v}.
-	\end{align} 
+	\end{align*} 
 	lige som $ v $ og $ k $, er disse størrelser \textbf{altid positive}! Normalt skrives sinusbølger med $ \omega $ i stedet for $ v $, så man slipper for parentesen inde i argumentet af cosinus:
 	\begin{equation}
 		f(z,t) = A \cos (kz-\omega t + \delta)
@@ -74,16 +74,11 @@
 		\T{A}_R &= \frac{k_1-k_2}{k_1+k_2} \T{A}_I = \frac{v_2-v_1}{v_2+v_1} \T{A}_I, \\
 		\T{A}_T &= \frac{2 k_1}{k_1+k_2} \T{A}_I = \frac{2 v_2}{v_2+v_1} \T{A}_I.
 	\end{align*}
-	og de reelle amplituder er
-	\begin{equation}
-		A_R e^{i\delta_R} = \frac{v_2-v_1}{v_2+v_1} A_I e^{i\delta_I}, \quad 	A_T e^{i\delta_T} = \frac{2 v_2}{v_2+v_1} A_I e^{i\delta_I}.
-	\end{equation}
 	Hvis den første streng er \textit{lettere} end den anden, så $ \mu_1 < \mu_2 $ og $ v_1 > v_2 $ vil alle tre bølger være i fase, og de reflekterede og transmitterede bølger vil begge have amplituder, der er \textit{mindre} end den indgående bølges amplitude.
 	
 	Hvis den første streng er \textit{tungere} end den anden, så $ \mu_1 > \mu_2 $ og $ v_1 < v_2 $ vil den reflekterede bølge være 180\Deg ude af fase, hvilket ses matematisk ved, at den komplekse amplitude bliver negativ i størrelse, netop fordi $ v_1 < v_2 $. Men fordi amplituden ikke må være negativ, så trækkes et $ -1 = e^{i\pi} $ ud fra størrelsen, og lægges til fasen. Dermed er de reelle amplituder:
 	\begin{align}
-		\mu_1 < \mu_2, \ v_1 > v_2, \quad \Rightarrow \quad A_R &= \frac{v_2-v_1}{v_2+v_1} A_I, \quad A_T = \frac{2 v_2}{v_2 + v_1} A_I,\\
-		\mu_1 > \mu_2, \ v_1 < v_2, \quad \Rightarrow \quad A_R &= \frac{v_1-v_2}{v_2+v_1} A_I, \quad A_T = \frac{2 v_2}{v_2 + v_1} A_I.
+		\quad A_R &= \vv{\frac{v_2-v_1}{v_2+v_1}} A_I, \quad A_T = \frac{2 v_2}{v_2 + v_1} A_I,\\
 	\end{align}
 	I grænsen hvor $ \mu_2 = \infty$ (hvor den sidder fast i en væg), fås $ v_2 = 0 $ og:
 	\begin{equation}
@@ -106,7 +101,7 @@
 	\end{equation}
 	hvor $ \U{n} $ kaldes for \textit{polarisationsvektoren}. Idet den er vinkelret på bevægelsesretningen gælder det også at $ \U{n} \D \Vz = 0 $. Udtrykt ved polarisationsvinklen $ \theta $ (0\Deg ved $ \Vx $ og 90\Deg ved $ \Vy $) er polarisationsvektoren givet ved
 	\begin{equation}
-		\U{n} = \cos \theta \Vx + \sin \theta \Vy,
+		\U{n} = \cos \theta \ \Vx + \sin \theta \ \Vy,
 	\end{equation}
 	hvilket giver, at en tilfældig polariseret bølge kan skrives som en superposition af to lodret og vandret polariserede bølger, ved hjælp af polarisationsvinklen:
 	\begin{equation}
@@ -139,7 +134,7 @@
 	
 	
 	\subsubsection{Monokromatiske planbølger}
-	Som ved bølger i én dimension, begrænser vi os her til sinusbølger med en enkelt frekvens $ \omega $. Idet forskellige frekvenser af lysbølger svarer til forskellige farver (såfremt vi er i det synlige område), kaldes disse for \textit{monokromatiske} bølger (enkeltfarvede, fra latin). En liste over det elektromagnetiske spektrum ses tabuleret herunder \textbf{indsæt tabel}.
+	Som ved bølger i én dimension, begrænser vi os her til sinusbølger med en enkelt frekvens $ \omega $. Idet forskellige frekvenser af lysbølger svarer til forskellige farver (såfremt vi er i det synlige område), kaldes disse for \textit{monokromatiske} bølger (enkeltfarvede, fra latin).
 	
 	Ydermere begrænser vi os lige til bølger der kun bevæger sig i én retning ($ z $ for nemhedens skyld), og som dermed ikke afhænger af andre koordinater, vinkelret på bevægelsesretningen ($ x $ og $ y $ i det simple tilfælde). Disse kaldes for \textbf{planbølger} fordi det kan ses som planer med samme fase (altså altid bølgedal/bølgetop eller lignende), der står vinkelret på bevægelsesretningen. Disse har formen
 	\begin{equation}
@@ -228,7 +223,17 @@
 	
 	
 	\subsubsection{Vinkelret refleksion og transmission}
-	Som i det endimensionale tilfælde, opstår der refleksion og transmission, når elektromagnetiske bølger når randen mellem to materialer. I dette tilfælde skal de dog overholde nogle lidt andre randbetingelser. Der er 4 randbetingelser, hvoraf de to første har med vinkelrette komponenter at gøre (altså i bevægelsesretningen) og de to sidste har med parallelle komponenter at gøre (parallel på randen, og dermed vinkelret på bevægelsen). Da elektromagnetiske bølger er transverse, er det kun de sidste to, der er interessante. Disse lyder
+	Som i det endimensionale tilfælde, opstår der refleksion og transmission, når elektromagnetiske bølger når randen mellem to materialer. I dette tilfælde skal de dog overholde nogle lidt andre randbetingelser. Der er 4 randbetingelser for lineære medier, uden strømme og ladninger:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{*{2}{ >{$\displaystyle} l <{$} }}
+			\vspace{0.3cm}
+			\epsilon_1 E_1^{\perp} = \epsilon_2 E_2^{\perp} & \V{E}_1^{\parallel} - \V{E}_2^{\parallel} = 0 \\
+			B_1^{\perp} - B_2^{\perp} = 0 & \frac{1}{\mu_1} \V{B}_1^{\parallel} = \frac{1}{\mu_2} \V{B}_2^{\parallel}
+		\end{tabular}
+	\end{table}
+	\noindent
+	hvoraf de to første har med vinkelrette komponenter at gøre (altså i bevægelsesretningen) og de to sidste har med parallelle komponenter at gøre (parallel på randen, og dermed vinkelret på bevægelsen). Da elektromagnetiske bølger er transverse, er det kun de sidste to, der er interessante. Disse lyder
 	\begin{equation}
 		\V{E}_1 ^{\parallel} = \V{E}_2 ^{\parallel}, \quad \frac{1}{\mu_1} \V{B}_1^{\parallel} = \frac{1}{\mu_2} \V{B}_2^{\parallel}.
 	\end{equation}
