@@ -283,7 +283,7 @@
 	
 	
 	\subsubsection{Ikkevinkelret refleksion og transmission (bølger polariseret i indfaldsplanen)}
-	Nu kommer det sjove! Nu er det en bølge, der kommer mod randen mellem to materialer (for simpelhedens skyld er randen stadig i $ xy $-planen, hvor $ z=0 $). Her er bølgerne
+	Nu kommer det sjove! Nu er det en bølge, der kommer mod randen mellem to materialer (for simpelhedens skyld er randen stadig i $ xy $-planen, hvor $ z=0 $). Her er bølgerne (en illustration kan ses på figur \ref{fig:optik})
 	\begin{align}
 		\tv{E}_I (\V{r},t) &= \tv{E}_{0_I} e^{i (\V{k}_I \D \V{r} - \omega t)}, \quad 
 		\tv{B}_I (\V{r},t) = \frac{1}{v_1} (\U{k}_I \times \tv{E}_I), \\
@@ -292,7 +292,17 @@
 		\tv{E}_T (\V{r},t) &= \tv{E}_{0_T} e^{i (\V{k}_T \D \V{r} - \omega t)}, \quad 
 		\tv{B}_T (\V{r},t) = \frac{1}{v_2} (\U{k}_T \times \tv{E}_T).
 	\end{align}
-	Hvor den indkomne bølge kommer med en eller anden vinkel $ \omega_I $, i forhold til vinkelret på overgangen mellem de to materialer. Alle bølgerne svinger med samme frekvens $ \omega $, bestemt af bølgernes kilde, der i sin tid producerede dem. Da $ \omega = kv $ fås
+	Hvor den indkomne bølge kommer med en eller anden vinkel $ \omega_I $, i forhold til vinkelret på overgangen mellem de to materialer. Alle bølgerne svinger med samme frekvens $ \omega $, bestemt af bølgernes kilde, der i sin tid producerede dem. 
+	
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{img/optik.png}
+		\caption{Et eksempel på en EM-bølge, der rammer overgangen mellem to materialer.}
+		\label{fig:optik}
+	\end{figure}
+	
+	Da $ \omega = kv $ fås
 	\begin{equation}
 		\omega = k_I v_1 = k_R v_1 = k_T v_2, \quad k_I = k_R = \frac{v_2}{v_1} k_T = \frac{n_1}{n_2} k_T.
 	\end{equation}
@@ -304,24 +314,31 @@
 	\end{equation}
 	Dette kan kun lade sig høre, hvis alle vektorerne $ \V{k}_j $ ligger i samme plan. Dette giver den første lov: (\textbf{Lav en eller anden form for fremhævelse})
 	
-	De indkomne, reflekterede og transmitterede bølger danner et plan, kaldet \textbf{indfaldsplanen}, der også inkluderer normalvektoren til overfladen.
 	
+	\begin{optiklov}
+		De indkomne, reflekterede og transmitterede bølger danner et plan, kaldet \textbf{indfaldsplanen}, der også inkluderer normalvektoren til overfladen.
+	\end{optiklov}
 	Dette giver også at
 	\begin{equation}
 		k_I \sin \theta_I = k_R \sin \theta_R = k_T \sin \theta_T,
 	\end{equation}
 	og da $ k_I = k_R $ fås den anden lov, også kaldet refleksionsloven:
 	
-	Den indkomne bølges vinkel er lig den reflekterede bølges vinkel:
-	\begin{equation}
-		\theta_I = \theta_R.
-	\end{equation}
-	
+	\begin{optiklov}
+		Refleksionsloven. Den indkomne bølges vinkel er lig den reflekterede bølges vinkel:
+		\begin{equation}
+			\theta_I = \theta_R.
+		\end{equation}
+	\end{optiklov}
+		
 	Og for den transmitterede bølges vinkel fås den tredje lov, kaldet for refraktionsloven eller Snell's lov:
-	\begin{equation}
-		\frac{\sin \theta_T}{\sin \theta_I} = \frac{n_1}{n_2}.
-	\end{equation}
-	
+	\begin{optiklov}
+		Snell's lov / refraktionsloven.
+		\begin{equation}
+			\frac{\sin \theta_T}{\sin \theta_I} = \frac{n_1}{n_2}.
+		\end{equation}
+	\end{optiklov}
+
 	Disse tre love er den geometriske optiks fundamentale love. 
 	
 	Nu skal de 4 randbetingelser fra Maxwells ligninger behandles. Hvis det antages, at bølgerne polariseres i indfaldsplanen (altså at $ \U{n} $ ligger i samme plan som alle $ \V{k}_j $), kan man med en dejlig gang algebra få et par ligninger ud, der giver den komplekse amplitude for de reflekterede og transmitterede bølger:

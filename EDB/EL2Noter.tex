@@ -7,6 +7,8 @@
 \newtheorem{theorem}{Theorem}[section]
 \usepackage{makeidx}
 \makeindex
+\usepackage[dvipsnames]{xcolor}
+\newtheorem{optiklov}{Lov}
 
 % Margen
 \usepackage[margin=1in]{geometry}
@@ -26,6 +28,7 @@
 
 % Til nummerering af ligninger. Så der står (afsnit.ligning) og ikke bare (ligning)
 \numberwithin{equation}{section}
+\date{}
 
 % Header
 %\usepackage{fancyhdr}
@@ -33,7 +36,7 @@
 %\pagestyle{fancy}
 
 %Titel
-\title{Noter til EM2 på KU (Elektromagnetisme 2)}
+\title{Noter til EM2 på KU (Elektrodynamik og Bølger)}
 \author{af Nikolai Plambech Nielsen, LPK331. Version 1.0}
 
 \begin{document}
@@ -43,26 +46,16 @@
 	\maketitle
 	\tableofcontents
 	
-	\section*{Ting der mangler}
+	\section*{Introduktion}
+	Velkommen til mit notesæt til Elektrodynamik og Bølger (EL2). I kurset bliver Introduction to Electrodynamics (D. J. Griffiths), samt diverse notesæt (Anders Sørensen \& Per Hedegaard). Jeg har brugt 3. udgave af Electrodynamics, så hvis der står formelnumre eller lignende, så er de måske anderledes end din udgave. Dette notesæt er ikke helt færdigt, men al pensum er beskrevet. Nedenunder ses en liste over ting, der mangler i notesættet. Jeg nåede dem ikke, for der var simpelthen ikke tid nok til det inden eksamen. Så hvis én af jer læsere har lyst til at være herre for seje, så kan I lige hjælpe lidt, og ændre i \LaTeX-dokumentet. Dette ville være rigtig fedt. Hvis ikke for jer selv, så for den næste årgangs russere. Glædelig regning!
+	
+	\subsection*{Ting der mangler}
 	Jeg mangler umiddelbart følgende
 	\begin{itemize}
-		\item Introduktion
-		\item Stikordsregister fra side 17 og efter
-		\item Teoremopstillinger til Optiklovene
-		\item Eksempler til, 10 og 11, plus teoremopstilling
-		\begin{itemize}
-			\item Eksempel 10.3
-			\item Eksempel 10.4
-			\item Bevis for toghalløjsa (side 431)
-		\end{itemize}
-		\item teoremopstilling til G 7 
-		\item Evt. illustrationer
-		\begin{itemize}
-			\item Illustration af knudepunkter og masker
-			\item Figur 9.15
-			\item Figur 10.6
-			\item Figur 11.2
-		\end{itemize}
+		\item Stikordsregister fra kapitel 3 og efter.
+		\item Bevis for toghalløjsa (side 431).
+		\item Udregninger til Kirchhoffs anden lov på kompleks form.
+		\item Referencer til formelnumre/eksempelnumre i bøgerne.
 	\end{itemize}
 	\newpage
 	\subfile{intro}
