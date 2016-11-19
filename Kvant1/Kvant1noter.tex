@@ -1,0 +1,52 @@
+% Nikolai Nielsens "Fysiske Fag" preamble
+\documentclass[a4paper,10pt]{article} 	% A4 papir, 10pt størrelse
+
+\usepackage{Nikolai} 					% Min hjemmelavede pakke
+\renewcommand{\konj}{^*}
+\usepackage{makeidx}
+\makeindex
+\usepackage[dvipsnames]{xcolor}
+
+% Margen
+\usepackage[margin=1in]{geometry}
+
+% Max antal kolonner i en matrix. Default er 10
+%\setcounter{MaxMatrixCols}{20}
+
+% Hvor dybt skal kapitler labeles?
+%\setcounter{secnumdepth}{4}	
+%\setcounter{tocdepth}{4}
+
+
+% Hvilket nummer skal der startes med i sections? (n-1)
+%\setcounter{section}{0}	
+
+% Til nummerering af ligninger. Så der står (afsnit.ligning) og ikke bare (ligning)
+\numberwithin{equation}{section}
+\date{}
+
+% Header
+%\usepackage{fancyhdr}
+%\head{Nikolai Plambech Nielsen, 21-06-95\\Dato:. Klasse 5.C - De Fysiske Fag}
+%\pagestyle{fancy}
+
+%Titel
+\title{Noter til KM1 på KU (Kvantemekanik 1)}
+\author{af Nikolai Plambech Nielsen, LPK331. Version 1.0}
+
+\begin{document}
+	
+	\selectlanguage{danish}
+	
+	\maketitle
+	\tableofcontents
+	
+	\section*{Introduktion}
+	
+	\newpage
+	\subfile{omslag}
+	\newpage
+	\subfile{Boelgefunkt}
+	
+\end{document}
+

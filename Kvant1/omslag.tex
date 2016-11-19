@@ -1,0 +1,83 @@
+\documentclass[Kvant1noter.tex]{subfiles}
+
+
+\begin{document}
+	
+	\section*{Fundamentale ligninger}
+	
+	\begin{tabular}[H]{>{\vspace{0.4cm}} l >{$\displaystyle} c <{$}}
+		Schrödingerligningen & i \hbar \diff{\Psi}{t} = H\Psi\\
+		Tidsuafhængige Schrödingerligning & H\psi = E\psi, \quad \Psi = \psi e^{-iEt/\hbar}\\
+		Hamiltonoperator & H = -\frac{\hbar^2}{2m} \grad^2 + V \\
+		Impulsoperator & \V{p} = -i \hbar \grad \\
+		Tidsafhængighed af forventningsværdi & \diff[d]{\langle Q \rangle}{t} = \frac{i}{\hbar} \langle [H,Q]\rangle + \brac[\bigg]{\diff{Q}{t}}\\
+		Generaliseret usikkerhedsrelation & \sigma_A \sigma_B \geq \vv{\frac{1}{2i} \langle [A,B]\rangle}\\
+		Heisenbergs usikkerhedsrelation & \sigma_x \sigma_p \geq \hbar/2 \\
+		Kanonisk kommutator & [x,p] = i\hbar \\
+		Angulært moment & [L_x,L_y] = i\hbar L_z, \quad [L_y,L_z] = i\hbar L_x, \quad [L_z,L_x] = i\hbar L_y\\
+		Paulimatricer & 
+		\sigma_x = \begin{pmatrix}
+			0 & 1 \\ 1 & 0 \end{pmatrix}, \quad 
+		\sigma_y = \begin{pmatrix}
+			0 & -i \\ i & 0 \end{pmatrix}, \quad 
+		\sigma_z = \begin{pmatrix}
+			1 & 0 \\ 0 & -1 \end{pmatrix}
+	\end{tabular}
+
+	\section*{Fundamentale konstante}
+	\begin{tabular}[H]{>{\vspace{0.4cm}} l <{\hspace{1cm}} >{$} r <{$}  l <{=} >{$} l <{$}}
+		Planks (reducerede) konstant & \hbar && 1.05457 \D 10^{-34} \e{J s} \\
+		Lysets hastighed & c && 2.99792 \D 10^8 \e{m/s}\\
+		Elektronmasse & m_e && 9.10938 \D 10^{-31} \e{kg} \\
+		Protonmasse & m_p && 1.67262 \D 10^{-27} \e{kg} \\
+		Elementarladning & e && 1.60218 \D 10^{-19} \e{C} \\
+		Vakuumpermitivitet & \epsilon_0 && 8.85419 \D 10^{-12} \e{C}^2/\e{J m} \\
+		Boltzmannkonstanten & k_B && 1.38065 \D 10^{-23} \e{J/K} 
+	\end{tabular}
+
+	\section*{Hydrogenatomet}
+	\begin{tabular}[H]{>{\vspace{0.4cm}} l <{\hspace{1cm}} >{$\displaystyle} r <{$}  l <{=} >{$\displaystyle} l <{$}  l >{$\displaystyle} l <{$} }
+		Finstrukturkonstanten & \alpha && \frac{e^2}{4 \pi \epsilon_0 \hbar c} & = & 1/137.036 \\
+		Bohrradius & a && \frac{4 \pi \epsilon_0 \hbar^2}{m_e e^2} = \frac{\hbar}{\alpha m_e c} & = & 5.29177 \D 10^{-11} \e{m} \\
+		Bohrenergier & E_n && - \frac{m_e e^4}{2(4\pi\epsilon_0)^2 \hbar^2 n^2} & = & \frac{E_1}{n^2}\  (n=1,2,3,...) \\
+		Bindingsenergi & -E_1 && \frac{\hbar^2}{2 m_e a^2} = \frac{\alpha^2 m_e c^2}{2} &=& 13.6057 \e{eV} \\
+		Grundstadie & \psi_0 && \frac{1}{\sqrt{\pi a^3}} e^{-r/a} && \\
+		Rydbergformlen & \frac{1}{\lambda} && R \pp{\frac{1}{n^2_f} - \frac{1}{n^2_i}} && \\
+		Rydbergkonstanten & R && -\frac{E_1}{2 \pi \hbar c} & = & 1.09737 \D 10^7\e{m}\inverse
+	\end{tabular}
+	
+	\section*{Matematiske formler}
+	Trigonometri
+	\begin{align*}
+		\sin (a\pm b) = \sin a \cos b \pm \cos a \sin b \\
+		\cos (a\pm b) = \cos a \cos b \mp \sin a \sin b
+	\end{align*}
+	\noindent
+	Cosinusrelationen ($c$ er siden over for vinklen $\theta$)
+	\begin{equation*}
+		c^2 = a^2 + b^2 - 2ab \cos \theta
+	\end{equation*}
+	\noindent
+	Integraler
+	\begin{align*}
+		\int x \sin ax \ud x = \frac{1}{a^2} \sin ax - \frac{x}{a} \cos ax \\
+		\int x \cos ax \ud x = \frac{1}{a^2} \cos ax + \frac{x}{a} \sin ax
+	\end{align*}
+	\noindent
+	Eksponentielle integraler
+	\begin{equation*}
+		\int_{0}^{\infty} x^n e^{-x/a} \ud x = n! a^{n+1}
+	\end{equation*}
+	\noindent
+	Gaussiske integraler
+	\begin{align*}
+		\int_{0}^{\infty} x^{2n} e^{-x^2/a^2} \ud x = \sqrt{\pi} \frac{(2n)!}{n!} \pp{\frac{a}{2}}^{2n+1} \\
+		\int_{0}^{\infty} x^{2n+1} e^{-x^2/a^2} \ud x = \frac{n!}{2} a^{2n+2}
+	\end{align*}
+	\noindent
+	Partiel integration (produktreglen for differentiation, baglens)
+	\begin{equation*}
+		\int_{a}^{b} f \diff[d]{g}{x} \ud x = - \int_{a}^{b} \diff[d]{f}{x} g \ud x + \bb{fg}^b_a
+	\end{equation*}
+	
+\end{document}
