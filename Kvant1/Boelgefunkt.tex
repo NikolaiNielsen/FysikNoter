@@ -5,6 +5,24 @@
 	\section{Bølgefunktionen}
 	
 	\subsection{Schrödingerligningen}
+	I klassisk mekanik går et problem oftest ud på at finde en partikels position til alle tider $ t $, $ \V{r}(t) $. Dette gøres ved at løse Newtons ligninger for passende begyndelsesbetingelser ($ \V{r}(0) = 0, \V{v}(0) = \V{k}, \V{a}(0) = 1/2 g\Vy $, eller hvad det nu kan være). Når positionen kendes, kan hastigheden og accelerationen udregnes, og ud fra disse tre størrelser (samt partiklens masse), kan alle andre relevante størrelser udledes.
+	
+	I kvantemekanik er historien dog lidt anderledes. Her skal partiklens \textit{bølgefunktion} $ \Psi(\V{r},t) $, og denne fås ved at løse Schrödingerligningen:
+	\begin{equation}\label{key}
+		i \hbar \diff{\Psi}{t} = - \frac{\hbar^2}{2 m} \diff{^2 \Psi}{x^2} + V\Psi
+	\end{equation}
+	hvor $ \hbar $ er Plancks (reducerede) konstant, $ i $ den imaginære enhed $ i^2 = -1 $, $ m $ partiklens masse og $ V $ er \textit{potentialet} hvori partiklen befinder sig. Klassisk set, kan potentialet bruges til at udlede accelerationen (såfremt det er konservative kraftfelter, hvor rotationen er 0. Kan du huske dit MatF1?): $ \V{F} = -\grad V $. Det bemærkes at bølgefunktionen generelt set er en \textit{kompleks} funktion, i modsætning til klassisk mekanik, hvor, hvis man fik et imaginært eller komplekst udtryk, havde man uden tvivl regnet forkert.
+	
+	\subsection{Den statistiske fortolkning}
+	Bølgefunktionen er dog lidt mystisk, for hvad er den \textit{egentlig} og hvad fortæller den os om partiklen vi nu prøver at beskrive? Det mystiske ved kvantemekanikken er, at det er \textit{ikkedeterministisk}, i modsætning til klassisk mekanik. Absolutkvadratet af bølgefunktionen beskriver nemlig \textit{sandsynligheden} for at finde en partikel i et bestemt punkt. Dette er den tyske fysiker Max Borns \textit{statistiske fortolkning} af bølgefunktionen. Nærmere bestemt er:
+	\begin{equation}\label{key}
+	\int_{a}^{b} | \Psi(x,t) |^2 \ud x = 
+	\begin{cases}
+		\text{sandsynligheden for at finde partiklen}\\
+		\text{mellem punkterne } a \text{ og } b, \text{ til tiden }t.
+	\end{cases}
+	\end{equation}
+	Dette vil altså sige, at sandsynligheden er arealet under grafen for $ |\Psi|^2 $. Det bemærkes, at selvom bølgefunktionen $ \Psi $ er en kompleks funktion, da er absolutkvadratet $ |\Psi|^2 = \Psi\konj \Psi $ både reel og positivt, som sandsynligheder skal være ($ \Psi \konj $ er bølgefunktionens kompleks konjugerede).
 	
 	
 	
