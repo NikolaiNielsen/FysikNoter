@@ -24,6 +24,89 @@
 	\end{equation}
 	Dette vil altså sige, at sandsynligheden er arealet under grafen for $ |\Psi|^2 $. Det bemærkes, at selvom bølgefunktionen $ \Psi $ er en kompleks funktion, da er absolutkvadratet $ |\Psi|^2 = \Psi\konj \Psi $ både reel og positivt, som sandsynligheder skal være ($ \Psi \konj $ er bølgefunktionens kompleks konjugerede).
 	
+	Hvis vi så foretager en måling på partiklen og den befandt sig i punktet $ x_0 $, så er et nærtliggende spørgsmål: hvor var den før? Der er tre ">hovedsvar"< til dette spørgsmål:
+	\begin{itemize}
+		\item \textbf{Realisten.} Partiklen var i punktet $ x_0 $, også før vi målte på den. Dette synspunkt medfører nødvendigvis, at kvantemekanik er en ufuldstændig teori, idet den ikke kunne fortælle os, at partiklen rent faktisk befandt sig i $ x_0 $. For dem er ikkedeterminismen af kvantemekanik ikke et naturfænomen, men rettere produktet af vores uvidenhed. Dette var også Einsteins syn på kvantemekanik (gud spiller ikke med terninger og alt det.)
+		
+		\item \textbf{Den Ortodokse/Københavnerfortolkningen.} Partiklen var \textit{ikke nogen steder} førend vi foretog målingen. Det var selve målingen der, så at sige, tvang partiklen til at befinde sig i punktet $ x_0 $. Dette kaldes for Københavnerfortolkningen, idet det var Bohr og hans tilhængere, der fortolkede kvantemekanikken på denne måde.
+		
+		\item \textbf{Den agnostiske.} Det giver ikke mening at spørge, hvor partiklen var førend målingen blev foretaget. Dette svarer til at spørge, hvor er nord, når man står på nordpolen.
+	\end{itemize}
 	
+	Hvis man foretager endnu en måling på partiklen, kort tid efter den første, vil man dog finde den i samme punkt, $ x_0 $, som før, også selvom bølgefunktionen måske siger, at dette er en statistisk umulighed. I følge Københavnerfortolkningen ændrer målingen på bølgefunktionen, den \textit{kollapser}, og bliver tilnærmelsesvist til en delta-funktion omkring $ x_0 $.
 	
+	Men hvad er en måling så? Indtil videre er det den type ting, som vi fysikere gør i laboratoriet med måleinstrumenter som linealer, Geigerrør, stopure og lignende.
+	
+	\section{Sandsynligheder} 
+	\subsection{Diskrete variable}
+	Idet det er en statistisk model, vi beskæftiger os med, huer det os at have et crash course i sandsynlighedsregning. Til dette startes der med diskrete variable. Lad os sige vi har en aldersfordeling af 14 mennesker, og vi lader $ N(j) $ repræsentere antallet af folk med alderen $ j $. Værdierne er som følger:
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{*{7}{c}}
+			$ j $ & 14 & 15 & 16 & 22 & 24 & 25 \\
+			$ N(j) $ & 1 & 1 & 3 & 2 & 2 & 5
+		\end{tabular}
+	\end{table}
+	mens $ N(j) $ for alle andre værdier af $ j $ er 0. Det \textbf{samlede antal mennesker} er
+	\begin{equation}\label{key}
+		N = \sum_{j=0}^{\infty} N(j).
+	\end{equation}
+	\textbf{Sandsynligheden for at en tilfældigt valgt person har alderen $ j $}, skrives som $ P(j) $ og er givet ved
+	\begin{equation}\label{key}
+		P(j) = \frac{N(j)}{N}.
+	\end{equation}
+	Sandsynligheden for at en person enten er 14 år \textit{eller} 15 år, er summen af de individuelle sandsynligheder, og den samlede sum må nødvendigvis være 1 (der er 100 procent chance for, at en person i aldersfordelingen har en alder, der er i aldersfordelingen. Tautologier, yay!):
+	\begin{equation}\label{key}
+		\sum_{j=0}^{\infty} P(j) = 1.
+	\end{equation}
+	Den \textbf{mest sandsynlige værdi} for denne aldersfordeling er $ 25 $, og er der hvor $ N(j) $ har sit maksimum. \textbf{Medianen} eller \textbf{midterværdien} er her 23, og er den værdi $ j $, hvor sandsynligheden for at vælge en person der er ældre/yngre er lige stor (i dette tilfælde 7 på hver side).
+	
+	\textbf{Middelværdien} skrives ved $ \brac{j} $ og er givet ved
+	\begin{equation}\label{key}
+		\brac{j} = \frac{\sum j N(j)}{N} = \sum_{j = 0}^{\infty} j P(j)
+	\end{equation}
+	Det ses, at den for dette datasæt er 21. Det observeres også, at ingen individer har hverken middelværdien eller medianværdien som deres alder.
+	
+	Generelt vil gennemsnittet af en given funktion $ f(j) $ være givet ved
+	\begin{equation}\label{key}
+		\brac{f(j)} = \sum_{j=0}^{\infty} f(j) P(j).
+	\end{equation}
+	Specielt bruges gennemsnittet af kvadraterne af $ j $ ofte: $ \brac{j^2} = \sum j^2 P(j) $. Denne bruges i forbindelse med spredningen af datasættet.
+	
+	Hvis man har differensen fra gennemsnittet $ \Delta j = j - \brac{j} $, vil gennemsnittet af denne være 0: $ \brac{\Delta j} = 0 $, hvilket giver god mening, grundet gennemsnittets natur, idet det halvdelen af tiden er større og halvdelen af tiden er lavere (ikke helt halvdelen, det er jo medianværdien, men værdierne summerer altid til 0). Men hvis man lige tager kvadratet af differensen, \textit{inden} man igen tager gennemsnittet fås \textbf{spredningen}, eller \textbf{variansen}:
+	\begin{equation}\label{key}
+		\sigma^2 = \brac{(\Delta j)^2}.
+	\end{equation}
+	Læg mærke til parentesernes rækkefølge! Man tager først differensen fra gennemsnittet, kvadrerer denne og så tager gennemsnittet af disse værdier. Kvadrat\textit{roden} af dette, $ \sigma $ er standardafvigelsen som vi kender den, og i praksis bruger man ikke denne formel. Her bruger man en anden formel, som man ret let kan bevise, hvis man har styr på sine summationstegnsregning:
+	\begin{equation}\label{key}
+		\sigma = \sqrt{\brac{j^2} - \brac{j}^2}
+	\end{equation}
+	Læg igen mærke til rækkefølgen! Her er det $ \brac{j^2} $ først (altså gennemsnittet af kvadratet), så $ \brac{j}^2 $ (altså det kvadrerede gennemsnit). Idet variansen altid er positiv (dette følger fra definitionen, da $ (\delta j)^2 $ altid er positivt), vil standardafvigelsen også altid være positiv. Dette giver følgende relation
+	\begin{equation}\label{key}
+		\brac{j^2} \geq \brac{j}^2
+	\end{equation}
+	hvor de kun er ens, hvis alle individer i fordelingen har samme værdi.
+	
+	\subsection{Kontinuerte variable}
+	Generaliseringen af disse formler til kontinuerte variable er ret ligefrem, men der er nogle ting, der lige skal slås fast. Sandsynligheden for at få én bestemt værdi for en måling er 0 (prøv at spørge en tilfældig person på gaden, om de er 32 år, 75 dage, 1 time og 23.234 sekunder gamle), og det giver da kun mening at snakke om sandsynligheden for at en måling ligger inden for et interval.
+	
+	Hvis man vælger dette interval så det er passende kort, vil sandsynligheden for at målingen ligger inden for intervallet være proportionelt med intervallets længde (det er cirka dobbelt så stor sandsynligt at en persons alder er mellem 16 år, og 16 år + 2 dage, end mellem 16 år, og 16 år + 1 dag). Helt specifikt snakkes der om infinitisemale intervaller:
+	\begin{equation}\label{key}
+		\rho(x) \ud x = \begin{cases}
+		\text{ sandsynligheden for at et tilfædig valgt}\\
+		\text{ individ ligger mellem } x \text{ og } x+\ud  x
+		\end{cases}
+	\end{equation}
+	Her kaldes proportionalitetsfaktoren $ \rho(x) $ for \textbf{sandsynlighedstætheden}. Sandsynligheden for at $ x $ ligger mellem det endelige interval $ a $ og $ b $ er da integralet af alle disse infinitisemale sandsynligheder:
+	\begin{equation}\label{key}
+		P_{ab} = \int_{a}^{b} \rho(x) \ud x.
+	\end{equation} 
+	Og alle de andre regler generaliseres ligeså:
+	\begin{align}\label{key}
+		1 &= \infint \rho(x) \ud x, \\
+		\brac{x} &= \infint x \rho (x) \ud x, \\
+		\brac{f(j)} &= \infint f(x) \rho(x) \ud x, \\
+		\sigma^2  &\equiv \brac{(\delta x)^2} = \brac{x^2} - \brac{x}^2.
+	\end{align}
 \end{document}
