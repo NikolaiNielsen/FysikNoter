@@ -37,8 +37,8 @@
 	
 	Men hvad er en måling så? Indtil videre er det den type ting, som vi fysikere gør i laboratoriet med måleinstrumenter som linealer, Geigerrør, stopure og lignende.
 	
-	\section{Sandsynligheder} 
-	\subsection{Diskrete variable}
+	\subsection{Sandsynligheder} 
+	\subsubsection{Diskrete variable}
 	Idet det er en statistisk model, vi beskæftiger os med, huer det os at have et crash course i sandsynlighedsregning. Til dette startes der med diskrete variable. Lad os sige vi har en aldersfordeling af 14 mennesker, og vi lader $ N(j) $ repræsentere antallet af folk med alderen $ j $. Værdierne er som følger:
 	
 	\begin{table}[H]
@@ -88,7 +88,7 @@
 	\end{equation}
 	hvor de kun er ens, hvis alle individer i fordelingen har samme værdi.
 	
-	\subsection{Kontinuerte variable}
+	\subsubsection{Kontinuerte variable}
 	Generaliseringen af disse formler til kontinuerte variable er ret ligefrem, men der er nogle ting, der lige skal slås fast. Sandsynligheden for at få én bestemt værdi for en måling er 0 (prøv at spørge en tilfældig person på gaden, om de er 32 år, 75 dage, 1 time og 23.234 sekunder gamle), og det giver da kun mening at snakke om sandsynligheden for at en måling ligger inden for et interval.
 	
 	Hvis man vælger dette interval så det er passende kort, vil sandsynligheden for at målingen ligger inden for intervallet være proportionelt med intervallets længde (det er cirka dobbelt så stor sandsynligt at en persons alder er mellem 16 år, og 16 år + 2 dage, end mellem 16 år, og 16 år + 1 dag). Helt specifikt snakkes der om infinitisemale intervaller:
@@ -109,4 +109,71 @@
 		\brac{f(j)} &= \infint f(x) \rho(x) \ud x, \\
 		\sigma^2  &\equiv \brac{(\delta x)^2} = \brac{x^2} - \brac{x}^2.
 	\end{align}
+	
+	
+	\subsection{Normalisering}
+	Nu tilbage til den statistiske fortolkning af bølgefunktionen. Hvis $ |\Psi|^2 $ skal være sandsynlighedstætheden for bølgens position (og andre relevante størrelser), må der nødvendigvis gælde:
+	\begin{equation}\label{key}
+		\infint |\Psi(x,t)|^2 \ud x = 1.
+	\end{equation}
+	I praksis gøres dette ved at gange en (kompleks) faktor $ A $ på bølgefunktionen $ \Psi $, hvilket er helt fint, idet Schrödingerligningen har fysikernes yndlingsegenskab: den er lineær! You get a superposition, and YOU get a superposition, EVERYONE GETS A SUPERPOSITION!
+	
+	Dette betyder selvfølgelig, at hvis $ \Psi_1 $ og $ \Psi_2 $ begge løser Schrödingerligningen, så vil enhver linearkombination af disse også løse ligningen. Det er dog ikke altid, at det kan lade sig gøre, at få integralet til at give 1. Eksempelvis hvis bølgefunktionen er uendelig, eller 0. Alle fysiske stadier kan dog beskrives ved kvadratisk integrable funktioner (funktioner, hvor det samlede integral kan gøres lig 1), hvilket er ret heldigt. Dette betyder også følgende:
+	\begin{equation}\label{key}
+		\Psi(-\infty,t) = \Psi(+\infty,t) = 0,
+	\end{equation}
+	altså at bølgefunktionen \textit{altid} går mod 0, i uendelig. 
+	
+	Det at gange en konstant på bølgefunktionen, for at få det kvadratiske integral til at give 1, kaldes for \textbf{normalisering} af bølgefunktionen, og bølgefunktioner, der ikke kan normaliseres kaldes, sjovt nok, for \textit{ikkenormaliserbare} løsninger.
+	
+	Det næste, naturlige spørgsmål er så, om denne faktor vi ganger på, rent faktisk er konstant. Nærmere betegnet, om bølgefunktionens integral udvikler sig i tid. Det gør det heldigvis ikke, hvilket man kan bevise ved at kigge på Schrödingerligningen og bruge det faktum at bølgefunktionen går mod 0 i uendeligt. Det vil altså sige:
+	\begin{equation}\label{key}
+		\diff[\ud]{}{t} \infint |\Psi(x,t)|^2 \ud x = 0
+	\end{equation}
+	og \textbf{hvis man normaliserer bølgefunktionen til ét tidspunkt (eksempelvis $ t=0 $) forbliver den normaliseret}.
+	
+	
+	\subsection{Impuls og operatorer}
+	For en partikel, der er beskrevet med bølgefunktionen $ \Psi $ (normalt siges det bare, at partiklen er i tilstanden $ \Psi $, hvilket også er hvad jeg skriver fra nu af, for det andet er træls), vil dens forventningsværdi af $ x $ være
+	\begin{equation}\label{key}
+		\brac{x} = \infint x |\Psi(x,t)|^2 \ud x.
+	\end{equation}
+	Dette betyder dog ikke, at hvis du foretager en hel masse målinger på partiklen, så vil $ \brac{x} $ være middelværdien af disse. Bølgefunktionen kollapser jo efter den første måling, og alle andre målinger herefter (såfremt de udføres hurtigt nok), giver den samme position. Forventningsværdien af $ x $ betyder rettere, at hvis man foretager én måling på en masse identiske partikler, alle i tilstanden $ \Psi $, så vil gennemsnittet af disse målinger være givet ved $ \brac{x} $.
+	
+	Hvis man tager den tidsligt afledte af denne størrelse får man, ved hjælp af randbetingelserne og to gange partiel integration:
+	\begin{equation}\label{key}
+		\diff[\ud]{\brac{x}}{t} = \frac{-i \hbar}{m} \infint \Psi\konj \diff{\Psi}{t} \ud x.
+	\end{equation}
+	Dette er hastigheden af \textit{forventningsværdien} af $ x $, hvilket ikke er det samme som partiklens hastighed. Ydermere, er det overhovedet ikke sikkert, hvad hastighed her betyder, idet partiklen ikke havde en veldefineret position, inden den blev målt. Det postuleres dog, at dette rent faktisk er forventningsværdien for partiklens hastighed, og det bevises senere i kurset.
+	
+	I kvantemekanik bruger man dog meget oftere impuls ($ p = mv $) end hastighed. Dermed fås
+	\begin{equation}\label{key}
+		\brac{p} = m \diff[\ud]{\brac{x}}{t} = -i \hbar \infint \Psi\konj \diff{\Psi}{t} \ud x.
+	\end{equation}
+	
+	Hvis disse skrives på en lidt anden måde, opstår et pænt mønster, som kommer til at blive brugt igen og igen:
+	\begin{align}\label{key} 
+		\brac{x} &= \infint \Psi\konj (x) \Psi \ud x, \\
+		\brac{p} &= \infint \Psi\konj \pp{\frac{h}{i} \diff{}{x}}\Psi \ud x.
+	\end{align}
+	Det, inde i parentesen i integralet kaldes for en \textbf{operator}, og operatoren $ x $ siges at ">repræsentere"< position, og operatoren $ -i\hbar \partial/\partial x $ siges at ">repræsentere"< impulsen. \textbf{I kvantemekanik regnes alle relevante størrelser altså ud, ved at tage størrelsens repræsentative operator, og smide den ind mellem $ \Psi\konj $ og $ \Psi $ i det uendelige integral.}
+	
+	Men hvad er en operator \textit{egentlig}? Jeg har ikke den formelle definition, men i dette kursus er det så at sige en instruks om, at der skal gøres noget, på den følgende funktion (i dette tilfælde $ \Psi $). I dette kursus består operatorer \textit{altid} af afledte ($ d/dt $, $ d^2/dt^2 $, el.lign.) og/eller multiplikative faktorer ($ 2 $, $ i $, $ x^2 $ el.lign.).
+	
+	I klassisk mekanik kan \textit{alle} relevante størrelser beskrives ved en kombination af position og impuls. Eksempelvis er den kinetiske energi $ T $ (eller $ E_k $, men den notation bruges ikke rigtig i kvant) givet ved
+	\begin{equation}\label{key}
+		T = \frac{1}{2} mv^2 = \frac{p^2}{2m}.
+	\end{equation}
+	For at regne forventningsværdien af en given størrelse $ Q(x,p) $, skal alle $ p $'er bare erstattes med $ -i\hbar (\partial / \partial x) $, og så skal udtrykket smides ind i midten af integralet, og hele skidtet integreres:
+	\begin{equation}\label{key}
+		\brac{Q(x,p)} = \infint \Psi\konj Q\pp{x, -i \hbar \diff{}{x}} \Psi \ud x.
+	\end{equation}
+	Og i tilfældet af den kinetiske energi, er forventningsværdien
+	\begin{equation}\label{key}
+		\brac{T} = \frac{-\hbar^2}{2m} \infint \Psi\konj \diff{^2 \Psi}{x^2} \ud x.
+	\end{equation}
+	
+	\subsubsection{Ehrenfests teorem og den hurtige metode til at regne forventningsværdier}
+	
+	
 \end{document}
