@@ -8,14 +8,14 @@
 	I klassisk mekanik går et problem oftest ud på at finde en partikels position til alle tider $ t $, $ \V{r}(t) $. Dette gøres ved at løse Newtons ligninger for passende begyndelsesbetingelser ($ \V{r}(0) = 0, \V{v}(0) = \V{k}, \V{a}(0) = 1/2 g\Vy $, eller hvad det nu kan være). Når positionen kendes, kan hastigheden og accelerationen udregnes, og ud fra disse tre størrelser (samt partiklens masse), kan alle andre relevante størrelser udledes.
 	
 	I kvantemekanik er historien dog lidt anderledes. Her skal partiklens \textit{bølgefunktion} $ \Psi(\V{r},t) $, og denne fås ved at løse Schrödingerligningen:
-	\begin{equation}\label{key}
+	\begin{equation}
 		i \hbar \diff{\Psi}{t} = - \frac{\hbar^2}{2 m} \diff{^2 \Psi}{x^2} + V\Psi
 	\end{equation}
 	hvor $ \hbar $ er Plancks (reducerede) konstant, $ i $ den imaginære enhed $ i^2 = -1 $, $ m $ partiklens masse og $ V $ er \textit{potentialet} hvori partiklen befinder sig. Klassisk set, kan potentialet bruges til at udlede accelerationen (såfremt det er konservative kraftfelter, hvor rotationen er 0. Kan du huske dit MatF1?): $ \V{F} = -\grad V $. Det bemærkes at bølgefunktionen generelt set er en \textit{kompleks} funktion, i modsætning til klassisk mekanik, hvor, hvis man fik et imaginært eller komplekst udtryk, havde man uden tvivl regnet forkert.
 	
 	\subsection{Den statistiske fortolkning}
 	Bølgefunktionen er dog lidt mystisk, for hvad er den \textit{egentlig} og hvad fortæller den os om partiklen vi nu prøver at beskrive? Det mystiske ved kvantemekanikken er, at det er \textit{ikkedeterministisk}, i modsætning til klassisk mekanik. Absolutkvadratet af bølgefunktionen beskriver nemlig \textit{sandsynligheden} for at finde en partikel i et bestemt punkt. Dette er den tyske fysiker Max Borns \textit{statistiske fortolkning} af bølgefunktionen. Nærmere bestemt er:
-	\begin{equation}\label{key}
+	\begin{equation}
 	\int_{a}^{b} | \Psi(x,t) |^2 \ud x = 
 	\begin{cases}
 		\text{sandsynligheden for at finde partiklen}\\
@@ -49,41 +49,41 @@
 		\end{tabular}
 	\end{table}
 	mens $ N(j) $ for alle andre værdier af $ j $ er 0. Det \textbf{samlede antal mennesker} er
-	\begin{equation}\label{key}
+	\begin{equation}
 		N = \sum_{j=0}^{\infty} N(j).
 	\end{equation}
 	\textbf{Sandsynligheden for at en tilfældigt valgt person har alderen $ j $}, skrives som $ P(j) $ og er givet ved
-	\begin{equation}\label{key}
+	\begin{equation}
 		P(j) = \frac{N(j)}{N}.
 	\end{equation}
 	Sandsynligheden for at en person enten er 14 år \textit{eller} 15 år, er summen af de individuelle sandsynligheder, og den samlede sum må nødvendigvis være 1 (der er 100 procent chance for, at en person i aldersfordelingen har en alder, der er i aldersfordelingen. Tautologier, yay!):
-	\begin{equation}\label{key}
+	\begin{equation}
 		\sum_{j=0}^{\infty} P(j) = 1.
 	\end{equation}
 	Den \textbf{mest sandsynlige værdi} for denne aldersfordeling er $ 25 $, og er der hvor $ N(j) $ har sit maksimum. \textbf{Medianen} eller \textbf{midterværdien} er her 23, og er den værdi $ j $, hvor sandsynligheden for at vælge en person der er ældre/yngre er lige stor (i dette tilfælde 7 på hver side).
 	
 	\textbf{Middelværdien} skrives ved $ \brac{j} $ og er givet ved
-	\begin{equation}\label{key}
+	\begin{equation}
 		\brac{j} = \frac{\sum j N(j)}{N} = \sum_{j = 0}^{\infty} j P(j)
 	\end{equation}
 	Det ses, at den for dette datasæt er 21. Det observeres også, at ingen individer har hverken middelværdien eller medianværdien som deres alder.
 	
 	Generelt vil gennemsnittet af en given funktion $ f(j) $ være givet ved
-	\begin{equation}\label{key}
+	\begin{equation}
 		\brac{f(j)} = \sum_{j=0}^{\infty} f(j) P(j).
 	\end{equation}
 	Specielt bruges gennemsnittet af kvadraterne af $ j $ ofte: $ \brac{j^2} = \sum j^2 P(j) $. Denne bruges i forbindelse med spredningen af datasættet.
 	
 	Hvis man har differensen fra gennemsnittet $ \Delta j = j - \brac{j} $, vil gennemsnittet af denne være 0: $ \brac{\Delta j} = 0 $, hvilket giver god mening, grundet gennemsnittets natur, idet det halvdelen af tiden er større og halvdelen af tiden er lavere (ikke helt halvdelen, det er jo medianværdien, men værdierne summerer altid til 0). Men hvis man lige tager kvadratet af differensen, \textit{inden} man igen tager gennemsnittet fås \textbf{spredningen}, eller \textbf{variansen}:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\sigma^2 = \brac{(\Delta j)^2}.
 	\end{equation}
 	Læg mærke til parentesernes rækkefølge! Man tager først differensen fra gennemsnittet, kvadrerer denne og så tager gennemsnittet af disse værdier. Kvadrat\textit{roden} af dette, $ \sigma $ er standardafvigelsen som vi kender den, og i praksis bruger man ikke denne formel. Her bruger man en anden formel, som man ret let kan bevise, hvis man har styr på sine summationstegnsregning:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\sigma = \sqrt{\brac{j^2} - \brac{j}^2}
 	\end{equation}
 	Læg igen mærke til rækkefølgen! Her er det $ \brac{j^2} $ først (altså gennemsnittet af kvadratet), så $ \brac{j}^2 $ (altså det kvadrerede gennemsnit). Idet variansen altid er positiv (dette følger fra definitionen, da $ (\delta j)^2 $ altid er positivt), vil standardafvigelsen også altid være positiv. Dette giver følgende relation
-	\begin{equation}\label{key}
+	\begin{equation}
 		\brac{j^2} \geq \brac{j}^2
 	\end{equation}
 	hvor de kun er ens, hvis alle individer i fordelingen har samme værdi.
@@ -92,18 +92,18 @@
 	Generaliseringen af disse formler til kontinuerte variable er ret ligefrem, men der er nogle ting, der lige skal slås fast. Sandsynligheden for at få én bestemt værdi for en måling er 0 (prøv at spørge en tilfældig person på gaden, om de er 32 år, 75 dage, 1 time og 23.234 sekunder gamle), og det giver da kun mening at snakke om sandsynligheden for at en måling ligger inden for et interval.
 	
 	Hvis man vælger dette interval så det er passende kort, vil sandsynligheden for at målingen ligger inden for intervallet være proportionelt med intervallets længde (det er cirka dobbelt så stor sandsynligt at en persons alder er mellem 16 år, og 16 år + 2 dage, end mellem 16 år, og 16 år + 1 dag). Helt specifikt snakkes der om infinitisemale intervaller:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\rho(x) \ud x = \begin{cases}
 		\text{ sandsynligheden for at et tilfædig valgt}\\
 		\text{ individ ligger mellem } x \text{ og } x+\ud  x
 		\end{cases}
 	\end{equation}
 	Her kaldes proportionalitetsfaktoren $ \rho(x) $ for \textbf{sandsynlighedstætheden}. Sandsynligheden for at $ x $ ligger mellem det endelige interval $ a $ og $ b $ er da integralet af alle disse infinitisemale sandsynligheder:
-	\begin{equation}\label{key}
+	\begin{equation}
 		P_{ab} = \int_{a}^{b} \rho(x) \ud x.
 	\end{equation} 
 	Og alle de andre regler generaliseres ligeså:
-	\begin{align}\label{key}
+	\begin{align}
 		1 &= \infint \rho(x) \ud x, \\
 		\brac{x} &= \infint x \rho (x) \ud x, \\
 		\brac{f(j)} &= \infint f(x) \rho(x) \ud x, \\
@@ -113,13 +113,13 @@
 	
 	\subsection{Normalisering}
 	Nu tilbage til den statistiske fortolkning af bølgefunktionen. Hvis $ |\Psi|^2 $ skal være sandsynlighedstætheden for bølgens position (og andre relevante størrelser), må der nødvendigvis gælde:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\infint |\Psi(x,t)|^2 \ud x = 1.
 	\end{equation}
 	I praksis gøres dette ved at gange en (kompleks) faktor $ A $ på bølgefunktionen $ \Psi $, hvilket er helt fint, idet Schrödingerligningen har fysikernes yndlingsegenskab: den er lineær! You get a superposition, and YOU get a superposition, EVERYONE GETS A SUPERPOSITION!
 	
 	Dette betyder selvfølgelig, at hvis $ \Psi_1 $ og $ \Psi_2 $ begge løser Schrödingerligningen, så vil enhver linearkombination af disse også løse ligningen. Det er dog ikke altid, at det kan lade sig gøre, at få integralet til at give 1. Eksempelvis hvis bølgefunktionen er uendelig, eller 0. Alle fysiske stadier kan dog beskrives ved kvadratisk integrable funktioner (funktioner, hvor det samlede integral kan gøres lig 1), hvilket er ret heldigt. Dette betyder også følgende:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\Psi(-\infty,t) = \Psi(+\infty,t) = 0,
 	\end{equation}
 	altså at bølgefunktionen \textit{altid} går mod 0, i uendelig. 
@@ -127,7 +127,7 @@
 	Det at gange en konstant på bølgefunktionen, for at få det kvadratiske integral til at give 1, kaldes for \textbf{normalisering} af bølgefunktionen, og bølgefunktioner, der ikke kan normaliseres kaldes, sjovt nok, for \textit{ikkenormaliserbare} løsninger.
 	
 	Det næste, naturlige spørgsmål er så, om denne faktor vi ganger på, rent faktisk er konstant. Nærmere betegnet, om bølgefunktionens integral udvikler sig i tid. Det gør det heldigvis ikke, hvilket man kan bevise ved at kigge på Schrödingerligningen og bruge det faktum at bølgefunktionen går mod 0 i uendeligt. Det vil altså sige:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\diff[\ud]{}{t} \infint |\Psi(x,t)|^2 \ud x = 0
 	\end{equation}
 	og \textbf{hvis man normaliserer bølgefunktionen til ét tidspunkt (eksempelvis $ t=0 $) forbliver den normaliseret}.
@@ -135,24 +135,24 @@
 	
 	\subsection{Impuls og operatorer}
 	For en partikel, der er beskrevet med bølgefunktionen $ \Psi $ (normalt siges det bare, at partiklen er i tilstanden $ \Psi $, hvilket også er hvad jeg skriver fra nu af, for det andet er træls), vil dens forventningsværdi af $ x $ være
-	\begin{equation}\label{key}
+	\begin{equation}
 		\brac{x} = \infint x |\Psi(x,t)|^2 \ud x.
 	\end{equation}
 	Dette betyder dog ikke, at hvis du foretager en hel masse målinger på partiklen, så vil $ \brac{x} $ være middelværdien af disse. Bølgefunktionen kollapser jo efter den første måling, og alle andre målinger herefter (såfremt de udføres hurtigt nok), giver den samme position. Forventningsværdien af $ x $ betyder rettere, at hvis man foretager én måling på en masse identiske partikler, alle i tilstanden $ \Psi $, så vil gennemsnittet af disse målinger være givet ved $ \brac{x} $.
 	
 	Hvis man tager den tidsligt afledte af denne størrelse får man, ved hjælp af randbetingelserne og to gange partiel integration:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\diff[\ud]{\brac{x}}{t} = \frac{-i \hbar}{m} \infint \Psi\konj \diff{\Psi}{t} \ud x.
 	\end{equation}
 	Dette er hastigheden af \textit{forventningsværdien} af $ x $, hvilket ikke er det samme som partiklens hastighed. Ydermere, er det overhovedet ikke sikkert, hvad hastighed her betyder, idet partiklen ikke havde en veldefineret position, inden den blev målt. Det postuleres dog, at dette rent faktisk er forventningsværdien for partiklens hastighed, og det bevises senere i kurset.
 	
 	I kvantemekanik bruger man dog meget oftere impuls ($ p = mv $) end hastighed. Dermed fås
-	\begin{equation}\label{key}
+	\begin{equation}
 		\brac{p} = m \diff[\ud]{\brac{x}}{t} = -i \hbar \infint \Psi\konj \diff{\Psi}{t} \ud x.
 	\end{equation}
 	
 	Hvis disse skrives på en lidt anden måde, opstår et pænt mønster, som kommer til at blive brugt igen og igen:
-	\begin{align}\label{key} 
+	\begin{align} 
 		\brac{x} &= \infint \Psi\konj (x) \Psi \ud x, \\
 		\brac{p} &= \infint \Psi\konj \pp{\frac{h}{i} \diff{}{x}}\Psi \ud x.
 	\end{align}
@@ -161,19 +161,52 @@
 	Men hvad er en operator \textit{egentlig}? Jeg har ikke den formelle definition, men i dette kursus er det så at sige en instruks om, at der skal gøres noget, på den følgende funktion (i dette tilfælde $ \Psi $). I dette kursus består operatorer \textit{altid} af afledte ($ d/dt $, $ d^2/dt^2 $, el.lign.) og/eller multiplikative faktorer ($ 2 $, $ i $, $ x^2 $ el.lign.).
 	
 	I klassisk mekanik kan \textit{alle} relevante størrelser beskrives ved en kombination af position og impuls. Eksempelvis er den kinetiske energi $ T $ (eller $ E_k $, men den notation bruges ikke rigtig i kvant) givet ved
-	\begin{equation}\label{key}
+	\begin{equation}
 		T = \frac{1}{2} mv^2 = \frac{p^2}{2m}.
 	\end{equation}
 	For at regne forventningsværdien af en given størrelse $ Q(x,p) $, skal alle $ p $'er bare erstattes med $ -i\hbar (\partial / \partial x) $, og så skal udtrykket smides ind i midten af integralet, og hele skidtet integreres:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\brac{Q(x,p)} = \infint \Psi\konj Q\pp{x, -i \hbar \diff{}{x}} \Psi \ud x.
 	\end{equation}
 	Og i tilfældet af den kinetiske energi, er forventningsværdien
-	\begin{equation}\label{key}
+	\begin{equation}
 		\brac{T} = \frac{-\hbar^2}{2m} \infint \Psi\konj \diff{^2 \Psi}{x^2} \ud x.
 	\end{equation}
 	
+	
 	\subsubsection{Ehrenfests teorem og den hurtige metode til at regne forventningsværdier}
+	En rigtig smart måde at regne komplicerede forventningsværdier på, er ved at bruge Ehrenfests teorem. Dette er beskrevet i teksten til problem 1.7, og siger følgende:
+	
+	\paragraph{Ehrenfests teorem.} Forventningsværdier følger klassiske love.
+	
+	Dette vil sige, at forventningsværdien for impuls for eksempel er ret nemt at udregne, hvis man har regnet forventningsværdien for positionen:
+	\begin{equation}\label{key}
+		\brac{p} = m \diff[\ud]{\brac{x}}{t}
+	\end{equation}
+	Ligeledes kan den kinetiske energi også regnes nemt:
+	\begin{equation}\label{key}
+		\brac{T} = \frac{\brac{p}^2}{2 m}
+	\end{equation}
+	Idet vi arbejder med konservative kraftfelter, kan kraften skrives som den negative gradient til et potential $ V $. Men dette potential indgår jo også i Schrödingerligningen, og hvis man skal bruge den tidsafledte af impulsen, kan denne fås ved at tage forventningsværdien af kraften (Newtons anden lov), som også er forventningsværdien af den negative gradient af potentialet (dette er også resultatet af problem 1.7):
+	\begin{equation}\label{key}
+		\diff[\ud]{\brac{p}}{t} = \brac[\bigg]{-\diff{V}{x}}
+	\end{equation}
+	
+	
+	
+	\subsection{Usikkerhedsprincippet}
+	Hvis man producerer en transversal sinusbølge langs et reb, er det ret nemt at specificere bølgelængden, jo længere sinusbølgen er. Til gengæld giver det ikke rigtig mening at spørge om bølgens position, idet den jo er fordelt over et ret stort stykke reb. Hvis man til gengæld bare sender én sinuslignende puls af sted langs rebet, er det modsatte sandt: positionen er nem at specificere, men bølgelængden er ikke særlig veldefineret. Dette betyder altså, at jo bedre defineret en bølges position er, jo værre defineret bliver dens bølgelængde.
+	
+	I MatF1 fik vi meget (meget) kort introduceret usikkerhedsprincippet fra Fourieranalyse, der er kvantificeringen af dette. I kvantemekanik er det sådan, at bølgelængde og impuls er relateret ved \textbf{de Broglies formel}:
+	\begin{equation}\label{key}
+		p = \frac{2\pi\hbar}{\lambda}
+	\end{equation}
+	hvormed en usikkerhed i bølgelængde giver en usikkerhed i impuls. Hvis man sætter alt dette sammen, får man det famøse \textbf{Heisenbergs Usikkerhedsprincip}:
+	\begin{equation}\label{key}
+		\sigma_x \sigma_p \geq \frac{\hbar}{2}
+	\end{equation}
+	hvor $ \sigma_x $ er standardafvigelsen i bølgens position og $ \sigma_p $ er standardafvigelsen af bølgens impuls. Læg også mærke til, at dette er en ulighed. Der er kun et minimum på produktet af standardafvigelserne, men ingen øvre grænse. Dette vil sige, at du kan lave en uhyre præcis måling af enten position eller impuls, men den anden bliver meget upræcis; men man kan også lave vildt upræcise målinger af \textit{begge} størrelser.	
+	
 	
 	
 \end{document}
