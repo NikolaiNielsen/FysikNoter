@@ -87,13 +87,13 @@
 	
 	\section*{(u)lige funktioner og deres bestemte integraler}
 	Herunder følger lige en kort note om lige og ulige funktioner, og hvordan deres bestemte integraler ret nemt kan regnes. Først en lille kort opfrisker hvad lige og ulige funktioner er. En funktion er lige om et punkt $ x_0 $, hvis den er spejlvendt om den lodrette linje gennem punktet. I formelsprog er dette
-	\begin{equation}\label{key}
+	\begin{equation}
 		f(x_0 + x) = f(x_0 - x)
 	\end{equation}
 	Et eksempel er $ \cos(x) $, der er lige, for eksempel omkring $ x_0 = 0 $.
 	
 	En funktion er lige omkring punktet $ x_0 $, hvis den er rotationssymmetrisk om punktet (Søm funktionen fast i $ x_0 $ og rotér den 180 grader om punktet. Hvis den er ens, så er funktionen ulige). Matematisk er dette
-	\begin{equation}\label{key}
+	\begin{equation}
 		f(x_0 + x) = - f(x_0 - x)
 	\end{equation}
 	Et eksempel er $ \sin(x) $, der er ulige omkring $ x_0 = 0 $.
@@ -103,31 +103,31 @@
 	En funktion \textbf{kan ikke både være lige eller ulige} (ud over det trivielle tilfælde $ 0 $). En funktion kan dog \textbf{godt} være hverken lige eller ulige ($ \exp(x) $), eksempelvis.
 	
 	Man kan \textbf{skabe} en lige og en ulige funktion (om $ x_0 = 0 $) fra enhver funktion $ f(x) $. Følgende funktion er \textit{lige}
-	\begin{equation}\label{key}
+	\begin{equation}
 		f_e (x) = f(x) + f(-x).
 	\end{equation}
 	Og følgende funktion er \textit{ulige}:
-	\begin{equation}\label{key}
+	\begin{equation}
 		f_o (x) = f(x) - f(-x).
 	\end{equation}
 	Dette kan indses, hvis man skifter koordinat fra $ x $ til $ -x $:
-	\begin{align}\label{key}
+	\begin{align}
 		f_e (-x) &= f(-x) + f(-[-x]) = f(-x) + f(x) = f_e (x) \\
 		f_o (-x) &= f(-x) - f(-[-x]) = f(-x) - f(x) = - f_o (x)
 	\end{align}
 	
 	\subsection*{Integraler af lige og ulige funktioner}
 	Integraler af lige og ulige funktioner, omkring deres symmetripunkter, er ret nemme. For funktioner, der er \textbf{ulige} omkring punktet $ x_0 $ fås:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\int_{x_0-a}^{x_0} f(x) \ud x = - \int_{x_0}^{x_0 + a} f(x) \ud x, \quad \Rightarrow \quad \int_{x_0 - a}^{x_0 + a} f(x) \ud x = 0
 	\end{equation}
 	For funktioner, der er \textbf{lige} om $ x_0 $ gælder
-	\begin{equation}\label{key}
+	\begin{equation}
 		\int_{x_0 - a}^{x_0} f(x) \ud x = \int_{x_0}^{x_0 + a} f(x) \ud x, \quad \Rightarrow \quad \int_{x_0 - a}^{x_0 + a} f(x) \ud x = 2 \int_{x_0}^{x_0 + a} f(x) \ud x 
 	\end{equation}
 	
 	Ofte skal uendelige integraler løses, og disse kan gøres nemmere ved symmetribetragtninger. Specielt gælder det også, at hvis vi arbejder med kvadratisk integrable funktioner (kvadrerede funktioner, hvis uendelige integral giver en endelig værdi: $ \infint |f(x)|^2 \ud x \neq \infty $) gælder de samme regler for deres integraler:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\infint f_{\text{ulige}}(x) \ud x = 0, \quad \infint f_{\text{lige}}(x) \ud x = 2 \int_{0}^{\infty} f_{\text{lige}}(x) \ud x
 	\end{equation}
 		
