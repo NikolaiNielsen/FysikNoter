@@ -10,7 +10,7 @@
 		Tidsuafhængige Schrödingerligning & H\psi = E\psi, \quad \Psi = \psi e^{-iEt/\hbar}\\
 		Hamiltonoperator & H = -\frac{\hbar^2}{2m} \grad^2 + V \\
 		Impulsoperator & \V{p} = -i \hbar \grad \\
-		Tidsafhængighed af forventningsværdi & \diff[d]{\langle Q \rangle}{t} = \frac{i}{\hbar} \langle [H,Q]\rangle + \brac[\bigg]{\diff{Q}{t}}\\
+		Tidsafhængighed af forventningsværdi & \diff[\ud]{\langle Q \rangle}{t} = \frac{i}{\hbar} \langle [H,Q]\rangle + \brac[\bigg]{\diff{Q}{t}}\\
 		Generaliseret usikkerhedsrelation & \sigma_A \sigma_B \geq \vv{\frac{1}{2i} \langle [A,B]\rangle}\\
 		Heisenbergs usikkerhedsrelation & \sigma_x \sigma_p \geq \hbar/2 \\
 		Kanonisk kommutator & [x,p] = i\hbar \\
@@ -83,5 +83,78 @@
 	\begin{equation*}
 		\int_{a}^{b} f \diff[d]{g}{x} \ud x = - \int_{a}^{b} \diff[d]{f}{x} g \ud x + \bb{fg}^b_a
 	\end{equation*}
+	\newpage
+	
+	\section*{(u)lige funktioner og deres bestemte integraler}
+	Herunder følger lige en kort note om lige og ulige funktioner, og hvordan deres bestemte integraler ret nemt kan regnes. Først en lille kort opfrisker hvad lige og ulige funktioner er. En funktion er lige om et punkt $ x_0 $, hvis den er spejlvendt om den lodrette linje gennem punktet. I formelsprog er dette
+	\begin{equation}\label{key}
+		f(x_0 + x) = f(x_0 - x)
+	\end{equation}
+	Et eksempel er $ \cos(x) $, der er lige, for eksempel omkring $ x_0 = 0 $.
+	
+	En funktion er lige omkring punktet $ x_0 $, hvis den er rotationssymmetrisk om punktet (Søm funktionen fast i $ x_0 $ og rotér den 180 grader om punktet. Hvis den er ens, så er funktionen ulige). Matematisk er dette
+	\begin{equation}\label{key}
+		f(x_0 + x) = - f(x_0 - x)
+	\end{equation}
+	Et eksempel er $ \sin(x) $, der er ulige omkring $ x_0 = 0 $.
+	
+	Selve ordene ulige og lige er fra polynomier, der er (u)lige, hvis deres højeste potens af $ x $ er (u)lige. $ x $ er ulige, $ x^2 $ er lige, $ x^3 $ er ulige, etc.
+	
+	En funktion \textbf{kan ikke både være lige eller ulige} (ud over det trivielle tilfælde $ 0 $). En funktion kan dog \textbf{godt} være hverken lige eller ulige ($ \exp(x) $), eksempelvis.
+	
+	Man kan \textbf{skabe} en lige og en ulige funktion (om $ x_0 = 0 $) fra enhver funktion $ f(x) $. Følgende funktion er \textit{lige}
+	\begin{equation}\label{key}
+		f_e (x) = f(x) + f(-x).
+	\end{equation}
+	Og følgende funktion er \textit{ulige}:
+	\begin{equation}\label{key}
+		f_o (x) = f(x) - f(-x).
+	\end{equation}
+	Dette kan indses, hvis man skifter koordinat fra $ x $ til $ -x $:
+	\begin{align}\label{key}
+		f_e (-x) &= f(-x) + f(-[-x]) = f(-x) + f(x) = f_e (x) \\
+		f_o (-x) &= f(-x) - f(-[-x]) = f(-x) - f(x) = - f_o (x)
+	\end{align}
+	
+	\subsection*{Integraler af lige og ulige funktioner}
+	Integraler af lige og ulige funktioner, omkring deres symmetripunkter, er ret nemme. For funktioner, der er \textbf{ulige} omkring punktet $ x_0 $ fås:
+	\begin{equation}\label{key}
+		\int_{x_0-a}^{x_0} f(x) \ud x = - \int_{x_0}^{x_0 + a} f(x) \ud x, \quad \Rightarrow \quad \int_{x_0 - a}^{x_0 + a} f(x) \ud x = 0
+	\end{equation}
+	For funktioner, der er \textbf{lige} om $ x_0 $ gælder
+	\begin{equation}\label{key}
+		\int_{x_0 - a}^{x_0} f(x) \ud x = \int_{x_0}^{x_0 + a} f(x) \ud x, \quad \Rightarrow \quad \int_{x_0 - a}^{x_0 + a} f(x) \ud x = 2 \int_{x_0}^{x_0 + a} f(x) \ud x 
+	\end{equation}
+	
+	Ofte skal uendelige integraler løses, og disse kan gøres nemmere ved symmetribetragtninger. Specielt gælder det også, at hvis vi arbejder med kvadratisk integrable funktioner (kvadrerede funktioner, hvis uendelige integral giver en endelig værdi: $ \infint |f(x)|^2 \ud x \neq \infty $) gælder de samme regler for deres integraler:
+	\begin{equation}\label{key}
+		\infint f_{\text{ulige}}(x) \ud x = 0, \quad \infint f_{\text{lige}}(x) \ud x = 2 \int_{0}^{\infty} f_{\text{lige}}(x) \ud x
+	\end{equation}
+		
+	\subsection*{Algebraiske regler for (u)lige funktioner}
+	Den følgende liste af regler er løftet direkte fra Wikipedia, \href{https://en.wikipedia.org/wiki/Even_and_odd_functions}{link}. Hvis der står (u)lige betyder det, at det gælder for \textit{både} lige og ulige funktioner
+	
+	\subsubsection*{Addition og subtraktion}
+	\begin{itemize}
+		\item Summen af to (u)lige funktioner er (u)lige (og enhver konstant ganget med en (u)lige funktion er også (u)lige)
+		\item Differensen af to (u)lige funktioner er (u)lige
+		\item Summen af en lige og ulige funktion er hverken lige eller ulige, med mindre en af funktionerne er 0 over hele domænet (du ved, det trivielle tilfælde).
+	\end{itemize}
+	
+	\subsubsection*{Multiplikation og division}
+	\begin{itemize}
+		\item Produktet af to (u)lige funktioner er en \textit{lige} funktion
+		\item Produktet af en lige og en ulige funktion er en \textit{ulige} funktion
+		\item kvotienten af to (u)lige funktioner er en \textit{lige} funktion
+		\item kvotienten af en lige og en ulige funktion er en \textit{ulige} funktion
+	\end{itemize}
+	
+	\subsubsection*{Sammensatte funktioner}
+	\begin{itemize}
+		\item Sammensætningen af to (u)lige funktioner er (u)lige
+		\item sammensætningen af en lige funktion og en ulige funktion er lige
+		\item Sammensætningen af enhver funktion \textit{med} en \textit{lige} funktion, er en \textit{lige} funktion (men ikke nødvendigvis omvendt)
+	\end{itemize}
+
 	
 \end{document}
