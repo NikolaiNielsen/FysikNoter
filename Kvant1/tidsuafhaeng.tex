@@ -1,0 +1,76 @@
+\documentclass[Kvant1noter.tex]{subfiles}
+
+\begin{document}
+	
+	
+	\section{Den tidsuafhængige Schrödingerligning}
+	For at løse Schrödinger ligningen antages det først i dette kapitel (og i det meste af bogen), at potentialet $ V(x,t) $ er \textit{uafhængigt af} $ t $. I dette tilfælde, kan ligningen løses ved separation af de variable. Juhu! Altså:
+	\begin{equation}
+		i\hbar \diff{\Psi(x,t)}{t} = -\frac{\hbar^2}{2m} \diff{^2 \Psi(x,t)}{x^2} + V(x)\Psi(x,t) \quad \Rightarrow \quad \Psi(x,t) = \psi(x)\varphi(t).
+	\end{equation}
+	Som sædvanligt vil dette kun give et undersæt af de mulige løsninger til ligningen, men de har en masse gode egenskaber, og den generelle løsning til ligningen kan som oftest konstrueres fra de separable løsninger. Efter den normale behandling af separation af de variable (indsæt den antagede løsningsform, og divider igennem med den), fås
+	\begin{equation}
+		i \hbar \frac{1}{\varphi} \diff[\ud]{\varphi}{t} = - \frac{\hbar^2}{2m} \frac{1}{\psi} \diff[\ud]{^2 \psi}{x} + V
+	\end{equation}
+	Læg mærke til symbolerne og de variable. Det er almindeligt afledte nu, og på venstre side står der kun noget, der afhænger af tid, og på højre noget, der kun afhænger af position. For at dette må være en løsning, må begge disse da være konstante! Denne konstant vælger vi at kalde $ E $, da dette er ret smart (kan du gætte hvorfor?). De to ligninger lyder da (efter lidt omrokering)
+	\begin{equation}
+		\diff[\ud]{\varphi}{t} = -\frac{iE}{\hbar} \varphi, \quad - \frac{\hbar^2}{2m} \diff[\ud]{^2 \psi}{x^2} + V\psi = E \psi
+	\end{equation}
+	Det ses da, at hvis $ V $ havde afhængt både af $ x $ og $ t $, ville denne ikke generelt kunne separeres. Den første ligning har løsningen $ C \exp(-iEt/\hbar) $, men konstanten $ C $ kan lige så godt absorberes i $ \psi $, idet det er produktet af de to funktioner, der er betydende (plus, så kommer den bare med i normaliseringen til sidst). Dermed:
+	\begin{equation}
+		\varphi(t) = e^{-iEt/\hbar}
+	\end{equation}
+	Den anden ligning kaldes for den \textbf{Tidsuafhænginge Schrödingerligning}, og vi kommer ingen løsning nærmere, med mindre potentialet $ V(x) $ specificeres. Separable løsninger har tre vigtige egenskaber:
+	\paragraph{De er stationære stadier.} Selvom bølgefunktionen, $ \Psi(x,t) = \psi(x) e^{-iEt/\hbar}$, afhænger af tid, så gør sandsynlighedstætheden det ikke:
+	\begin{equation}
+		|\Psi(x,t)|^2 = \psi\konj e^{iEt/\hbar} \psi \konj e^{-iEt/\hbar} = |\psi(x)|^2.
+	\end{equation}
+	De tidslige dele går nemlig ud med hinanden, når absolutkvadratet tages! Det samme gør sig faktisk gældende for udregning af forventningsværdien af enhver dynamisk variabel $ Q $, idet:
+	\begin{equation}
+		\brac{Q(x,p)} = \infint \psi\konj Q\pp{x, -i\hbar\diff[\ud]{}{x}} \psi \ud x.
+	\end{equation}
+	Her går de tidslige komponenter nemlig også ud, idet $ Q $ ikke afhænger af tiden, og dermed ikke ændrer på disse. Dette betyder da, at forventningsværdien altid er konstant i tid! Dermed arbejdes der som oftest kun med $ \psi $, fordi $ \varphi $ for det meste er lige meget. Den har altid den samme form, og det er kun når den samlede bølgefunktion skal opgives, at det er nødvendigt at smide den med. Det ses da, at $ \brac{x} $ er konstant, og dermed fra Ehrenfests teorem, må $ \brac{p} = 0 $, altid.
+	
+	I klassisk mekanik, er den samlede mekaniske energi (kinetisk plus potentiel) givet ved Hamiltonen:
+	\begin{equation}\label{key}
+		H(x,p) = \frac{p^2}{2m} + V(x).
+	\end{equation}
+	Og det ses, at hvis man substituerer impulsen med dens kvantemekaniske modpart, fås
+	\begin{equation}\label{key}
+		\op{H} =  - \frac{\hbar^2}{2 m} \diff{^2}{x^2} + V(x),
+	\end{equation}
+	Og dermed kan den tidsuafhængige Schrödingerligning skrives kompakt ved
+	\begin{equation}\label{key}
+		\op{H}\psi = E\psi.
+	\end{equation}
+	Ved dette, kan standardafvigelsen i $ H $ udregnes gennem dennes forventningsværdier:
+	\begin{equation}\label{key}
+		\brac{H} = E, \quad \brac{H^2} = E^2 \quad \Rightarrow \sigma_H^2 = \brac{H^2}- \brac{H}^2 = E^2-E^2 = 0.
+	\end{equation}
+	Dette sker kun, hvis alle individer i en given population har den samme værdi for $ H $. Dette vil altså at enhver måling af den samlede energi, giver $ E $. Se nu, hvor smart det var, at kalde separationskonstanten for $ E $!.
+	
+	
+	\paragraph{De er tilstande med bestemt total energi.}
+	I klassisk mekanik, kan den totale mekaniske energi (kinetisk plus potentiel) beskrives ved hamiltonen:
+	\begin{equation}\label{key}
+		H(p,x) = \frac{p^2}{2m} + V(x).
+	\end{equation}
+	Og ved substitution med den kvantemekaniske ækvivalent til impulsen, fås \textit{Hamiltonoperatoren}:
+	\begin{equation}\label{key}
+		\op{H} = - \frac{\hbar^2}{2m} \diff{^2}{x^2} + V(x).
+	\end{equation}
+	Og med dette kan den tidsuafhængige Schrödingerligning skrives på den kompakte form
+	\begin{equation}\label{key}
+		\op{H}\psi = E\psi
+	\end{equation}
+	Variansen i $ H $ kan udregnes ved dennes forventningsværdier:
+	\begin{equation}\label{key}
+		\brac{H} = E, \quad \brac{H^2} = E^2, \quad \Rightarrow \quad \sigma_H^2 = \brac{H^2}- \brac{H}^2 = E^2 - E^2 = 0
+	\end{equation}
+	Dette betyder, at alle individer af populationen har den samme værdi! I dette tilfælde vil det sige, at enhver måling på en partikel i tilstanden $ \psi $, vil give energien $ E $. Se nu, hvor smart det var at kalde separationskonstanten for $ E $!
+	
+	\paragraph{Den generelle løsning er en lineær kombination af separable løsninger.}
+	
+	
+	
+\end{document}

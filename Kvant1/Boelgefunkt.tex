@@ -45,7 +45,7 @@
 		\centering
 		\begin{tabular}{*{7}{c}}
 			$ j $ & 14 & 15 & 16 & 22 & 24 & 25 \\
-			$ N(j) $ & 1 & 1 & 3 & 2 & 2 & 5
+			\hline $ N(j) $ & 1 & 1 & 3 & 2 & 2 & 5
 		\end{tabular}
 	\end{table}
 	mens $ N(j) $ for alle andre værdier af $ j $ er 0. Det \textbf{samlede antal mennesker} er
@@ -64,7 +64,7 @@
 	
 	\textbf{Middelværdien} skrives ved $ \brac{j} $ og er givet ved
 	\begin{equation}
-		\brac{j} = \frac{\sum j N(j)}{N} = \sum_{j = 0}^{\infty} j P(j)
+		\brac{j} = \frac{\sum_0^{\infty} j N(j)}{N} = \sum_{j = 0}^{\infty} j P(j)
 	\end{equation}
 	Det ses, at den for dette datasæt er 21. Det observeres også, at ingen individer har hverken middelværdien eller medianværdien som deres alder.
 	
@@ -156,7 +156,7 @@
 		\brac{x} &= \infint \Psi\konj (x) \Psi \ud x, \\
 		\brac{p} &= \infint \Psi\konj \pp{\frac{h}{i} \diff{}{x}}\Psi \ud x.
 	\end{align}
-	Det, inde i parentesen i integralet kaldes for en \textbf{operator}, og operatoren $ x $ siges at ">repræsentere"< position, og operatoren $ -i\hbar \partial/\partial x $ siges at ">repræsentere"< impulsen. \textbf{I kvantemekanik regnes alle relevante størrelser altså ud, ved at tage størrelsens repræsentative operator, og smide den ind mellem $ \Psi\konj $ og $ \Psi $ i det uendelige integral.}
+	Det, inde i parentesen i integralet kaldes for en \textbf{operator}, og operatoren $ \op{x} = x $ siges at ">repræsentere"< position, og operatoren $ \op{p} = -i\hbar \partial/\partial x $ siges at ">repræsentere"< impulsen. \textbf{I kvantemekanik regnes alle relevante størrelser altså ud, ved at tage størrelsens repræsentative operator, og smide den ind mellem $ \Psi\konj $ og $ \Psi $ i det uendelige integral.}
 	
 	Men hvad er en operator \textit{egentlig}? Jeg har ikke den formelle definition, men i dette kursus er det så at sige en instruks om, at der skal gøres noget, på den følgende funktion (i dette tilfælde $ \Psi $). I dette kursus består operatorer \textit{altid} af afledte ($ d/dt $, $ d^2/dt^2 $, el.lign.) og/eller multiplikative faktorer ($ 2 $, $ i $, $ x^2 $ el.lign.).
 	
@@ -164,13 +164,13 @@
 	\begin{equation}
 		T = \frac{1}{2} mv^2 = \frac{p^2}{2m}.
 	\end{equation}
-	For at regne forventningsværdien af en given størrelse $ Q(x,p) $, skal alle $ p $'er bare erstattes med $ -i\hbar (\partial / \partial x) $, og så skal udtrykket smides ind i midten af integralet, og hele skidtet integreres:
+	For at regne forventningsværdien af en given størrelse (operator) $ \op{Q}(x,p) $, skal alle $ p $'er bare erstattes med $ \op{p} = -i\hbar (\partial / \partial x) $, og så skal udtrykket smides ind i midten af integralet, og hele skidtet integreres:
 	\begin{equation}
-		\brac{Q(x,p)} = \infint \Psi\konj Q\pp{x, -i \hbar \diff{}{x}} \Psi \ud x.
+		\brac{\op{Q}(x,p)} = \infint \Psi\konj \op{Q}\pp{x, -i \hbar \diff{}{x}} \Psi \ud x.
 	\end{equation}
 	Og i tilfældet af den kinetiske energi, er forventningsværdien
 	\begin{equation}
-		\brac{T} = \frac{-\hbar^2}{2m} \infint \Psi\konj \diff{^2 \Psi}{x^2} \ud x.
+		\brac{\op{T}} = \frac{-\hbar^2}{2m} \infint \Psi\konj \diff{^2 \Psi}{x^2} \ud x.
 	\end{equation}
 	
 	
@@ -181,15 +181,15 @@
 	
 	Dette vil sige, at forventningsværdien for impuls for eksempel er ret nemt at udregne, hvis man har regnet forventningsværdien for positionen:
 	\begin{equation}
-		\brac{p} = m \diff[\ud]{\brac{x}}{t}
+		\brac{\op{p}} = m \diff[\ud]{\brac{x}}{t}
 	\end{equation}
 	Ligeledes kan den kinetiske energi også regnes nemt:
 	\begin{equation}
-		\brac{T} = \frac{\brac{p^2}}{2 m}
+		\brac{\op{T}} = \frac{\brac{p^2}}{2 m}
 	\end{equation}
 	Idet vi arbejder med konservative kraftfelter, kan kraften skrives som den negative gradient til et potential $ V $. Men dette potential indgår jo også i Schrödingerligningen, og hvis man skal bruge den tidsafledte af impulsen, kan denne fås ved at tage forventningsværdien af kraften (Newtons anden lov), som også er forventningsværdien af den negative gradient af potentialet (dette er også resultatet af problem 1.7):
 	\begin{equation}
-		\diff[\ud]{\brac{p}}{t} = \brac[\bigg]{-\diff{V}{x}}
+		\diff[\ud]{\brac{\op{p}}}{t} = \brac[\bigg]{-\diff{V}{x}}
 	\end{equation}
 	
 	
