@@ -4,6 +4,7 @@
 	
 	
 	\section{Den tidsuafhængige Schrödingerligning}
+	\subsection{Stationære tilstande}
 	For at løse Schrödinger ligningen antages det først i dette kapitel (og i det meste af bogen), at potentialet $ V(x,t) $ er \textit{uafhængigt af} $ t $. I dette tilfælde, kan ligningen løses ved separation af de variable. Juhu! Altså:
 	\begin{equation}
 		i\hbar \diff{\Psi(x,t)}{t} = -\frac{\hbar^2}{2m} \diff{^2 \Psi(x,t)}{x^2} + V(x)\Psi(x,t) \quad \Rightarrow \quad \Psi(x,t) = \psi(x)\varphi(t).
@@ -32,19 +33,19 @@
 	Her går de tidslige komponenter nemlig også ud, idet $ Q $ ikke afhænger af tiden, og dermed ikke ændrer på disse. Dette betyder da, at forventningsværdien altid er konstant i tid! Dermed arbejdes der som oftest kun med $ \psi $, fordi $ \varphi $ for det meste er lige meget. Den har altid den samme form, og det er kun når den samlede bølgefunktion skal opgives, at det er nødvendigt at smide den med. Det ses da, at $ \brac{x} $ er konstant, og dermed fra Ehrenfests teorem, må $ \brac{p} = 0 $, altid.
 	
 	I klassisk mekanik, er den samlede mekaniske energi (kinetisk plus potentiel) givet ved Hamiltonen:
-	\begin{equation}\label{key}
+	\begin{equation}
 		H(x,p) = \frac{p^2}{2m} + V(x).
 	\end{equation}
 	Og det ses, at hvis man substituerer impulsen med dens kvantemekaniske modpart, fås
-	\begin{equation}\label{key}
+	\begin{equation}
 		\op{H} =  - \frac{\hbar^2}{2 m} \diff{^2}{x^2} + V(x),
 	\end{equation}
 	Og dermed kan den tidsuafhængige Schrödingerligning skrives kompakt ved
-	\begin{equation}\label{key}
+	\begin{equation}
 		\op{H}\psi = E\psi.
 	\end{equation}
 	Ved dette, kan standardafvigelsen i $ H $ udregnes gennem dennes forventningsværdier:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\brac{H} = E, \quad \brac{H^2} = E^2 \quad \Rightarrow \sigma_H^2 = \brac{H^2}- \brac{H}^2 = E^2-E^2 = 0.
 	\end{equation}
 	Dette sker kun, hvis alle individer i en given population har den samme værdi for $ H $. Dette vil altså at enhver måling af den samlede energi, giver $ E $. Se nu, hvor smart det var, at kalde separationskonstanten for $ E $!.
@@ -52,25 +53,41 @@
 	
 	\paragraph{De er tilstande med bestemt total energi.}
 	I klassisk mekanik, kan den totale mekaniske energi (kinetisk plus potentiel) beskrives ved hamiltonen:
-	\begin{equation}\label{key}
+	\begin{equation}
 		H(p,x) = \frac{p^2}{2m} + V(x).
 	\end{equation}
 	Og ved substitution med den kvantemekaniske ækvivalent til impulsen, fås \textit{Hamiltonoperatoren}:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\op{H} = - \frac{\hbar^2}{2m} \diff{^2}{x^2} + V(x).
 	\end{equation}
 	Og med dette kan den tidsuafhængige Schrödingerligning skrives på den kompakte form
-	\begin{equation}\label{key}
+	\begin{equation}
 		\op{H}\psi = E\psi
 	\end{equation}
 	Variansen i $ H $ kan udregnes ved dennes forventningsværdier:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\brac{H} = E, \quad \brac{H^2} = E^2, \quad \Rightarrow \quad \sigma_H^2 = \brac{H^2}- \brac{H}^2 = E^2 - E^2 = 0
 	\end{equation}
 	Dette betyder, at alle individer af populationen har den samme værdi! I dette tilfælde vil det sige, at enhver måling på en partikel i tilstanden $ \psi $, vil give energien $ E $. Se nu, hvor smart det var at kalde separationskonstanten for $ E $!
 	
 	\paragraph{Den generelle løsning er en lineær kombination af separable løsninger.}
+	Det viser sig, at der for alle de potentialer vi møder, er uendeligt mange løsninger til den tidsuafhængige Schrödingerligning, $ \psi_1 $, $ \psi_2 $, etc, hver med sin energi $ E_1 $, $ E_2 $, etc. Ydermere viser det sig, at enhver løsning til den tidsafhængige (altså \textit{med} tid) kan opskrives som en linearkombination af disse løsninger (idet de er komplette, som vi kommer mere ind på i kapitel 3. Det er lige som med $ \sin $ og $ \cos $ for Fourierrækker). Først konstrueres $ \Psi(x,0) $ ud fra løsningerne til den tids\textit{uafhængige} Schrödingerligning:
+	\begin{equation}\label{key}
+		\Psi(x,0) = \sum_{n = 1}^{\infty} c_n \psi_n(x)
+	\end{equation}
+	Og da smides den karakteristiske tidsfaktor bare på hvert led, for at få tidsudviklingen med:
+	\begin{equation}
+		\Psi(x,t) = \sum_{n = 1}^{\infty} c_n \psi_n(x) e^{-iE_n t / \hbar} = \sum_{n = 1}^{\infty} c_n \Psi_n(x,t)
+	\end{equation}
+	Spørgsmålet er bare at finde de konstante $ c_n $.
+	Det ses, at $ \Psi_n $ alle er stationære tilstande, idet tidsudviklingen går ud med sig selv, når absolutkvadratet regnes ($ |\exp{-iE_n t / \hbar}|^2 = 1 $). Dette betyder dog \textit{ikke}, at det samme gør sig gældende for de generelle løsninger. For når du har en linearkombination af flere stationære tilstande, går hver deres karakteristiske tidsfaktorer ikke ud med \textit{hinanden}. De interfererer i tid, hvilket er hvad, der giver tidsudviklingen i den generelle løsning.
 	
-	
+	\subsubsection{Resultater fra problem 2.1}
+	I problem 2.1 skal 3 nyttige teoremer bevises. Jeg vil kort beskrive resultaterne fra disse:
+	\begin{enumerate}
+		\item \textbf{For normaliserbare løsninger, må separationskonstanten $ E $ nødvendigvis være reel.}
+		\item \textbf{Den tidsuafhængige bølgefunktion $ \psi(x) $ kan altid regnes for reel.} Dette betyder \textit{ikke}, at alle løsninger til den tidsuafhængige Schrödingerligning er reelle, men at alle komplekse bølgefunktioner kan skrives som en superposition af reelle bølgefunktioner. Dermed kan man lige så godt bare arbejde med de reelle.
+		\item \textbf{Hvis $ V(x) $ er en lige funktion, kan $ \psi(x) $ altid regnes for at være enten lige eller ulige} (lige og ulige funktioner kan konstrueres ud fra $ \psi(x) $ og $ \psi(-x) $ som beskrevet i afsnittet om lige og ulige funktioner).
+	\end{enumerate}
 	
 \end{document}
