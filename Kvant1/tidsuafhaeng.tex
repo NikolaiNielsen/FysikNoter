@@ -176,6 +176,119 @@
 	
 	
 	\subsection{Den harmonisk oscillator}
+	\textbf{I dette og de resten af afsnittene af dette kapitel, gider jeg ikke at skrive ">den tidsuafhængie Schrödingerligning"<, så jeg skriver bare Schrödingerligningen. Hvis jeg mener den tids\textit{afhængige} liging, så skriver jeg det eksplicit.}
+	
+	Den klassiske harmoniske oscillator (uden friktion) er givet ved den samme ligning som den uendelige potentialbrønd:
+	\begin{equation}
+		F = m\diff[\ud]{^2 x}{t^2} = -kx, \quad k > 0
+	\end{equation}
+	Ved at bruge, at $ F $ er et konservativt kraftfelt, fås at potentialet er
+	\begin{equation}
+		V(x) = \frac{1}{2} k x^2
+	\end{equation}
+	I praksis er der selvfølgelig ingen perfekt harmonisk oscillator, men faktum er, at for små afvigelser fra et minimum i potentialet, er bevægelsen af en partikel tilnærmelsesvist harmonisk oscillerende (jeg undskylder meget for denne sætning). Hvis man Taylorekspanderer potentialet om minimummet $ x_0 $ fås
+	\begin{equation}
+		V(x) = V(x_0) + V'(x)(x-x_0) + \frac{1}{2} V''(x_0) (x-x_0)^2 + \dots.
+	\end{equation}
+	Idet man kan trække konstante fra potentialet uden problemer, og at $ V'(x_0) = 0 $, er potentialet approksimativt
+	\begin{equation}
+		V(x) \approx \frac{1}{2} V''(x_0) (x-x_0)^2
+	\end{equation}
+	hvor der ses bort fra led af højere orden, da vi ikke bevæger os langt fra minimummet. Dette er da en simpel harmonisk oscillator om $ x=x_0 $, med fjederkonstanten $ k = V''(x_0) $. I kvantemekanik skrives potentialet oftest med den klassiske frekvens $ \omega = \sqrt{k/m} $, og potentialet er da
+	\begin{equation}
+		V(x) = \frac{1}{2} m\omega^2 x^2
+	\end{equation}
+	Med dette bliver Schrödingerligningen
+	\begin{equation}
+		-\frac{\hbar^2}{2m} \diff[\ud]{^2 \psi}{x^2} + \frac{1}{2} m \omega^2 x^2 \psi = E\psi.
+	\end{equation}
+	Denne løses oftest på to måder: polynomiumsserier (Power series) eller algebraisk. I disse noget beskrives kun den algebraiske metode, da den er klart nemmere, involverer \textbf{hæve/sænkeoperatorer}, og fordi vi ikke har brugt resultaterne fra den anden metode i kurset endnu.
+	
+	Ideen med denne metode er at faktorisere Hamiltonoperatoren $ \op{H} $. Dette gøres ved at opskrive Schrödingerligningen på en lidt anden form, og introducere to nye operatorer. Først ligningen:
+	\begin{equation}
+		\frac{1}{2m} [\op{p}^2+(m\omega \op{x})^2] \psi = E\psi.
+	\end{equation}
+	(I den følgende udledning bruger jeg altid $ \op{x} $, selvom denne også bare er lig $ x $, for at illustrere, at det er operatorer vi arbejder med) Hvor Hamiltonoperatoren er givet ved
+	\begin{equation}
+		\op{H} = \frac{1}{2m} [\op{p}^2+(m\omega \op{x})^2].
+	\end{equation}
+	Hvis $ \op{p} $ og $ x $ bare var tal, ville dette være nemt nok, da disse kommuterer. Men det gør operatorer desværre ikke (normalt, i hvert fald). Derfor indføres ">kommutatoren"< af to operatorer $ \op{A} $ og $ \op{B} $:
+	\begin{equation}
+		[\op{A},\op{B}] = \op{A}\op{B} - \op{B} \op{A},
+	\end{equation}
+	der er et mål for, hvor ">dårligt de to operatorer kommuterer"<. For $ \op{x} $ og $ \op{p} $ fås det, som kaldes for den \textbf{kanoniske kommutator}:
+	\begin{equation}
+		[\op{x},\op{p}] = i\hbar.
+	\end{equation}
+	For at udregne kommutatoren af to operatorer opskriver man kommutatoren og lader en testfunktion $ f(x) $ virke på den. Da udregner man resultatet, og smider funktionen væk til sidst, når et pænt (eller, i hvert fald så pænt som muligt) resultat opnås.
+	
+	Men nok om kommutatorer for $ \op{x} $ og $ \op{p} $. Nu skal de to relevante operatorer indføres
+	\begin{equation}
+		\op{a}_{\pm} = \frac{1}{\sqrt{2\hbar m \omega}} (\mp i \op{p}+m\omega \op{x}).
+	\end{equation}
+	Produktet $ \saenk\haev$ er
+	\begin{equation}
+		\saenk\haev = \frac{1}{2 \hbar m \omega} [\op{p}^2 + (m\omega \op{x})^2 - im\omega (\op{x}\op{p}-\op{p}\op{x})]
+	\end{equation}
+	Den sidste parentes i parentesen er den kanoniske kommutator, og produktet kan da skrives ved denne:
+	\begin{align}
+		\saenk\haev &= \frac{1}{2 \hbar m \omega} [p^2+(m\omega \op{x})^2] + \frac{1}{2i\hbar} [\op{x},\op{p}] \\
+		&= \frac{1}{\hbar \omega} \op{H} + \frac{1}{2}
+	\end{align}
+	På lige vis fås produktet $ \haev \saenk $
+	\begin{equation}
+		\haev\saenk = \frac{1}{\hbar \omega} \op{H} - \frac{1}{2}
+	\end{equation}
+	Dette giver da kommutatoren $ [\haev,\saenk] = 1 $, og $ \op{H} $ kan skrives ved
+	\begin{equation}
+		\op{H} = \hbar \omega \pp{\saenk\haev-\frac{1}{2}} =  \hbar \omega \pp{\haev\saenk+\frac{1}{2}}.
+	\end{equation}
+	og Schrödingerligningen er da
+	\begin{equation}
+		\op{H} \psi = \hbar \omega \pp{\op{a}_{\pm}\op{a}_{\mp}\pm \frac{1}{2}} \psi = E\psi.
+	\end{equation}
+	Så nu kan Schrödingerligningen opskrives ved \textit{to} operatorer, i stedet for kun én. Woop de fucking do! Men vent, for vi har jo ikke navngivet $ \haev $ og $ \saenk $ endnu! Vi kalder dem nemlig for henholdsvis \textit{hæve}- og \textit{sænke}-operatorerne (I bet you didn't see that coming). De har dette navn, fordi det viser sig, at hvis $ \op{H}\psi = E\psi $, så er $ \op{H}\haev\psi = (E+\hbar \omega) \psi$ og $ \op{H}\saenk \psi = (E-\hbar \omega) \psi $. De to operatorer \textbf{hæver} og \textbf{sænker} altså energiniveauet af en given løsning! Men vi er jo stadig ikke tættere på nogen løsning. Nu ved vi bare at der er flere end én...
+	
+	
+	Det er dog sådan, at hvis man bruger sænkeoperatoren nok gange, må man nødvendigvis nå en negativ energi, hvilket ikke kan lade sig gøre i følge problem 2.2. Dermed må der være en \textbf{grundtilstand} med
+	\begin{equation}\label{key}
+		\saenk \psi_0 = 0. \quad \text{(læg mærke til nul-indekseringen)}
+	\end{equation}
+	(det kunne også være, at dens kvadratintegral var uendeligt, men normalt er det ikke sådan). Ud fra dette fås en differentialligning og medfølgende løsning
+	\begin{equation}\label{key}
+		\diff[\ud]{\psi_0}{x} = - \frac{m \omega}{\hbar} x \psi_0, \quad \Rightarrow \quad \psi_0 (x) = A e^{-m\omega x^2/2 \hbar}.
+	\end{equation}
+	Og $ A $ fås ved normalisering til $ A^2 = \sqrt{m\omega/\pi \hbar} $. Da er grundtilstanden:
+	\begin{equation}\label{key}
+		\psi_0 (x) = \pp{\frac{m\omega}{\hbar \pi}}^{1/4} e^{-m\omega x^2 / 2 \hbar}.
+	\end{equation}
+	Denne tilstand har energien $ E_0 = \frac{1}{2}\hbar\omega $. Hvilket man får fra Schrödingerligningen og at $ \saenk\psi_0 = 0 $. Hermed er det bare at bruge hæveoperatoren for at få alle de næste tilstande.
+	\begin{equation}\label{key}
+		\psi_n = A_n (\haev)^n \psi_0, \quad A_n = \frac{1}{\sqrt{n!}}, \quad E_n = \pp{n+\frac{1}{2}} \hbar \omega.
+	\end{equation}
+	Normaliseringsfaktoren $ A_n $ kan fås ud fra den egenskab at $ \op{a}_{\pm} \psi_n \propto \psi_{n\pm 1} $ og at $ \haev $ er den \textbf{hermitisk konjugerede} til $ \saenk $ (og omvendt):
+	\begin{equation}\label{key}
+		\infint f\konj (\op{a}_{\pm} g) \ud x = \infint (\op{a}_{\mp} f)\konj g \ud x
+	\end{equation}
+	Ud fra dette, fås også følgende nyttige egenskaber
+	\begin{equation}\label{key}
+		\haev \psi_n = \sqrt{n+1}\, \psi_{n+1}, \quad \saenk \psi_n = \sqrt{n} \,\psi_{n-1}.
+	\end{equation}
+	Ydermere er løsningerne til den harmoniske oscillator ortonormale. Dette vil sige, at vi kan bruge Fouriers trick, og at $ |c_n|^2 $ igen er sandsynligheden for at partiklen måles til at have energien $ E_n $:
+	\begin{equation}\label{key}
+		\Psi (x,0) = \sum_{n=0}^{\infty} c_n \psi_n = \sum_{n=0}^{\infty} c_n \frac{1}{\sqrt{n!}} (\haev)^n \psi_0, \quad c_n = \infint \psi_n(x)\konj \Psi(x,0) \ud x
+	\end{equation}
+	Og igen skal den karakteristiske tidsfaktor bare smækkes på hvert led, for at få løsningen til den tidsafhængige Schrödingerligning.
+	
+	Der er yderligere et par smarte resultater fra disse hæve/sænkeoperatorer. Man kan nemlig udtrykke $ \op{x} $ og $ \op{p} $ ved dem:
+	\begin{align}
+		\op{x} &= \sqrt{\frac{\hbar}{2m\omega}} (\haev+\saenk),\\
+		\op{p} &= i \sqrt{\frac{\hbar m \omega}{2}} (\haev-\saenk),\\
+		\op{x}^2 &= \frac{\hbar}{2m\omega} \bb{\haev^2 + \haev \saenk + \saenk \haev + \saenk^2}, \\
+		\op{p}^2 &= \frac{-\hbar m \omega}{2} \bb{\haev^2 - \haev \saenk - \saenk \haev + \saenk^2}.
+	\end{align}
+	Dette gør det meget nemt at udregne forventningsværdier, idet man bare kan udnytte hæve/sænkeoperatorerne og ortonormaliteten af de stationære tilstande til at evaluere integralerne.
+	
 	
 	\subsection{Den fri partikel}
 	
