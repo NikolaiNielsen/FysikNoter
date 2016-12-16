@@ -251,31 +251,31 @@
 	
 	
 	Det er dog sådan, at hvis man bruger sænkeoperatoren nok gange, må man nødvendigvis nå en negativ energi, hvilket ikke kan lade sig gøre i følge problem 2.2. Dermed må der være en \textbf{grundtilstand} med
-	\begin{equation}\label{key}
+	\begin{equation}
 		\saenk \psi_0 = 0. \quad \text{(læg mærke til nul-indekseringen)}
 	\end{equation}
 	(det kunne også være, at dens kvadratintegral var uendeligt, men normalt er det ikke sådan). Ud fra dette fås en differentialligning og medfølgende løsning
-	\begin{equation}\label{key}
+	\begin{equation}
 		\diff[\ud]{\psi_0}{x} = - \frac{m \omega}{\hbar} x \psi_0, \quad \Rightarrow \quad \psi_0 (x) = A e^{-m\omega x^2/2 \hbar}.
 	\end{equation}
 	Og $ A $ fås ved normalisering til $ A^2 = \sqrt{m\omega/\pi \hbar} $. Da er grundtilstanden:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\psi_0 (x) = \pp{\frac{m\omega}{\hbar \pi}}^{1/4} e^{-m\omega x^2 / 2 \hbar}.
 	\end{equation}
 	Denne tilstand har energien $ E_0 = \frac{1}{2}\hbar\omega $. Hvilket man får fra Schrödingerligningen og at $ \saenk\psi_0 = 0 $. Hermed er det bare at bruge hæveoperatoren for at få alle de næste tilstande.
-	\begin{equation}\label{key}
+	\begin{equation}
 		\psi_n = A_n (\haev)^n \psi_0, \quad A_n = \frac{1}{\sqrt{n!}}, \quad E_n = \pp{n+\frac{1}{2}} \hbar \omega.
 	\end{equation}
 	Normaliseringsfaktoren $ A_n $ kan fås ud fra den egenskab at $ \op{a}_{\pm} \psi_n \propto \psi_{n\pm 1} $ og at $ \haev $ er den \textbf{hermitisk konjugerede} til $ \saenk $ (og omvendt):
-	\begin{equation}\label{key}
+	\begin{equation}
 		\infint f\konj (\op{a}_{\pm} g) \ud x = \infint (\op{a}_{\mp} f)\konj g \ud x
 	\end{equation}
 	Ud fra dette, fås også følgende nyttige egenskaber
-	\begin{equation}\label{key}
+	\begin{equation}
 		\haev \psi_n = \sqrt{n+1}\, \psi_{n+1}, \quad \saenk \psi_n = \sqrt{n} \,\psi_{n-1}.
 	\end{equation}
 	Ydermere er løsningerne til den harmoniske oscillator ortonormale. Dette vil sige, at vi kan bruge Fouriers trick, og at $ |c_n|^2 $ igen er sandsynligheden for at partiklen måles til at have energien $ E_n $:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\Psi (x,0) = \sum_{n=0}^{\infty} c_n \psi_n = \sum_{n=0}^{\infty} c_n \frac{1}{\sqrt{n!}} (\haev)^n \psi_0, \quad c_n = \infint \psi_n(x)\konj \Psi(x,0) \ud x
 	\end{equation}
 	Og igen skal den karakteristiske tidsfaktor bare smækkes på hvert led, for at få løsningen til den tidsafhængige Schrödingerligning.
