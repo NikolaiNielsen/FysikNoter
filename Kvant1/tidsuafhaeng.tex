@@ -72,7 +72,7 @@
 	
 	\paragraph{Den generelle løsning er en lineær kombination af separable løsninger.}
 	Det viser sig, at der for alle de potentialer vi møder, er uendeligt mange løsninger til den tidsuafhængige Schrödingerligning, $ \psi_1 $, $ \psi_2 $, etc, hver med sin energi $ E_1 $, $ E_2 $, etc. Ydermere viser det sig, at enhver løsning til den tidsafhængige (altså \textit{med} tid) kan opskrives som en linearkombination af disse løsninger (idet de er komplette, som vi kommer mere ind på i kapitel 3. Det er lige som med $ \sin $ og $ \cos $ for Fourierrækker). Først konstrueres $ \Psi(x,0) $ ud fra løsningerne til den tids\textit{uafhængige} Schrödingerligning:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\Psi(x,0) = \sum_{n = 1}^{\infty} c_n \psi_n(x)
 	\end{equation}
 	Og da smides den karakteristiske tidsfaktor bare på hvert led, for at få tidsudviklingen med:
@@ -82,12 +82,105 @@
 	Spørgsmålet er bare at finde de konstante $ c_n $.
 	Det ses, at $ \Psi_n $ alle er stationære tilstande, idet tidsudviklingen går ud med sig selv, når absolutkvadratet regnes ($ |\exp{-iE_n t / \hbar}|^2 = 1 $). Dette betyder dog \textit{ikke}, at det samme gør sig gældende for de generelle løsninger. For når du har en linearkombination af flere stationære tilstande, går hver deres karakteristiske tidsfaktorer ikke ud med \textit{hinanden}. De interfererer i tid, hvilket er hvad, der giver tidsudviklingen i den generelle løsning.
 	
-	\subsubsection{Resultater fra problem 2.1}
-	I problem 2.1 skal 3 nyttige teoremer bevises. Jeg vil kort beskrive resultaterne fra disse:
+	\subsubsection{Resultater fra problem 2.1 og 2.2}
+	I problem 2.1 (og 2.2) skal 3 (1) nyttige teoremer bevises. Jeg vil kort beskrive resultaterne fra disse:
 	\begin{enumerate}
 		\item \textbf{For normaliserbare løsninger, må separationskonstanten $ E $ nødvendigvis være reel.}
 		\item \textbf{Den tidsuafhængige bølgefunktion $ \psi(x) $ kan altid regnes for reel.} Dette betyder \textit{ikke}, at alle løsninger til den tidsuafhængige Schrödingerligning er reelle, men at alle komplekse bølgefunktioner kan skrives som en superposition af reelle bølgefunktioner. Dermed kan man lige så godt bare arbejde med de reelle.
 		\item \textbf{Hvis $ V(x) $ er en lige funktion, kan $ \psi(x) $ altid regnes for at være enten lige eller ulige} (lige og ulige funktioner kan konstrueres ud fra $ \psi(x) $ og $ \psi(-x) $ som beskrevet i afsnittet om lige og ulige funktioner).
+		\item \textbf{Energien $ E $ skal overstige den mindste værdi af potentialet $ V $ for at løsningen til Schrödingerligningen er normaliserbar}. Dette gælder dog \textit{ikke} for ubundne tilstande, da disse ikke er normalt normaliserbare. Mere om det i afsnit \ref{seq:scatter} 
 	\end{enumerate}
 	
+	
+	
+	\subsection{Den uendelig potentialbrønd}
+	\textbf{I dette og de resten af afsnittene af dette kapitel, gider jeg ikke at skrive ">den tidsuafhængie Schrödingerligning"<, så jeg skriver bare Schrödingerligningen. Hvis jeg mener den tids\textit{afhængige} liging, så skriver jeg det eksplicit.}
+	
+	Den uendelige potentialbrønd er et potential, der har formen
+	\begin{equation}
+		V(x) = \begin{cases}
+		0, & 0\leq x \leq a \\
+		\infty, & \text{ellers.}
+		\end{cases}
+	\end{equation}
+	Inden for brønden (mellem 0 og $ a $) er partiklen fri, men alle andre steder, er potentialet uendeligt, og en uendelig kraft holder da partiklen inden for brønden. I steder, hvor potentialet er uendeligt er bølgefunktionen da 0. Inde i brønden lyder Schrödingerligningen
+	\begin{equation}\label{eq:InfBrond}
+		-\frac{\hbar^2}{2m} \diff[\ud]{^2 \psi}{x^2} = E\psi, \quad \diff[\ud]{^2 \psi}{x^2} = -k\psi, \quad k= \frac{\sqrt{2mE}}{\hbar}.
+	\end{equation}
+	hvor energien $ E $ antages for større end, eller lig 0, per problem 2.2. Dette er den klassiske simple harmoniske oscillator, og løsningen er
+	\begin{equation}
+		\psi(x) = A \sin kx + B \cos kx.
+	\end{equation}
+	For at finde $ A $ og $ B $, må der indføres randbetingelser. Normalt skal bølgefunktionen både være kontinuert og differentiabel (den kan differentieres, og dennes afledte er kontinuert) i alle punkter. Dog gælder den sidste randbetingelse ikke for uendelige potentialer (igen, mere om det i afsnit \ref{seq:scatter}). Idet bølgefunktionen er 0 uden for brønden, må der gælde følgende
+	\begin{equation}
+		\psi(0) = \psi(a) = 0
+	\end{equation}
+	Den første randbetingelse giver at $ B = 0$, og den anden giver enten $ A = 0 $, eller $ \sin ka = 0 $. Vi vælger $ \sin ka = 0 $, da vi ellers ender med den unormaliserbare løsning $ \psi = 0 $. Dermed fås
+	\begin{equation}
+		ka = n\pi, \quad \Leftrightarrow k_n = \frac{n\pi}{a}, \quad n \in \Set{N}
+	\end{equation}
+	hvor $ n $ altså løber over alle positive heltal. De negative heltal giver bare negative løsninger, og vi kan lige så godt tage dette fortegn med i $ A $, og $ k = 0 $ giver også 0-løsningen. Fra ligning \eqref{eq:InfBrond} fås da, at partiklen kun kan have bestemte energier $ E_n $:
+	\begin{equation}
+		E_n = \frac{\hbar^2 k_n^2}{2m} = \frac{n^2 \pi^2 \hbar^2}{2 m a^2}
+	\end{equation}
+	For at finde den sidste ubekendte, $ A $, normaliseres bølgefunktionen, og man får
+	\begin{equation}
+		\int_{0}^{a} |A|^2 \sin^2(kx) = |A|^2 \frac{a}{2} = 1, \quad \Rightarrow \quad A = \sqrt{\frac{2}{a}},
+	\end{equation}
+	hvor den positive reelle rod vælges. Dermed bliver den samlede løsning til den uendelige potentialbrønd:
+	\begin{equation}
+		\psi_n(x) = \sqrt{\frac{2}{a}} \sin \pp{\frac{n\pi}{a} x}.
+	\end{equation}
+	Det ses da, at ligningen har uendeligt mange løsninger (én for hvert positivt heltal $ n $). Den første tilstand, $ n=1 $, kaldes da for \textbf{grundtilstanden}. Disse løsninger har en række smarte egenskaber
+	\begin{enumerate}
+		\item De er skiftevis lige og ulige, med hensyn til midten af brønden ($ \psi_1 $ er ulige, $ \psi_2 $ er lige, etc).
+		\item De har $ n-1 $ knudepunkter (punkter $ x_0 $ hvor $ \Psi_n(x_0,t) = 0 $ for alle $ t $), hvor man ikke tæller de trivielle knudepunkter i enden med.
+		\item De er ortonormale:
+		\begin{equation}
+			\int_{0}^{a} \psi_m(x)\konj \psi_n(x) \ud x = \delta_{mn},
+		\end{equation}
+		hvor $ \delta_{mn} $ er Kroneckerdeltaet. Alle $ \psi_m $ er reelle, så konjugeringen er ikke strengt nødvendigt, men det er god øvelse, altid at have det i baghovedet, at man egentlig skal konjugere denne.
+		\item De udgør et komplet sæt, idet enhver velopførende funktion $ f(x) $ kan opskrives som en linearkombination af disse:
+		\begin{equation}
+			f(x) = \sum_{n=1}^{\infty} c_n \psi_n(x)
+		\end{equation}
+		Og dette er jo bare Fourierrækken for $ f(x) $! For at finde $ f(x) $ bruger man følgende formel (som Griffiths kalder for \textbf{Fouriers trick}):
+		\begin{equation}
+			c_n = \int_{0}^{a} \psi_n(x)\konj f(x) \ud x.
+		\end{equation}
+	\end{enumerate}
+	Disse fire egenskaber er dog ikke enestående for den uendelige potentialbrønd. Den første opstår når potentialet er symmetrisk. Den anden gælder altid. Ortogonalitet ligeså. At løsningerne udgør et komplet sæt er som oftest sandt (i hvert fald for alle de potentialer, vi kommer til at støde ind i).
+	
+	Med alt dette i baghovedet er de stationære tilstande for den uendelige potentialbrønd
+	\begin{equation}
+		\Psi_n (x,t) = \sqrt{\frac{2}{a}} \sin \pp{\frac{n\pi}{a} x} e^{-iE_n t / \hbar}, \quad E_n = \frac{n^2 \pi^2 \hbar^2}{2 m a^2},
+	\end{equation}	
+	og den generelle løsning er en linearkombination af disse
+	\begin{equation}
+		\Psi (x,t) = \sum_{n = 1}^{\infty} c_n \Psi_n(x,t).
+	\end{equation}
+	I praksis får man en bølgefunktion til tiden $ t=0 $, og da er
+	\begin{equation}
+		\Psi(x,0) = \sum_{n = 1}^{\infty} c_n \psi_n (x), \quad c_n = \sqrt{\frac{2}{a}} \int_0^a \sin \pp{\frac{n\pi}{a} x}\Psi(x,0) \ud x.
+	\end{equation}
+	\textbf{Absolutkvadratet på koefficienterne, $ |c_n|^2 $ fortæller, hvad sandsynligheden er, for at en måling på partiklen giver resultatet $ E_n $.} Og fra normaliseringen af bølgefunktionen følger det også, at summen af disse giver én:
+	\begin{equation}\label{key}
+		\sum_{n=1}^{\infty} |c_n|^2 = 1.
+	\end{equation} 
+	Forventningsværdien for energien (Hamiltonoperatoren) er
+	\begin{equation}\label{key}
+		\brac{\op{H}} = \sum_{n=1}^{\infty} |c_n|^2 E_n,
+	\end{equation}
+	og det faktum, at forventningsværdien er tidsuafhængig, viser da energibevarelse i kvantemekanik.
+	
+	
+	
+	\subsection{Den harmonisk oscillator}
+	
+	\subsection{Den fri partikel}
+	
+	\subsection{Deltafunktionspotentialet}
+	\label{seq:scatter}
+	
+	\subsection{Den endelige potentialbrønd}
 \end{document}
