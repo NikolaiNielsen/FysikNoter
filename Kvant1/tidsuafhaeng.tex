@@ -450,9 +450,49 @@
 		\psi(x) = \frac{\sqrt{m\alpha}}{\hbar} e^{-m\alpha |x|/\hbar^2}, \quad E = -\frac{m\alpha^2}{2 \hbar^2}
 	\end{equation}
 	
+	\paragraph{Ubundne tilstande.} Nu til de ubundne tilstande, med $ E > 0 $. Da er Schrödingerligningen
+	\begin{equation}
+		\diff[\ud]{^2\psi}{x^2} = -k^2 \psi, \quad k \equiv \frac{\sqrt{2mE}}{\hbar},
+	\end{equation}
+	hvor $ k $ er positiv og reel. Denne gang er løsningen:
+	\begin{align}
+		\psi(x) &= A \exp(ikx) + B \exp(-ikx), \quad x < 0, \\
+		\psi(x) &= F \exp(ikx) + G \exp(-ikx), \quad x > 0.
+	\end{align}
+	Det er ikke helt nok til at løse vores problem, idet vi har lidt for mange ubekendte. Men lad os lige se på, hvad de fire amplituder er:
 	
+	I normale spredningseksperimenter sender man en bølge ind fra én side (venstre, eksempelvis). Dette giver da, at $ A $ svarer til den indsendte bølge, der kommer \textit{fra} venstre, ind mod brønden. $ B $ er da den del af bølgen, der bliver reflekteret i brønden, og bevæger sig \textit{mod} venstre. $ F $ er den del af bølgen, der transmitteres gennem brønden. $ G $ vil da være amplituden af en \textit{anden} bølge, der kommer \textit{fra} højre, og går ind mod brønden. Men da vi sender bølger ind fra \textit{venstre}, og ikke højre, kan vi lige så godt sætte $ G = 0 $.
+	
+	Hvis man vil have bølger ind fra højre, skifter man bare om på betydningen af $ A $ og $ G $, og på betydningen af $ B $ og $ F $.
+	
+	Med dette bliver randbetingelserne for $ x = 0 $:
+	\begin{equation}
+		F = A+B, \quad ik(F-A+B) = -\frac{2m\alpha}{\hbar^2} (A+B),
+	\end{equation}
+	og ved isolering fås
+	\begin{equation}
+		B = \frac{i\beta}{1-i\beta} A, \quad F = \frac{1}{1-i\beta}A, \quad \beta \equiv \frac{m\alpha}{\hbar^2 k}.
+	\end{equation}
+	Den relative sandsynlighed af, at en partikel bliver reflekteret tilbage fra brønden er, som i EM2:
+	\begin{equation}
+		R \equiv \frac{|B|^2}{|A|^2} = \frac{\beta^2}{1+\beta^2},
+	\end{equation}
+	hvor $ R $ kaldes for refleksionskoefficienten. Og ligeledes for transmission:
+	\begin{equation}
+		T \equiv \frac{|F|^2}{|A|^2} = \frac{1}{1+\beta^2},
+	\end{equation}
+	hvor $ T $ kaldes for transmissionskoefficienten. Det ses, at sammenlagt giver disse 1: $ R+T = 1 $. Og idet de er funktioner af $ \beta $, er de også funktioner af energien $ E $:
+	\begin{equation}
+		R = \frac{1}{1+(2\hbar^2E/m\alpha^2)}, \quad T = \frac{1}{1+(m\alpha^2/2\hbar^2 E)}.
+	\end{equation}
+	Det ses, at jo højere energi, jo større er sandsynligheden for, at bølgen bliver transmitteret.
+
+	Der er dog stadig det problem, at disse bølger ikke er normaliserbare. Men som i den fri partikel, så kan man bruge en bølgepakke, hvormed denne har en række forskellige værdier for $ E $. Dermed skal $ R $ og $ T $ tolkes som ">cirkasandsynligheden"< for partikler med energier i nærheden af $ E $.
+	
+	En sidste note er, at refleksions- og transmissionskoefficienterne ikke afhænger af fortegnet på $ \alpha $, idet de afhænger af $ \alpha^2 $. Dermed kan man lige så godt have en ">deltafunktionsbarriere"<, med et \textit{negativt} $ \alpha $. Resultatet er, at der stadig er en sandsynlighed for, at bølgepakken, og dermed partiklen, bevæger sig gennem barrieren, hvilket ikke er muligt klassisk, idet ingen energi er stor nok til at overstige et uendeligt potentiale. Dette er netop fænomenet \textbf{tunnelering}. 
 	
 	\subsection{Den endelige potentialbrønd}
+	
 	
 	
 \end{document}
