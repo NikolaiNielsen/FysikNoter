@@ -88,7 +88,7 @@
 		\item \textbf{For normaliserbare løsninger, må separationskonstanten $ E $ nødvendigvis være reel.}
 		\item \textbf{Den tidsuafhængige bølgefunktion $ \psi(x) $ kan altid regnes for reel.} Dette betyder \textit{ikke}, at alle løsninger til den tidsuafhængige Schrödingerligning er reelle, men at alle komplekse bølgefunktioner kan skrives som en superposition af reelle bølgefunktioner. Dermed kan man lige så godt bare arbejde med de reelle.
 		\item \textbf{Hvis $ V(x) $ er en lige funktion, kan $ \psi(x) $ altid regnes for at være enten lige eller ulige} (lige og ulige funktioner kan konstrueres ud fra $ \psi(x) $ og $ \psi(-x) $ som beskrevet i afsnittet om lige og ulige funktioner).
-		\item \textbf{Energien $ E $ skal overstige den mindste værdi af potentialet $ V $ for at løsningen til Schrödingerligningen er normaliserbar}. Dette gælder dog \textit{ikke} for ubundne tilstande, da disse ikke er normalt normaliserbare. Mere om det i afsnit \ref{seq:scatter} 
+		\item \textbf{Energien $ E $ skal overstige den mindste værdi af potentialet $ V $ for at løsningen til Schrödingerligningen er normaliserbar}. Dette gælder dog \textit{ikke} for ubundne tilstande, da disse ikke er normalt normaliserbare.
 	\end{enumerate}
 	
 	
@@ -111,7 +111,7 @@
 	\begin{equation}
 		\psi(x) = A \sin kx + B \cos kx.
 	\end{equation}
-	For at finde $ A $ og $ B $, må der indføres randbetingelser. Normalt skal bølgefunktionen både være kontinuert og differentiabel (den kan differentieres, og dennes afledte er kontinuert) i alle punkter. Dog gælder den sidste randbetingelse ikke for uendelige potentialer (igen, mere om det i afsnit \ref{seq:scatter}). Idet bølgefunktionen er 0 uden for brønden, må der gælde følgende
+	For at finde $ A $ og $ B $, må der indføres randbetingelser. Normalt skal bølgefunktionen både være kontinuert og differentiabel (den kan differentieres, og dennes afledte er kontinuert) i alle punkter. Dog gælder den sidste randbetingelse ikke for uendelige potentialer (mere om det i afsnit \ref{seq:delta}). Idet bølgefunktionen er 0 uden for brønden, må der gælde følgende
 	\begin{equation}
 		\psi(0) = \psi(a) = 0
 	\end{equation}
@@ -366,9 +366,93 @@
 	\textbf{I dette og de resten af afsnittene af dette kapitel, gider jeg ikke at skrive ">den tidsuafhængie Schrödingerligning"<, så jeg skriver bare Schrödingerligningen. Hvis jeg mener den tids\textit{afhængige} liging, så skriver jeg det eksplicit.}
 	
 	\subsubsection{Bundne og ubundne tilstande}
+	Indtil videre er der to typer af løsninger til Schrödingerligningen: normaliserbare løsninger, der er en sum over den diskrete variabel $ n $ (uendelig brønd, harmonisk oscillator), og ikkenormaliserbare løsninger, der er et integral over den kontinuerte variabel $ k $ (fri partikel).
+	
+	Dette svarer også til to forskellige typer problemer i klassisk mekanik. Hvis vi har en partikel med energien $ E $, og potentialet $ V $ overstiger partiklens energi på hver sin side af partiklen, så vil partiklen oscillere mellem disse to punkter (kaldet vendepunkter). Dette kaldes for en \textbf{bunden tilstand}. Hvis $ E $ derimod overstiger $ V $ på den ene side (eller begge) af partiklen, så vil denne komme ind fra uendelighed, og vende tilbage til uendelighed (enten den samme, eller modsatte, alt efter om der er ét eller nul vendepunkter). Dette kaldes for \textbf{ubundne tilstande}.
+	
+	I kvantemekanik svarer de normaliserbare løsninger over $ n $ til bundne tilstande, mens de unormaliserbare løsninger over $ k $ svarer til ubundne tilstande. Nogle potentialer, som den harmoniske oscillator, tillader kun bundne tilstande, mens andre, som den frie partikel, tillader kun ubundne tilstande. Og andre igen (som deltafunktionspotentialet og den endelige potentialbrønd), tillader begge, alt efter partiklens energi.
+	
+	I kvantemekanik kan partikler yderemere godt overstige et lokalt maksimum i potentialet (et fænomen, der kaldes tunnelering), hvilket betyder, at det kun er potentialet i uendeligt, der er vigtigt:
+	
+	\begin{align}
+		\begin{cases}
+			\begin{array}{llll}
+			E < [V(-\infty) &\text{og} & V(+\infty)] \Rightarrow & \text{bunden tilstand}, \\
+			E > [V(-\infty) &\text{eller} & V(+\infty)] \Rightarrow & \text{ubunden tilstand}. 
+			\end{array}
+		\end{cases}
+	\end{align}
+	Og idet alle ">virkelige"< potentialer går mod 0 i uendeligt fås
+	\begin{equation}
+		\begin{cases}
+			E < 0 \Rightarrow & \text{bunden tilstand}, \\
+			E > 0 \Rightarrow & \text{ubunden tilstand}.
+		\end{cases}
+	\end{equation}
 	
 	\subsubsection{Deltafunktionsbrønden}
+	\label{seq:delta}
+	Forestil dig en potentialbrønd af formen
+	\begin{equation}
+		V(x) = -\alpha \delta(x), \quad \alpha > 0
+	\end{equation}
+	Altså en uendeligt dyb brønd i origo. Her er Schrödingerligningen
+	\begin{equation}
+		-\frac{\hbar^2}{2m} \diff[\ud]{^2 \psi}{x^2} - \alpha \delta(x) \psi = E\psi,
+	\end{equation}
+	og den tillader både bundne og ubundne tilstande ($ E<0 $ og $ E> 0 $ henholdsvis). 
+	
+	\paragraph{Bundne tilstande.} For \textbf{bundne} tilstande, med $ E < 0 $, er der altid én løsning, givet ved
+	\begin{equation}
+		\psi(x) = \frac{\sqrt{m\alpha}}{\hbar} e^{-m\alpha |x|/\hbar^2}, \quad E = -\frac{m\alpha^2}{2 \hbar^2}
+	\end{equation}
+	
+	Denne fås således: Schrödingerligningen i området $ x  < 0 $ lyder:
+	\begin{equation}
+		\diff[\ud]{^2 \psi}{x^2} = \kappa^2 \psi, \quad \kappa \equiv \frac{\sqrt{-2mE}}{\hbar},
+	\end{equation}
+	hvor $ \kappa $ er positiv og reel, idet $ E $ er negativ og reel. Da er løsningen summen af to eksponentialfunktioner: $ \psi(x) = A e^{-\kappa x} + B e^{\kappa x} $,	hvor $ A $ nødvendigvis må være 0, idet dette led går mod uendeligt for $ x \to - \infty $. Da
+	\begin{equation}
+		\psi(x) = B e^{\kappa x}, \quad x < 0.
+	\end{equation}
+	Og for $ x > 0  $ fås per samme argument
+	\begin{equation}
+		\psi(x) = F e^{-\kappa x}, \quad x > 0.
+	\end{equation}
+	Disse skal da bare sættes sammen med de normale randbetingelser: $ \psi $ skal altid være kontinuert, og $ \ud \psi/\ud x $ skal være kontinuert, ud over i punkter, hvor potentialet er uendeligt. Den første randbetingelse giver at $ F = B $, men hvad med den anden? Den giver nødvendigvis at differentialkvotienten i $ x = 0 $ er diskontinuert, men vi ved ikke med hvor meget, og for den sags skyld, hvilken værdi $ \kappa $ har.
+	
+	For at finde ud af dette (og hvorfor differentialkvotienten ikke er kontinuert i uendelige potentialer), tager man og integrerer Schrödingerligningen fra $ -\epsilon $ til $ +\epsilon $, og tager grænsen hvor $ \epsilon \to 0 $:
+	\begin{equation}
+		- \frac{\hbar}{2m} \int_{-\epsilon}^{+ \epsilon} \diff[\ud]{^2 \psi}{x^2} \ud x + \int_{-\epsilon}^{+ \epsilon} V(x) \psi(x) \ud x = E \int_{-\epsilon}^{+ \epsilon} \psi(x) \ud x.
+	\end{equation}
+	I grænsen $ \epsilon \to 0 $ er første led bare nogle konstante ganget med $ \ud \psi / \ud x $. Højresiden er 0, idet det er et integral fra 0 til 0. Dermed fås
+	\begin{equation}
+		\Delta \pp{\diff[\ud]{\psi}{x}} \equiv \diff{\psi}{x} \bigg\vert_{+\epsilon} - \diff{\psi}{x} \bigg\vert_{-\epsilon} = \frac{2 m}{\hbar} \lim\limits_{\epsilon \to 0} \int_{-\epsilon}^{+\epsilon} V(x) \psi(x) \ud x.
+	\end{equation}
+	Typisk er højresiden 0 (igen fordi det er et integral fra 0 til 0), og differentialkvotienten er kontinuert. Men når potentialet er uendeligt i punktet, er dette ikke tilfældet. Specielt for deltafunktionsbrønden er $ \psi(x)V(x) = -\alpha \psi(0) $ og integralet er
+	\begin{equation}
+		\Delta \pp{\diff[\ud]{\psi}{x}} = - \frac{2 m \alpha}{\hbar} \psi(0).
+	\end{equation}
+	De to differentialkvotienter er
+	\begin{equation}
+		\diff{\psi}{x} \bigg\vert_{+\epsilon} = - B \kappa, \quad \diff{\psi}{x} \bigg\vert_{-\epsilon} = + B \kappa
+	\end{equation}
+	Sættes dette ind, får man værdien for $ \kappa $
+	\begin{equation}
+		-2B\kappa = -\frac{2m\alpha}{\hbar^2}, \quad \Leftrightarrow \quad \kappa = \frac{m \alpha}{\hbar^2}
+	\end{equation}
+	Dermed er energien
+	\begin{equation}
+		E = -\frac{\hbar^2 \kappa^2}{2m} = -\frac{m \alpha^2}{2 \hbar^2}.
+	\end{equation}
+	Og ved normalisering fås $ B = \sqrt{\kappa} = \sqrt{m\alpha}/\hbar $, hvor man vælger den positive, reelle rod. Dermed har deltafunktionsbrønden altid én bunden tilstand:
+	\begin{equation}
+		\psi(x) = \frac{\sqrt{m\alpha}}{\hbar} e^{-m\alpha |x|/\hbar^2}, \quad E = -\frac{m\alpha^2}{2 \hbar^2}
+	\end{equation}
+	
 	
 	
 	\subsection{Den endelige potentialbrønd}
+	
+	
 \end{document}
