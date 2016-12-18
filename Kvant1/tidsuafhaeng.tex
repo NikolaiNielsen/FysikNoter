@@ -290,10 +290,85 @@
 	Dette gør det meget nemt at udregne forventningsværdier, idet man bare kan udnytte hæve/sænkeoperatorerne og ortonormaliteten af de stationære tilstande til at evaluere integralerne.
 	
 	
+	
+	
 	\subsection{Den fri partikel}
+	\textbf{I dette og de resten af afsnittene af dette kapitel, gider jeg ikke at skrive ">den tidsuafhængie Schrödingerligning"<, så jeg skriver bare Schrödingerligningen. Hvis jeg mener den tids\textit{afhængige} liging, så skriver jeg det eksplicit.}
+	
+	For den frie partikel er $ V(x) = 0 $ over det hele, og Schrödingerligningen er da den samme som for den uendelige potentialbrønd.
+	\begin{equation}
+		-\frac{\hbar^2}{2m} \diff[\ud]{^2 \psi}{x^2} = E\psi, \quad \diff[\ud]{^2 \psi}{x^2} = -k\psi, \quad k= \frac{\sqrt{2mE}}{\hbar} > 0.
+	\end{equation}
+	Det er dog mere vanligt at skrive løsningen op på eksponentiel form, i stedet for trigonometrisk form:
+	\begin{equation}
+		\psi(x) = A e^{ikx} + B e^{-ikx}.
+	\end{equation}
+	Og med tidsfaktoren på
+	\begin{equation}
+		\Psi(x,t) = A e^{ik(x-\hbar k t/2m)} + B e^{-ik(x+\hbar k t/2m)}.
+	\end{equation}
+	I tilfældet af en fri partikel, er der ingen randbetingelser, der putter restriktioner på den tilladte energi, og denne udgør da et kontinuert spektrum.
+	
+	Løsningen svarer til superpositionen af én bølge der bevæger sig i positiv $ x $-retning, og én der bevæger sig i negativ $ x $-retning. Hvis man lader $ k $ også være negativ, kan man skrive den som
+	\begin{equation}
+		\Psi_k (x,t) = A e^{i(kx-\hbar k^2 t / 2m)}, \quad k \equiv \pm \frac{\sqrt{2mE}}{\hbar},
+	\end{equation}
+	hvor $ k > 0 $ er en bølge der bevæger sig mod højre, og $ k < 0 $ er en bølge, der bevæger sig mod venstre.
+	
+	Disse løsninger har ét problem: de er ikke normaliserbare. Til gengæld kan superpositionen af dem stadig normaliseres (nogle gange). I dette tilfælde er det dog ikke en sum over diskrete værdier af $ k $, men rettere et integral:
+	\begin{equation}
+		\Psi(x,t) = \frac{1}{\sqrt{2\pi}} \infint \phi(k) e^{i(kx-\hbar k^2 t / 2m)}\ud k,
+	\end{equation}
+	hvor $ (1/\sqrt{2\pi})\phi(k)\ud k $ svarer til $ c_n $ for de diskrete tilfælde. Dette integral kan normaliseres for nogle værdier af $ \phi(k) $.
+	
+	Som normalt, får man givet $ \Psi(x,0) $, og vi skal så \textit{finde} $ \Psi(x,t) $. Da skal $ \phi(k) $ findes. $ \Psi(x,0) $ er da givet ved
+	\begin{equation}
+		\Psi(x,0) = \frac{1}{\sqrt{2\pi}} \infint \phi(k) e^{ikx}\ud k,
+	\end{equation}
+	hvilket jo bare er den Fouriertransformerede af $ \phi(k) $! Dermed kan den inverse Fouriertransformation bruges til at finde $ \phi(k) $:
+	\begin{equation}
+		\phi(k) = \frac{1}{\sqrt{2 \pi}} \infint \Psi(x,0)e^{-ikx} \ud x.
+	\end{equation}
+	så er det jo klaret! Men hvad \textit{er} $ \phi(k) $ egentlig? Det er en funktion, der beskriver spredningen i $ k $ for bølgen. Og da $ k $ er relateret til impulsen gennem bølgelængden $ \lambda $ og de Broglieformlen, svarer $ \phi(k) $ også til \textit{spredningen i impuls}.
+	
+	Hvis man ser på hastigheden af de enkelte bølger $ \Psi_k $ (koefficienten af $ x $ over koefficienten af $ t $) får man
+	\begin{equation}
+		v_{\text{kvantum}} = \frac{\hbar |k|}{2m} = \sqrt{\frac{E}{2m}},
+	\end{equation}
+	mens den klassiske hastighed for en fri partikel ($ E = mv^2 /2 $) er
+	\begin{equation}
+		v_{\text{klassisk}} = \sqrt{\frac{2E}{m}} = 2 v_q
+	\end{equation}
+	hvilket er jo er ret spøjst. Til gengæld, fordi $ \Psi(x,k) $ er opbygget af en linearkombination af en masse bølger, alle med forskellige værdier af $ k $, giver dette anledning til et interferensmønster, og man kalder den samlede bølgefunktion for en \textbf{bølgepakke}.
+	
+	Den samlede bølgefunktion er givet ved
+	\begin{equation}
+		\Psi(x,t) = \frac{1}{\sqrt{2\pi}} \infint \phi(k) e^{i(kx-\omega t)}\ud k,
+	\end{equation}
+	med $ \omega = \hbar k^2 / 2m $. Med lidt fancy matematik og nogle koordinatskifte, får man, at den samlede bølgepakke bevæger sig med en bestemt hastighed (kaldet for \textbf{gruppehastigheden}). Denne er givet ved
+	\begin{equation}
+		v_{\text{gruppe}} = \diff[\ud]{\omega}{k}, 
+	\end{equation}
+	(denne differentialkvotient skal evalueres i punktet $ k_0 $, der er det ">typiske"< bølgetal. Normalt tales der om en skarpt peaket funktion $ \phi(k) $ med centrum i $ k_0 $, ellers giver udtrykket bølgepakke heller ikke meget mening, grundet spredningen i impuls) og de enkelte bølger bevæger sig med \textbf{fasehastigheden}
+	\begin{equation}
+		v_{\text{fase}} = \frac{\omega}{k}
+	\end{equation}
+	I dette tilfælde fås
+	\begin{equation}
+		v_{\text{fase}} = \frac{\hbar k}{2 m} = v_{\text{kvantum}}, \quad v_{\text{gruppe}} = \frac{\hbar k}{m} = 2 v_{\text{fase}} = v_{\text{klassisk}}.
+	\end{equation}
+	Og dermed ses det, at bølgepakken, som beskriver partiklen, netop bevæger sig med den forventede hastighed.
+	
+	
 	
 	\subsection{Deltafunktionspotentialet}
 	\label{seq:scatter}
+	\textbf{I dette og de resten af afsnittene af dette kapitel, gider jeg ikke at skrive ">den tidsuafhængie Schrödingerligning"<, så jeg skriver bare Schrödingerligningen. Hvis jeg mener den tids\textit{afhængige} liging, så skriver jeg det eksplicit.}
+	
+	\subsubsection{Bundne og ubundne tilstande}
+	
+	\subsubsection{Deltafunktionsbrønden}
+	
 	
 	\subsection{Den endelige potentialbrønd}
 \end{document}
