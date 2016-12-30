@@ -239,7 +239,7 @@
 	\begin{equation}
 		\haev\saenk = \frac{1}{\hbar \omega} \op{H} - \frac{1}{2}
 	\end{equation}
-	Dette giver da kommutatoren $ [\haev,\saenk] = 1 $, og $ \op{H} $ kan skrives ved
+	Dette giver da kommutatoren $ [\saenk,\haev] = \saenk\haev-\haev\saenk 1 $, og $ \op{H} $ kan skrives ved
 	\begin{equation}
 		\op{H} = \hbar \omega \pp{\saenk\haev-\frac{1}{2}} =  \hbar \omega \pp{\haev\saenk+\frac{1}{2}}.
 	\end{equation}
@@ -495,7 +495,7 @@
 	\textbf{I dette og de resten af afsnittene af dette kapitel, gider jeg ikke at skrive ">den tidsuafhængie Schrödingerligning"<, så jeg skriver bare Schrödingerligningen. Hvis jeg mener den tids\textit{afhængige} liging, så skriver jeg det eksplicit.}
 	
 	Det sidste potential, der behandles i dette kapitel, er den endelige potentialbrønd:
-	\begin{equation}\label{key}
+	\begin{equation}
 		V(x) = \begin{cases}
 			-V_0, & \text{for } -a < x < a, \\
 			0	& \text{for } |x| > a. 
@@ -504,45 +504,63 @@
 	hvor $ V_0 $ er en positiv konstant. Dette er også et eksempel på et potential, der tillader både bundne ($ E < 0 $) og ubundne ($ E > 0 $) tilstande. Først kigges der på de bundne:
 	
 	\paragraph{Bundne tilstande.} For bundne tilstande er $ E < 0 $, og i $ x < -a $ lyder Schrödingerligningen
-	\begin{equation}\label{key}
+	\begin{equation}
 		\diff[\ud]{^2 \psi}{x^2} = \kappa^2 \psi, \quad \kappa \equiv \frac{\sqrt{-2mE}}{\hbar},
 	\end{equation}
 	med $ \kappa $ reel og positiv. Igen er løsningen her
-	\begin{equation}\label{key}
+	\begin{equation}
 		\psi(x) = B e^{\kappa x}, \quad x < -a.
 	\end{equation}
 	Ligeledes for $ x > a $ fås
-	\begin{equation}\label{key}
+	\begin{equation}
 		\psi(x) = F e^{-\kappa x}, \quad x > a. 
 	\end{equation}
 	I midten, hvor $ V(x) = -V_0 $ lyder Schrödingerligningen
-	\begin{equation}\label{key}
+	\begin{equation}
 		\diff[\ud]{^2 \psi}{x^2} = -\ell^2 \psi, \quad \ell \equiv \frac{\sqrt{2m(E+V_0)}}{\hbar},
 	\end{equation}
 	hvor, per problem 2.2, $ E > -V_0 $. Dermed er $ \ell $ positiv og reel. Løsningen er
-	\begin{equation}\label{key}
+	\begin{equation}
 		\psi(x) = C  \sin \ell x + D \cos \ell x, \quad -a < x < a.
 	\end{equation}
 	Idet potentialet er symmetrisk, så kan vi vælge enten lige eller ulige løsninger. Fordelen er her, at man da kun skal finde randbetingelserne på den ene side. For \textbf{lige} funktioner fås
-	\begin{equation}\label{key}
+	\begin{equation}
 		\psi(x) = \begin{cases}
 			F e^{-\kappa x}, & x > a, \\
 			D \cos \ell x, & 0 < x < a, \\
 			\psi(-x), & x < 0.
 		\end{cases}
 	\end{equation}
-	Og ved de to randbetingelser fås følgende ligning:
-	\begin{equation}\label{key}
+	Og ved de to randbetingelser (kontinuitet af $ \psi $ og $ d\psi/dx $ i punktet $ x = a $. Divider den ene med den anden) fås følgende ligning:
+	\begin{equation}
 		\kappa = \ell \tan (\ell a)
 	\end{equation}
 	og med et koordinatskifte fås
-	\begin{equation}\label{key}
-		\tan z = \sqrt{(z_0/z)^2 - 1}, \quad z \equiv \ell a, \quad z_0 \equiv \frac{a}{\hbar} \sqrt{2mV_0},
+	\begin{equation}
+		\tan z = \sqrt{\frac{z_0^2}{z^2} - 1}, \quad z \equiv \ell a, \quad z_0 \equiv \frac{a}{\hbar} \sqrt{2mV_0},
 	\end{equation}
-	Der er en transcendental ligning i $ z $ (og da også $ E $, idet $ \ell $ afhænger af $ E $), som funktion af $ z_0 $, der er et mål for ">størrelsen"< af brønden. At den er transcendental betyder bare, at den ikke kan løses algebraisk; kun numerisk. Der er to interessante tilfælde:
+	Der er en transcendental ligning i $ z $ (og da også $ E $, idet $ \ell $ afhænger af $ E $), som funktion af $ z_0 $, der er et mål for ">størrelsen"< af brønden. At den er transcendental betyder bare, at den ikke kan løses algebraisk; kun numerisk. 
+	
+	For \textbf{ulige} funktioner fås
+	\begin{equation}
+		\psi(x) = \begin{cases}
+			F e^{-\kappa x}, & x > a, \\
+			C \sin \ell x, & 0 < x < a, \\
+			-\psi(-x), & x < 0.
+		\end{cases}
+	\end{equation}
+	Her giver de samme randbetingelser
+	\begin{equation}
+		\kappa = - \ell \cot(\ell a)
+	\end{equation}
+	eller
+	\begin{equation}
+		\cot z = - \sqrt{\frac{z_0^2}{z^2}-1}
+	\end{equation}
+	med samme definitioner på $ z $ og $ z_0 $. Der er to interessante tilfælde:
 	\begin{enumerate}
 		\item \textbf{Bred, dyb brønd}. Hvis $ z/z_0 << 1 $ ligger løsningerne lige før $ z_n = n\pi/2 $, for ulige $ n $, hvilket giver
-		\begin{equation}\label{key}
+		\begin{equation}
 			E_n + V_0 \approx \frac{n^2 \pi^2 \hbar^2}{2m(2a)^2},
 		\end{equation}
 		hvilket netop er energierne (for ulige $ n $, de andre er fra de ulige funktioner) for den uendelige brønd af bredde $ 2a $. Dette giver da god mening, for jo dybere brønden er, jo nærmere approksimerer den, den uendelige brønd. Det skal dog bemærkes, at der kun er et endeligt antal bundne tilstande (førend $ E>0 $, og de bliver ubundne).
@@ -551,31 +569,31 @@
 	
 	
 	\paragraph{Ubundne tilstande.} For ubundne tilstande, med $ E> 0 $, fås i området $ x < -a $:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\psi(x) = A e^{ikx} + B e^{-ikx}, \quad k \equiv \frac{\sqrt{2mE}}{\hbar}, \quad x <-a,
 	\end{equation}
 	i området $ x> a $, hvis vi antager ingen indkommen bølge her:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\psi(x) = F e^{ikx}, \quad x > a,
 	\end{equation}
 	og til sidst, i midten får vi som før:
-	\begin{equation}\label{key}
+	\begin{equation}
 		\psi(x) = C \sin \ell x + D \cos \ell x, \quad \ell \equiv \frac{\sqrt{2m(E+V_0)}}{\hbar}, \quad -a < x < a.
 	\end{equation}
 	Igen er $ A $ den indkomne amplitude, $ B $ den reflekterede og $ F $ den transmitterede. Der er fire randbetingelser: kontinuitet i $ \pm a $ for $ \psi $ og $ \ud\psi/\ud x $. Ud fra disse fås
-	\begin{equation}\label{key}
+	\begin{equation}
 		B = i \frac{\sin (2\ell a)}{2kl} (\ell^2 - k^2) F, \quad F = \frac{e^{-2ika} A}{\cos (2 \ell a) - i \frac{k^2+\ell^2}{2k\ell}} \sin (2 \ell a).
 	\end{equation}
 	Dette giver
-	\begin{equation}\label{key}
+	\begin{equation}
 		T\inverse = 1+ \frac{V_0^2}{4 E(E+V_0)} \sin^2 \pp{\frac{2a}{\hbar} \sqrt{2m(E+V_0)}}
 	\end{equation}
 	$ T $ er 1, hver gang sinusleddet er 0, hvilket sker for
-	\begin{equation}\label{key}
+	\begin{equation}
 		\frac{2a}{\hbar} \sqrt{2m(E+V_0)} = n\pi, \quad n\in \Set{N}.
 	\end{equation}
 	Dette svarer til energierne:
-	\begin{equation}\label{key}
+	\begin{equation}
 		E_n + V_0 = \frac{n^2 \pi^2 \hbar^2}{2 m (2a)^2},
 	\end{equation}
 	hvilket igen er præcis energierne for den uendelige brønd. Så for disse energier bliver brønden altså ">gennemsigtig"<. Og for $ E \to 0 $ går $ T \to 0 $, hvilket også er forventet, idet jo lavere energi, jo mindre af bølgen ">slipper igennem"<. 
