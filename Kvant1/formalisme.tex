@@ -3,5 +3,324 @@
 
 \begin{document}
 	\section{Formalisme}
+	Dette kapitel er ikke struktureret helt lige som i Griffiths, idet jeg indfører Dirac-notationen før det bliver gjort i bogen. Jeg vil anbefale den note om Dirac-notation af Andrzej Jarosz, som Anders Sørensen lægger op på Absalon (jeg ville gerne linke til den, men min google-fu er ikke helt så god). Jeg går ikke helt så meget i dybden som den note, men jeg vil kort beskrive de generelle elementer og resultater.
+	
+	\subsection{Notation}
+	I regneøvelserne, specielt for den harmoniske oscillator, hvor I arbejder med hæve/sænkeoperatorer, kan nogle af metoderne godt begynde at lugte lidt af LinAlg. Operatorernes rækkefølge kan ikke \textit{bare} ændres, eksempelvis. Det eneste problem, førend vi kan kalde det LinAlg er, at det ikke ligefrem \textit{ligner} LinAlg (I ved, ligner det en gris, og lugter det som en gris, så er det sgu nok en gris), men det laver vi hurtigt om på, ved at udvide LinAlg til uendeligtdimensionale vektorrum! Hurra!
+	
+	Dette afsnit er egentlig bare en direkte kopi af opsummeringsafsnittet fra Andrzejs notesæt, og jeg vil \textbf{klart} anbefale at læse det helt igennem, og så bare bruge det her som et opslagsværk, for jeg kan sgu ikke rigtig gøre det bedre end ham.
+	
+	Without further ado, her er byggestenene til Diracnotationen:
+	\begin{table}[H]
+		\centering
+		\setlength{\extrarowheight}{1.5pt}
+		\begin{TAB}(r)[5pt]{|c|c|c|c|}{|c|c|c|c|c|}
+			Objekt & Navn & Type & Endeligdimensionelt tilfælde\\
+			$ \ket{\alpha} $ & ket & vektor & $\begin{pmatrix}\alpha_1 \\ \alpha_2 \\ \vdots \\ \alpha_N
+			\end{pmatrix}$, søjlevektor, $ N \times 1 $ matrix \\
+			$ \bra{\beta} $ & bra & vektor & $ \begin{pmatrix}
+			\beta_1\konj & \beta_2\konj & \dots & \beta_N\konj
+			\end{pmatrix} $, rækkevektor, $ 1\times N $ matrix \\
+			$ \braket{\alpha|\beta} $ & indre produkt & komplekts tal & 
+			$\displaystyle \sum_{i=1}^{N}\alpha_i\beta_j\konj = \alpha_1\konj \beta_1 + \alpha_2\konj \beta_2 + \dots \alpha_N\konj \beta_N$ \\
+			$ \ket{\alpha}\bra{\beta} $ & ydre produkt & lineær operator & $ \begin{pmatrix}
+			\alpha_1\beta_1\konj 	& \alpha_1 \beta_2 \konj 	& \dots & \alpha_1 \beta_N\konj \\
+			\alpha_2\beta_1\konj 	& \alpha_2 \beta_2 \konj 	& \dots & \alpha_2 \beta_N\konj \\
+			\vdots					& \vdots 					& \ddots& \vdots \\
+			\alpha_N\beta_1\konj 	& \alpha_N\beta_2\konj 		& \dots & \alpha_N\beta_N\konj
+			\end{pmatrix} $
+		\end{TAB}
+	\end{table}
+	\subsubsection{Egenskaber ved indre produkter}
+	\begin{itemize}
+		\item For funktioner er det indre produkt givet ved: \begin{equation}\label{key}
+		\braket{f|g} = \infint f(x)\konj\, g(x) \ud x
+		\end{equation}
+		\item $\braket{a\alpha+b\beta|\gamma} = a\konj \braket{\alpha|\gamma} + b\konj \braket{\beta|\gamma}, \quad a,b\in\Saet{C}$. Antilinearitet
+		\item $\braket{\gamma|a\alpha+b\beta} = a \braket{\gamma|\alpha} + b\braket{\gamma|\beta}, \quad a,b\in\Saet{C}$. Linearitet
+		\item $\braket{\alpha|\alpha} \in \Saet{R}_{\geq 0}, \quad \text{for alle} \ket{\alpha},$
+		\item $\braket{\alpha|\alpha} = 0 \quad\Rightarrow\quad \ket{\alpha} = 0 $
+		\item $\braket{\alpha|\beta}\konj = \braket{\beta|\alpha}, \quad \text{for alle } \ket{\alpha},\ket{\beta}$
+		\item $ \braket{\alpha|\alpha}\braket{\beta|\beta} \geq |\braket{\alpha|\beta}|^2, \quad \text{for alle } \ket{\alpha},\ket{\beta} $. (Cauchy-Schwarz ulighed)
+	\end{itemize}
+
+	\subsubsection{Primære grunde til at bruge Diracnotation}
+	\begin{itemize}
+		\item Diracnotation tillader ">forskellige synspunkter"< på udtryk. For eksempel:
+			\begin{equation}
+			\braket{\alpha|\beta} \braket{\gamma|\op{A}|\delta}\braket{\epsilon|\zeta}.
+			\end{equation}
+			Dette kan enten ses som ketten $ \ket{\zeta} $, ganget med operatorerne $ \ket{\delta}\bra{\epsilon} $, $ \op{A} $ og $ \ket{\beta}\bra{\gamma} $ og til sidst med braen $ \bra{\alpha} $; eller som tallet $ \braket{\alpha|\beta} $ ganget med tallet $ \braket{\gamma|\op{A}|\delta} $, ganget med tallet $ \braket{\epsilon|\zeta} $. Begge disse synspunkter er rigtige.
+		\item ketter/braer beskrives let. Eksempelvis $ \ket{\text{kat}}, \ket{\uparrow}, \ket{+}, \ket{l,m,n} $
+		\item Komplethedsrelationer: For enhver ortonormal basis; $ \set{\negthickspace \ket{i}:i =1,2,\dots,N} $ (diskret) / $ \set{\negthickspace\ket{x}: x\in\Saet{R}}$ (kontinuert):
+		\begin{equation}
+			\sum_{i = 1}^{N} \ket{i}\bra{i} = \op{1}, \quad \infint \ket{x}\bra{x} \ud x = \op{1}		
+		\end{equation}
+		Og ">indsætning af identitet"<. Ved at indsætte en af disse to udtryk kan man bruge de ">forskellige synspunkter"< til at gøre en masse udregninger meget nemme.
+	\end{itemize}
+	
+	\subsubsection{Typer af baser}
+	Vi beskæftiger os med to typer af baser:
+	\begin{itemize}
+		\item Diskrete baser: $ \set{\negthickspace \ket{i}:i =1,2,\dots,N} $
+		
+		hvor $ N $ kan være endeligt eller $ N =\infty $.
+		\item Kontinuerte baser: $ \set{\negthickspace\ket{x}: x\in\Saet{R}} $
+	\end{itemize}
+	Alle beregninger er helt analog mellem de to typer, såfremt man udskifter summer med integraler (og omvendt), og udskifter alle Kroneckerdelta med Diracdelta (eller omvendt). Disse har selvfølgelig de sædvanlige egenskaber
+	\begin{equation}
+		\sum_i f_i \delta{ij} = f_j, \quad \infint f(x) \delta(x-x') \ud x = f(x')
+	\end{equation}
+	Alle baser, vi arbejder med, er ortonormale, så
+	\begin{align}
+		\braket{i|j} &= \delta_{ij}, \quad \text{for alle } i,j=1,2,\dots,N \\
+		\braket{x|x'} &= \delta(x-x'), \quad \text{for alle } x,x' \in \Saet{R}.
+	\end{align}
+	Det er dette, der tillader indsætning af identitet.
+	
+	\subsubsection{Repræsentation af en ket i en ortonormal basis}
+	Repræsentation af en ket $ \ket{\psi} $ i en ortonormal basis kan fås netop ved indsætning af identitet før ketten:
+	\begin{align}
+		\ket{\psi} &= \sum_{i=1}^{N} \ket{i} \psi_i, \quad \psi_i = \braket{i|\psi}, \\
+		\ket{\psi} &= \infint \ket{x} \psi(x) \ud x, \quad \psi(x) = \braket{x|\psi}.
+	\end{align}
+	I det diskrete tilfælde er det en $ N $-dimensionel kompleks søjlevektor og i det kontinuerte en kompleks funktion af variablen $ x $. 
+	
+	\subsubsection{Repræsentation af en operator i en ortonormal basis}
+	Repræsentation af en operator $ \op{A} $ i en ortonormal basis fås ved indsætning af identitet før og efter operatoren:
+	\begin{align}
+		\op{A} &= \sum_{i=1}^{N}\sum_{j=1}^N \ket{i}\bra{j} A_{ij}, \quad A_{ij} = \braket{i|\op{A}|j} \\
+		\op{A} &= \infint \infint \ket{x}\bra{x'} A(x,x') \ud x \ud x', \quad A(x,x') = \braket{x|\op{A}|x'}.
+	\end{align}
+	I diskrete tilfælde er $ \op{A} $ repræsenteret ved en kompleks $ N\times N $ matrix og i det kontinuerte en kompleks funktion af to variable.
+	
+	\subsubsection{Eksempler}
+	Eksempler på at bruge Diracnotation til repræsentation er:
+	\begin{enumerate}
+		\item $ \braket{\psi|\phi} = \sum_{i=1}^{N} \psi_i\konj \phi_i = [\psi]^{\dagger}[\phi] $, hvor $ [\psi] $ er repræsentationen af $ \psi $ i den givne basis (det vi normalt bare skriver som vektorer/matricer i LinAlg).
+		
+		$ \braket{\psi|\phi} = \infint \psi(x)\konj \phi(x) \ud x $.
+		
+		Og $ \braket{\psi|\psi} = \sum_{i=1}^{N} |\psi_i|^2 = [\psi]^{\dagger}[\psi] $
+		
+		$ \braket{\psi|\psi} = \infint |\psi(x)|^2 \ud x $ 
+		
+		
+		\item $ \braket{\psi|\op{A}|\phi} = \sum_{i=1}^{N}\sum_{j=1}^{N} \psi_i\konj A_{ij} \phi_j = [\psi]^{\dagger}[A][\phi]$
+		
+		$ \braket{\psi|\op{A}|\phi} = \infint \infint \psi(x)\konj A(x,x') \phi(x') \ud x \ud x'$
+		
+		\item Ligningen $ \op{A}\ket{\psi} = \ket{\phi} $ kan skrives ved
+		
+		$ \sum_{j=1}^{N} A_{ij}\psi_j = \phi_i $, altså $ [A][\psi] = [\phi] $, og
+		
+		$ \infint A(x,x')\psi(x')\ud x' = \phi(x)$.
+	\end{enumerate}
+	
+	
+	\subsubsection{Ændring af repræsentation af en ket}
+	For at gå fra den gamle basis $ \set{\negthickspace \ket{\negmedspace i}:i =1,2,\dots,N} $ / $ \set{\negthickspace \ket{\negmedspace x}:x \in \Saet{R}} $ til den nye basis $ \set{\negthickspace \T{\ket{\negmedspace i}}:i =1,2,\dots,N} $ / $ \set{\negthickspace \T{\ket{\negmedspace x}}:x\in \Saet{R}} $, bruger vi
+	\begin{align}
+		\T{\psi}_i &= \sum_{j=1}^{N} u_{ij}\psi_j, \quad u_{ij} = \T{\bra{i}}j\rangle\\
+		\T{\psi}(x) &= \infint u(x,x') \psi(x') \ud x', \quad u(x,x') = \T{\bra{x}}x'\rangle
+	\end{align}
+	hvor transformationsmatricen er unitær (så $ u^{\dagger}u = u u^{\dagger} = I $, hvor $ I $ er enhedsmatricen). Denne formel kan nemt opnås ved indsætning af identitet i udtrykket $ \T{\bra{i}}\psi\rangle $, mellem braen og ketten.
+	
+	\subsubsection{Ændring af repræsentation af en operator}
+	\begin{align}
+		\T{A}_{ij} &= \sum_{k=1}^{N} \sum_{l = 1}^{N} u_{ik} A_{kl} u_{jl}\konj, \quad u_{ik} = \T{\bra{i}}k\rangle,\  u_{jl} \konj = \langle l \T{\ket{\negmedspace j}}\\
+		\T{A}(x,x') &= \infint \infint u(x,x'') A(x'',x''') u(x',x''')\konj\ud x'' \ud x''', \\
+		u(x,x'') &= \T{\bra{x}}x''\rangle, \ u(x',x''')\konj = \langle x''' \T{\ket{\negmedspace x'}}.
+	\end{align}
+	Denne kan nemt fås ved indsætning af identitet to gange, i udtrykket $ \T{\bra{i}}\op{A}\T{\ket{j}} $.
+	
+	\subsubsection{Positionsbasen og impulsbasen}
+	To af de vigtigste baser i kvantemekanik er positionsbasen og impulsbasen:
+	\begin{equation}
+		\set{\negthickspace \T{\ket{\negmedspace x}}:x\in \Saet{R}}, \quad \set{\negthickspace \T{\ket{\negmedspace p}}:p\in \Saet{R}}.
+	\end{equation}
+	Med transformationen mellem dem givet ved
+	\begin{equation}
+		u(p,x) = \braket{p|x} = \frac{1}{\sqrt{2\pi\hbar}} e^{-ipx/\hbar},
+	\end{equation}
+	der er unitær:
+	\begin{equation}
+		\frac{1}{2\pi\hbar} \infint e^{ip(x-x')/\hbar} \ud p = \delta(x-x')
+	\end{equation}
+	
+	Repræsentationen af en ket $ \ket{\psi} $ i disse baser, $ \psi(x) $ og $ \psi(p) $ kaldes for positions/impuls-bølgefunktionerne:
+	\begin{equation}
+		\ket{\psi} = \infint \ket{x} \psi(x) \ud x = \infint \ket{p} \psi(p) \ud p, \quad \psi(x) = \braket{x|\psi}, \ \psi(p) = \braket{p|\psi} 
+	\end{equation}
+	Og disse er relaterede gennem Fouriertransformationen
+	\begin{equation}
+		\psi(p) = \frac{1}{\sqrt{2\pi\hbar}} \infint \psi(x) e^{-ipx/\hbar} \ud x, \quad \psi(x) = \frac{1}{\sqrt{2\pi \hbar}} \infint \psi(p) e^{ipx/\hbar} \ud p
+	\end{equation}
+	
+	To af de vigtigste operatorer er $ \op{x} $ og $ \op{p} $, der i positions og impulsbaserne er givet ved
+	\begin{align}
+		\braket{x|\op{x}|\psi} &= x\psi(x), \quad \braket{p|\op{x}|\psi} = i\hbar \diff[\ud]{\psi(p)}{p} \\
+		\braket{x|\op{p}|\psi} &= -i\hbar \diff[\ud]{\psi(x)}{x}, \quad \braket{p|\op{p}|\psi} = p\psi(p).
+	\end{align}
+	
+	
+	\subsection{Observerbare størrelser og Hermitiske operatorer}
+	Forventningsværdien af en observerbar størrelse $ Q(p,x) $ bliver, i Diracnotation:
+	\begin{equation}
+		\brac{Q} = \infint \Psi\konj \op{Q} \Psi \ud x = \braket{\Psi|\op{Q}\Psi}.
+	\end{equation}
+	Idet det er en observerbar størrelse, må udfaldet af hver enkelt måling være reel, og dermed må gennemsnittet af en masse målinger (og dermed også forventningsværdien) være reel. Dermed fås
+	\begin{equation}
+		\braket{Q}\konj = \braket{Q}\quad \Leftrightarrow \quad \braket{\Psi|\op{Q}\Psi} = \braket{\op{Q}\Psi|\Psi},
+	\end{equation}
+	hvor det bruges, at kompleks konjugering ændrer rækkefølgen på det indre produkt. Operatorer med denne egenskab kaldes for \textbf{hermitiske} (eller selvadjungerede, i LinAlg). Dette betyder at \textbf{observerbare størrelse repræsenteres af hermitiske operatorer}. Normalt gælder:
+	\begin{equation}
+		\braket{f|\op{Q}g} = \braket{\op{Q}^{\dagger}f|g}, \quad (\text{for alle } f,g),
+	\end{equation}
+	hvor $ \op{Q}^{\dagger} $ kaldes for den \textbf{hermitisk konjugerede} af operatoren. En operator er hermitisk, hvis $ \op{Q}= \op{Q}^{\dagger} $. I diskrete baser, hvor operatorer beskrives ved matricer, fås den hermitisk konjugerede ved at \textbf{transponere og konjugere} matricen:
+	\begin{equation}
+		\op{Q}^{\dagger} = (\op{Q}^{t})\konj.
+	\end{equation}
+	
+	
+	\subsection{Bestemte tilstande}
+	Normalt vil man, hvis man måler på observerbar $ Q $, vil man få forskellige resultater hver gang (såfremt man har en samling af partikler, alle i $ \Psi $, og man foretager én måling på hver). Hvis man derimod har en tilstand $ \Psi $, således at enhver måling af $ Q $ giver en bestemt værdi $ q $, kalder man denne tilstand for \textbf{bestemt}. (\textbf{Please, ret mig hvis jeg tager fejl. Det var den bedste oversættelse jeg lige kunne finde, og jeg var der ikke til forelæsningen}). Et eksempel på dette er stationære tilstande og Hamiltonoperatoren. 
+	
+	For bestemte tilstande må variansen være 0, eller:
+	\begin{align*}
+		\sigma^2 &\equiv \brac{(\Delta \op{Q})^2} = \brac{(\op{Q}-\brac{Q})^2} = \brac{(\op{Q}-q)^2} \\
+		&= \braket{\Psi | (\op{Q}-q)^2 \Psi} = \braket{(\op{Q}-q)\Psi|(\op{Q}-q)\Psi} = 0.
+	\end{align*}
+	Hvor det bruges at $ \brac{Q} = q $, og at $ \op{Q}-q $ er hermitisk. Dette kan dog kun lade sig gøre, hvis $ (\op{Q}-q)\Psi = 0$, idet dette er den eneste funktion, hvis indre produkt er 0. Dermed:
+	\begin{equation}
+		\op{Q} \Psi = q \Psi.
+	\end{equation}
+	hvilket er \textbf{egenværdiligningen} for operatoren $ \op{Q} $. Her er $ \Psi $ en \textbf{egenfunktion} til $ \op{Q} $ med \textbf{egenværdien} $ q $. Dette betyder da, at \textbf{bestemte tilstande er egenfunktioner til $ \op{Q} $}.
+	
+	Læg mærke til, at egenværdien er et tal, og at man dermed kan gange enhver konstant på en egenfunktion, og den vil stadig være en egenfunktion med samme egenværdi. 0 tælles ikke for en egenfunktion, idet den derfor vil være egenfunktion til alle lineære operatorer, med alle egenværdier. \textit{Dog kan 0 sagtens være en egenværdi}. Samlingen af alle egenværdier for en operator kaldes for operatorens \textbf{spektrum}, og hvis der er flere funktioner (her tæller det ikke at gange dem med en konstant), der har samme egenværdi kaldes spektrummet for \textbf{degenereret}. 
+	
+	
+	\subsection{Egenfunktioner til hermitiske operatorer}
+	Spektrummet af egenværdier til hermitiske operatorer (som Hamiltonoperatoren) kan enten være \textbf{diskrete} eller \textbf{kontinuert}. Egenfunktionerne til et diskret spektrum er en del af Hilbertrummet, og kan dermed beskrive fysiske tilstande. Til gengæld kan egenfunktioner til operatorer med et kontinuert spektrum \textit{ikke} (alene) beskrive fysiske tilstande. En lineær kombination (med spredning i egenværdier) kan dog, i nogle tilfælde være normaliserbare, og dermed beskrive fysiske tilstande.
+	
+	Der er et par meget nyttige egenskaber ved hermitiske operatorer. Disse gælder \textit{altid} for diskrete spektra, men dog kun nogle gange (i lettere modificeret udgave) for kontinuerte spektra:
+	
+	\subsubsection{Diskrete spektra}
+	\begin{theo}
+		Egenværdierne til hermitiske operatorer er reelle.
+	\end{theo}
+	\begin{proof}
+		Lad $ \op{Q} $ være en hermitisk operator, $ f $ være en egenfunktion til operatoren, med egenværdien $ q $. Da er $ q\braket{f|f} = q\konj \braket{f|f} $, idet $ \op{Q} $ brugt til højre giver $ q $ og $ \op{Q} $ brugt til venstre giver $ q\konj $. Men da $ f\neq0 $ (0 kan ikke være en egenfunktion), er $ \braket{f|f}\neq 0 $ og $ q=q\konj $. Dermed er $ q $ reel.
+	\end{proof}
+
+	\begin{theo}
+		Egenfunktioner til en hermitisk operator, der hører til forskellige egenværdier, er ortogonale.
+	\end{theo}
+	\begin{proof}
+		Lad $ \op{Q} $ være en hermitisk operator, og $ f,g $ være egenfunktioner med $ q,q' $ som egenværdier. Da er $ \braket{f|\op{Q}g} = \braket{\op{Q}f|g} $ og dermed $ q'\braket{f|g} = q\konj \braket{f|g}$. Men idet $ q $ er reel, og $ q \neq q' $ må $ \braket{f|g}=0 $, og dermed er de to funktioner ortogonale.
+	\end{proof}
+	Dette er også grunden til, at de stationære tilstande for den uendelige potentialbrønd (eller harmoniske oscillator) er ortogonale, med reelle egenværdier: de er egenfunktioner til en Hamiltonoperator med diskrete egenværdier.
+	
+	Ydermere, i endeligdimensionale vektorrum, udgør egenvektorer til en hermitisk operator en basis der udspænder hele vektorrummet. Beviset for dette kan dog ikke udvides til uendeligdimensionale vektorrum, hvormed det da tages som et aksiom:
+	
+	\begin{ax}
+		Egenfunktionerne til en observerbar (hermitisk) operator udgør et komplet sæt. Enhver velopførende funktion kan udtrykkes som en lineær kombination af dem.
+	\end{ax}
+	
+	
+	\subsubsection{Kontinuerte spektra}
+	For kontinuerte spektra er det ikke sikkert, at det indre produkt konvergerer, hvormed beviserne fra før falder sammen. Dog kan man opnå lignende resultater, hvis man \textbf{begrænser sig til reelle egenværdier}. Et eksempel er impulsoperatoren:
+	
+	Lad $ f_p(x) $ være egenfunktionen og $ p $ være egenværdien. Da fås differentialligningen og dennes løsning:
+	\begin{equation}
+		-i\hbar \diff[\ud]{}{x} f_p(x) = pf_p(x), \quad \Rightarrow \quad f_p(x) = A e^{ipx/\hbar}.
+	\end{equation}
+	Disse er ikke kvadratisk integrable for komplekse $ p $, men for reelle værdier af $ p $ fås, hvad der svarer til ortonormalitet af en kontinuert basis (som Griffiths kalder for ">Diracortonormalitet"<):
+	\begin{equation}
+		\infint f_{p'} \konj f_p \ud x= |A|^2 \infint e^{i(p-p')x/\hbar} \ud x = |A|^2 2\pi\hbar \delta(p-p').
+	\end{equation}
+	Og hvis $ A = 1/\sqrt{2\pi\hbar} $ fås:
+	\begin{equation}
+		f_p(x) = \frac{1}{\sqrt{2\pi\hbar}} e^{ipx/\hbar}, \quad \braket{f_{p'}|f_p} = \delta(p-p')
+	\end{equation}
+	Ydermere udgør de et komplet sæt (ikke underligt, idet de jo er trigonometriske funktioner):
+	\begin{equation}
+		f(x) = \infint c(p) f_p(x) \ud p = \frac{1}{\sqrt{2\pi\hbar}} \infint c(p) e^{ipx/\hbar} \ud p, \quad c(p') = \braket{f_{p'}|f}
+ 	\end{equation}
+	Hvilket netop er Fouriertransformationen!
+	
+	Dette gør sig gældende for alle hermitiske operatorer, hvis spektrum er kontinuert. \textbf{Såfremt deres egenværdier er reelle} vil egenfunktionerne være Diracortonormale og komplette.
+
+	\subsection{Generaliseret statistisk fortolkning}
+	Hvis du måler en observerbar $ Q(x,p) $ for en partikel i tilstanden $ \Psi(x,t) $, så får du med sikkerhed en af egenværdierne til operatoren $ \op{Q}(x,-i\hbar \uuud x / \uuud t) $. Hvis operatorens spektrum er diskret, vil sandsynligheden for, at du får en given egenværdi $ q_n $ være givet ved det absolutkvadratet af det indre produkt mellem egenfunktionen $ f_n $ til egenværdien $ q_n $, og bølgefunktionen $ \Psi $:
+	\begin{equation}
+		P(q_n) = |c_n|^2, \quad c_n = \braket{f_n|\Psi}.
+	\end{equation}
+	Er spektrummet derimod kontinuert, med reelle egenværdier $ q(z) $ og deres Diracortonormaliserede egenfunktioner $ f_z(x) $, er sandsynligheden for at få en egenværdi i området $ \uuud z $ givet ved
+	\begin{equation}
+		|c(z)|^2 \ud z, \quad c(z) = \braket{f_z |\Psi}.
+	\end{equation}
+	Efter målingen vil bølgefunktionen kollapse til den associerede egenfunktion (eller i det kontinuerte tilfælde, et smalt område omkring egenfunktionen).
+	
+	Egenfunktionerne til en observerbar operator udgør et komplet sæt, så bølgefunktionen kan skrives som en lineær kombination af dem
+	\begin{equation}
+		\Psi(x,t) = \sum_{n} c_n(t) f_n(x), \quad c_n = \braket{f_n|\psi}.
+	\end{equation}
+	Den samlede sandsynlighed må være givet ved summen over absolutkvadraterne af $ c_n $, hvilket også må være lig 1:
+	\begin{equation}
+		\sum_n |c_n|^2 = 1.
+	\end{equation}
+	Dette fås også fra normaliseringen af bølgefunktionen. På samme vis fås forventningsværdien af en observerbar ved at summere over egenværdierne, ganget med sandsynligheden for at få hver egenværdi:
+	\begin{equation}
+		\brac{Q} = \sum_n q_n |c_n|^2.
+	\end{equation}
+	
+	
+	\subsection{Usikkerhedsprincippet}
+	Det generelle usikkerhedsprincip kan bevises forholdsvis hurtigt (Griffiths bruger lige over én side). Jeg gider dog ikke helt at gøre det, andet end lige at give de grove udregninger og definitioner:
+	
+	For enhver observerbar $ A $ fås
+	\begin{equation}
+		\sigma_A^2 = \braket{(\op{A}-\brac{A})\Psi | (\op{A}-\brac{A})\Psi} = \braket{f|f},
+	\end{equation}
+	og lignende for $ B $: $ \sigma_B^2 =\braket{g|g}$, med $ g\equiv (\op{B}-\brac{B})\Psi $. Herfra kan man bruge Schwarz-uligheden samt trekantuligheden for komplekse tal, til at omskrive uligheden til
+	\begin{equation}\label{eq:unsecure}
+		\sigma_A^2 \sigma_B^2 \geq \pp{\frac{1}{2i}[\braket{f|g}-\braket{g|f}]}^2,
+	\end{equation}
+	hvor 
+	og videre $ \braket{f|g} = \brac{\op{A}\op{B}}-\brac{A}\brac{B} $ samt $ \braket{g|f} = \brac{\op{B}\op{A}}-\brac{A}\brac{B} $. Da fås $ \braket{f|g}-\braket{g|f} = \braket{[\op{A},\op{B}]} $, hvor $ [\op{A},\op{B}] = \op{A}\op{B}-\op{B}\op{A} $ er kommutatoren for de to operatorer. Dermed fås
+	\begin{equation}
+		\sigma_A^2\sigma_B^2 \geq \pp{\frac{1}{2i} \braket{[\op{A},\op{B}]}}^2,
+	\end{equation}
+	der er det \textbf{generaliserede usikkerhedsprincip}.
+	
+	Læg mærke til, at det afhænger af forventningsværdien af kommutatoren mellem de to operatorer. Dette vil sige, at hvis de to operatorer kommuterer, så er der intet usikkerhedsprincip for de to kommutatorer. Hvis de to operatorer dog \textit{ikke} kommuterer, kaldes de for \textbf{inkompatible} operatorer. Disse kan ikke have et komplet sæt af fælles egenfunktioner, hvilket er en konsekvens af, at ikkekommuterende matricer ikke kan diagonaliseres samtidigt. For kompatible operatorer er dette dog ikke et problem, de kan nemlig sagtens have et fælles komplet sæt af egenfunktioner.
+	
+	\subsection{Den mindst-usikre bølgepakke}
+	Både grundtilstanden for den harmoniske oscillator og den Gaussiske bølgepakke for den frie partikel rammer bunden af Heisenbergs usikkerhedsprincip. Usikkerhedsprincippet, som det står i \eqref{eq:unsecure}, bliver en lighed, når $ g(x) = c f(x) $, med $ c $ rent imaginært (dette er fordi man bruger den imaginære del af et komplekst tal, fra trekantsuligheden). For Heisenbergs usikkerhedsprincip giver dette
+	\begin{equation}
+		\pp{-i\hbar -\diff[\ud]{}{x}\brac{p}} \Psi = ia(x-\brac{x})\Psi,
+	\end{equation}
+	der er en differentialligning i $ x $, med løsningen
+	\begin{equation}
+		\Psi(x) = Ae^{-a(x-\brac{x})^2/2\hbar} e^{i\brac{p}x/\hbar}.
+	\end{equation}
+	Denne bølgefunktion er da en Gaussisk funktion, ligesom både grundtilstanden til den harmoniske oscillator og den Gaussiske bølgepakke.
+	
+	
+	\subsection{Den tidsligt afledte af en operators forventningsværdi}
+	Et mål for, hvor hurtigt et system udvikler sig, er den tidsligt afledte af en operators forventningsværdi. Denne er givet ved
+	\begin{equation}
+		\diff[\ud]{}{t} \brac{Q} = \diff[\ud]{}{t} \braket{\Psi|\op{Q}\Psi} = \braket{\diff[\ud]{\Psi}{t}|\op{Q}\Psi} + \braket{\psi|\diff[\ud]{\op{Q}}{t}\Psi}+\braket{\Psi|\op{Q}\diff[\ud]{\Psi}{t}}.
+	\end{equation}
+	Schrödingerligningen siger $ i\hbar \partial\Psi/\partial t = \op{H}\Psi $, så
+	\begin{equation}
+		\diff[\ud]{}{t} \brac{Q} = -\frac{1}{i\hbar} \braket{\op{H}\Psi|\op{Q}\Psi}+\frac{1}{i\hbar}\braket{\Psi|\op{Q}\op{H}\Psi}+\braket{\diff{\op{Q}}{t}}
+	\end{equation}
+	Men idet $ \op{H} $ er hermitisk, så er $ \braket{\op{H}\Psi|\op{Q}\Psi} = \braket{\Psi|\op{H}\op{Q}\Psi} $, og dermed er de to første led netop forventningsværdien af kommutatoren mellem $ \op{H} $ og $ \op{Q} $ (så er der lige lidt med nogle konstanter), og da fås
+	\begin{equation}
+		\diff[\ud]{}{t} \brac{Q} = \frac{i}{\hbar} \brac{[\op{H},\op{Q}]} + \braket{\diff{\op{Q}}{t}}.
+	\end{equation}
+	
 	
 \end{document}

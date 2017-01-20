@@ -1,14 +1,17 @@
 % Nikolai Nielsens "Fysiske Fag" preamble
 \documentclass[a4paper,10pt]{article} 	% A4 papir, 10pt størrelse
-
+\usepackage[danish]{babel}
 \usepackage{Nikolai} 					% Min hjemmelavede pakke
 \renewcommand{\konj}{^*}
 \usepackage{makeidx}
 \makeindex
 \usepackage[dvipsnames]{xcolor}
-
+\usepackage[thinlines]{easytable}
 % Margen
 \usepackage[margin=1in]{geometry}
+
+\newtheorem{theo}{Teorem}
+\newtheorem{ax}{Aksiom}
 
 % Max antal kolonner i en matrix. Default er 10
 %\setcounter{MaxMatrixCols}{20}
@@ -52,9 +55,6 @@
 	\newpage
 	\subfile{formalisme}
 	
-	
-	\newpage
-	\subfile{forelaesning}	
 	
 \end{document}
 
