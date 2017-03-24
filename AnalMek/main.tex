@@ -1,0 +1,56 @@
+% Nikolai Nielsens "Fysiske Fag" preamble
+\documentclass[a4paper,10pt]{report} 	% A4 papir, 10pt størrelse
+
+\usepackage{Nikolai} 					% Min hjemmelavede pakke
+\usepackage[dvipsnames]{xcolor}
+\usepackage[Danish]{babel}
+
+% Margen
+\usepackage[margin=1in]{geometry}
+
+% Max antal kolonner i en matrix. Default er 10
+%\setcounter{MaxMatrixCols}{20}
+
+% Hvor dybt skal kapitler labeles?
+%\setcounter{secnumdepth}{4}	
+%\setcounter{tocdepth}{4}
+
+
+% Hvilket nummer skal der startes med i sections? (n-1)
+%\setcounter{section}{0}	
+
+% Til nummerering af ligninger. Så der står (afsnit.ligning) og ikke bare (ligning)
+\numberwithin{equation}{section}
+
+
+% Header
+%\usepackage{fancyhdr}
+%\head{Nikolai Plambech Nielsen, 21-06-95\\Dato:. Klasse 5.C - De Fysiske Fag}
+%\pagestyle{fancy}
+
+%Titel
+\title{Noter til Analytisk Mekanik 2017}
+\author{Nikolai Plambech Nielsen, LPK331. Version 1.0}
+\date{}
+
+\begin{document}
+	
+	\selectlanguage{danish}
+	
+	
+	\maketitle
+	\tableofcontents
+	\newpage
+	\section*{Eksamensspørgsmål}
+	Eksamensspørgsmålene er som følger
+	\begin{enumerate}
+		\item \textbf{Newtons love og Kepler-problemet} [Første indgang til bevarelseslove, konservative kræfter, $ 1/r $ potentialet, planetbaner, spredning, tværsnit]
+		\item \textbf{Accelererede koordinatsystemer} [Rotation og translation, bevægelse på den roterende jord]
+		\item \textbf{Lagrangedynamik} [Holonomiske constraints, generaliserede koordinater, d'Alemberts Princip, Langrange-ligningerne, generaliserede kræfter]
+		\item \textbf{Variationsregning} [Lagrange-ligningerne fra et variationsprincip (Hamiltons Princip), Lagrange-multiplikatorer og constraint-kræfter]
+	\end{enumerate}
+	\newpage
+	\subfile{BasicPrinciples}
+	
+\end{document}
+

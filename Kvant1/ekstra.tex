@@ -1,0 +1,41 @@
+\documentclass[Kvant1noter.tex]{subfiles}
+
+
+\begin{document}
+	\section{Kommutatoralgebra}
+	Lige et par forskellige kommutatoralgebraidentiteter
+	\begin{enumerate}
+		\item $ [A+B,C] = [A,C]+[B,C] $
+		\item $ [A,A] = 0 $
+		\item $ [A,B] = - [B,A] $
+		\item $ [A,[B,C]] + [B,[C,A]] + [C,[A,B]] = 0 $
+		\item $ [A,BC] = [A,B]C + B[A,C] $
+		\item $ [AB,C] = A[B,C] + [A,C]B$
+		\item $ [AB,CD] = A[B,CD] + [A,CD]B = A[B,C]D + AC[B,D] + [A,C]DB + C[A,D]B $
+	\end{enumerate}
+	
+	
+	\section{Tilladte værdier for kvantetal}
+	I bølgefunktionen for brint indgår 3 forskellige kvantetal: $ n,l,m $. $ n $ beskriver energien i brintatomet, $ l $ beskriver størrelsen af atomets impulsmoment og $ m $ beskriver hvor ">meget"< impulsmomentet peger i $ z $-retningen. $ n $ kan tage positive heltalsværdier (naturlige tal):
+	\begin{equation}
+		n = 1,2,3,\dots, \quad n \in \Saet{N}
+	\end{equation}
+	$ l $ kan tage positive heltalsværdier (inklusiv 0), op til $ n-1 $:
+	\begin{equation}
+		l = 0,1,2,\dots,n-1
+	\end{equation}
+	$ m $ kan tage heltalsværdier fra $ -l $ til $ l $. Der er da $ 2l+1 $ tilladte værdier af $ m $ (fordi det inkluderer 0):
+	\begin{equation}
+		m = -l, -l+1, \dots l-1, l.
+	\end{equation}
+	idet det kun er $ n $ der bestemmer energien i hydrogenatomet, er der flere tilstande med samme energi. Dette kaldes for udartning. Ved udregning fås denne til:
+	\begin{equation}
+		\#\text{udartning} = \sum_{0}^{n-1} (2l+1) = n^2
+	\end{equation}
+	
+	Spin opfører sig meget på samme måde som impulsmomentet, blot med $ s $ i stedet for $ l $. Kvantetallet $ s $ kan dog ikke ændres: det er en fundamental del af partiklen. Elektroner, protoner og neutroner har spin $ 1/2 $, mens fotoner har spin 1. $ m $ for spin (nogle gange kaldet for $ m_s $, med $ m_l $ for kvantetallet af $ L_z $-operatoren) følger samme regler som $ m $ for impulsmomentet:
+	\begin{equation}
+		m_s = -s,-s+1,\dots s-1,s
+	\end{equation}
+	Dette vil altså sige, at $ m_s $ for elektroner, protoner og neutroner (spin-halve partikler) kan have $ m_s =-1/2, 1/2$, mens $ m_s $ for fotoner (spin-hele partikler) har $ m_s = -1,0,1 $.
+\end{document}

@@ -92,7 +92,7 @@
 		\op{A} &= \sum_{i=1}^{N}\sum_{j=1}^N \ket{i}\bra{j} A_{ij}, \quad A_{ij} = \braket{i|\op{A}|j} \\
 		\op{A} &= \infint \infint \ket{x}\bra{x'} A(x,x') \ud x \ud x', \quad A(x,x') = \braket{x|\op{A}|x'}.
 	\end{align}
-	I diskrete tilfælde er $ \op{A} $ repræsenteret ved en kompleks $ N\times N $ matrix og i det kontinuerte en kompleks funktion af to variable.
+	I diskrete tilfælde er $ \op{A} $ repræsenteret ved en kompleks $ N\times N $ matrix og i det kontinuerte en kompleks funktion af to variable. Det er disse ligninger, der svarer til ligning [3.81] i Griffiths, som bruges en del til opskrivning af matrixrepræsentationen af operatorer, hvis det vides, hvad de gør ved givne tilstande.
 	
 	\subsubsection{Eksempler}
 	Eksempler på at bruge Diracnotation til repræsentation er:
@@ -318,7 +318,7 @@
 		\diff[\ud]{}{t} \brac{Q} = -\frac{1}{i\hbar} \braket{\op{H}\Psi|\op{Q}\Psi}+\frac{1}{i\hbar}\braket{\Psi|\op{Q}\op{H}\Psi}+\braket{\diff{\op{Q}}{t}}
 	\end{equation}
 	Men idet $ \op{H} $ er hermitisk, så er $ \braket{\op{H}\Psi|\op{Q}\Psi} = \braket{\Psi|\op{H}\op{Q}\Psi} $, og dermed er de to første led netop forventningsværdien af kommutatoren mellem $ \op{H} $ og $ \op{Q} $ (så er der lige lidt med nogle konstanter), og da fås
-	\begin{equation}
+	\begin{equation}\label{eq:tidsforventning}
 		\diff[\ud]{}{t} \brac{Q} = \frac{i}{\hbar} \brac{[\op{H},\op{Q}]} + \braket{\diff{\op{Q}}{t}}.
 	\end{equation}
 	

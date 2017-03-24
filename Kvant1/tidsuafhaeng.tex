@@ -226,33 +226,33 @@
 	\begin{equation}
 		\op{a}_{\pm} = \frac{1}{\sqrt{2\hbar m \omega}} (\mp i \op{p}+m\omega \op{x}).
 	\end{equation}
-	Produktet $ \saenk\haev$ er
+	Produktet $ \saenk{a}\haev{a}$ er
 	\begin{equation}
-		\saenk\haev = \frac{1}{2 \hbar m \omega} [\op{p}^2 + (m\omega \op{x})^2 - im\omega (\op{x}\op{p}-\op{p}\op{x})]
+		\saenk{a}\haev{a} = \frac{1}{2 \hbar m \omega} [\op{p}^2 + (m\omega \op{x})^2 - im\omega (\op{x}\op{p}-\op{p}\op{x})]
 	\end{equation}
 	Den sidste parentes i parentesen er den kanoniske kommutator, og produktet kan da skrives ved denne:
 	\begin{align}
-		\saenk\haev &= \frac{1}{2 \hbar m \omega} [p^2+(m\omega \op{x})^2] + \frac{1}{2i\hbar} [\op{x},\op{p}] \\
+		\saenk{a}\haev{a} &= \frac{1}{2 \hbar m \omega} [p^2+(m\omega \op{x})^2] + \frac{1}{2i\hbar} [\op{x},\op{p}] \\
 		&= \frac{1}{\hbar \omega} \op{H} + \frac{1}{2}
 	\end{align}
-	På lige vis fås produktet $ \haev \saenk $
+	På lige vis fås produktet $ \haev{a} \saenk{a} $
 	\begin{equation}
-		\haev\saenk = \frac{1}{\hbar \omega} \op{H} - \frac{1}{2}
+		\haev{a}\saenk{a} = \frac{1}{\hbar \omega} \op{H} - \frac{1}{2}
 	\end{equation}
-	Dette giver da kommutatoren $ [\saenk,\haev] = \saenk\haev-\haev\saenk 1 $, og $ \op{H} $ kan skrives ved
+	Dette giver da kommutatoren $ [\saenk{a},\haev{a}] = \saenk{a}\haev{a}-\haev{a}\saenk{a} 1 $, og $ \op{H} $ kan skrives ved
 	\begin{equation}
-		\op{H} = \hbar \omega \pp{\saenk\haev-\frac{1}{2}} =  \hbar \omega \pp{\haev\saenk+\frac{1}{2}}.
+		\op{H} = \hbar \omega \pp{\saenk{a}\haev{a}-\frac{1}{2}} =  \hbar \omega \pp{\haev{a}\saenk{a}+\frac{1}{2}}.
 	\end{equation}
 	og Schrödingerligningen er da
 	\begin{equation}
 		\op{H} \psi = \hbar \omega \pp{\op{a}_{\pm}\op{a}_{\mp}\pm \frac{1}{2}} \psi = E\psi.
 	\end{equation}
-	Så nu kan Schrödingerligningen opskrives ved \textit{to} operatorer, i stedet for kun én. Woop de fucking do! Men vent, for vi har jo ikke navngivet $ \haev $ og $ \saenk $ endnu! Vi kalder dem nemlig for henholdsvis \textit{hæve}- og \textit{sænke}-operatorerne (I bet you didn't see that coming). De har dette navn, fordi det viser sig, at hvis $ \op{H}\psi = E\psi $, så er $ \op{H}\haev\psi = (E+\hbar \omega) \psi$ og $ \op{H}\saenk \psi = (E-\hbar \omega) \psi $. De to operatorer \textbf{hæver} og \textbf{sænker} altså energiniveauet af en given løsning! Men vi er jo stadig ikke tættere på nogen løsning. Nu ved vi bare at der er flere end én...
+	Så nu kan Schrödingerligningen opskrives ved \textit{to} operatorer, i stedet for kun én. Woop de fucking do! Men vent, for vi har jo ikke navngivet $ \haev{a} $ og $ \saenk{a} $ endnu! Vi kalder dem nemlig for henholdsvis \textit{hæve}- og \textit{sænke}-operatorerne (I bet you didn't see that coming). De har dette navn, fordi det viser sig, at hvis $ \op{H}\psi = E\psi $, så er $ \op{H}\haev{a}\psi = (E+\hbar \omega) \psi$ og $ \op{H}\saenk{a} \psi = (E-\hbar \omega) \psi $. De to operatorer \textbf{hæver} og \textbf{sænker} altså energiniveauet af en given løsning! Men vi er jo stadig ikke tættere på nogen løsning. Nu ved vi bare at der er flere end én...
 	
 	
 	Det er dog sådan, at hvis man bruger sænkeoperatoren nok gange, må man nødvendigvis nå en negativ energi, hvilket ikke kan lade sig gøre i følge problem 2.2. Dermed må der være en \textbf{grundtilstand} med
 	\begin{equation}
-		\saenk \psi_0 = 0. \quad \text{(læg mærke til nul-indekseringen)}
+		\saenk{a} \psi_0 = 0. \quad \text{(læg mærke til nul-indekseringen)}
 	\end{equation}
 	(det kunne også være, at dens kvadratintegral var uendeligt, men normalt er det ikke sådan). Ud fra dette fås en differentialligning og medfølgende løsning
 	\begin{equation}
@@ -262,30 +262,30 @@
 	\begin{equation}
 		\psi_0 (x) = \pp{\frac{m\omega}{\hbar \pi}}^{1/4} e^{-m\omega x^2 / 2 \hbar}.
 	\end{equation}
-	Denne tilstand har energien $ E_0 = \frac{1}{2}\hbar\omega $. Hvilket man får fra Schrödingerligningen og at $ \saenk\psi_0 = 0 $. Hermed er det bare at bruge hæveoperatoren for at få alle de næste tilstande.
+	Denne tilstand har energien $ E_0 = \frac{1}{2}\hbar\omega $. Hvilket man får fra Schrödingerligningen og at $ \saenk{a}\psi_0 = 0 $. Hermed er det bare at bruge hæveoperatoren for at få alle de næste tilstande.
 	\begin{equation}
-		\psi_n = A_n (\haev)^n \psi_0, \quad A_n = \frac{1}{\sqrt{n!}}, \quad E_n = \pp{n+\frac{1}{2}} \hbar \omega.
+		\psi_n = A_n (\haev{a})^n \psi_0, \quad A_n = \frac{1}{\sqrt{n!}}, \quad E_n = \pp{n+\frac{1}{2}} \hbar \omega.
 	\end{equation}
-	Normaliseringsfaktoren $ A_n $ kan fås ud fra den egenskab at $ \op{a}_{\pm} \psi_n \propto \psi_{n\pm 1} $ og at $ \haev $ er den \textbf{hermitisk konjugerede} til $ \saenk $ (og omvendt):
+	Normaliseringsfaktoren $ A_n $ kan fås ud fra den egenskab at $ \op{a}_{\pm} \psi_n \propto \psi_{n\pm 1} $ og at $ \haev{a} $ er den \textbf{hermitisk konjugerede} til $ \saenk{a} $ (og omvendt):
 	\begin{equation}
 		\infint f\konj (\op{a}_{\pm} g) \ud x = \infint (\op{a}_{\mp} f)\konj g \ud x
 	\end{equation}
 	Ud fra dette, fås også følgende nyttige egenskaber
 	\begin{equation}
-		\haev \psi_n = \sqrt{n+1}\, \psi_{n+1}, \quad \saenk \psi_n = \sqrt{n} \,\psi_{n-1}.
+		\haev{a} \psi_n = \sqrt{n+1}\, \psi_{n+1}, \quad \saenk{a} \psi_n = \sqrt{n} \,\psi_{n-1}.
 	\end{equation}
 	Ydermere er løsningerne til den harmoniske oscillator ortonormale. Dette vil sige, at vi kan bruge Fouriers trick, og at $ |c_n|^2 $ igen er sandsynligheden for at partiklen måles til at have energien $ E_n $:
 	\begin{equation}
-		\Psi (x,0) = \sum_{n=0}^{\infty} c_n \psi_n = \sum_{n=0}^{\infty} c_n \frac{1}{\sqrt{n!}} (\haev)^n \psi_0, \quad c_n = \infint \psi_n(x)\konj \Psi(x,0) \ud x
+		\Psi (x,0) = \sum_{n=0}^{\infty} c_n \psi_n = \sum_{n=0}^{\infty} c_n \frac{1}{\sqrt{n!}} (\haev{a})^n \psi_0, \quad c_n = \infint \psi_n(x)\konj \Psi(x,0) \ud x
 	\end{equation}
 	Og igen skal den karakteristiske tidsfaktor bare smækkes på hvert led, for at få løsningen til den tidsafhængige Schrödingerligning.
 	
 	Der er yderligere et par smarte resultater fra disse hæve/sænkeoperatorer. Man kan nemlig udtrykke $ \op{x} $ og $ \op{p} $ ved dem:
 	\begin{align}
-		\op{x} &= \sqrt{\frac{\hbar}{2m\omega}} (\haev+\saenk),\\
-		\op{p} &= i \sqrt{\frac{\hbar m \omega}{2}} (\haev-\saenk),\\
-		\op{x}^2 &= \frac{\hbar}{2m\omega} \bb{\haev^2 + \haev \saenk + \saenk \haev + \saenk^2}, \\
-		\op{p}^2 &= \frac{-\hbar m \omega}{2} \bb{\haev^2 - \haev \saenk - \saenk \haev + \saenk^2}.
+		\op{x} &= \sqrt{\frac{\hbar}{2m\omega}} (\haev{a}+\saenk{a}),\\
+		\op{p} &= i \sqrt{\frac{\hbar m \omega}{2}} (\haev{a}-\saenk{a}),\\
+		\op{x}^2 &= \frac{\hbar}{2m\omega} \bb{\haev{a}^2 + \haev{a} \saenk{a} + \saenk{a} \haev{a} + \saenk{a}^2}, \\
+		\op{p}^2 &= \frac{-\hbar m \omega}{2} \bb{\haev{a}^2 - \haev{a} \saenk{a} - \saenk{a} \haev{a} + \saenk{a}^2}.
 	\end{align}
 	Dette gør det meget nemt at udregne forventningsværdier, idet man bare kan udnytte hæve/sænkeoperatorerne og ortonormaliteten af de stationære tilstande til at evaluere integralerne.
 	

@@ -1,0 +1,111 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+	\chapter{Grundprincipper}
+	
+	\section{Newtons love}
+	Fra Mek1 kender vi Newtons tre love. Den første lyder
+	\paragraph{Newtons første lov.}
+		I et inertialsystem forbliver ethvert legeme i hvile, eller bevæger sig med konstant hastighed, medmindre legemet udsættes for en kraft $ \V{F} $. Hvis $ \V{F} = 0 $, vil et legeme da have konstant hastighed $ \V{v} $ og impuls $ \V{p} = m\V{v} $.
+		
+	Og et inertialsystem er et koordinatsystem, der \textit{ikke} er accelereret, hvormed Newtons tre love gælder (i denne form, i hvert fald). Den anden lov lyder
+	\paragraph{Newtons anden lov.}
+		I et inertialsystem vil et legeme, der oplever en kraft, også opleve en ændring i impuls, givet ved
+		\begin{equation}\label{key}
+			\V{F} = \diff[d]{\V{p}}{t} \equiv \dot{\V{p}}.
+		\end{equation}
+	Hvis massen af et legeme forbliver konstant, reduceres den anden lov til den kendte form af $ \V{F} = m \,d\V{v}/dt = m \V{a} $.
+	
+	\paragraph{Newtons tredje lov.} Påvirkes et legeme, 1, af et andet legeme, 2, med en kraft $ \V{F}_{21} $, vil legeme 1 påvirke legeme 2 med en lige stor, men modsatrettet kraft:
+	\begin{equation}\label{key}
+		\V{F}_{12} = -\V{F}_{21}
+	\end{equation}
+	og begge disse kræfter virker langs legemernes adskillelseslinje.
+	
+	Et vigtigt resultat af dette er galileisk relativitet, der siger, at ethvert referencesystem, der bevæger sig med konstant hastighed i forhold til et inertialsystem, er selv et inertialsystem. Et bevis for dette er som følger:
+	
+	Lad $ \V{r} $ og $ \V{r}' $ være koordinaterne i to forskellige referencesystemer, der bevæger sig med hastigheden $ \V{V} $ i forhold til hinanden. Da fås $ \V{r}' = \V{r}+\V{V}t $, hvormed to partikler $ i $ og $ j $, har separationen $ \V{r}_i-\V{r}_j = \V{r}_i' -\V{r}_j' $ og kræfterne $ \V{F}_{ij} = \V{F}_{ij}' $ i de to referencesystemer. Ydermere ses det, at idet koordinatsystemerne bevæger sig med konstant hastighed i forhold til hinanden, vil $ d^2\V{r}/dt^2 = d^2\V{r}'/dt^2$, hvormed accelerationen også er ens i de to koordinatsystemer.
+	
+	
+	\subsection{Bevarelseslove}
+	Her fremhæves tre vigtige bevarelseslove, nemlig dem om impuls-, impulsmoments-, og energibevarelse:
+	\paragraph{Impulsbevarelse.} Ud fra Newtons anden lov ses det, at såfremt et legeme ikke påvirkes af en kraft, så vil dets impuls være bevaret
+	
+	\paragraph{Impulsmomentsbevarelse.} Impulsmomentet defineres ved
+	\begin{equation}\label{key}
+		\V{L} = \V{r} \times \V{p} = m\V{r} \times \V{v}
+	\end{equation}
+	hvor det antages, at $ m $ er konstant. Den tidsligt afledte af denne størrelse er
+	\begin{equation}\label{key}
+		\dot{L} = m\V{v} \times \V{v} + m \V{r} \times \V{a} = m \V{r} \times \V{a} = \V{r} \times \V{F} \equiv \Vg{\Gamma},
+	\end{equation}
+	hvor produktreglen, Newtons anden lov og det faktum at krydsproduktet mellem to ens vektorer er 0, er brugt. Størrelsen $ \Vg{\Gamma} $ kaldes for \textit{kraftmomentet}. Det ses da, at hvis en eller flere af kraftmomemtets komponenter er 0, vil denne/disse samme komponente/r af impulsmomentet være bevaret. Det noteres dog, at i modsætning til impulsen, så afhænger impulsmomentet af valget af koordinatsystem, idet, hvis origo transformeres, så $ \V{r} \to \V{r}+\V{r}_0 $, transformeres $ \V{L} $ til $ \V{r}\times \V{p} + \V{r}_0 \times \V{p} $, under antagelse at $ \dot{\V{r}}_0 = 0 $, og at de to koordinatsystemer ikke bevæger sig i forhold til hinanden.
+
+	\paragraph{Energi} For et statisk kraftfelt $ \V{F}(\V{r}) $ vil en testpartikel, der bevæger sig fra punkt 1 til punkt 2 langs en given vej, være givet ved linjeintegralet af kraften:
+	\begin{equation}\label{key}
+		W_{1\to 2} = \int_{1}^{2} \V{F}(\V{r}) \D d \V{s}
+	\end{equation}
+	Hvis punkt 1 svarer til $ \V{r}_1 $ og partiklen bevæger sig gennem punktet 2, svarende til $ \V{r}_2 $, vil $ d \V{s} = \V{v} dt $, og Newtons anden lov (for konstant masse) giver resultatet:
+	\begin{equation}\label{key}
+		W_{1\to 2} = \int_1^2 \pp{m \diff[d]{\V{v}}{t}} \D d\V{s} = m \int_{1}^{2} \V{v}\D  \diff[d]{\V{v}}{t} dt = m \int_{1}^{2} \frac{1}{2} v^2 \diff[d]{}{t} dt = \frac{1}{2}m v_2^2- \frac{1}{2} mv_1^2 \equiv T_2-T_1
+	\end{equation}	
+	hvor $ T $ er partiklens kinetiske energi. Hvis kraftfeltet ydermere kan beskrives som gradienten til en skalar $ U $, kaldet potentialet, så $ \V{F}(\V{r}) = -\grad U (\V{r}) $, kaldes kraftfeltet for \textit{konservativt}, og da bliver arbejdet $ W_{1\to2} = - \int_{1}^{2} \grad U(\V{r}) \D d \V{s} = -U_2+U_1 $ (hvilket du måske kan huske fra vektoranalysen i MatF1. Dette er nemlig gradientsætningen i aktion). Kombineres disse to resultater ($ T_2-T_1 = -U_2+U_1 $) fås energibevarelsen:
+	\begin{equation}\label{key}
+		T_1+U_1 = T_2+U_2
+	\end{equation}
+	for konservative kraftfelter. Grundet gradientsætningen er der to yderligere ækvivalente kriterier for $ \V{F}(\V{r}) $: 
+	\begin{equation}
+		\grad \times \V{F}(\V{r}) = 0, \quad \oint \V{F}(\V{r}) \D d \V{s} = 0.
+	\end{equation}
+	Altså at kraftfeltet er rotationsfrit (enten i differentialform eller integralform.)
+
+	\section{Partikelsystemer}
+	Betragt $ N $ partikler, med masserne $ {m_i} $, der befinder sig i positionerne $ {\V{r}_i} $, i et inertialsystem. Da defineres \textit{massemidtpunktet} $ \V{R} $ ved
+	\begin{equation}\label{key}
+		\V{R} = M\inverse \sum_{i = 1}^{N} m_i \V{r}_i, \quad M = \sum_{i=1}^{N} m_i.
+	\end{equation}
+	
+	
+	\subsection{Massemidtpunktsbevægelse}
+	Kraften på den $ i $'te partikel kan skrives som summen af eksterne kræfter, og kræfter fra andre partikler $ j\neq i $:
+	\begin{equation}\label{key}
+		\V{F}_i = \dot{\V{p}}_i = \V{F}_i^{(e)} + \sum_{j = 1, j \neq i}^{N} \V{F}_{ij}
+	\end{equation}
+	Accelerationen af massemidtpunktet er da givet ved
+	\begin{equation}\label{key}
+		M\ddot{\V{R}} = \sum_{i = 1}^{N} m_i \ddot{\V{r}}_i = \sum_{i=1}^{N} \dot{\V{p}}_i = \sum_{i = 1}^{N} \V{F}_i^{(e)} + \sum_{i = 1}^{N} \sum_{j = 1, j \neq i}^{N} \V{F}_{ij}.
+	\end{equation}
+	Det sidste udtryk er ret grimt, men det hjælper at skrive det ud:
+	\begin{align*}
+		\sum_{i = 1}^{N} \sum_{j = 1, j \neq i}^{N} \V{F}_{ij} &= \V{F}_{2,1}+\V{F}_{3,1}+\dots+\V{F}_{N,1} \\
+		&+\V{F}_{1,2}+\V{F}_{3,2}+\dots + \V{F}_{N,2} +\dots \\
+		&+ \V{F}_{1,N}+\V{F}_{2,N}+\dots \V{F}_{N-1,N}
+	\end{align*}
+	hvor jeg lige separerer indeksene med et komma for synlighed. Vis alle kraftpar ($ \V{F}_{21} $ og $ \V{F}_{12} $) samles fås
+	\begin{align*}\label{key}
+		\sum_{i = 1}^{N} \sum_{j = 1, j \neq i}^{N} \V{F}_{ij} &= (\V{F}_{1,2}+\V{F}_{2,1})+(\V{F}_{1,3}+\V{F}_{3,1})+\dots+(\V{F}_{1,N}+\V{F}_{N,1}) \\
+		&+ (\V{F}_{2,3}+\V{F}_{3,2}) + \dots + (\V{F}_{2,N}+\V{F}_{N,2})+\dots+(\V{F}_{N-1,N}+\V{F}_{N,N-1})
+	\end{align*}
+	Men idet $ \V{F}_{1,2} = -\V{F}_{2,1} $ (Newtons tredje lov), giver hele denne sum 0. En anden måde at få dette udtryk på, er at definere $ \V{F}_{ii} = 0 $, hvormed summen kan ændres til
+	\begin{equation}\label{key}
+		\sum_{i = 1}^{N} \sum_{j = 1, j \neq i}^{N} \V{F}_{ij} = \frac{1}{2} \sum_{i = 1}^{N} \sum_{j =  1}^N (\V{F}_{ij}+\V{F}_{ji}) 
+	\end{equation}
+	hvor faktoren af 2 kommer fra det faktum, at hvert kraftpar tælles dobbelt. Her ses det endnu lettere, at summen giver 0, idet hvert led i summen er 0. Det samlede resultat af dette er, at
+	\begin{equation}\label{key}
+	M\ddot{\V{R}} = \sum_{i = 1}^{N} \V{F}_i^{(e)} \equiv \V{F}^{(e)}
+	\end{equation}
+	hvor $ \V{F}^{(e)} $ er den totale eksterne kraft. Dermed bevæger massemidtpunktet af en samling af partikler sig, som om al partiklernes masse var koncentreret i ét punkt, og påvirket med en kraft $ \V{F}^{(e)} $. Ydermere ses det, at den samlede impuls $ \V{P} = \sum_{i = 1}^{N} \V{p}_i $ er konstant, når $ \V{F}^{(e)} =  0 $. Der er også følgende repræsentationer af dette
+	\begin{equation}\label{key}
+		\V{P} = \sum_{i = 1}^{N} m_i \dot{\V{r}}_i =  \sum_{i=1}^{N} m_i \V{v}_i = M\dot{\V{R}} = M\V{V}
+	\end{equation}
+	hvor $ \V{V} $ er massemidtpunktets hastighed.
+	
+	\subsection{Impulsmoment}
+	
+	\subsection{Energi}
+	
+	
+	\section{Centrale kræfter}
+	\section{To-legemesbevægelse med centralt potentiale}
+	\section{Spredning}
+\end{document}

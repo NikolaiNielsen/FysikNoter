@@ -1,0 +1,561 @@
+\documentclass[Kvant1noter.tex]{subfiles}
+
+
+\begin{document}
+	
+	\section{Kvant i 3D}
+	
+	\subsection{Kommuterende operatorer}
+	
+	Vi begynder med et vigtigt resultat om kommuterende operatorer:
+	\begin{theo}
+		Antag at vi har to kommuterende hermitiske operatorer: $ [\op{P},\op{Q}] = 0 $. Da eksisterer der et komplet sæt af fælles egentilstande. Altså at der eksisterer et komplet set af tilstande $ \set{\ket{p,q}} $, så
+		\begin{equation}
+			\op{P}\ket{p,q} = p\ket{p,q} \quad \text{og} \quad \op{Q}\ket{p,q}  = q\ket{p,q}.
+		\end{equation}
+	\end{theo}
+	Dette giver anledning til følgende konsekvenser
+	\begin{itemize}
+		\item \textbf{Kommuterende operatorer kan kendes samtidig}
+		\item \textbf{Kommuterende operatorer kan måles samtidig} 
+		\item De følgende 4 ting er ækvivalente: $ [\op{P},\op{Q}]=0 \Leftrightarrow$ $ \op{P} $ og $ \op{Q} $ har et komplet set af fælles egentilstande $ \Leftrightarrow $ $ \op{P} $ og $ \op{Q} $ kan kendes samtidig $ \Leftrightarrow  $ $ \op{P} $ og $ \op{Q} $ kan måles samtidig
+	\end{itemize}
+
+	\subsection{Schrödinger i 3D}
+	I 3 dimensioner er impulsoperatoren givet ved
+	\begin{equation}
+		\V{p} \rightarrow \op{p} = \frac{\hbar}{i} \grad,
+	\end{equation}
+	og hele Schrödingerligningen er
+	\begin{equation}
+		i\hbar \diff{\Psi}{t} = -\frac{\hbar^2}{2m} \grad^2 \Psi + V \Psi
+	\end{equation}
+	Normaliseringsbetingelsen lyder her
+	\begin{equation}
+		\infint |\Psi|^2 \ud^3 \V{r} = 1.
+	\end{equation}
+	Hvis potentialet er stationært, vil der være et komplet set af stationære tilstande
+	\begin{equation}
+		\Psi_n(\V{r},t) = \psi_n(\V{r}) e^{-iE_n t/\hbar},
+	\end{equation}
+	hvor $ \psi_n $ som før opfylder den tidsuafhængige Schrödingerligning
+	\begin{equation}
+		-\frac{\hbar^2}{2m} \grad^2 \psi + V\psi = E\psi
+	\end{equation}
+	Og den generelle løsning er en superposition:
+	\begin{equation}
+		\Psi(\V{r},t) = \sum c_n \psi_n(\V{r}) e^{-iE_n t/\hbar}.
+	\end{equation}
+	
+	I tre dimensioner lyder de \textbf{kanoniske kommutatorer}
+	\begin{equation}
+		[r_i,p_j] = -[p_i,r_j] = -i\hbar \delta_{ij}, \quad [r_i,r_j]=[p_i,p_j] = 0
+	\end{equation}
+	Og \textbf{Heisenbergs usikkerhedsprincip} lyder
+	\begin{equation}
+		\sigma_x\sigma_{p_x} \geq \frac{\hbar}{2}, \quad \sigma_y\sigma_{p_y} \geq \frac{\hbar}{2}, \quad \sigma_z\sigma_{p_z} \geq \frac{\hbar}{2}, \quad
+	\end{equation}
+	Men der er ingen restriktion på $ \sigma_x\sigma_{p_y} $, eksempelvis.
+	
+	\subsubsection{Separation af de variable}
+	Som oftest er potentialet rotationelt symmetrisk, således at vi kan bruge separation af de variable i sfæriske koordninater. Den tidsuafhængige Schrödingerligning lyder
+	\begin{equation}
+		-\frac{\hbar^2}{2m} \bb{\frac{1}{r^2} \diff{}{r} + \pp{r^2 \diff{\psi}{r}} + \frac{1}{r^2 \sin\theta} \diff{}{\theta} \pp{\sin \theta \diff{\psi}{\theta}} + \frac{1}{r^2 \sin^2 \theta} \pp{\diff{^2\psi}{\phi^2}}}+V\psi = E\psi
+	\end{equation}
+	
+	\subsubsection{Symmetribetragtninger}
+	Potentialet for brintatomet er givet ved
+	\begin{equation}
+		V(r) = - \frac{e^2}{4 \pi \epsilon_0} \frac{1}{r}
+	\end{equation}
+	og da det er rotationelt symmetrisk, vil Hamiltonoperatoren også være rotationelt symmetrisk (den kinetiske del er et skalarprodukt, så denne er også symmetrisk). Dette betyder, at impulsmomentsoperatorerne $ \op{\V{L}} = \V{r} \times \op{\V{p}} $ kommuterer med Hamiltonoperatoren:
+	\begin{equation}
+		[\op{\V{L}}, \op{H}] = 0.
+	\end{equation}
+	her er $ \op{\V{L}} $ en vektor, og det vil sige at hver af vektorkomponenterne $ \op{L}_x $, $ \op{L}_y $ og $ \op{L}_z $ alle kommuterer med Hamiltonoperatoren.
+	
+	Dette fås nemt, hvis man udregner kommutatoren for komponenterne med Hamiltonoperatoren, i sfæriske koordinater. Betydelsen af dette er, at i følge \eqref{eq:tidsforventning} fås
+	\begin{equation}
+		\diff[\ud]{}{t}\brac{\op{L}_z} = \frac{i}{\hbar}\brac{[\op{H},\op{L}_z]}+\brac{\diff{\op{L}_z}{t}}  = 0
+	\end{equation}
+	idet $ [\op{H},\op{L}_z] = 0 $ og $ \op{L}_z $ også er tidsuafhængig. Dermed er der \textbf{bevarelse af impulsmoment}, såfremt potentialet er symmetrisk!
+	
+	\subsection{Impulsmoment}
+	Klassisk er impulsmomentet givet ved
+	\begin{equation}
+		\V{L} = \V{r}  \times \V{p}
+	\end{equation}
+	eller
+	\begin{equation}
+		L_x = yp_z-zp_y, \quad L_y = zp_x-xp_z, \quad L_z = xp_y - y p_x,
+	\end{equation}
+	med $ p_x \to -i\hbar \partial/\partial x $, $ p_y \to -i\hbar \partial/\partial y $ og $ p_z \to -i\hbar \partial/\partial z $. Ud fra de kanoniske kommutatorer i 3 dimensioner får vi
+	\begin{equation}
+		[\op{L}_x,\op{L}_y] = i\hbar L_z, \quad [\op{L}_y,\op{L}_z] = i\hbar L_x, \quad [\op{L}_z,\op{L}_x] = i\hbar L_y.
+	\end{equation}
+	Og usikkerhedsprincippet siger
+	\begin{equation}
+		\sigma_{L_x} \sigma_{L_y} \geq \frac{\hbar}{2} |\brac{L_z}|
+	\end{equation}
+	med lignende for de andre kombinationer. Dermed kan der ikke være fælles egentilstande for de individuelle impulsmomentskomponenter. Til gengæld gælder dette ikke for det samlede impulsmoment $ \op{L}^2 \equiv \op{L}_x^2+\op{L}_y^2+\op{L}_z^2 $:
+	\begin{equation}
+		[\op{L}^2, \op{\V{L}}] = 0,
+	\end{equation}
+	igen med 3 komponenter. Vi fokuserer da på at finde fælles egentilstande for $ L^2 $ og $ L_z $, hvor
+	\begin{equation}
+		\op{L}^2 f= \lambda f, \quad \op{L}_z f = \mu f.
+	\end{equation}
+	Denne gang indfører vi følgende hæve/sænkeoperatorer
+	\begin{equation}
+		\hs{L} \equiv \op{L}_x\pm i \op{L}_y
+	\end{equation}
+	der kommuterer på følgende måde:
+	\begin{equation}
+		[\op{L}_z,\hs{L}] = \pm \hbar \hs{L}, \quad [\op{L}^2,\hs{L}] = 0.
+	\end{equation}
+	Lader vi denne virke på egentilstanden for $ \op{L}^2 $ får vi
+	\begin{equation}
+		\op{L}^2(\hs{L} f) = \lambda (\hs{L}f),
+	\end{equation}
+	Så $ \hs{L}f $ er altså også en egentilstand til $ \op{L} $, med samme egenværdi som $ f $. For $ \op{L}_z $ fås
+	\begin{equation}
+		\op{L}_z (\hs{L} f) = (\mu\pm \hbar) (\hs{L}f),
+	\end{equation}
+	Så hæve/sænkeoperatorerne ændrer altså ikke på det samlede impulsmoment, men blot hvor meget det ">peger i $ z $-retningen"<. For et givent $ \lambda $ får vi da en stige at tilstande, hver separeret med én enhed af $ \hbar $ i egenværdi for $ L_z $. På et tidspunkt må der dog være et øverste trin, idet $ z $-komponenten ellers ville overstige det samlede impulsmoment:
+	\begin{equation}
+		\haev{L} f_t = 0,
+	\end{equation} 
+	hvor $ f_t $ er det øverste trin. Her kaldes egenværdien for $ \op{L}_z $ for $ \hbar l $, så:
+	\begin{equation}
+		\op{L}_z f_t = \hbar l f_t, \quad \op{L}^2 f_t = \lambda f_t.
+	\end{equation}
+	Det samlede impulsmomentsoperator kan skrives som
+	\begin{equation}
+		\op{L}^2 = \op{L}_{\pm} \op{L}_{\mp} + \op{L}_z^2 \mp \hbar \op{L}_z.
+	\end{equation}
+	Ved dette fås
+	\begin{equation}
+		\lambda = \hbar^2 l(l+1)
+	\end{equation}
+	hvilket altså giver $ \lambda $ (egenværdi for $ \op{L}^2 $) ved den maksimale egenværdi for $ \op{L}_z $. Af den samme årsag som før, må der nødvendigvis være et ">nederste"< trin, således at
+	\begin{equation}
+		\saenk{L} f_b = 0, \quad \op{L}_z f_b = \hbar \overline{l}f_b, \quad \op{L}^2 f_b = \lambda f_b.
+	\end{equation}
+	Og som før kan $ \lambda $ udtrykkes ved egenværdien til $ \op{L}_z $:
+	\begin{equation}
+		\lambda = \hbar^2 \overline{l}(\overline{l}-1)
+	\end{equation}
+	med dette fås at $ l(l+1) = \overline{l}(\overline{l}-1) $, og den eneste \textit{ikke}absurde løsning er
+	\begin{equation}
+		\overline{l} = -l
+	\end{equation}
+	Det vil sige, der er $ 2l+1 $ egentilstande for $ \op{L}_z $, med værdierne $ m\hbar $, der går fra $ -l $ til $ +l $ i heltalsskridt. $ l $ kan enten være et heltal eller et ">halvtal"< (heltal divideret med 2). Det viser sig, at halvtallige $ l $ ikke er fysiske tilstande, men rettere beskriver partiklernes spin. For at opsummere, så er egentilstandende karakteriseret ved 2 (kvante)tal, $ m $ og $ l $:
+	\begin{equation}
+		\op{L}^2\ket{l,m} = \hbar^2 l(l+1) \ket{l,m}, \quad \op{L}_z \ket{l,m} = \hbar m \ket{l,m}
+	\end{equation}
+	med
+	\begin{equation}
+		l = 0, 1, 2, \dots, \quad m = -l, -l+1, \dots, 0, 1, \dots, l
+	\end{equation}
+	hvor igen, $ l $ er nødt til at være et heltal. Disse tilstande $ \ket{l,m} $ er givet ved de sfæriske harmonier: $ \ket{l,m} = Y^m_l $, som du måske kan huske fra MatF1.
+	
+	Hæve/sænkeoperatorerne ændrer værdien af $ m $ med én enhed
+	\begin{equation}
+		\hs{L} \ket{l,m} = A^m_l \ket{l,m\pm 1}
+	\end{equation}
+	hvor $ A^m_l = \hbar \sqrt{l(l+1)-m(m\pm 1)} = \hbar \sqrt{(l\mp m) (l \pm m +1)} $. Bruger man $ \haev{L} $ skal man vælge den øverste af $ A^m_l $, mens hvis man bruger $ \saenk{L} $ skal man bruge den nederste. Eksempel:
+	\begin{equation}
+		\haev{L} f^m_l = \hbar \sqrt{l(l+1)-m(m+1)} f^{m+1}_l, \quad \saenk{L} f^m_l = \hbar \sqrt{l(l+1)-m(m-1)} f^{m-1}_l
+	\end{equation}
+	Bemærk, at hvis man bruger $ \haev{L} $ på $ f^l_l $ bliver $ A_l^l = \hbar \sqrt{l(l+1)-l(l+1)} = 0 $, og ligeledes $ \saenk{L} $ på $ f^{-l}_l $: $ A_l^{-l}=\hbar \sqrt{l(l+1)-(-l)(-l-1)}=\hbar\sqrt{l(l+1)-l(l+1)}=0 $, præcis som forventet. Man kan ikke hæve/sænke $ m $ over/under $ l $.
+
+
+	\subsubsection{L-operatorerne, andre former}
+	Der er et par vigtige resultater (ud over, selvfølgelig, at vi får de sfæriske harmonier ud), som jeg lige vil pointere: Ved at opskrive gradienten i sfæriske koordinater, kan man opskrive $ \op{\V{L}} $ som:
+	\begin{equation}
+		\op{L}_x = \frac{\hbar}{i} \pp{-\sin\phi \diff{}{\theta} - \cos \phi \cot \theta \diff{}{\phi}}, \quad \op{L}_y = \frac{\hbar}{i} \pp{+\cos\phi \diff{}{\theta} - \sin \phi \cot \theta \diff{}{\phi}}
+	\end{equation}
+	\begin{equation}
+		\op{L}_z = \frac{\hbar}{i} \diff{}{\phi}
+	\end{equation}
+	Hæve/sænkeoperatorerne er givet ved
+	\begin{equation}
+		\hs{L} = \pm \hbar e^{\pm i\phi} \pp{\diff{}{\theta} \pm i \cot \theta \diff{}{\phi}}
+	\end{equation}
+	Og $ \op{L}^2 $ er givet ved
+	\begin{equation}
+		\op{L}^2 = -\hbar^2 \bb{\frac{1}{\sin \theta} \diff{}{\theta} \pp{\sin \theta \diff{}{\theta}}+ \frac{1}{\sin^2 \theta} \diff{^2}{\phi^2}}.
+	\end{equation}
+	
+	Ydermere kan $ \op{L}_x $ og $ \op{L}_y $ skrives ved hæve/sænkeoperatorerne:
+	\begin{equation}
+		\op{L}_x = \frac{1}{2} (\haev{L}+\saenk{L}), \quad \op{L}_y = \frac{1}{2i} (\haev{L}-\haev{L})
+	\end{equation}
+	
+	
+	\subsection{Brint og den radielle ligning}
+	Med alt dette i baghovedet, har vi fundet den ene del af bølgefunktionerne, nemlig den angulære del. Denne viste sig at være givet ved sfæriske harmonier. Den samlede løsning til den tidsuafhængige Schrödingerligning er da:
+	\begin{equation}
+		\psi_{nlm}(\V{r}) = R_{nl}(r) Y^m_l(\theta,\phi)
+	\end{equation}
+	Det viser sig ydermere nemlig, at den radielle del $ R_{nl} $ ikke afhænger af $ m $. Dette giver også god mening: $ m $ specificerer (på en måde) retningen af det angulære moment, og da ligningen er radiel, er dette ubetydeligt. Den afhænger dog af kvantetallet $ n $, men det er jo bare som vi kender det fra den endimensionelle Schrödingerligning.
+	 
+	Ved at hygge lidt med Hamiltonoperatoren og denne funktion får man følgende ligning
+	\begin{equation}
+		E_{nl} R_nl(r) = \bb{\frac{1}{2mr^2} \pp{-\hbar^2 \diff{}{r} \pp{r^2 \diff{}{r}} \hbar^2 l(l+1)}+V(r)} R_{nl}(r).
+	\end{equation}
+	Hvor $ E_{nl} $ er separationskonstanten som vi kender den. Denne afhænger af kvantetallene $ n $ og $ l $, og den samlede bølgefunktion afhænger da af $ l $, der specificerer det angulære moments størrelse, $ m $ der specificerer dets retning (sådan da) og $ n $, der er med til at beskrive tilstandens energi. Med alt dette, så er vi tilbage til en Schrödingerligning, i én dimension! Hold nu fast da.
+	
+	For lige at gøre den lidt pænere foretager vi lige et variabelskift til
+	\begin{equation}
+		u(r) \equiv rR(r),
+	\end{equation}
+	hvormed ligningen bliver
+	\begin{equation}
+		-\frac{\hbar^2}{2m} \diff[\ud]{^2 u}{r^2} + \bb{V+\frac{\hbar^2}{2m} \frac{l(l+1)}{r^2}} u = Eu.
+	\end{equation}
+	Denne har identisk form til den endimensionelle Schrödingerligning, ud over at det effektive potential
+	\begin{equation}
+		V_{\text{eff}} = V+\frac{\hbar^2}{2m} \frac{l(l+1)}{r^2}
+	\end{equation}
+	indeholder de såkaldte ">centrifugalled"<, der slynger partikler væk fra origo, som (den ">fiktive"<) centrifugalkraft gør i klassisk mekanik. Normaliseringen lyder da
+	\begin{equation}
+		\int_{0}^{\infty} |u|^2 \ud r = 1.
+	\end{equation}
+	
+	\subsection{Brint}
+	Så er tiden endelig kommet, vi skal kigge på brint!	Fra Coloumbs lov og EL1 ved vi, at potentialet er givet ved
+	\begin{equation}
+		V(r) = -\frac{e^2}{2\pi\epsilon_0} \frac{1}{r},
+	\end{equation}
+	hvormed den radielle ligning bliver
+	\begin{equation}
+		-\frac{\hbar^2}{2m} \diff[\ud]{^2 u}{r^2} + \bb{-\frac{e^2}{2\pi\epsilon_0} \frac{1}{r}+\frac{\hbar^2}{2m} \frac{l(l+1)}{r^2}} u = Eu.
+	\end{equation}
+	Dette potential tillader både positive energier, der beskriver proton-elektron-spredning, samt negative energier, der beskriver brints bundne tilstande. Det er de sidste vi kigger på.
+	
+	For at gøre tingene lidt pænere indfører vi
+	\begin{equation}
+		\kappa \equiv \frac{\sqrt{-2mE}}{\hbar}
+	\end{equation}
+	der er reel og positiv, idet $ E $ er negativ. Divideres ligningen med $ E $ fås
+	\begin{equation}
+		\frac{1}{\kappa^2} \diff[\ud]{^2 u}{r^2} = \bb{1-\frac{me^2}{2\pi \epsilon_0 \hbar^2 \kappa} \frac{1}{\kappa r} + \frac{l(l+1)}{(\kappa r)^2}} u.
+	\end{equation}
+	Og hvis vi så indfører
+	\begin{equation}
+		\rho \equiv \kappa r, \quad \rho_0 \equiv \frac{me^2}{2\pi\epsilon_0 \hbar^2 \kappa},
+	\end{equation}
+	Bliver ligningen \textit{rigtig} pæn:
+	\begin{equation}
+		\diff[\ud]{u^2}{\rho^2} = \bb{1-\frac{\rho_0}{\rho} + \frac{l(l+1)}{\rho^2}} u.
+	\end{equation}
+	Lad os kigge på de asymptotiske tilfælde: $ \rho \to infty $ og $ \rho \to 0 $. For det første tilfælde dominerer konstanten i parentesen, så
+	\begin{equation}
+		\diff[\ud]{^2 u}{\rho^2} = u, \quad u(\rho) = Ae^{-\rho}+ Be^{\rho}
+	\end{equation}
+	hvor $ B=0 $, da dette led ellers eksploderer. Så for $ \rho \to \infty $ fås
+	\begin{equation}
+		u(\rho) \sim Ae^{-\rho}.
+	\end{equation}
+	I det andet tilfælde, for $ \rho \to 0 $, dominerer det centrifugale led, og ligningen lyder
+	\begin{equation}
+		\diff[\ud]{^2 u}{\rho^2} = \frac{l(l+1)}{\rho^2} u, \quad u(\rho) = C\rho^{l+1}+D\rho^{-l},
+	\end{equation}
+	men $ D=0 $ idet $ \rho^{-l} \to \infty$ for $ \rho\to 0 $. Dermed
+	\begin{equation}
+		u(\rho) \sim C\rho^{l+1}.
+	\end{equation}
+	
+	Så den umiddelbare form lyder
+	\begin{equation}
+		u(\rho) = \rho^{l+1} e^{-\rho} v(\rho),
+	\end{equation}
+	hvor $ v(\rho) $ er en funktion der, så at sige, ">rydder op"< i udtrykket. Ved indsætning fås
+	\begin{equation}
+		\rho \diff[\ud]{^2 v}{\rho^2} + 2(l+1-\rho)\diff[\ud]{v}{\rho} + [\rho_0 -2(l+1)]v = 0
+	\end{equation}
+	og vi antager, at $ v $ kan udtrykkes som en potensrække: $ V(\rho) = \sum_{j=0}^{\infty} c_j \rho^{j} $. Ved at indsætte dette kan man få en dejlig rekursionsformel, der lyder
+	\begin{equation}
+		c_{j+1} = \kk{\frac{2(j+l+1)-\rho_0}{(j+1)(j+2l+2)}}c_j.
+	\end{equation}
+	Problemet er dog, at for store værdier af $ j $, vil $ v $ gå som en eksponentialfunktion, og det var netop dette vi prøvede at undgå. Dermed må potensrækken ende et sted, og der må altså være en maksværdi af $ j $, så
+	\begin{equation}
+		c_{j_{\text{max}}+1} = 0, \quad \Rightarrow \quad 2(j_{\text{max}} +l+1)- \rho_0 = 0.
+	\end{equation}
+	Hvis vi definerer
+	\begin{equation}
+		n\equiv j_{\text{max}}+l+1,
+	\end{equation}
+	får vi
+	\begin{equation}
+		\rho_0 = 2n
+	\end{equation}
+	men idet $ \rho_0 $ giver energierne, får vi
+	\begin{equation}
+		E = -\frac{\hbar^2 \kappa^2}{2m} = - \frac{me^4}{8\pi^2 \epsilon_0^2 \hbar^2 \rho_0^2},
+	\end{equation}
+	og de tilladte energier er
+	\begin{equation}
+		E_n = -\bb{\frac{m}{2\hbar^2} \pp{\frac{e^2}{4\pi\epsilon_0}}^2 }\frac{1}{n^2} = \frac{E_1}{n^2}, \ n = 1,2,3,\dots, \quad E_1 = -13.6 \e{eV}
+	\end{equation}
+	hvilket er \textbf{Bohrformlen}, og $ E_1 $ er grundtilstandens energi. Med dette fås
+	\begin{equation}
+		\kappa = \pp{\frac{me^2}{4 \pi \epsilon_0 \hbar^2}}\frac{1}{n} = \frac{1}{an}, \quad a\equiv \frac{4 \pi \epsilon_0 \hbar^2}{me^2} = 0.529\D 10^{-10} \e{m}.
+	\end{equation}
+	hvor $ a $ kaldes for \textbf{Bohrradiussen}. Med dette fås $ \rho $ til
+	\begin{equation}
+		\rho = \frac{r}{an}.
+	\end{equation}
+	
+	Men vi skal stadig lige finde $ v(\rho) $. Denne er stadig et polinomium af grad $ j_{\text{max}} = n-l-1 $ i $ \rho $, med koefficienter, der bestemmes af rekursionsformlen (ud over lidt normaliseringssnask):
+	\begin{equation}
+		c_{n+1} = \frac{2(j+l+1-n)}{(j+1)(j+2l+2)} c_j.
+	\end{equation}
+	
+	Den samlede bølgefunktion lyder
+	\begin{equation}
+		\psi_{nlm}(r,\theta,\phi) = R_{nl}(r)Y^m_l(\theta,\phi)
+	\end{equation}
+	og grundtilstanden ($ n=1 $, $ l=m=0 $) giver $ c_1 = 0 $ med $ j = 0 $. Dermed er $ v(\rho) $ en konstant:
+	\begin{equation}
+		R_{10}(r) = \frac{c_0}{a} e^{-r/a},
+	\end{equation}
+	hvor $ c_0 = 2/\sqrt{a} $, hvilket kan vises ved et hyggeligt integral. $ Y^0_0 = 1/\sqrt{4\pi}$, så grundtilstanden er
+	\begin{equation}
+		\psi_{100}(r,\theta,\phi ) = \frac{1}{\sqrt{\pi a^3}} e^{-r/a}.
+	\end{equation}
+	
+	\subsubsection{Tilladte værdier af kvantetallene}
+	For arbitrære $ n $, er de tilladte værdier af $ l $ givet ved
+	\begin{equation}
+		l = 0,1,2,\dots,n-1.
+	\end{equation}
+	og for hvert $ l $ er der $ 2l+1 $ tilladte værdier af $ m $:
+	\begin{equation}
+		m = -l,-l+1,\dots,l-1,l.
+	\end{equation}
+	Fy for Søren(sen). Dermed er den samlede udartning (antal tilstande med samme energi) er
+	\begin{equation}
+		d(n) = \sum_{0}^{n-1}(2l+1) = n^2.
+	\end{equation}
+	
+	$ v(\rho) $, givet ved rekursionsformlen, er en velkendt funktion for matematikere: Det er \textbf{associerede Laguerrepolynomier} (op til en normaliseringsfaktor):
+	\begin{equation}
+		v(\rho) = L_{n-l-1}^{2l+1}(2\rho), \quad L_{q-p}^p(x) \equiv (-1)^p \pp{\diff[\ud]{}{x}}^p L_q(x)
+	\end{equation}
+	hvor $ L_q(x) $ er det $ q $'te Laguerrepolynomium, givet ved
+	\begin{equation}
+		L_q(x) \equiv e^x \pp{\diff[\ud]{}{x}}^q (e^-x x^q).
+	\end{equation}
+	En liste over de første par polynomier (associerede eller ej) er givet i sidste sektion af kapitlet. De normaliserede bølgefunktioner for hydrogen er givet ved
+	\begin{equation}
+		\psi_{nlm} = \sqrt{\pp{\frac{2}{na}}^3 \frac{(n-l-1)!}{2n[(n+l)!]^3}}  e^{-r/na} \pp{\frac{2r}{na}}^l \bb{L^{2l+1}_{n-l-1} (2r/na)} Y^m_l(\theta,\phi).
+	\end{equation}
+	Disse er indbyrdes ortonormale:
+	\begin{equation}
+		\int \psi_{nlm}\konj \psi_{n'l'm'} r^2 \sin\theta \ud r \ud \theta \ud \phi = \delta_{nn'}\delta_{ll'}\delta_{mm'}.
+	\end{equation}
+	Dette følger fra den indbyrdes ortonormalitet af de sfæriske harmonier, og fordi (for $ n\neq n' $) at de er egenfunktioner til $ \op{H} $, med forskellige egenværdier. De første par radielle bølgefunktioner er givet i sidste sektion af dette kapitel.
+	
+	\subsubsection{Hydrogens spektrum}
+	I teorien, så vil et hydrogenatom i en stationær tilstand ($ n=n_i $) forblive i denne tilstand, men hvis den pertuberes, så vil den falde ned til en lavere energitilstand ($ n=n_f $) og udsende et foton, hvis energi er givet ved
+	\begin{equation}
+		E_{\gamma} = E_i - E_f = -13.6 \e{eV} \pp{\frac{1}{n_i^2}-\frac{1}{n_f^2}} = h\nu
+	\end{equation}
+	Bølgelængden er givet ved Rydbergformlen
+	\begin{equation}
+		\frac{1}{\lambda} = R \pp{\frac{1}{n_i^2}-\frac{1}{n_f^2}}, \quad R \equiv \frac{m}{4\pi c\hbar^3} \pp{\frac{e^2}{4\pi\epsilon_0}}^2 = 1.097\D 10^{7} \e{m}\inverse.
+	\end{equation}
+	hvor $ R $ kaldes for Rydbergs konstant. Overgange til grundtilstanden ($ n_f = 1 $) kaldes for \textbf{Lymanserien} og er i det ultraviolette spektrum. Overgange til første exciterede tilstand ($ n_f=2 $) kaldes for \textbf{Balmerserien} og er i den synlige del af spektret.
+	
+	
+		
+	\subsection{Spin}
+	Ud over det ordinære (orbitale) impulsmoment, så har hydrogen (og partikler generelt) også et indbygget impulsmoment, kaldet spin (fordi det minder om spin-impulsmoment for klassiske partikler, der roterer om sig selv. Det gør elektroner dog ikke, fordi de er, så vidt vi ved bogstavelige punktpartikler). Dette impulsmoment afhænger ikke af rumlige koordinater, og der kan dermed ikke opskrives en bølgefunktion for det. Dermed bruges der også braketnotation til at beskrive dem. 
+	
+	Udledningen er helt analogt til det orbitale impulsmoment, og vi starter da med kommutationrelationerne (der tages som postulater for nu):
+	\begin{equation}
+		[\op{S}_x,\op{S}_y] = i\hbar \op{S}_z, \quad [\op{S}_y,\op{S}_z] = i\hbar \op{S}_x, \quad [\op{S}_z,\op{S}_x] = i\hbar \op{S}_y.
+	\end{equation}
+	Da opfylder egenvektorerne til $ \op{S}^2 $ og $ \op{S}_z $ også
+	\begin{equation}
+		\op{S}^2\ket{s,m} = \hbar^2 s(s+1)\ket{s,m}, \quad \op{S}_z \ket{s,m} = \hbar m \ket{s,m}
+	\end{equation}
+	hvor $ m $ også bruges som egenværdi for $ \op{S}_z $. Og til sidst også hævesænkeoperatorerne
+	\begin{equation}
+		\hs{S} \ket{s,m} = \hbar\sqrt{s(s+1)-m(m\pm1)} \ket{s,m\pm 1}.
+	\end{equation}
+	Hvor $ \hs{S} \equiv \op{S}_x\pm i \op{S}_y $. Det viser sig, at de tilladte værdier af $ s $ er helt fundamentale til partiklerne, og disse kan da ikke ændres. Eksempelvis har pi mesoner spin 0, elektroner (samt protoner og neutroner) har spin 1/2, fotoner spin 1 og så videre
+	
+	\subsubsection{Spin 1/2}
+	Elektroner, protoner, neutroner, samt alle kvarker og leptoner har spin $ s=1/2 $, hvormed det klart er det vigtigste tilfælde. Disse har da blot to egentilstande: $ \ket{1/2,1/2} $ (kaldet spin-op, og ofte betegnet $ \ket{\uparrow} $) og $ \ket{1/2,-1/2} $ (kaldet spin-ned, betegnet $ \ket{\downarrow} $). Med dette kan den generelle tilstand af en spin-1/2 partikel beskrives ved en søjlematrix med to indgange (også kaldt en \textbf{spinor}):
+	\begin{equation}
+		\chi = \begin{pmatrix} a \\ b\end{pmatrix} = a\chi_++b\chi_-, \quad 
+		\chi_+ = \begin{pmatrix} 1\\0 \end{pmatrix}, \quad 
+		\chi_+ = \begin{pmatrix} 0\\1 \end{pmatrix}, \quad |a|^2+|b|^2 = 1.
+	\end{equation}
+	Operatorerne er da $ 2\times 2 $ matricer, givet ved
+	\begin{equation}
+		\V{S}^2 = \frac{3}{4} \hbar^2\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad 
+		\V{S}_+ = \hbar \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix},  \quad 
+		\V{S}_- = \hbar \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix},
+	\end{equation}
+	Og de regulære spinmatricer er
+	\begin{equation}
+	\V{S} = \frac{\hbar}{2} \Vg{\sigma}
+	\end{equation}
+	med
+	\begin{equation}
+		\sigma_x \equiv \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \quad
+		\sigma_y \equiv \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}, \quad
+		\sigma_z \equiv \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix},
+	\end{equation}
+	der kaldes for \textbf{Pauli spin-matricerne}. Det bemærkes, at $ \op{S}^2 $ og $ \op{\V{S}} $ alle er hermitiske, og dermed observerbare, mens $ \hs{S} $ ikke er det. Egenspinorerne til $ \op{S}_z $ er
+	\begin{equation}
+		\chi_+^{z} = \begin{pmatrix}
+		1 \\ 0
+		\end{pmatrix}, \ \text{egenværdi } +\hbar/2, \quad 
+		\chi_-^{z} = \begin{pmatrix}
+		0 \\ 1
+		\end{pmatrix}, \ \text{egenværdi } -\hbar/2.
+	\end{equation}
+	Og egenspinorerne til $ \op{S}_x $ er (fås ved først at finde matricens egenværdier og så egenvektorer, samt normalisere dem).
+	\begin{equation}
+		\chi_+^{x} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+		1 \\ 1
+		\end{pmatrix}, \ \text{egenværdi } +\hbar/2, \quad 
+		\chi_-^{x} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+		1 \\ -1
+		\end{pmatrix}, \ \text{egenværdi } -\hbar/2.
+	\end{equation}
+	Den generelle spinor kan skrives ved
+	\begin{equation}
+		\chi = \frac{a+b}{\sqrt{2}} \chi_+^x + \frac{a-b}{\sqrt{2}} \chi_-^y
+	\end{equation}
+	og sandsynlighederne for at måle $ \hbar/2 $ er $ |a+b|^2 / 2 $ og for at måle $ -\hbar/2 $ er $ |a-b|^2/2 $. Egenspinorerne for $ \op{S}_y $, til sidst, er
+	\begin{equation}
+		\chi_+^{y} =\frac{1}{\sqrt{2}} \begin{pmatrix}
+		-i \\ 1
+		\end{pmatrix}, \ \text{egenværdi } +\hbar/2, \quad 
+		\chi_-^{y} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+		i \\ 1
+		\end{pmatrix}, \ \text{egenværdi } -\hbar/2, \quad 
+	\end{equation}
+	Og den generelle spinor er
+	\begin{equation}
+		\chi = \frac{b+ia}{\sqrt{2}} \chi_+^y + \frac{b-ia}{\sqrt{2}} \chi_-^y
+	\end{equation}
+	med sandsynlighederne for $ \hbar/2 $: $ |b+ia|^2/2 $ og for $ -\hbar/2 $: $ |ib+a|^2 $.
+	
+	
+	\subsubsection{Elektroner i et magnetfelt}
+	En roterende, elektrisk ladet partikel udgør en magnetisk dipol. Dets magnetiske dipolmoment er
+	\begin{equation}
+		\Vg{\mu} = \gamma \V{S},
+	\end{equation}
+	hvor $ \gamma $ kaldes det gyromagnetiske forhold. Når dipolen placeres i et magnetfelt $ \V{B} $, oplever det et kraftmoment $ \Vg{\mu}\times \V{B} $, og energien tilhørende dette kraftmoment er da
+	\begin{equation}
+		\V{H} = -\mu \D \V{B},
+	\end{equation}
+	hvormed Hamiltonoperatoren for en \textit{stationær} spin-partikel er
+	\begin{equation}
+		\V{H} = -\gamma \V{B} \D \V{S}
+	\end{equation}
+	
+	\paragraph{Larmor precession.} Lad en spin-1/2 være stationær i et homogent magnetfelt $ \V{B} = B_0 \hat{k} $. Da er Hamiltonoperatoren
+	\begin{equation}
+		\V{H} = -\gamma B_0 \V{S}_z = -\frac{\gamma B_0 \hbar}{2} \begin{pmatrix}
+		1 & 0 \\ 0 & -1
+		\end{pmatrix}
+	\end{equation}
+	Og egentilstandende er de samme som for $ \op{S}_z $:
+	\begin{equation}
+		\begin{cases}
+		\chi_+, & \text{med energien } E_+ = -(\gamma B_0 \hbar)/2, \\
+		\chi_-, & \text{med energien } E_- = +(\gamma B_0 \hbar)/2.
+		\end{cases}
+	\end{equation}
+	Da er energien lavest, hvis dipolen peger \textit{med} felte, som i det klassiske tilfælde. Den generelle løsning til den tidsafhængige Schrödingerligning fås da ved at smide den karakteristiske tidsfaktor på
+	\begin{equation}
+		\chi(t) = a\chi_+ e^{-iE_+ t/\hbar} + b\chi_- e^{-iE_-t/\hbar} = 
+		\begin{pmatrix}
+		a e^{i\gamma B_0 t/2} \\
+		b e^{-i\gamma B_0 t/2}
+		\end{pmatrix}
+	\end{equation}
+	$ a $ og $ b $ fås ud fra begyndelsesbetingelserne: $ \chi(0) = \begin{psmallmatrix} a \\ b \end{psmallmatrix} $, med $ |a|^2+|b|^2 = 1 $. Hvis det antages at disse er reelle (den eneste forskel, hvis de er komplekse, er at der tilføjes en konstant til $ t $), så kan de skrives $ a= \cos(\alpha/2) $ og $ b=\sin(\alpha/2) $. Da fås
+	\begin{equation}
+		\chi(t) = \begin{pmatrix}
+		\cos(\alpha/2) e^{i\gamma B_0 t/2} \\
+		\sin(\alpha/2) e^{-i\gamma B_0 t/2}
+		\end{pmatrix} 
+	\end{equation}
+	Forventningsværdierne til $ \V{S} $ fås ved $ \chi(t)^{\dagger}\V{S}\chi(t) $ og udregnet bliver de
+	\begin{equation}
+		\brac{\op{S}_x} = \frac{\hbar}{2} \sin\alpha \cos(\gamma B_0 t),  \quad \brac{\op{S}_y} = -\frac{\hbar}{2} \sin\alpha \sin(\gamma B_0 t), \quad \brac{\op{S}_z} = \frac{\hbar}{2}\cos \alpha
+	\end{equation}
+	Dette vil sige, at $ \brac{\V{S}} $ er drejet med en vinkel $ \alpha $ i forhold til $ z $-aksen, og den precesserer med \textbf{Larmorfrekvensen}
+	\begin{equation}
+		\omega = \gamma B_0,
+	\end{equation}
+	hvilket er som i det klassiske tilfælde. Da er det dog impulsmomentvektoren og ikke blot forventningsværdien. Dette giver også god mening i lys af Ehrenfests teorem, der jo siger, at forventningsværdier følger klassiske love.
+	
+	
+	
+	\subsection{Sfæriske harmonier, Laguerrepolynomier, radielle bølgefunktioner}
+	\subsubsection{Sfæriske harmonier}	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{>{$\displaystyle} l <{$}p{1cm} >{$\displaystyle} l <{$}}
+			Y^0_0 =\pp{\frac{1}{4 \pi}}^{1/2} & & Y^{\pm 2}_2 = \pp{\frac{15}{32 \pi}}^{1/2} \sin^2 (\theta) e^{\pm 2 i \phi} \\
+			Y^0_1 = \pp{\frac{3}{4\pi}}^{1/2} \cos \theta && Y^0_3 = \pp{\frac{7}{16\pi}}^{1/2} (5 \cos^3 \theta-3 \cos \theta) \\
+			Y^{\pm 1}_1 = \mp \pp{\frac{3}{8\pi}}^{1/2} \sin (\theta) e^{\pm i\phi} && Y^{\pm1}_3 = \mp \pp{\frac{21}{64\pi}}^{1/2} \sin\theta (5\cos^2 \theta-1) e^{\pm i \phi} \\
+			Y^0_2 = \pp{\frac{5}{16\pi}}^{1/2} (3 \cos^2 \theta -1 ) && Y^{\pm 2}_3 = \pp{\frac{105}{32 \pi}}^{1/2} \sin^2 \theta \cos \theta \  e^{\pm 2 i \phi} \\
+			Y^{\pm 1}_2 = \mp \pp{\frac{15}{8\pi}}^{1/2} \sin \theta \cos \theta \ e^{\pm i \phi} && Y^{\pm 3}_3 =  \mp \pp{\frac{35}{64 \pi}}^{1/2} \sin^3 \theta \ e^{\pm 3 i \phi} 
+		\end{tabular}
+	\end{table}
+	\subsubsection{Radielle bølgefunktioner}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{>{\vspace{0.2cm}  $\displaystyle} l <{$}}
+			R_{10} = 2a^{-3/2} \exp(-r/a)  \\
+			R_{20} = \frac{1}{\sqrt{2}} a^{-3/2} \pp{1-\frac{1}{2}\frac{r}{a}} \exp(-r/2a) \\
+			R_{21} = \frac{1}{\sqrt{24}}a^{-3/2} \frac{r}{a} \exp(-r/2a) \\
+			R_{30} = \frac{2}{\sqrt{27}}a^{-3/2} \pp{1-\frac{2r}{3a}+\frac{2}{27}\pp{\frac{r}{a}}^2} \exp(-r/3a) \\
+			R_{31} = \frac{8}{27\sqrt{6}} a^{-3/2}  \pp{1-\frac{r}{6a}}\pp{\frac{r}{a}} \exp(-r/3a) \\
+			R_{32} = \frac{4}{81\sqrt{30}} a^{-3/2} \pp{\frac{r}{a}}^2 \exp(-r/3a)  \\
+			R_{40} = \frac{1}{4} a^{-3/2} \pp{1-\frac{3r}{4a} + \frac{1}{8}\pp{\frac{r}{a}}^2 - \frac{1}{192} \pp{\frac{r}{a}}^3} \exp(-r/4a) \\
+			R_{41} = \frac{\sqrt{5}}{16\sqrt{3}} a^{-3/2} \pp{1-\frac{r}{4a}+\frac{1}{80} \pp{\frac{r}{a}}^2} \frac{r}{a} \exp(-r/4a) \\
+			R_{42} = \frac{1}{64\sqrt{5}} a^{-3/2} \pp{1-\frac{r}{12a}}\pp{\frac{r}{a}}^2 \exp(-r/4a) \\
+			R_{43} = \frac{1}{768\sqrt{35}} a^{-3/2} \pp{\frac{r}{a}}^3\exp(-r/4a)
+		\end{tabular}
+	\end{table}
+
+	\subsubsection{Laguerrepolynomier}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{>{\vspace{0.2cm}$\displaystyle} l <{$}}
+			L_0 = 1 \\
+			L_1 = -x+1 \\
+			L_2 = x^2-4x+2 \\
+			L_3 = -x^3 + 9x^2-18x+6 \\
+			L_4 = x^4 - 16x^3 + 72 x^2 -96x+24 \\
+			L_5 = -x^5 + 25 x^4 - 200x^3 + 600x^2-600x+120 \\
+			L_6 = x^6-36x^5+450x^4-2400x^3+5400x^2-4320x+720
+		\end{tabular}
+	\end{table}
+	\subsubsection{Associerede Laguerrepolynomier}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{>{\vspace{0.2cm}$\displaystyle} l <{$}p{1cm} >{$\displaystyle} l <{$}}
+			L_0^0 = 1 			& & L_0^2 = 2 \\
+			L_1^0 = -x+1 		& & L_1^2 = -6x+18 \\
+			L_2^0 = x^2-4x+2 	& & L_2^2 = 12x^2-96x+144 \\
+			L_0^1 = 1 			& & L_0^3 = 6 \\
+			L_1^1 = -2x+4 		& & L_1^3 = -24x+96 \\
+			L_2^1 = 3x^2-18x+18 & & L_2^3 = 60x^2-600x+1200
+		\end{tabular}
+	\end{table}
+
+\end{document}

@@ -1,0 +1,107 @@
+\documentclass[Kvant1noter.tex]{subfiles}
+
+
+\begin{document}
+	
+	\section{Tidsuafhængig perturbationsteori}
+	Det antages at vi har løst den tidsuafhængige Schrödingerligning for et potential, så:
+	\begin{equation}\label{key}
+		H^0\psi^0_n = E_n^0\psi_n^0
+	\end{equation}
+	hvor 0'et ikke er potenser, men det bliver kaldt den 0'te orden. Lad os nu antage, at potentialet perturberes lidt, og vi vil løse den nye Schrödingerligning:
+	\begin{equation}\label{key}
+		H\psi_n = E_n \psi_n
+	\end{equation}
+	hvor den nye Hamiltonoperator $ H $ er givet ved
+	\begin{equation}\label{key}
+		H = H^0 + H'
+	\end{equation}
+	hvor $ H' $ er den perturberende Hamiltonoperator, som nødvendigvis kun må have en lille indvirkning. Det er som oftest ikke muligt at løse denne, så derfor bruger man perturbationsteori: Man skriver egenfunktionerne og egenenergierne som forskellige ordens bidrag (man starter med en potensrække i $ \lambda $, for små $ \lambda $, og så skruer man dennes værdi op til én):
+	\begin{equation}\label{key}
+		\psi_n = \psi_n^0 + \psi_n^1+ \psi_n^2 + \dots, \quad E_n = E_n^0 + E_n^1+E_n^2+\dots.
+	\end{equation}
+	Der skelnes da mellem, om det er udartet eller ikkeudartet perturbationsteori (altså om flere forskellige tilstande har samme energi).	
+	
+	\subsection{Ikkeudartet perturbationsteori}
+	Til første orden ($ E_n^1 $) fås energien ved
+	\begin{equation}\label{key}
+		E^1_n = \braket{\psi_n^0 | H'| \psi_n^0}
+	\end{equation}
+	Altså er førsteordenskorrektionen til egenenergierne givet ved det forventningsværdierne af $ H' $ for nulteordensbølgefunktionerne.
+	
+	Til anden orden ($ E_n^2 $) fås energien af den $ n $'te tilstand ved
+	\begin{equation}\label{key}
+		E^2_n = \sum_{m\neq n} \frac{|\braket{\psi_m | H' | \psi_n}|^2}{E_n-E_m}
+	\end{equation}
+	hvor der altså skal summeres over \textit{alle} tilstande, ud over den $ n $'te. Hvis man har med to dimensioner at gøre (2-dimensionel harmonisk oscillator, for eksempel), og kvantetallene er $ n,m $, så løber summen:
+	\begin{equation}\label{key}
+		E^2_{n,m} = \sum_{n',m'\neq n,m} \frac{|\braket{\psi_{n',m'} | H' | \psi_{n,m}}|^2}{E_{n,m}-E_{n',m'}}
+	\end{equation}
+	Altså igen over alle tilstande, ud over tilstanden $ n,m $.
+	
+	\subsection{Udartet perturbationsteori}
+	For systemer med udartede tilstande (en flerdimensionel harmonisk oscillator, med ens fjederkonstant i alle dimensioner, eksempelvis. Eller bare brint), skal man bruge udartet perturbationsteori. Her findes førsteordenskorrektionerne ved at opstille $ W $-matricen, og finde dennes egenværdier. $ W $-matricens elementer er givet ved
+	\begin{equation}\label{key}
+		W_{ij} = \braket{i|H'|j}
+	\end{equation}
+	altså det $ i,j $'te element er givet ved det indre produkt mellem $ \ket{i} $ og $ H'\ket{j} $. Eksempelvis, for et dobbelt udartet system:
+	\begin{equation}\label{key}
+		W = \begin{pmatrix}
+			W_{aa} & W_{ba} \\
+			W_{ab} & W_{bb}
+		\end{pmatrix}
+	\end{equation}
+	Der er dog en måde, hvorpå man kan undgå at skulle udregne $ n^2 i$ elementer af en matrix (ud over, selvfølgelig, at indse at den er hermitisk, idet $ W_{ij} = W_{ji}\konj $, og fordi $ H' $ også er hermitisk), og det er ved at finde den ">gode basis"<. Hvis man udtrykker sine bølgefunktioner i en basis, som diagonaliserer $ W $-matricen, så får man netop, at de er egenfunktioner til matricen, og førsteordenskorrektionerne da bare er diagonalelementerne for matricen.
+	
+	Dette kan især være en smart ting, hvis man har en stor mængde udartethed, så man måske ikke lige har lyst at løse et syttendegradspolynomium. 
+	
+	
+	
+	\section{Tidsafhængig perturbationsteori}
+	For en given tidsuafhængig Hamiltonoperator $ H^0 $, med $ H^0 \ket{\psi_n} = E_n^0 \ket{\psi_n} $ og $ \braket{\psi_n|\psi_m} = \delta_{nm} $, hvor vi til tiden $ t = t_0 $ tænder for en tidsafhængig perturbation $ H'(t) $. Da er den samlede Hamiltonoperator givet ved
+	\begin{equation}\label{key}
+		H = H^0 + H'(t)
+	\end{equation}
+	Idet $ \ket{\psi_n} $ udgør et fuldstændig sæt af funktioner, så kan den endelige bølgefunktion for $ H $ skrives ved
+	\begin{equation}\label{key}
+		\Psi(t) = \sum c_n(t) \psi_n e^{-iE_n t/\hbar}
+	\end{equation}
+	hvor den tidsafledte til den $ m $'te tilstands koefficient er givet ved
+	\begin{equation}\label{key}
+		\dot{c}_m = - \frac{i}{\hbar} \sum_{n} c_n H'_{mn} e^{i(E_m-E_n) t/\hbar}, \quad H'_{mn} \equiv \braket{\psi_m | H'|\psi_n}
+	\end{equation}
+	Hvis systemet starter i tilstanden $ \ket{\psi_n} $ så fås ekspansionskoefficienterne til (i første orden af $ H' $):
+	\begin{equation}\label{key}
+		c_n^1(t) = 1-\frac{i}{\hbar} \int_{t_0}^{t} H'_{nn}(t') \, dt', \quad c_m^1(t) = \frac{i}{\hbar} \int_{t_0}^{t} H'_{mn}(t') e^{i(E_m-E_n)t'/\hbar} \, dt'
+	\end{equation}
+	Og sandsynligheden for at opnå en overgang fra tilstand $ n $ til $ m $ er
+	\begin{equation}\label{key}
+		P_{n\to m}(t) = |c_m(t)|^2
+	\end{equation}
+	
+	Hvis vi antager at $ H' = V \cos \omega t $, og perturbationen tændes til $ t = 0 $, så kan der ske en overgang fra tiltande med $ E_m = E_n \pm \hbar \omega $, og sandsynligheden for denne er\footnote{For at finde frem til dette resultat skal man udregne et ret grimt integral, hvori der er en kompleks eksponentialfunktion og et cosinus. Dette gøres ved at skrive cosinus om til eksponentialform, og bruge den ">roterende bølge approksimation"<. Den går ud på, at man udfører integralet, og for to led. Begge med en eksponentialfunktion, med $ i(\omega\pm \omega_0) $, og at disse er divideret med $ \omega\pm\omega_0 $ ($ \omega $ er den drivende frekvsens fra perturbationen, mens $ \omega_0 $ er resonansfrekvensen for systemt). Approksimationen går så ud på, at man ser bort fra det led, hvor det er et plus, idet leddet med minus dominerer, for $ \omega \to \omega_0 $ (der står en kompleks eksponentialfunktion divideret med $ x $ for $ x \to 0$). Dette er okay, fordi overgange sker alligevel stort set kun for oscillationer med $ \omega \approx \omega_0 $.}
+	\begin{equation}\label{key}
+		P_{n \to m} (t) = |V_{mn}|^2 \frac{\sin^2 [(E_n-E_m \pm \hbar \omega) t/2\hbar]}{(E_n-E_m \pm \hbar \omega)^2}
+	\end{equation}
+	hvor $ V_{mn} = \braket{\psi_m |V|\psi_n} $.
+	
+	
+	
+	
+	\section{Variationsregning}
+	Lad os antage at vi har en kendt (tidsuafhængig) Hamiltonoperator $ H $, men vi kender ikke dens egenfunktioner $ \psi_n $. Vi kan dog stadig godt få et udmærket bud på energien af grundtilstanden (og nogle gange også den første eksiterede tilstand). Idet Hamiltonoperatoren er en gyldig én af slagsen (altså hermitisk), så udgør egenfunktionerne et komplet sæt af basisfunktioner, hvormed enhver anden bølgefunktion opskrives som en linearkombination af disse egenfunktiooner. Som en konsekvens af dette fås
+	\begin{equation}\label{key}
+		E_{\text{gs}} \leq \braket{\psi|H|\psi} = \braket{H}
+	\end{equation}
+	for \textbf{enhver gyldig, normaliseret bølgefunktion} $ \psi $! Det man så gør er, at man vælger en bølgefunktion, der har én eller flere ubestemte parametre (som ikke ændrer på normaliseringen). Det man så gør er, at man \textbf{minimerer forventningsværdien} $ \braket{H} $, for at få det bedste øvre bud på grundtilstandsenergien.
+	
+	Hvis, ydermere, vi kan finde en bølgefunktion, der er ortogonal på grundtilstanden:
+	\begin{equation}\label{key}
+		\braket{\psi|\psi_{\text{gs}}} \quad \Rightarrow \quad \braket{\psi|H|\psi} \geq E_{\text{fe}}
+	\end{equation}
+	hvor $ E_{\text{fe}} $ er energien af den første eksiterede tilstand. Men vent nu lige! Var egenfunktionerne ikke ukendte?! Jo, det er de! Men hvis potentialet er \textit{lige} omkring et punkt, så er egenfunktionen til grundtilstanden \textit{også lige} omkring det punkt. Hvis vi da kan finde en funktion, der er \textit{ulige} omkring punktet, så vil de to funktioner være ortogonale på hinanden!
+	
+	\section{WKB-approksimation}
+	
+	
+\end{document}

@@ -44,9 +44,9 @@ zEqualsx = 0;
 					
 faktor = 1;			% skaleringsfaktor til vektorer
 
-vektorfelt = 1;		% antal vektorfelter der skal plottes i samme funktion.
-kontur = 0;			% = 1 - plotter konturer
-gradienten = 0;		% = 1 - plotter gradienten
+vektorfelt = 0;		% antal vektorfelter der skal plottes i samme funktion.
+kontur = 1;			% = 1 - plotter konturer
+gradienten = 1;		% = 1 - plotter gradienten
 farve = 0;			% = 1 - viser en colorbar
 rotation = 0;		% udregner rotationen af 1 vektorfelt (kun 1 ad gangen)
 
@@ -104,8 +104,8 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-vx{1} = 1./(x+1).^3;
-vy{1} = 0.*x;
+vx{1} = 2*x.*y;
+vy{1} = x.^2;
 
 vy{2}=x;
 vx{2}=y;
@@ -121,7 +121,7 @@ c = ['r','b','g','m','c'];	% Predefinerede farver: rød, blå, grøn, magenta og cy
 							% nye vektorfelter
 
 
-beta = 1./r;	% skalarfeltet
+beta = x.^2.*y;	% skalarfeltet
 
 
 %% Selve scriptet starter her
