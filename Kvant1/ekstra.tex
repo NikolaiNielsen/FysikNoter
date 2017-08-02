@@ -1,4 +1,4 @@
-\documentclass[Kvant1noter.tex]{subfiles}
+\documentclass[Kvantnoter.tex]{subfiles}
 
 
 \begin{document}
@@ -38,4 +38,134 @@
 		m_s = -s,-s+1,\dots s-1,s
 	\end{equation}
 	Dette vil altså sige, at $ m_s $ for elektroner, protoner og neutroner (spin-halve partikler) kan have $ m_s =-1/2, 1/2$, mens $ m_s $ for fotoner (spin-hele partikler) har $ m_s = -1,0,1 $.
+	
+	Hvis du løber ind i en situation, hvor du skal bruge $ \V{J}= \V{L} +\V{S}$, så fungerer dette lige som $ \V{L} $ og $ \V{S} $. hvis kvantetallet kaldes $ j $, så kan $ j $ tage værdier mellem $ |l-s| > j > l+s $ i skridt af én. Så hvis $ l = 1 $ og $ s = 3/2 $, så kan $ j $ tage værdierne $ j = 1/2,3/2,5/2 $. 
+	
+	
+	\section{(u)lige funktioner og deres bestemte integraler}
+	Herunder følger lige en kort note om lige og ulige funktioner, og hvordan deres bestemte integraler ret nemt kan regnes. Først en lille kort opfrisker hvad lige og ulige funktioner er. En funktion er lige om et punkt $ x_0 $, hvis den er spejlvendt om den lodrette linje gennem punktet. I formelsprog er dette
+	\begin{equation}
+	f(x_0 + x) = f(x_0 - x)
+	\end{equation}
+	Et eksempel er $ \cos(x) $, der er lige, for eksempel omkring $ x_0 = 0 $.
+	
+	En funktion er lige omkring punktet $ x_0 $, hvis den er rotationssymmetrisk om punktet (Søm funktionen fast i $ x_0 $ og rotér den 180 grader om punktet. Hvis den er ens, så er funktionen ulige). Matematisk er dette
+	\begin{equation}
+	f(x_0 + x) = - f(x_0 - x)
+	\end{equation}
+	Et eksempel er $ \sin(x) $, der er ulige omkring $ x_0 = 0 $.
+	
+	Selve ordene ulige og lige er fra polynomier, der er (u)lige, hvis deres højeste potens af $ x $ er (u)lige. $ x $ er ulige, $ x^2 $ er lige, $ x^3 $ er ulige, etc.
+	
+	En funktion \textbf{kan ikke både være lige eller ulige} (ud over det trivielle tilfælde $ 0 $). En funktion kan dog \textbf{godt} være hverken lige eller ulige ($ \exp(x) $), eksempelvis.
+	
+	Man kan \textbf{skabe} en lige og en ulige funktion (om $ x_0 = 0 $) fra enhver funktion $ f(x) $. Følgende funktion er \textit{lige}
+	\begin{equation}
+	f_e (x) = f(x) + f(-x).
+	\end{equation}
+	Og følgende funktion er \textit{ulige}:
+	\begin{equation}
+	f_o (x) = f(x) - f(-x).
+	\end{equation}
+	Dette kan indses, hvis man skifter koordinat fra $ x $ til $ -x $:
+	\begin{align}
+	f_e (-x) &= f(-x) + f(-[-x]) = f(-x) + f(x) = f_e (x) \\
+	f_o (-x) &= f(-x) - f(-[-x]) = f(-x) - f(x) = - f_o (x)
+	\end{align}
+	
+	\subsection*{Integraler af lige og ulige funktioner}
+	Integraler af lige og ulige funktioner, omkring deres symmetripunkter, er ret nemme. For funktioner, der er \textbf{ulige} omkring punktet $ x_0 $ fås:
+	\begin{equation}
+	\int_{x_0-a}^{x_0} f(x) \ud x = - \int_{x_0}^{x_0 + a} f(x) \ud x, \quad \Rightarrow \quad \int_{x_0 - a}^{x_0 + a} f(x) \ud x = 0
+	\end{equation}
+	For funktioner, der er \textbf{lige} om $ x_0 $ gælder
+	\begin{equation}
+	\int_{x_0 - a}^{x_0} f(x) \ud x = \int_{x_0}^{x_0 + a} f(x) \ud x, \quad \Rightarrow \quad \int_{x_0 - a}^{x_0 + a} f(x) \ud x = 2 \int_{x_0}^{x_0 + a} f(x) \ud x 
+	\end{equation}
+	
+	Ofte skal uendelige integraler løses, og disse kan gøres nemmere ved symmetribetragtninger. Specielt gælder det også, at hvis vi arbejder med kvadratisk integrable funktioner (kvadrerede funktioner, hvis uendelige integral giver en endelig værdi: $ \infint |f(x)|^2 \ud x \neq \infty $) gælder de samme regler for deres integraler:
+	\begin{equation}
+	\infint f_{\text{ulige}}(x) \ud x = 0, \quad \infint f_{\text{lige}}(x) \ud x = 2 \int_{0}^{\infty} f_{\text{lige}}(x) \ud x
+	\end{equation}
+	
+	\subsection*{Algebraiske regler for (u)lige funktioner}
+	Den følgende liste af regler er løftet direkte fra Wikipedia, \href{https://en.wikipedia.org/wiki/Even_and_odd_functions}{link}. Hvis der står (u)lige betyder det, at det gælder for \textit{både} lige og ulige funktioner
+	
+	\subsubsection*{Addition og subtraktion}
+	\begin{itemize}
+		\item Summen af to (u)lige funktioner er (u)lige (og enhver konstant ganget med en (u)lige funktion er også (u)lige)
+		\item Differensen af to (u)lige funktioner er (u)lige
+		\item Summen af en lige og ulige funktion er hverken lige eller ulige, med mindre en af funktionerne er 0 over hele domænet (du ved, det trivielle tilfælde).
+	\end{itemize}
+	
+	\subsubsection*{Multiplikation og division}
+	\begin{itemize}
+		\item Produktet af to (u)lige funktioner er en \textit{lige} funktion
+		\item Produktet af en lige og en ulige funktion er en \textit{ulige} funktion
+		\item kvotienten af to (u)lige funktioner er en \textit{lige} funktion
+		\item kvotienten af en lige og en ulige funktion er en \textit{ulige} funktion
+	\end{itemize}
+	
+	\subsubsection*{Sammensatte funktioner}
+	\begin{itemize}
+		\item Sammensætningen af to (u)lige funktioner er (u)lige
+		\item sammensætningen af en lige funktion og en ulige funktion er lige
+		\item Sammensætningen af enhver funktion \textit{med} en \textit{lige} funktion, er en \textit{lige} funktion (men ikke nødvendigvis omvendt)
+	\end{itemize}
+	
+	\section{Sfæriske harmonier, Laguerrepolynomier, radielle bølgefunktioner}
+	\subsection*{Sfæriske harmonier}	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{>{$\displaystyle} l <{$}p{1cm} >{$\displaystyle} l <{$}}
+			Y^0_0 =\pp{\frac{1}{4 \pi}}^{1/2} & & Y^{\pm 2}_2 = \pp{\frac{15}{32 \pi}}^{1/2} \sin^2 (\theta) e^{\pm 2 i \phi} \\
+			Y^0_1 = \pp{\frac{3}{4\pi}}^{1/2} \cos \theta && Y^0_3 = \pp{\frac{7}{16\pi}}^{1/2} (5 \cos^3 \theta-3 \cos \theta) \\
+			Y^{\pm 1}_1 = \mp \pp{\frac{3}{8\pi}}^{1/2} \sin (\theta) e^{\pm i\phi} && Y^{\pm1}_3 = \mp \pp{\frac{21}{64\pi}}^{1/2} \sin\theta (5\cos^2 \theta-1) e^{\pm i \phi} \\
+			Y^0_2 = \pp{\frac{5}{16\pi}}^{1/2} (3 \cos^2 \theta -1 ) && Y^{\pm 2}_3 = \pp{\frac{105}{32 \pi}}^{1/2} \sin^2 \theta \cos \theta \  e^{\pm 2 i \phi} \\
+			Y^{\pm 1}_2 = \mp \pp{\frac{15}{8\pi}}^{1/2} \sin \theta \cos \theta \ e^{\pm i \phi} && Y^{\pm 3}_3 =  \mp \pp{\frac{35}{64 \pi}}^{1/2} \sin^3 \theta \ e^{\pm 3 i \phi} 
+		\end{tabular}
+	\end{table}
+	\subsection*{Radielle bølgefunktioner}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{>{\vspace{0.2cm}  $\displaystyle} l <{$}}
+			R_{10} = 2a^{-3/2} \exp(-r/a)  \\
+			R_{20} = \frac{1}{\sqrt{2}} a^{-3/2} \pp{1-\frac{1}{2}\frac{r}{a}} \exp(-r/2a) \\
+			R_{21} = \frac{1}{\sqrt{24}}a^{-3/2} \frac{r}{a} \exp(-r/2a) \\
+			R_{30} = \frac{2}{\sqrt{27}}a^{-3/2} \pp{1-\frac{2r}{3a}+\frac{2}{27}\pp{\frac{r}{a}}^2} \exp(-r/3a) \\
+			R_{31} = \frac{8}{27\sqrt{6}} a^{-3/2}  \pp{1-\frac{r}{6a}}\pp{\frac{r}{a}} \exp(-r/3a) \\
+			R_{32} = \frac{4}{81\sqrt{30}} a^{-3/2} \pp{\frac{r}{a}}^2 \exp(-r/3a)  \\
+			R_{40} = \frac{1}{4} a^{-3/2} \pp{1-\frac{3r}{4a} + \frac{1}{8}\pp{\frac{r}{a}}^2 - \frac{1}{192} \pp{\frac{r}{a}}^3} \exp(-r/4a) \\
+			R_{41} = \frac{\sqrt{5}}{16\sqrt{3}} a^{-3/2} \pp{1-\frac{r}{4a}+\frac{1}{80} \pp{\frac{r}{a}}^2} \frac{r}{a} \exp(-r/4a) \\
+			R_{42} = \frac{1}{64\sqrt{5}} a^{-3/2} \pp{1-\frac{r}{12a}}\pp{\frac{r}{a}}^2 \exp(-r/4a) \\
+			R_{43} = \frac{1}{768\sqrt{35}} a^{-3/2} \pp{\frac{r}{a}}^3\exp(-r/4a)
+		\end{tabular}
+	\end{table}
+	
+	\subsection*{Laguerrepolynomier}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{>{\vspace{0.2cm}$\displaystyle} l <{$}}
+			L_0 = 1 \\
+			L_1 = -x+1 \\
+			L_2 = x^2-4x+2 \\
+			L_3 = -x^3 + 9x^2-18x+6 \\
+			L_4 = x^4 - 16x^3 + 72 x^2 -96x+24 \\
+			L_5 = -x^5 + 25 x^4 - 200x^3 + 600x^2-600x+120 \\
+			L_6 = x^6-36x^5+450x^4-2400x^3+5400x^2-4320x+720
+		\end{tabular}
+	\end{table}
+	\subsection*{Associerede Laguerrepolynomier}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{>{\vspace{0.2cm}$\displaystyle} l <{$}p{1cm} >{$\displaystyle} l <{$}}
+			L_0^0 = 1 			& & L_0^2 = 2 \\
+			L_1^0 = -x+1 		& & L_1^2 = -6x+18 \\
+			L_2^0 = x^2-4x+2 	& & L_2^2 = 12x^2-96x+144 \\
+			L_0^1 = 1 			& & L_0^3 = 6 \\
+			L_1^1 = -2x+4 		& & L_1^3 = -24x+96 \\
+			L_2^1 = 3x^2-18x+18 & & L_2^3 = 60x^2-600x+1200
+		\end{tabular}
+	\end{table}
+	
 \end{document}

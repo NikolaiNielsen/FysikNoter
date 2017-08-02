@@ -1,4 +1,4 @@
-\documentclass[Kvant1noter.tex]{subfiles}
+\documentclass[Kvantnoter.tex]{subfiles}
 
 
 \begin{document}
@@ -28,6 +28,12 @@
 		E^1_n = \braket{\psi_n^0 | H'| \psi_n^0}
 	\end{equation}
 	Altså er førsteordenskorrektionen til egenenergierne givet ved det forventningsværdierne af $ H' $ for nulteordensbølgefunktionerne.
+	
+	Førsteordenskorrektionen til \textit{bølgefunktionen} er givet ved
+	\begin{equation}\label{key}
+		\psi_n^1 = \sum_{m\neq n} \frac{\braket{\psi_m^0 | H'| \psi_n^0}}{E_n^0-E_m^0} \psi_m^0 
+	\end{equation}
+	Hvor summen altså løber over \textit{alle} tilstande, ud over den, der skal findes. Se nedenfor.
 	
 	Til anden orden ($ E_n^2 $) fås energien af den $ n $'te tilstand ved
 	\begin{equation}\label{key}
@@ -101,7 +107,36 @@
 	\end{equation}
 	hvor $ E_{\text{fe}} $ er energien af den første eksiterede tilstand. Men vent nu lige! Var egenfunktionerne ikke ukendte?! Jo, det er de! Men hvis potentialet er \textit{lige} omkring et punkt, så er egenfunktionen til grundtilstanden \textit{også lige} omkring det punkt. Hvis vi da kan finde en funktion, der er \textit{ulige} omkring punktet, så vil de to funktioner være ortogonale på hinanden!
 	
+	
 	\section{WKB-approksimation}
+	WKB-approksimationen er en måde at estimere løsningen til den tidsuafhængige Schrödingerligning, for potentialer, der er praktisk talt konstante. Vi snakker om 3 forskellige regioner: klassisk, ikkeklassisk og grænseområdet, svarende til henholdsvis $ E>V,E<V $ og $ E\approx V $. Grænseområdet er dog ikke pensum, så det ses der bort fra.
+	
+	\subsection{Klassiske område}
+	I det klassiske område er $ E>V $, og vi definerer impulsen ved
+	\begin{equation}\label{key}
+		p(x) \equiv \sqrt{2m[E-V(x)]}
+	\end{equation}
+	der er reel. Da er den approksimative bølgefunktion, efter et par udregninger:
+	\begin{equation}\label{key}
+		\psi(x) \approxeq \frac{C}{\sqrt{p(x)}} e^{\pm \frac{i}{\hbar} \int p(x) \, dx}
+	\end{equation}
 	
 	
+	\subsection{Ikkeklassisk område}
+	I det ikkeklassiske område (eller tunnelleringsområdet) er $ E < V $. Bølgefunktionen har samme form, men med en imaginær impuls:
+	\begin{equation}\label{key}
+		\psi(x) \approxeq \frac{C}{\sqrt{|p(x)|}} e^{\pm \frac{1}{\hbar} \int |p(x)| \, dx}
+	\end{equation}
+	med $ p(x) = \sqrt{2m[E-V(x)]} = i |p(x)| $.
+	
+	Ved tunnellering har vi en indkommen bølge med amplitude $ A $, en reflekteret med amplitude $ B $ og en transmitteret med amplitude $ F $. Transmissionssandsynligheden er da givet ved
+	\begin{equation}\label{key}
+		T = \frac{|F|^2}{|A|^2}
+	\end{equation}
+	Og hvis barrieren enten er meget høj eller bred (så sandsynligheden er lille), så er transmissionssandsynligheden approksimativt
+	\begin{equation}\label{key}
+		T \approxeq e^{-2\gamma}, \quad \gamma \equiv \frac{1}{\hbar} \int_{x_0}^{a} |p(x)| \, dx.
+	\end{equation}
+	hvor barrieren starter i $ x_0 $ og slutter i $ a $. Og barrieren er der hvor $ E = V $.
+		
 \end{document}

@@ -1,0 +1,52 @@
+% Nikolai Nielsens "Fysiske Fag" preamble
+\documentclass[a4paper,10pt]{article} 	% A4 papir, 10pt størrelse
+\usepackage[danish]{babel}
+\usepackage{Nikolai} 					% Min hjemmelavede pakke
+\usepackage[dvipsnames]{xcolor}
+
+% Margen
+\usepackage[margin=1in]{geometry}
+
+% Max antal kolonner i en matrix. Default er 10
+%\setcounter{MaxMatrixCols}{20}
+
+% Hvor dybt skal kapitler labeles?
+%\setcounter{secnumdepth}{4}	
+%\setcounter{tocdepth}{4}
+
+
+% Hvilket nummer skal der startes med i sections? (n-1)
+%\setcounter{section}{0}	
+
+% Til nummerering af ligninger. Så der står (afsnit.ligning) og ikke bare (ligning)
+\numberwithin{equation}{section}
+
+
+% Header
+%\usepackage{fancyhdr}
+%\head{}
+%\pagestyle{fancy}
+
+%Titel
+\title{}
+\author{Nikolai Plambech Nielsen, LPK331. Version 1.0}
+\date{}
+
+\begin{document}
+	
+	\selectlanguage{danish}
+	
+	\section{Inverse trigonometriske funktioner som argument til almindelige trigonometriske funktioner}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{>{$\displaystyle} l<{$}|>{$\displaystyle} l<{$}|>{$\displaystyle} l<{$}}
+			\sin(\arcsin(x)) = x & \cos(\arcsin(x)) = \sqrt{1-x^2} & \tan(\arcsin(x)) = \frac{x}{\sqrt{1-x^2}} \\ \hline
+			\sin(\arccos(x)) = \sqrt{1-x^2} & \cos(\arccos(x))= x & \tan(\arccos(x)) = \frac{\sqrt{1-x^2}}{x} \\ \hline
+			\sin(\arctan(x)) = \frac{x}{\sqrt{1+x^2}} & \cos(\arctan(x)) = \frac{1}{\sqrt{1+x^2}} & \tan(\arctan(x)) = x
+		\end{tabular}
+	\end{table}
+	
+	
+\end{document}
+

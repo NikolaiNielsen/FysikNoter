@@ -1,4 +1,4 @@
-\documentclass[Kvant1noter.tex]{subfiles}
+\documentclass[Kvantnoter.tex]{subfiles}
 
 
 \begin{document}
@@ -500,62 +500,5 @@
 		\omega = \gamma B_0,
 	\end{equation}
 	hvilket er som i det klassiske tilfælde. Da er det dog impulsmomentvektoren og ikke blot forventningsværdien. Dette giver også god mening i lys af Ehrenfests teorem, der jo siger, at forventningsværdier følger klassiske love.
-	
-	
-	
-	\subsection{Sfæriske harmonier, Laguerrepolynomier, radielle bølgefunktioner}
-	\subsubsection{Sfæriske harmonier}	
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{>{$\displaystyle} l <{$}p{1cm} >{$\displaystyle} l <{$}}
-			Y^0_0 =\pp{\frac{1}{4 \pi}}^{1/2} & & Y^{\pm 2}_2 = \pp{\frac{15}{32 \pi}}^{1/2} \sin^2 (\theta) e^{\pm 2 i \phi} \\
-			Y^0_1 = \pp{\frac{3}{4\pi}}^{1/2} \cos \theta && Y^0_3 = \pp{\frac{7}{16\pi}}^{1/2} (5 \cos^3 \theta-3 \cos \theta) \\
-			Y^{\pm 1}_1 = \mp \pp{\frac{3}{8\pi}}^{1/2} \sin (\theta) e^{\pm i\phi} && Y^{\pm1}_3 = \mp \pp{\frac{21}{64\pi}}^{1/2} \sin\theta (5\cos^2 \theta-1) e^{\pm i \phi} \\
-			Y^0_2 = \pp{\frac{5}{16\pi}}^{1/2} (3 \cos^2 \theta -1 ) && Y^{\pm 2}_3 = \pp{\frac{105}{32 \pi}}^{1/2} \sin^2 \theta \cos \theta \  e^{\pm 2 i \phi} \\
-			Y^{\pm 1}_2 = \mp \pp{\frac{15}{8\pi}}^{1/2} \sin \theta \cos \theta \ e^{\pm i \phi} && Y^{\pm 3}_3 =  \mp \pp{\frac{35}{64 \pi}}^{1/2} \sin^3 \theta \ e^{\pm 3 i \phi} 
-		\end{tabular}
-	\end{table}
-	\subsubsection{Radielle bølgefunktioner}
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{>{\vspace{0.2cm}  $\displaystyle} l <{$}}
-			R_{10} = 2a^{-3/2} \exp(-r/a)  \\
-			R_{20} = \frac{1}{\sqrt{2}} a^{-3/2} \pp{1-\frac{1}{2}\frac{r}{a}} \exp(-r/2a) \\
-			R_{21} = \frac{1}{\sqrt{24}}a^{-3/2} \frac{r}{a} \exp(-r/2a) \\
-			R_{30} = \frac{2}{\sqrt{27}}a^{-3/2} \pp{1-\frac{2r}{3a}+\frac{2}{27}\pp{\frac{r}{a}}^2} \exp(-r/3a) \\
-			R_{31} = \frac{8}{27\sqrt{6}} a^{-3/2}  \pp{1-\frac{r}{6a}}\pp{\frac{r}{a}} \exp(-r/3a) \\
-			R_{32} = \frac{4}{81\sqrt{30}} a^{-3/2} \pp{\frac{r}{a}}^2 \exp(-r/3a)  \\
-			R_{40} = \frac{1}{4} a^{-3/2} \pp{1-\frac{3r}{4a} + \frac{1}{8}\pp{\frac{r}{a}}^2 - \frac{1}{192} \pp{\frac{r}{a}}^3} \exp(-r/4a) \\
-			R_{41} = \frac{\sqrt{5}}{16\sqrt{3}} a^{-3/2} \pp{1-\frac{r}{4a}+\frac{1}{80} \pp{\frac{r}{a}}^2} \frac{r}{a} \exp(-r/4a) \\
-			R_{42} = \frac{1}{64\sqrt{5}} a^{-3/2} \pp{1-\frac{r}{12a}}\pp{\frac{r}{a}}^2 \exp(-r/4a) \\
-			R_{43} = \frac{1}{768\sqrt{35}} a^{-3/2} \pp{\frac{r}{a}}^3\exp(-r/4a)
-		\end{tabular}
-	\end{table}
-
-	\subsubsection{Laguerrepolynomier}
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{>{\vspace{0.2cm}$\displaystyle} l <{$}}
-			L_0 = 1 \\
-			L_1 = -x+1 \\
-			L_2 = x^2-4x+2 \\
-			L_3 = -x^3 + 9x^2-18x+6 \\
-			L_4 = x^4 - 16x^3 + 72 x^2 -96x+24 \\
-			L_5 = -x^5 + 25 x^4 - 200x^3 + 600x^2-600x+120 \\
-			L_6 = x^6-36x^5+450x^4-2400x^3+5400x^2-4320x+720
-		\end{tabular}
-	\end{table}
-	\subsubsection{Associerede Laguerrepolynomier}
-	\begin{table}[H]
-		\centering
-		\begin{tabular}{>{\vspace{0.2cm}$\displaystyle} l <{$}p{1cm} >{$\displaystyle} l <{$}}
-			L_0^0 = 1 			& & L_0^2 = 2 \\
-			L_1^0 = -x+1 		& & L_1^2 = -6x+18 \\
-			L_2^0 = x^2-4x+2 	& & L_2^2 = 12x^2-96x+144 \\
-			L_0^1 = 1 			& & L_0^3 = 6 \\
-			L_1^1 = -2x+4 		& & L_1^3 = -24x+96 \\
-			L_2^1 = 3x^2-18x+18 & & L_2^3 = 60x^2-600x+1200
-		\end{tabular}
-	\end{table}
 
 \end{document}
