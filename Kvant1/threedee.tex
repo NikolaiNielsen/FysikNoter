@@ -383,10 +383,15 @@
 		\op{S}^2\ket{s,m} = \hbar^2 s(s+1)\ket{s,m}, \quad \op{S}_z \ket{s,m} = \hbar m \ket{s,m}
 	\end{equation}
 	hvor $ m $ også bruges som egenværdi for $ \op{S}_z $. Og til sidst også hævesænkeoperatorerne
-	\begin{equation}
-		\hs{S} \ket{s,m} = \hbar\sqrt{s(s+1)-m(m\pm1)} \ket{s,m\pm 1}.
+	\begin{equation}\label{eq:SpinHS}
+		\hs{S} \ket{s,m} = \hbar\sqrt{s(s+1)-m(m\pm1)} \ket{s,m\pm 1}, \quad \hs{S} \equiv \op{S}_x\pm i \op{S}_y
 	\end{equation}
-	Hvor $ \hs{S} \equiv \op{S}_x\pm i \op{S}_y $. Det viser sig, at de tilladte værdier af $ s $ er helt fundamentale til partiklerne, og disse kan da ikke ændres. Eksempelvis har pi mesoner spin 0, elektroner (samt protoner og neutroner) har spin 1/2, fotoner spin 1 og så videre
+	Det viser sig, at de tilladte værdier af $ s $ er helt fundamentale til partiklerne, og disse kan da ikke ændres. Eksempelvis har pi mesoner spin 0, elektroner (samt protoner og neutroner) har spin 1/2, fotoner spin 1 og så videre.
+	
+	Definitionerne på hæve-sænkeoperatorerne kan inverteres, hvilket giver udtryk for $ \op{S}_x $ og $ \op{S}_y $:
+	\begin{equation}\label{eq:SpinXY}
+		\op{S}_x = \frac{1}{2} (\op{S}_+ + \op{S}_-), \quad \op{S}_y = \frac{1}{2i} (\op{S}_+ - \op{S}_-)
+	\end{equation}
 	
 	\subsubsection{Spin 1/2}
 	Elektroner, protoner, neutroner, samt alle kvarker og leptoner har spin $ s=1/2 $, hvormed det klart er det vigtigste tilfælde. Disse har da blot to egentilstande: $ \ket{1/2,1/2} $ (kaldet spin-op, og ofte betegnet $ \ket{\uparrow} $) og $ \ket{1/2,-1/2} $ (kaldet spin-ned, betegnet $ \ket{\downarrow} $). Med dette kan den generelle tilstand af en spin-1/2 partikel beskrives ved en søjlematrix med to indgange (også kaldt en \textbf{spinor}):
@@ -411,7 +416,7 @@
 		\sigma_y \equiv \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}, \quad
 		\sigma_z \equiv \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix},
 	\end{equation}
-	der kaldes for \textbf{Pauli spin-matricerne}. Det bemærkes, at $ \op{S}^2 $ og $ \op{\V{S}} $ alle er hermitiske, og dermed observerbare, mens $ \hs{S} $ ikke er det. Egenspinorerne til $ \op{S}_z $ er
+	der kaldes for \textbf{Pauli spin-matricerne} (Prøv at konstruere hæve/sænkeoperatorerne ud fra $ x $ og $ y $, og omvendt, som i ligningerne \eqref{eq:SpinHS} og \eqref{eq:SpinXY}). Det bemærkes, at $ \op{S}^2 $ og $ \op{\V{S}} $ alle er hermitiske, og dermed observerbare, mens $ \hs{S} $ ikke er det. Egenspinorerne til $ \op{S}_z $ er
 	\begin{equation}
 		\chi_+^{z} = \begin{pmatrix}
 		1 \\ 0
