@@ -1,0 +1,39 @@
+% Nikolai Nielsens "Fysiske Fag" preamble
+\documentclass[a4paper,10pt]{article} 	% A4 papir, 10pt størrelse
+\usepackage[english]{babel}
+\usepackage{Nikolai} 					% Min hjemmelavede pakke
+\usepackage[dvipsnames]{xcolor}
+
+% Margen
+\usepackage[margin=1in]{geometry}
+
+% Max antal kolonner i en matrix. Default er 10
+%\setcounter{MaxMatrixCols}{20}
+
+% Hvor dybt skal kapitler labeles?
+%\setcounter{secnumdepth}{4}	
+%\setcounter{tocdepth}{4}
+
+
+% Hvilket nummer skal der startes med i sections? (n-1)
+%\setcounter{section}{0}	
+
+% Til nummerering af ligninger. Så der står (afsnit.ligning) og ikke bare (ligning)
+\numberwithin{equation}{section}
+
+% Header
+%\usepackage{fancyhdr}
+%\head{}
+%\pagestyle{fancy}
+
+%Titel
+\title{Notes for Dynamical Systems and Chaos}
+\author{Nikolai Plambech Nielsen, LPK331}
+\date{2019}
+
+\begin{document}
+	\maketitle
+	\subfile{intro.tex}
+	\newpage
+	\subfile{one_dimension.tex}
+\end{document}

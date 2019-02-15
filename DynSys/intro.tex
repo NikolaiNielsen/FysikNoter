@@ -1,0 +1,23 @@
+\documentclass[dynsysnotes.tex]{subfiles}
+
+\begin{document}
+	\section{Introduction}
+	In general we work with systems of differential equations of the form:
+	\begin{align*}
+		\dot{x}_1 =\, &f_1(x_1,\dots,x_n), \\
+		&\vdots  \\
+		\dot{x}_n =\, &f_n(x_1,\dots,x_n).
+	\end{align*}
+	Where we say that this is an $ n $-dimensional system. Note that this does not coincide with our regular use of the word dimension, but rather this is what we would normally call $ n $ degrees of freedom. For example, the simple harmonic oscillator is a system in one dimension, but with two degrees of freedom ($ x $ and $ \dot{x} $). We can write it in the form above by defining $ x_1=x,\, x_2=\dot{x} $:
+	\begin{equation}\label{key}
+		\ddot{x} = - \frac{k}{m} x \to \begin{cases}
+		\dot{x}_1 = x_2, \\
+		\dot{x}_2 = - \frac{k}{m} x_1.
+		\end{cases}
+	\end{equation}
+	where of course $ f_1 = x_2 $ and $ f_2 = -kx_1/m $.
+	
+	One can incorporate time explicitly by defining a new coordinate $ x_{n+1} = t $, with $ f_{n+1} = 1 $.
+	
+	Further, we normally deal with systems of equations which might not be solvable analytically. However, this does not mean no useful information can be garnered from them. We will find formulas for fixed points and bifurcations, looking at how the systems of equations changes when varying one or more parameters (say $ k $ or $ m $ in the harmonic oscillator).
+\end{document}
