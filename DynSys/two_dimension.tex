@@ -1,0 +1,39 @@
+\documentclass[dynsysnotes.tex]{subfiles}
+
+\begin{document}
+	\section{Two dimensions}
+	\subsection{Linear systems}
+	A linear system is one on the form
+	\begin{equation}\label{key}
+		\dot{\V{x}} = A\V{x}, \quad A=\begin{pmatrix}
+		a & b \\ c & d
+		\end{pmatrix}, \quad \V{x} = \begin{pmatrix}
+		x \\ y
+		\end{pmatrix}.
+	\end{equation}
+	These systems always have a single fixed point at the origin, and the parameters $ a,b,c,d $ determine the behaviour around the fixed point. Actually, it is easier to classify according to the eigenvalues $ \lambda_+, \lambda_- $, of the matrix. These can be found easily from the trace and determinant of the matrix:
+	\begin{equation}\label{key}
+		\tau = \text{Tr}(A) = \lambda_+ + \lambda_-, \quad \Delta = \det(A) = \lambda_+ \lambda_-, \lambda_{\pm} = \frac{1}{2} \pp{\tau \pm \sqrt{\tau^2 - 4\Delta}}.
+	\end{equation}
+	Now for some definitions of stability:
+	\begin{itemize}
+		\item Attracting: $ \V{x}^* $ is attracting, if trajectories that start near it approach it in infinite time: $ \lim\limits_{t\to \infty} \V{x}(t) = \V{x}^*.$
+		\item Liapunov stable: $ \V{x}^*$ is Liapunov stable if all trajectories that start near it stay near it.
+		\item (Asymptotically) stable: $ \V{x}^* $ is stable if the point is both attracting and Liapunov stable.
+		\item Neutrally stable: $ \V{x}^* $ is neutrally stable if it is not attracting, but it is Liapunov stable.
+		\item Unstable: $ \V{x}^* $ is unstable if it is neither attracting nor Liapunov stable.
+	\end{itemize}
+	
+	
+	
+	In two dimensions there are several different kinds of fixed points, which are covered below:
+	\begin{itemize}
+		\item \textbf{(Un)stable nodes:}
+		\item \textbf{(Un)stable spirals:}
+		\item \textbf{Centers:}
+		\item \textbf{Saddle points:}
+		\item \textbf{Stars:}
+		\item \textbf{Degenerate nodes:}
+		\item \textbf{Non-isolated fixed points:}
+	\end{itemize}
+\end{document}
