@@ -65,7 +65,32 @@
 	\begin{equation}\label{key}
 		\dot{x} = rx+x^3, \quad r_c=0, \quad x^*=0 \vee x^*= \pm\sqrt{-r},
 	\end{equation}
-	with the following bifurcation diagram:
+	The outer fixed points are unstable however, and the system is unphysical. Therefore one often looks at the following system:
+	\begin{equation}\label{key}
+		\dot{x} = rx + x^3 - x^5, \quad x^* \in  \Bigg\{0, \pm \sqrt{\frac{1}{2} + \frac{\sqrt{1+4r}}{2}}, \pm \sqrt{\frac{1}{2} - \frac{\sqrt{1+4r}}{2}}\Bigg\}
+	\end{equation}
+	for $ r < r_s$, there is only the fixed point at the origin. At $ r_s = -1/4 $ a double saddle node bifurcation occurs, and at r=0, a supercritical pitchfork bifurcation occurs, where the two inner, unstable fixed points (the last ones in the curly braces) coalesce with the stable fixed point at the origin, into a single unstable fixed point at the origin. The bifurcation diagram is:
+	
+	This system can undergo catastrophes and hysteresis: if one starts at $ x=0,  -1/4 <r <0 $, and varies $ r $ until $ r>0 $, then $ x $ will snap to one of the other stable branches, since the origin is now an unstable fixed point. $ x $ will now stay at this point if $ r $ is returned to the initial value. This is hysteresis and catastrophe: through a (closed) walk in parameter space, the state of the system has changed!
+	
+	One last ``type'' of bifurcations to consider is the imperfect bifurcation. This is not really a new type, but more the introduction of a parameter which affects the bifurcations of the system. Consider
+	\begin{equation}\label{key}
+		\dot{x} = h + rx - x^3
+	\end{equation}
+	If $ h=0 $, we have a supercritical pitchfork bifurcation, but for all other values $ h \neq 0 $, this is changed to a saddle node bifurcation at some (complicated) value of $ x $, as seen below.
+	
+	\subsection{Periodic systems - flows on the circle}
+	Lastly in one dimension, we have flows on the circle, which is really just differential equations with periodic boundary conditions. This means
+	\begin{equation}\label{key}
+		f(x+x_0) = f(x)
+	\end{equation}
+	for some $ x_0 $. Usually we identify $ \theta=x $ and $ x_0 = 2\pi$, corresponding to flows defined on the circle. This means that we can actually have oscillations (as long as there are no fixed points).
+	
+	One cool result is that if $ f(\theta) \approx 0 $, but there is no fixed point, then $ f $ is at a minimum. Then $ f \approx r + x^2 $, for $ r>0 $. The time it takes to go from $ -\infty $ to $ \infty $ (the time it takes to pass through this bottle neck) is
+	\begin{equation}\label{key}
+		T_{\text{bottleneck}} \approx \infint \frac{d x}{r+x^2} = \frac{\pi}{\sqrt{r}}.
+	\end{equation}
+	This is called the square-root scaling law. If instead you had a maximum, then there'd be an overall minus on $ f $, with $ r $ still larger than 0. The integral would then have to go from $ \infty $ to $ -\infty $ (since we're going the other way). Switching the limits costs us a minus sign, which gobbles up the minus on $ f $, leaving us with the same result as before. 
 	
 	
 	
