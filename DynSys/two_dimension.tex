@@ -113,7 +113,24 @@
 	Limit cycles only happen in nonlinear systems, like $ \dot{r} = r(1-r^2), \dot{\theta} = 1 $, which has a stable limit cycle at $ r^* = 1 $. 
 	
 	There are a couple of ways to either rule out or establish the existence of limit cycles:
-	\subsubsection{Ruling out orbits: Liapunov functions and Dulac's criterion} 
-	\paragraph{Liapunov functions:} If you 
+	\subsubsection{Ruling out orbits: Gradient systems, Liapunov functions and Dulac's criterion}
+	\paragraph{Gradient Systems:} Suppose a system can be written as $ \dot{\V{x}} = -\nabla V$ for a continuous, differentiable, single valued scalar $ V(\V{x}) $. This is called a gradient system, and no closed orbits are possible in such a system.
+	
+	\paragraph{Liapunov functions:} Consider a system $ \dot{\V{x}} = \V{f}(\V{x}) $ with a fixed point $ \V{x}^* $. Suppose one can find a function $ V(\V{x}) $ satisfying the following conditions:
+	\begin{itemize}
+		\item $ V(\V{x}) > 0 $ for all $ \V{x} \neq \V{x}^* $ and $ \V{x}^* $ ($ V $ is positive definite).
+		\item $ dV/dt < 0 $ for all $ \V{x}\neq \V{x}^* $ (trajectories flow ``downhill'' along $ V $).
+	\end{itemize} 
+	Such a function is called a Liapunov function, and the fixed point $ \V{x}^* $ is globally, asymptotically stable. As such no closed orbits are possible.
+	
+	There is no set recipe for finding such a function, but sometimes sums of squares ($ V=bx^2 + ay^2 $) work.
+	
+		
+	\paragraph{Dulac's criterion:} Let $ \dot{\V{x}} = \V{f}(\V{x}) $ be continuously differentiable on a simply connected subset $ R $ of the plane. If there exists a continuously differentiable, real valued function $ g(\V{x}) $ such that $ \grad \D (g\dot{\V{x}}) $ has the same sign throughout $ R $ then there are no closed orbits lying entirely in $ R $.
+	
+	Again, no recipe for $ g $ exists, but the following functions sometimes work: $ g=1, 1/x^ay^b, e^{ax}, e^{ay} $.
+	
+	\subsubsection{Establishing orbits: Poincaré-Bendixson theorem and trapping regions}
+	
 	
 \end{document}
