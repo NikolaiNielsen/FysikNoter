@@ -1,7 +1,9 @@
 \documentclass[dynsysnotes.tex]{subfiles}
 
 \begin{document}
-	\section{Two dimensions}
+	\section{Two dimensions (or more)}
+	In this section we mostly discuss two dimensional systems, but most of the results generalize to higher dimensions.
+	
 	\subsection{Linear systems}
 	A linear system is one on the form
 	\begin{equation}\label{key}
@@ -13,9 +15,16 @@
 	\end{equation}
 	These systems always have a single fixed point at the origin, and the parameters $ a,b,c,d $ determine the behaviour around the fixed point. Actually, it is easier to classify according to the eigenvalues $ \lambda_+, \lambda_- $, of the matrix. These can be found easily from the trace and determinant of the matrix:
 	\begin{equation}\label{key}
-		\tau = \text{Tr}(A) = \lambda_+ + \lambda_-, \quad \Delta = \det(A) = \lambda_+ \lambda_-, \lambda_{\pm} = \frac{1}{2} \pp{\tau \pm \sqrt{\tau^2 - 4\Delta}}.
+		\tau = \text{Tr}(A) = \lambda_+ + \lambda_-, \quad \Delta = \det(A) = \lambda_+ \lambda_-, \quad  \lambda_{\pm} = \frac{1}{2} \pp{\tau \pm \sqrt{\tau^2 - 4\Delta}}.
 	\end{equation}
-	Now for some definitions of stability:
+	The classification can be summed up in this diagram:
+	\begin{center}
+		\textbf{Insert diagram}
+	\end{center}
+	
+	
+	
+	Now for some actual definitions of stability and explanations:
 	\begin{itemize}
 		\item Attracting: $ \V{x}^* $ is attracting, if trajectories that start near it approach it in infinite time: $ \lim\limits_{t\to \infty} \V{x}(t) = \V{x}^*.$
 		\item Liapunov stable: $ \V{x}^*$ is Liapunov stable if all trajectories that start near it stay near it.
@@ -23,17 +32,88 @@
 		\item Neutrally stable: $ \V{x}^* $ is neutrally stable if it is not attracting, but it is Liapunov stable.
 		\item Unstable: $ \V{x}^* $ is unstable if it is neither attracting nor Liapunov stable.
 	\end{itemize}
-	
-	
-	
 	In two dimensions there are several different kinds of fixed points, which are covered below:
 	\begin{itemize}
-		\item \textbf{(Un)stable nodes:}
-		\item \textbf{(Un)stable spirals:}
-		\item \textbf{Centers:}
-		\item \textbf{Saddle points:}
-		\item \textbf{Stars:}
-		\item \textbf{Degenerate nodes:}
-		\item \textbf{Non-isolated fixed points:}
+		\item \textbf{(Un)stable nodes:} A fixed point that is attractive (repulsive), with one direction (eigenvector) attracting/repulsing quicker than the other. This happens when $ \lambda_+,\lambda_- < 0, $ and $\lambda_+ \neq \lambda_- $ ($ \lambda_+,\lambda_- > 0, \lambda_+ \neq \lambda_- $). The most attractive (repulsive) direction, called the fast eigendirection, is the one whose eigenvalue has the largest magnitude.
+		\item \textbf{Saddle points:} A fixed point with one attractive eigendirection ($ \lambda_- $) and one repulsive ($ \lambda_+ $). For the saddle point, one has a \textit{stable manifold}, which is defined as all $ \V{x}_0 $ such that $ \lim\limits_{t\to \infty} \V{x}(t) = \V{x}^* $, and an \textit{unstable manifold}, defined as all $ \V{x}_0 $ such that $ \lim\limits_{t\to -\infty} \V{x}(t) = \V{x}^* $. A typical trajectory will asymptotically approach the \textit{unstable} manifold as $ t \to \infty $, and the \textit{stable} manifold as $ t\to -\infty $.
+		
+		We also define the \textit{basin of attraction} for a saddle point, which is the set of all initial conditions that approach the fixed point as $ t \to \infty $.
+		\item \textbf{Stars:} A attractive (repulsive) fixed point, with equal eigenvalues $ \lambda_+=\lambda_- $ and two distinct eigenvectors. This means that all directions attract (repel) with equal strength, leading to a phase portrait in the shape of a star.
+		\item \textbf{Centers:} A center occurs when both eigenvalues are purely imaginary, leading to an oscillating solution of ellipses.
+		\item \textbf{(Un)stable spirals:} Occurs when the eigenvalues are complex, leading to an oscillating and an attractive (repelling) term, causing the trajectory to spiral inwards (outwards).
+		\item \textbf{Degenerate nodes:} Occurs when $ \lambda_-=\lambda_+ $, but there is only one non-trivial eigenvector. Trajectories are roughly parallel to the eigenvector.
+		\item \textbf{Non-isolated fixed points:} Occurs when one eigenvalue ($ \lambda_- $) is 0, while the other is non-zero. The line of fixed points occurs along the eigenvector corresponding to $ \lambda_- $ (funilly enough, as it's the definition of a fixed point).
 	\end{itemize}
+
+	
+	\subsection{Nonlinear systems}
+	For nonlinear systems we can still solve for fixed points, but to determine the stability we use linear stability analysis, generalized to higher dimensions. Here we calculate the Jacobian matrix for a fixed point:
+	\begin{equation}\label{key}
+		A = \begin{pmatrix}
+			\diff{f}{x} & \diff{f}{y} \\ \diff{g}{x} & \diff{f}{y}
+		\end{pmatrix}
+	\end{equation}
+	where $ \dot{x} = f(x,y), \dot{y} = g(x,y) $, and the derivatives are to be evaluated at the fixed point $ (x^*, y^*) $. The eigenvalues of this matrix can then be used to determine the stability, like in linear systems. However, this only works for the robust cases, where $ \Delta \neq 0, \tau \neq 0 $ and $ \tau^2 - 4\Delta \neq 0$ (ie, when we're dealing with nodes, spirals and saddle points).
+	
+	\subsubsection{Conservative systems}
+	A conservative system is one in which there is some conserved quantity $ E(\V{x}) $, ie $ dE/dt = 0 $ along trajectories. For example, if the system is of the form
+	\begin{equation}\label{key}
+		m \ddot{x} + F(x)
+	\end{equation}
+	where there is no explicit dependence of $ \dot{x} $ or $ t $ for $ F $. Then we can write $ F(x) = -dV/dx $, where $ V $ is the potential energy. Then $ E = 1/2 m \dot{x}^2 + V(x) $ is constant along trajectories.
+	
+	To rule out silliness, we also demand that $ E $ is not just a constant function on every open set: $ E(\V{x}) \neq c$. 
+	
+	Conservative systems have a couple of consequences:
+	\begin{itemize}
+		\item A conservative system cannot have any attracting fixed points
+		\item Centers of a conservative system are robust. The following theorem (6.5.1) states: Suppose $ \dot{\V{x}} = \V{f}(\V{x}) $, where $ \V{x} \in \set{R} $, and $ \V{f} $ is continuously differentiable. If a conserved quantity $ E(\V{x}) $ exist, and $ \V{x}^* $ is an isolated fixed point, where $ E(\V{x}^*) $ is a local  minimum (or maximum), then all trajectories sufficiently close to $ \V{x}^* $ are closed.
+	\end{itemize}
+	A type of trajectory that often occurs in a conservative system is that of a \textit{homoclinic trajectories}, which is a trajectory that starts at one fixed point, and ends at the same fixed point (at $ t \to \infty $). This is as opposed to a \textit{heteroclinic trajectories}, which starts at one fixed point, but end at another. Heteroclinic trajectories occur more often in reversible systems.
+	
+	
+	\subsubsection{Reversible systems}
+	A reversible system is one that exhibits time reversal symmetry. This means that the system of equations should be unchanged under the transformation
+	\begin{equation}\label{key}
+		t \to -t, \dot{x} = y \to -\dot{x} = -y.
+	\end{equation}
+	This for example occurs when
+	\begin{equation}\label{key}
+		\dot{x} = f(x,y), \dot{y} = g(x,y), \quad f(x,-y)=-f(x,y), \quad g(x,-y) = g(x,y).
+	\end{equation}
+	A consequence of reversible systems is that all trajectories that are sufficiently close to a linear centre are closed, as per theorem 6.6.1:
+	
+	Suppose the origin $ \V{x}^* = 0$ of the system $ \dot{\V{x}}=\V{f}(\V{x}) $ is a linear centre, and the system is reversible. Then all trajectories sufficiently close to the origin are closed.
+	
+	This can of course be generalized to linear centres that are not at the origin, by a shift in coordinates.
+	
+	In higher dimensions reversibility can be defined as a mapping of the phase space $ \V{x}\to \V{R}(\V{x}) $, where $ \V{R}^2(\V{x}) = \V{x} $, and the system is invariant under $ t \to -t $, $ \V{x} \to \V{R}(\V{x}) $.
+	
+	
+	\subsubsection{Index theory}
+	Index theory is a method by which one can get global information out of the system (as opposed to linearisation, which only gives local information). Assume we have a smooth vector field $ \dot{\V{x}} = \V{f}(\V{x}) $ and a simple closed curve $ C $ (ie, not self-intersecting, and not intersecting any fixed point). Then the vector field makes an angle $ \phi = \arctan(\dot{y}/\dot{x}) $ with respect to the $ x $-axis. This angle changes an integer multiple of $ 2\pi $ along the curve (since the angle must be the same after one trip around the curve). Let $ [\phi]_C $ be the net change in angle around the curve, then the index is
+	\begin{equation}\label{key}
+		I_C = \frac{[\phi]_C}{2\pi}.
+	\end{equation}
+	The index has the following properties:
+	\begin{itemize}
+		\item Suppose $ C $ can be continuously deformed into another curve $ C' $, then $ I_C = I_{C'} $.
+		\item If there are no fixed points in $ C $, then $ I_C = 0 $
+		\item The index is invariant under the transformation $ t \to -t $.
+		\item Suppose $ C $ is actually a trajectory (a closed orbit), then $ I_C = +1 $, no matter how many fixed points the curve encloses.
+		\item The index $ I $ of a fixed point is equal to the index of any curve $ C $ that encloses only that fixed point and no others.
+		\item A node (stable or unstable) has index $ I=1 $. A saddle has $ I=-1 $.
+		\item Spirals, centres and degenerate nodes all have index $ I=1 $
+		\item The index of a curve $ C $ that encloses $ n $ fixed points with indices $ I_n $ is $ I_C = \sum_{k=1}^{n}I_k $ 
+	\end{itemize}
+
+	\subsection{Limit cycles}
+	A limit cycle is an isolated, closed orbit, such that neighbouring trajectories either spiral towards it (a stable limit cycle) or spiral away from it (an unstable limit cycle). You can also have half-stable limit cycles, where on the inside they spiral towards and on the outside they spiral away (or vice versa).
+	
+	Limit cycles only happen in nonlinear systems, like $ \dot{r} = r(1-r^2), \dot{\theta} = 1 $, which has a stable limit cycle at $ r^* = 1 $. 
+	
+	There are a couple of ways to either rule out or establish the existence of limit cycles:
+	\subsubsection{Ruling out orbits: Liapunov functions and Dulac's criterion} 
+	\paragraph{Liapunov functions:} If you 
+	
 \end{document}
