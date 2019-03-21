@@ -131,6 +131,58 @@
 	Again, no recipe for $ g $ exists, but the following functions sometimes work: $ g=1, 1/x^ay^b, e^{ax}, e^{ay} $.
 	
 	\subsubsection{Establishing orbits: Poincaré-Bendixson theorem and trapping regions}
+	The Poincare-Bendixson theorem states that if you have the following:
+	\begin{itemize}
+		\item A closed subset of the plane $ R $
+		\item A continuously differentiable vector field $ \dot{\V{x}} = \V{f}(\V{x}) $, on an open set containing $ R $
+		\item $ R $ contains no fixed points
+		\item A trajectory $ C $ is ``confined'' to $ R $, in that it stays in $ R $ for all time.
+	\end{itemize}
+	Then $ C $ is either a closed orbit, or it approaches one as $ t\to \infty $. In any case $ R $ contains a closed orbit. The three first conditions are easy enough to satisfy, but the last one is a bit tougher. This is where the construction of trapping regions come in.
+	
+	\textbf{A Trapping Region} is a closed subset $ R $, containing no fixed points, and where the vector field on the boundary always points inward. This means that a trajectory which starts in $ R $ has no way of escaping (since if it reaches the end, it will necessarily turn inwards). Such a region then satisfy all four conditions of the above theorem.
 	
 	
+	\subsubsection{Weakly non-linear oscillators, two timing and averaged equations}
+	Many non-linear oscillators exhibit two distinct timescales. One regular, $ t $ and a slow time scale. For example, the damped oscillator $ \ddot{x} + 2\varepsilon\dot{x} + x = 0  $, with $ x(0) = 0, \dot{x}(0) = 1 $ has the solution
+	\begin{equation}\label{key}
+		x(t) = \frac{e^{-\varepsilon }}{\sqrt{1-\varepsilon^2}} sin[(1-\varepsilon^2)^{1/2} t],
+	\end{equation}
+	which exhibit (for small $ \varepsilon $, where the damping is weak) a long time scale damping of $ T=\varepsilon t $. Most often though, we cannot solve the equations explicitly, but must resort to perturbation theory. However, regular perturbation theory (like that in QM) does not work, since it doesn't incorporate the different time scales, except after an infinite amount of terms (rendering the whole technique moot). The trick then, is \textbf{two timing}, where two new variables are introduced, and assumed to be independent of each other:
+	\begin{equation}\label{key}
+		\tau = t, \quad T = \varepsilon t.
+	\end{equation}
+	ie, a regular and slow time. This means that the usual time derivative becomes
+	\begin{equation}\label{key}
+		\dot{x} = \diff{x}{\tau} + \varepsilon \diff{x}{T}
+	\end{equation}
+	If we use this on a general, weakly non-linear oscillator of the form
+	\begin{equation}\label{key}
+		\ddot{x} + x + \varepsilon h(x, \dot{x}) = 0, \quad 0<\varepsilon\ll 1
+	\end{equation}
+	we get the first term of the expansion to be
+	\begin{equation}\label{key}
+		x_0 = r(T) \cos(\tau + \phi(T))
+	\end{equation}
+	where the amplitude and phase depend only on the slow time $ T $. Substituting this into $ h $ such that
+	\begin{equation}\label{key}
+		h = h(r \cos(\tau + \phi), -r\sin(\tau + \phi)) = h(r \cos(\theta), -r\sin(\theta))
+	\end{equation}
+	and doing some clever manipulation gives the following two \textbf{averaged equations} for $ r $ and $ \phi $:
+	\begin{align}
+		\diff{r}{T} &= \frac{1}{2\pi} \int_{0}^{2\pi} h(\theta) \sin(\theta) \,d\theta = \braket{h \sin(\theta)} \\
+		r \diff{\phi}{T} &= \frac{1}{2\pi} \int_{0}^{2\pi} h(\theta) \cos(\theta) \,d\theta = \braket{h \cos(\theta)} 
+	\end{align}
+	Some common averages are
+	\begin{align}
+		&\braket{\sin} = \braket{cos} = \braket{\sin \cos} = \braket{\sin^3} = \braket{\cos^3} = \braket{\sin^{2n+1}} = \braket{\cos^{2n+1}} = 0 \\
+		&\braket{cos^2} = \braket{\sin^2} = \frac{1}{2}, \quad \braket{sin^4} = \braket{\cos^4} = \frac{3}{8}, \quad \braket{sin^2 \cos^2} = \frac{1}{8}, \\
+		&\braket{\cos^2 \sin^4} =  \frac{1}{16}, \quad \braket{\sin \cos^3} = \braket{\cos \sin^3} = 0 \\
+		&\braket{\sin^{2n}} = \braket{\cos^{2n}} = \frac{1\D 3 \D 5 \D \dots \D (2n -1)}{2\D 4 \D 6 \D (2n)}.
+	\end{align}
+	The frequency is then given by
+	\begin{equation}\label{key}
+		\omega = 1 + \varepsilon \diff{\phi}{T} + O(\varepsilon^2).
+	\end{equation}
+	More accurate results can be obtained by including more terms in the two timing expansion, or by introducing yet another timescale $ \mathscr{T} = \varepsilon^2 t$.
 \end{document}
