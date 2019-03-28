@@ -60,9 +60,7 @@
 	\begin{equation}\label{key}
 		m \ddot{x} + F(x)
 	\end{equation}
-	where there is no explicit dependence of $ \dot{x} $ or $ t $ for $ F $. Then we can write $ F(x) = -dV/dx $, where $ V $ is the potential energy. Then $ E = 1/2 m \dot{x}^2 + V(x) $ is constant along trajectories.
-	
-	To rule out silliness, we also demand that $ E $ is not just a constant function on every open set: $ E(\V{x}) \neq c$. 
+	where there is no explicit dependence of $ \dot{x} $ or $ t $ for $ F $. Then we can write $ F(x) = -dV/dx $, where $ V $ is the potential energy. Then $ E = 1/2 m \dot{x}^2 + V(x) $ is constant along trajectories. To rule out silliness, we also demand that $ E $ is not just a constant function on every open set: $ E(\V{x}) \neq c$. 
 	
 	Conservative systems have a couple of consequences:
 	\begin{itemize}
@@ -185,4 +183,26 @@
 		\omega = 1 + \varepsilon \diff{\phi}{T} + O(\varepsilon^2).
 	\end{equation}
 	More accurate results can be obtained by including more terms in the two timing expansion, or by introducing yet another timescale $ \mathscr{T} = \varepsilon^2 t$.
+	
+	\subsection{Bifurcations in higher dimensions - the Hopf bifurcation}
+	The bifurcations described in the section on one-dimensional systems can of course also happen in higher dimensional systems, in the same way they do in one dimension. There are also types of bifurcations that can happen in higher order systems, but not in first order systems. One main example is the Hopf bifurcation. It comes in three variants: supercritical, subcritical and degenerate. They have the same ``blueprint'' in the sense that they involve a pair of complex eigenvalues, whose real part change sign. Schematically we have
+	\begin{equation}\label{key}
+	\begin{cases}
+	\Re \lambda(\mu) < 0 & \mu < \mu_c \\
+	\Re \lambda(\mu) > 0 & \mu > \mu_c
+	\end{cases}
+	\end{equation}
+	where $ \mu $ is a control parameter, and $ \mu_c $ is the critical value at which the bifurcation occurs. Determining whether the bifurcation is supercritical, subcritical or degenerate is often hard analytically. It's usually easiest to just to it numerically.
+	
+	\paragraph{Supercritical Hopf bifurcation:} A supercritical Hopf bifurcation happens when a stable spiral (two complex eigenvalues with negative real part) change to an unstable spiral (eigenvalues with positive real part), with a nearly elliptical, stable limit cycle appearing around the unstable spiral. A supercritical Hopf bifurcation has the following properties
+	\begin{itemize}
+		\item The size of the limit cycle grows from $ 0 $, and is proportional to $ \sqrt{\mu-\mu_c} $, when $ \mu \approx \mu_c $.
+		\item The frequency of the limit cycle is approximately $ \omega = \Im \lambda $, evaluated at $ \mu=\mu_c $. It is exact at the bifurcation, and correct within $ \mathcal{O}(\mu-\mu_c) $. The period is $ T = (2\pi/\Im \lambda) + \mathcal{O}(\mu-\mu_c)$
+	\end{itemize}
+
+	\paragraph{Subcritical Hopf bifurcation:} Before a subcritical Hopf bifurcation occurs, a stable spiral is surrounded by an unstable limit cycle, which in turn is surrounded by a stable limit cycle. As the control parameter is varied, the unstable limit cycle shrinks and engulfs the fixed point at $ \mu = \mu_c $, changing the stability from a stable spiral to an unstable one.
+	
+	\paragraph{Degenerate Hopf bifurcation:} In a degenerate Hopf bifurcation a stable spiral still changes to an unstable one. But in this case no limit cycles occur. Instead there is a continuous band of closed orbits (limit cycles are isolated). This often occurs when a non-conservative system turns conservative.
+	
+	
 \end{document}

@@ -1,0 +1,59 @@
+\documentclass[dynsysnotes.tex]{subfiles}
+
+\begin{document}
+	\section{One-dimensional maps}
+	One-dimensional maps are a recurrence relation found by repeated iterations. They are of the form
+	\begin{equation}\label{key}
+		x_{n+1} = f(x_n)
+	\end{equation}
+	where $ f(x_n) $ is some one-dimensional function. Like with differential equations we can have fixed points for maps. These occur when $ x_{n+1} = x_n $, or
+	\begin{equation}\label{key}
+		f(x_n) = x_n, \quad f(x_n)-x_n = 0.
+	\end{equation}
+	
+	\subsection{Linear stability analysis}
+	Again, like differential equations, we can employ linear stability analysis. The result is
+	\begin{equation}\label{key}
+		\text{stability in }x^* = \begin{cases}
+			|f'(x^*)| < 1\ \Rightarrow & x^* \text{ is stable,} \\
+			|f'(x^*)| > 1\ \Rightarrow & x^* \text{ is }\textit{un}\text{stable.}
+		\end{cases}
+	\end{equation}
+	The border case where $ |f'(x^*)| = 1$ is inconclusive in linear stability analysis, and either numerics must be employed (like a cobweb diagram), or higher order stability analysis. There is also the case of \textbf{superstable} points $ x^* $. These occur when $ f'(x^*) = 0 $, causing the decay to be much faster than usual.
+	
+	\subsection{Cycles}
+	Cycles are a set of points which repeat upon iteration. An $ n$-cycle consists (unsurprisingly) of $ n $ distinct points. For example, let's say we have a two cycle:
+	\begin{equation}\label{key}
+		f(p) = q, \quad f(q) = f(f(p)) = f^2(p) = p
+	\end{equation}
+	Here we see, that a point on an $ n $-cycle is a fixed point of $ f^n $. All points on the $ n $-cycle will be fixed points of $ f^n $. As will all fixed points of $ f $ (since $ f^n(x^*) = f^{n-1}(x^*) = x^* $), and all points of $ m $-cycles where $ n $ is divisible by $ m $ (ie, points of a 2-cycle will be fixed points of $ f^{2n} $.)
+	
+	\subsection{Bifurcations and period doubling}
+	Maps can undergo bifurcations much like their continuous time counterparts. However, here the map needs to cross the line $ f(x_n) = x_n $ instead of $ f(x) = 0 $, as this is the line defining stability. The standard players are here as anticipated: pitchforks, transcritical and saddle-nodes. There is a type of bifurcation that occurs for maps, but not differential equations. This is the flip bifurcation. It occurs when $ f'(x^*) = -1 $.
+	
+	This type of bifurcation often causes a period doubling, which means that a two cycle appears around the fixed point. This occurs if the map $ f $ is concave down about $ x^* $. ie:
+	\begin{equation}\label{key}
+		f''(x^*) < 0 \, \Rightarrow \, \text{stable 2-cycle appears around } x^*.
+	\end{equation}
+	Flip bifurcations can also be subcritical, in which case the 2-cycle appears below (or before) the bifurcation occurs and is unstable.
+	
+	\subsection{Stability of cycles and Liapunov exponents}
+	The stability of cycles can be determined in much the same way as ordinary fixed point. One utilizes the fact that any point in an $ n $-cycle is a fixed point of $ f^n $. As such, one needs to look at $ df^n/dx $. If we call the points in the $ n $-cycle $ x_i $ for $ i=0,...,n-1 $, then:
+	\begin{equation}\label{key}
+		\lambda = \diff[d]{f^n(x^*)}{x} = f'(x_0)f'(x_1)\dots f'(x_{n-1}) , \ \begin{cases}
+		|\lambda| < 1\ \Rightarrow & \text{cycle is stable} \\
+		|\lambda| > 1\ \Rightarrow & \text{cycle is }\textit{un}\text{stable}
+		\end{cases}
+	\end{equation}
+	Here $ \lambda $ is called the multiplier, and is not to be confused with the Liapunov exponent (also denoted by $ \lambda $ in the book. I will refer to the Liapunov exponent by $ \Lambda $). They are related by $ \Lambda = (1/n)\ln|\lambda| $.
+	
+	The Liapunov exponent for an orbit (ie, a series of points $ x_i $) is given by
+	\begin{equation}\label{key}
+		\Lambda = \lim\limits_{n\to \infty} \bb{\frac{1}{n} \sum_{i=0}^{n-1} \ln|f'(x_i)|},
+	\end{equation}
+	and if the series is a $ p $-cycle, this reduces to
+	\begin{equation}\label{key}
+		\Lambda =  \frac{1}{p} \sum_{i=0}^{p-1} \ln|f'(x_i)|.
+	\end{equation}
+	A positive Liapunov exponent corresponds to \textbf{chaos}, a negative exponent corresponds to a stable cycle or fixed point, and $ \Lambda = -\infty $ corresponds to a superstable cycle/fixed point.
+\end{document}
