@@ -21,11 +21,7 @@
 	
 	In general, the derivative of $ f(x) $, with respect to $ x $ determines the stability of the point. Often, \textbf{linear stability analysis} enough. This states that $ x^* $ is a stable (unstable) fixed point, if $ f'(x^*) < 0 $ ($ f'(x^*) > 0 $). If, however, $ f'(x^*) = 0 $ then linear stability analysis will not be enough to determine the stability of the point, and one needs to look at the higher order derivatives of $ f(x) $.
 	
-	For example, if $ f''(x^*) > 0 $ ($ f''(x^*) < 0 $), the system has minimum (maximum), and the system is left (right) half stable. A left half stable fixed point is stable to perturbations pushing it to the left, but unstable to perturbations pushing it to the right. An example of this is $ \dot{x} = x^2 $, which has a left stable fixed point at $ x^* = 0 $:
-	
-	\begin{center}
-		\textbf{PIC}
-	\end{center}
+	For example, if $ f''(x^*) > 0 $ ($ f''(x^*) < 0 $), the system has minimum (maximum), and the system is left (right) half stable. A left half stable fixed point is stable to perturbations pushing it to the left, but unstable to perturbations pushing it to the right. An example of this is $ \dot{x} = x^2 $, which has a left stable fixed point at $ x^* = 0 $. It is represented as a half filled circle.
 	
 	If then both the first and second derivative at the fixed point is zero, then the third derivative can be used, where the point is stable if the third derivative is less than zero, and unstable if it is positive. Of course one can go as far as one likes with this, and utilize higher and higher derivatives.
 	
@@ -54,7 +50,8 @@
 	This system has a saddle-node bifurcation at $ r_c = 0 $, at which a left half stable point appears at $ x^*=0 $. If $ r $ is decreased further, this point separates into a stable point at $ x^*=-\sqrt{-r} $ and an unstable point at $ x^*=\sqrt{-r} $. This can be drawn in a \textbf{bifurcation diagram}, where one plots the fixed points as a function of the parameter (in this case $ r $):
 	
 	\begin{center}
-		\textbf{PIC}
+		\centering
+		\includegraphics[width=0.5\linewidth]{img/saddle_node.pdf}
 	\end{center}
 	
 	In a bifurcation diagram, stable \textit{branches} (lines indicating stable fixed points) are drawn up fully, whilst unstable branches are drawn dashed.
@@ -66,7 +63,8 @@
 	which always has a fixed point at $ x^*=0 $ (and one at $ x^*= r $). The bifurcation occurs at $ r_c = 0 $, with the fixed point being stable (unstable) for $ r<r_c $ ($ r>r_c $) and right half stable at $ r=r_c $. Its bifurcation diagram looks like so:
 	
 	\begin{center}
-		\textbf{PIC}
+		\centering
+		\includegraphics[width=0.5\linewidth]{img/transcrit.pdf}
 	\end{center}
 	
 	A pitchfork bifurcation is one where a single fixed point turns into three fixed points, reminiscent of the shape of a pitchfork. The supercritical pitchfork starts out as a stable point, which turns into an unstable fixed point at $ r=r_c $, and forms two additional stable points for $ r>r_c $. Its normal form is
@@ -76,7 +74,8 @@
 	and its bifurcation diagram looks like so:
 	
 	\begin{center}
-		\textbf{PIC}
+		\centering
+		\includegraphics[width=0.5\linewidth]{img/supercrit_pitchfork.pdf}
 	\end{center}
 	
 	For a subcritical pitchfork bifurcation the pitchfork is inverted. The normal form and fixed points are
@@ -90,7 +89,8 @@
 	for $ r < r_s$, there is only the fixed point at the origin. At $ r_s = -1/4 $ a double saddle node bifurcation occurs, and at r=0, a supercritical pitchfork bifurcation occurs, where the two inner, unstable fixed points (the last ones in the curly braces) coalesce with the stable fixed point at the origin, into a single unstable fixed point at the origin. The bifurcation diagram is:
 	
 	\begin{center}
-		\textbf{PIC}
+		\centering
+		\includegraphics[width=0.5\linewidth]{img/subcrit_pitchfork.pdf}
 	\end{center}
 	
 	This system can undergo catastrophes and hysteresis: if one starts at $ x=0,  -1/4 <r <0 $, and varies $ r $ until $ r>0 $, then $ x $ will snap to one of the other stable branches, since the origin is now an unstable fixed point. $ x $ will now stay at this point if $ r $ is returned to the initial value. This is hysteresis and catastrophe: through a (closed) walk in parameter space, the state of the system has changed!
