@@ -1,0 +1,281 @@
+\documentclass[matf3notes.tex]{subfiles}
+
+\begin{document}
+	\section{Chapter 4. Tensors}
+	In this chapter, in general, we will use the Einstein summation convention, which means that any repeated indices are summed over.
+	
+	\paragraph{Transformations and definitions:}
+	We start with some definitions. We say that a vector is defined by the way it transforms under a rotation:
+	\begin{equation}\label{key}
+		V^i \to V^{'i} = R^{ij} V^j, \quad i,j \in {1, 2, \dots, N}
+	\end{equation}
+	where we sum over $ j $, of course, and $ R $ is some general rotation matrix for $ SO(N) $. A scalar is defined as an object that does not transform at all:
+	\begin{equation}\label{key}
+		a \to a' = a
+	\end{equation}
+	(which makes sense. You cannot rotate a number). In general, we define a tensor as any object, that transforms under rotations according to
+	\begin{equation}\label{key}
+		T^{ij} \to T^{'ij} = R^{ik} R^{jl} T^{kl},
+	\end{equation}
+	where this particular object is called a rank 2 tensor, since it carries two indices (it is essentially a matrix). Again, we sum over both $ k $ and $ l $. As such a vector is a rank 1 tensor, a scalar is a rank 0 tensor. Each index can run from 1 to $ N $.
+	
+	A rank $ n $ tensor, with indices running up to $ N $, is then really just a set of $ N^n $ elements, that transform into a linear combination of themselves, under rotation (these elements, could for example be real numbers, s is the case when working with stuff in our normal, 3 dimensional euclidian space).
+	
+	A tensor is said to be \textbf{symmetric} in two (or more) indices, if interchanging these indices leaves the tensor unchanged. Ie, if:
+	\begin{equation}\label{key}
+		T^{ij} = T^{ji}
+	\end{equation}
+	It is antisymmetric, if interchanging a pair of indices changes the sign of the tensor:
+	\begin{equation}\label{key}
+		T^{ij} = - T^{ji}
+	\end{equation}
+	
+	In general the indices on a tensor transforms independently of each other, which is a really nice property. The indices do not interact in any way. This means, that if a rank 7 tensor, for example, is symmetric in the first 3 indices, and antisymmetric in the last 4, then any transformed tensor
+	
+	\paragraph{Furnishing a representation:}
+	Say we want to create larger, irreducible representations for some group ($ SO(3) $ for example). Then we take a rank 2 tensor $ T^{ij} $ with $ N = 3 $. It then has 9 components. We can then define a 9-dimensional representation $ D(R) $, where each element takes the $ 3\times 3 $ rotation matrix $ R $ and represents it as a $ 9\times 9 $ matrix acting on the objects in the tensor (we can picture the tensors 9 components as some column which the $ 9\times 9 $ matrix acts on).
+	
+	This 9-dimensional representation is reducible. We can see this by splitting the tensor into an antisymmetric and a symmetric part:
+	\begin{equation}\label{key}
+		A^{ij} = T^{ij} - T^{ji} \equiv T^{[ij]}, \quad S^{ij} = T^{ij} + T^{ji} \equiv T^{\{ij\}}
+	\end{equation}
+	where curly brackets denote symmetry in a set of indices, whiles square brackets denote antisymmetry.
+	
+	The antisymmetric tensor has no diagonal elements ($ A^{11} = A^{22} = A^{33} =0 $), and because of the antisymmetry only 3 independent components. This tensor furnishes a 3-dimensional representation of $ SO(3) $ (it is actually the defining representation of $ SO(3) $).
+	
+	The symmetric tensor does have 3 diagonal elements, which may or may not be equal to each other, and the other, independent elements (again, only 3, due to the symmetry constraint), so 6 elements in all. But this new 6-dimensional representation is still reducible, since the trace $ S^{ii} $ transforms like a scalar, and can be subtracted.
+	
+	So we define a traceless, symmetric tensor $ \tilde{S} $ by
+	\begin{equation}\label{key}
+		\tilde{S}^{ij} = S^{ij} - \delta^{ij} (S^{kk}/3)
+	\end{equation}
+	which now have 5 independent component (3 independent off the diagonal, 2 on the diagonal, since $ \tilde{S}^{33} = -(\tilde{S}^{11} + \tilde{S}^{22}) $).
+	
+	As such, the 9-dimensional representation breaks up into 3 irreducible representations: a 3, a 5 and a 1.
+	
+	In general, for the rank 2 tensor with dimension $ N $, the antisymmetric tensor has $ N(N-1)/2 $ independent components, while the symmetric tensor has $ N(N+1)/2 $ independent components (which can be further reduced by 1, by subtracting out the trace).
+	
+	The symmetric, traceless tensor in $ N $ dimensions is then given by
+	\begin{equation}\label{key}
+		\tilde{S}^{ij} = S^{ij} - \delta^{ij} (S^{kk}/N)
+	\end{equation}
+	
+	For $ SO(N) $ then, the $ N^2 $-dimensional representation furnished by the rank-2 tensor $ T^{ij} $, can be broken up into 3 irreducible representations with smaller dimensions, written as
+	\begin{equation}\label{key}
+		N^2 = \frac{1}{2} N(N+1) - 1 \oplus \frac{1}{2} N(N-1) \oplus 1
+	\end{equation}
+	And we see that the sum of all these numbers indeed add up.
+	
+	\paragraph{Invariant symbols:}
+	The Kronecker delta and the antisymmetric symbol can be thought of as \textit{invariant symbols}, since they transform into themselves:
+	\begin{equation}\label{key}
+		\delta^{ij} R^{ik}R^{jl} = \delta^{{kl}}, \quad \varepsilon^{ijk\cdots n}R^{ip} R^{jq}R^{kr}\cdots R^{ns} = \varepsilon^{pqr\cdots s}.
+	\end{equation}
+	
+	\paragraph{Dual Tensors:}
+	Given a antisymmetric tensor $ A^{ij} $, we can define its \textit{dual} as
+	\begin{equation}\label{key}
+		B^{k\cdots n} = \varepsilon^{ijk\cdots n} A^{ij}
+	\end{equation}
+	which is a totally antisymmetric rank $ N-2 $ tensor
+	
+	\paragraph{Contraction of indices:}
+	Contraction of indices is just the name of the process, where we set two indices of some tensor (or some product of tensors, since they also form a tensor) equal, and then sum over them. This means that the tensor $ T^{ij\cdots jp} $ transforms like a tensor $ T^{i\cdots p} $, that is, with two fewer indices.
+	
+	\paragraph{Dimensions of the irreducible representations of $ SO(3) $ and $ SO(2) $:}
+	For $ SO(3) $ we can just consider totally symmetric, traceless tensors of rank $ j $ (where each index runs from 1 to 3, of course): $ S^{i_1 i_2 \cdots i_j} $. The number of independent coordinates for this tensor gives the dimension of the irreducible representation furnishing it. If we count the number of independent components due to symmetry we get $ (j+1)(j+2)/2 $ components. Subtracting the traceless components amounts to $ j(j-1)/2 $ fewer components, for a total of
+	\begin{equation}\label{key}
+		d = 2j + 1
+	\end{equation}
+	In $ SO(2) $ we only need to count for totally symmetric tensors. There are $ j+1 $ of these. Imposing the condition of tracelessness leads to $ j-2+1 $ conditions. Subtracting these conditions from the number of tensors then gives exactly 2, so all irreducible representations due to tensors are 2-dimensional!
+	
+	A set of 2-dimensional representation can be written as
+	\begin{equation}\label{key}
+		D^{(j)}(\theta) = \begin{pmatrix} \cos j\theta & \sin j\theta  \\ -\sin j\theta & \cos j \theta\end{pmatrix}.
+	\end{equation}
+	where $ j $ is the fundamental representation. These can of course be broken up into 2 one-dimensional representations by a unitary transform to
+	\begin{equation}\label{key}
+		D'^{(j)}(\theta) = \begin{pmatrix} e^{ij\theta} & 0  \\ 0 & e^{-ij\theta}
+		\end{pmatrix}
+	\end{equation}
+	
+	
+	\paragraph{Adjoint representation:}
+	One can create a representation of the Lie Algebra from its structure constants, called the adjoint representation. This is done by treating the structure constants as matrices (or part of them, at least). If one fixes an index on a structure constant $ f^{abc} $, say $ a=x $, then the remaining object can be treated as a matrix. Once can then define the matrix $ T^a $ as
+	\begin{equation}\label{key}
+		(T^a)^{bc} = -i f^abc
+	\end{equation}
+	where $ b,c $ are the indices of the matrix, each of which run from 1 to $ n=N(N-1)/2 $. Using the Jacobi identity for commutators one gets
+	\begin{equation}\label{key}
+		f^{abd} f^{dcg} + f^{bcd} f^{dag} + f^{cad} f^{dbg} = 0
+	\end{equation}
+	
+	We can then get
+	\begin{equation}\label{key}
+		({T^a, T^b})^{cg} = if^{abd} (T^d)^{cg}
+	\end{equation}
+	which is just the matrix representation of the Lie Algebra structure in the adjoint representation. There are $ N(N-1)/2 $ of them, and they are all $ N(N-1)/2 \times N(N-1)/2$.
+	
+	\paragraph{The Adjoint of $ SO(N) $:}
+	The antisymmetric tensor $ T^{ij} $ furnishes a $ N(N-1)/2 $-dimensional irreducible representation of $ SO(N) $, and there are $ N(N-1)/2 $ generators, represented by $ N $-dimensional antisymmetric matrices 
+	\begin{equation}\label{key}
+		\mathcal{J}^{ij}_{(nm)} = (\delta^{mi}\delta^{nj} - \delta^{mj}\delta^{ni})
+	\end{equation}
+	with $ J_{(mn)} = -i \mathcal{J}_{(mn)}  $ and $ i,j $ being matrix indices of the matrix $ \mathcal{J}_{(mn)} $. Now we label all these matrices by $ a $, which goes from 1 to $ N(N-1)/2 $. We can then construct $ N(N-1)/2 $ matrices, each with a size of $ N\times N $ as before, called $ \mathcal{J}_a^{ij} $ (ie, $ i,j $ run from 1 to $ N $, $ a $ run from 1 to $ N(N-1)/2 $)
+	
+	$ T^{ij}  $ can also be regarded as an $ N\times N $ matrix, and can be written as a linear combination of the matrices $ \mathcal{J}_a $ with coefficients $ A_a $:
+	\begin{equation}\label{key}
+		T^{ij} = A_a \mathcal{J}_a^{ij}
+	\end{equation}	 
+	where we sum over $ a $, from 1 to $ N(N-1)/2 $.
+	
+	The variation of $ T $ under rotation (ie, $ T' = T + \delta T $) is $ \delta T = \theta_a T_b[\mathcal{J}_a, \mathcal{J}_b]$, This can be written as $ \delta T = \delta A_c \mathcal{J}_c = \theta_b A_b f_{abc} \mathcal{J}_c $, which gives
+	\begin{equation}\label{key}
+		\delta A_c = f_{abc} \theta_a A_b
+	\end{equation}
+	so the $ N(N-1)/2 $ $ A_a $ transforms like above, and furnish the adjoint representation. In $ SO(3) $ the $ A_a $ then transforms like a vector.
+	
+	\paragraph{Ladder operators and the Lie Algebra for $ SO(3) $:}
+	Here follows a short recap of ladder operators for angular momentum. Given the commutation relation
+	\begin{equation}\label{key}
+		[J_x, J_y] = i J_z
+	\end{equation}
+	And its cyclic permutations, we can define two new generators/matrices $ J_{\pm} \equiv J_x \pm i J_y $, with commutation relations
+	\begin{equation}\label{key}
+		[J_z, J_{\pm}]pm J_{\pm}, \quad [J_=, J_-] = 2J_z
+	\end{equation}
+	Our goal is to find a bunch of $ 2j+1 $-dimensional representations of the algebra. To do this we find the eigenvectors of $ J_z $:
+	\begin{equation}\label{key}
+		J_z\ket{m} = m\ket{m}
+	\end{equation}
+	With some algebra and the condition that the ladder terminates in both directions we then find that there are $ 2j+1 $ different values of $ m $, with $ j $ given by
+	\begin{equation}\label{key}
+		J^2 = j(j+1)
+	\end{equation}
+	being the total angular momentum. The ladder operators satisfy:
+	\begin{equation}\label{key}
+		J_+ \ket{m} = \sqrt{(j+1+m)(j+m)} \ket{m+1}, \quad J_-\ket{m} = \sqrt{(j+1-m)(j-m)} \ket{m-1}
+	\end{equation}
+	
+	\paragraph{Multiplying representations together for $ SO(3) $:}
+	We can multiply two representations together the following way: Given two totally symmetric, traceless tensors $ S^{i_1\cdots i_j} $ and $ T^{k_1\cdots k_{j'}} $ with $ j $ and $ j' $ indices, we multiply them together to form a tensor with $ j+j' $ indices. Symmetrise this and take out the trace - then we have the irreducible representation of dimension $ j+j' $. Now contract with $ \varepsilon^{ikl} $ where $ i $ is index on $ S $ and $ k $ is on $ T $. This gives us a tensor with one fewer indices ($ i $ and $ k $ traded for $ l $), symmetrise this and take out its trace, then we get $ j+j'-1 $. Rinse and repeat, until there are no more indices. Written schematically we get:
+	\begin{equation}\label{key}
+		j\otimes j' = (j+j') \oplus (j+j'-1) \oplus (j+j'-2) \oplus \cdots \oplus (|j-j'|+1) \oplus |j-j'|
+	\end{equation}
+	This is essentially addition of angular momentum.
+	
+	\paragraph{Clebsch-Gordan decomposition:}
+	Clebsch-Gordan decomposition is the act of multiplying two kets, and seeing how the result acts under the ladder operators. First we write the product ket as $ \ket{j, m} \otimes \ket{j',m'} =\ket{j,j',m,m'} = \ket{m,m'}$, where in the last equality we just leave the values of $ j $ and $ j' $ as implicitly defined. 
+	
+	For products of this kind, we have $ J_z\ket{m,m'} = (m+m')\ket{m,m'} $, so the maximum eigenvalue of $ J_z $ must be $ j+j' $ (as expected). If we define next the state $ \ket{J, M} $ as the linear combinations of $ \ket{j, j', m, m'} $ with $ J=j+j' $ and $ M $ equal to the eigenvalue of $ J_z $, ranging between $ j+j' $ and $ |j-j'| $, then we can start with the state $ \ket{j, j',j,j'} = \ket{J,J} $ and use $ J_- $ on this, until the ladder terminates.
+	
+	Examples can be seen in the book.
+	
+	\subsection{The Special Unitary Groups SU(N)}
+	We now move from orthogonal groups to unitary groups. The group of $ N $-dimensional square unitary matrices is called $U(N) $ and given by the definition
+	\begin{equation}\label{key}
+		U^{\dagger} U  = I
+	\end{equation}
+	Taking the determinant of this we get $ |\det U|^2 = 1 $, or $ \det U = e^{i\alpha} $. Restricting ourselves to $ \alpha = 0 $ gives us the special unitary group $ SU(N) $:
+	\begin{equation}\label{key}
+		\det U = 1
+	\end{equation}
+	\paragraph{Upper and lower indices:}
+	for $ SO(N) $ we defined traces with the use of $ O^TO $, but this has no special meaning for $ SU(N) $, here we need to define it using complex conjugation instead of transposing. This motivates the introduction of a new notation: the lower index.
+	
+	A lower index is just one in which all the components for this index has been complex conjugated. Ie $ \psi^{i^*} = (\psi^i)^*\equiv \psi_i $. This allows us to write the quadratic invariant (the dot product) as
+	\begin{equation}\label{key}
+		\zeta^{\dagger} \psi = \zeta_j\psi^j
+	\end{equation} 
+	This illuminates a point for contraction of indices: \textbf{We can only contract a lower with an upper index. Never two upper indices or two lower indices}. The defining representation of $ SU(N) $ therefore consists of $ N $ objects $ \psi^j $, $ j\in \{1, \dots ,N\}$ transforming under a group element as
+	\begin{equation}\label{key}
+		\psi^i \to \psi'^i = U^i_j\psi^j, \quad \psi_i \to \psi'_i = \psi_j (U^{\dagger})^j_i.
+	\end{equation}
+	This means that upper indices transforms with $ U $, whilst lower transforms with $ U^{\dagger} $. For these groups we also define the Kronecker delta to carry one upper and one lower index, to reflect this change.
+	
+	If we see how a tensor with 2 upper and one lower index transforms we get
+	\begin{equation}\label{key}
+		\phi^{ij}_k \to \phi'^{ij}_k = U^i_l U^j_m (U^{\dagger})^n_k \phi^{lm}_n= U^i_l U^j_m \phi^{lm}_n (U^{\dagger})^n_k
+	\end{equation}
+	Traces are now defined as $ \delta^k_j \phi^{ij}_k \equiv \phi^{ij}_j $, which transforms as \begin{equation}\label{key}
+		\phi^{ij}_j \to U^i_lU^j_m(U\Dag)^n_j \phi^{lm}_n = U^i_l \delta^n_m \phi^{lm}_n = U^i_l \phi^{lm}_m
+	\end{equation}
+	which transforms like a tensor with two fewer indices (in this case, a vector).
+	
+	For a tensor with upper and lower indices, we can only define (anti)symmetry within each floor. Ie, the tensor can be (anti)symmetric between a pair (or more) of upper indices or a pair (or more) of lower indices. It does not make sense to permute an upper with a lower index.
+	
+	\paragraph{Moving between floors:}
+	The ``speciality'' condition of $ SU(N) $ can be written as
+	\begin{equation}\label{key}
+		\varepsilon_{i_1i_2\cdots i_N} U^{i_1}_{j_1} U^{i_2}_{j_2} \cdots U^{i_N}_{j_N} = \varepsilon_{j_1 j_2 \cdots j_N}, \quad \varepsilon^{i_1i_2\cdots i_N} U^{j_1}_{i_1} U^{j_2}_{i_2} \cdots U^{j_N}_{i_N} = \varepsilon^{j_1 j_2 \cdots j_N}
+	\end{equation}
+	Which means we have two antisymmetric symbols instead of 1!. If one multiplies by $ (U\Dag)^{j_N}_{p_N} $ and sums over $ j_N $, one obtains one fewer $ U $ on the left hand side of the above (in the left equation), and one more $ U\Dag $ on the right hand side. An example is
+	\begin{equation}\label{key}
+		\phi_{kpq} \equiv \varepsilon_{ijpq} \phi^{ij}_k
+	\end{equation}
+	which transforms as a tensor with three lower indices:
+	\begin{equation}\label{key}
+		\varepsilon_{ijpq} \phi^{ij}_k \to \varepsilon_{ijpq} U^i_l U^j_m (U\Dag)^n_k \phi^{lm}_n =(U\Dag)^s_p (U\Dag)^t_q ((U\Dag)^n_k \varepsilon_{lmnst} \phi^{lm}_n)=  (U\Dag)^s_p (U\Dag)^t_q (U\Dag)^n_k \phi_{nst}
+	\end{equation}
+	
+	\paragraph{Group to algebra:}
+	Any group element $ U $ can be written as
+	\begin{equation}\label{key}
+		U = e^{iH}
+	\end{equation}
+	where $ H $ is hermitian ($ H\Dag = H $). The speciality condition implies $ \tr H = 0 $. This means, that if we can write down all the general $ N\times N $ hermitian matrices, then we can write $ U $ as an exponentiated linear combination of these!
+	
+	For $ N=2 $ these are just the Pauli matrices:
+	\begin{equation}\label{key}
+		\sigma_1 = \begin{pmatrix}
+		0 & 1 \\ 1 & 0
+		\end{pmatrix}, \quad \sigma_2 = \begin{pmatrix}
+		0 & -i \\ i & 0
+		\end{pmatrix}, \quad \sigma_3 = \begin{pmatrix}
+		1 & 0 \\ 0 & -1
+		\end{pmatrix}
+	\end{equation}
+	with $ H = \theta_a \sigma_a / 2 $ and $ U=e^{iH} = e^{i\theta_a \sigma_a /2} $.
+	
+	For $ N =3 $ we have the Gell-Mann Matrices:
+	\begin{align}
+		\lambda_1 &= \begin{pmatrix}
+		0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0
+		\end{pmatrix},\quad \lambda_2 = \begin{pmatrix}
+		0 & -i & 0 \\ i & 0 & 0 \\ 0 & 0 & 0
+		\end{pmatrix},\quad \lambda_3 = \begin{pmatrix}
+		1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 0
+		\end{pmatrix}, \\
+		\lambda_4 &= \begin{pmatrix}
+		0 & 0 & 1 \\ 0 & 0 & 0 \\ 1 & 0 & 0
+		\end{pmatrix}, \quad \lambda_5 = \begin{pmatrix}
+		0 & 0 & -i \\ 0 & 0 & 0 \\ i & 0 & 0
+		\end{pmatrix}, \\
+		\lambda_6 &= \begin{pmatrix}
+		0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0
+		\end{pmatrix}, \quad \lambda_7 = \begin{pmatrix}
+		0 & 0 & 0 \\ 0 & 0 & -i \\ 0 & i & 0
+		\end{pmatrix}, \quad \lambda_8 = \begin{pmatrix}
+		1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -2
+		\end{pmatrix}.
+	\end{align}
+	
+	These two sets of matrices are normalized by $ \tr \lambda_a \lambda b = \tr \sigma_a \sigma_b = 2 \delta_{ab} $ for historical reasons.
+	
+	For a given $ N $ there are $ N^2 - 1 $ different, linearly independent hermitian matrices.
+	
+	In general, $ H = \theta_a T_a $, where $ T_a $ are the generators of the Lie algebra of $ SU(N) $ (Pauli matrices for $ SU(2) $, with a factor of $ 1/2 $, for example), and certainly we also have
+	\begin{equation}\label{key}
+		[T_a, T_b] = i f^{abc}T^c
+	\end{equation}
+	where the generators are represented by $ N\times N $ matrices, and there are $ N^2-1 $ of them. The elements can be written as $ (T_a)^i_j $, with $ i,j\in \{1,\dots, N\} $ and $ a\in \{1, \dots, N^2-1\} $.
+
+	For a given, $ d $-dimensional representation of $ SU(N) $ we still have $ N^2-1 $ generators, but now $ i,j\in\{1, \dots, d\} $.
+	
+	If we then have a tensor $ \phi $ with $ m $ upper indices and $ n $ lower (each of which runs from 1 to $ N $), then in the $ d $-dimensional representation, $ \phi $ will have $ d $ independent components, sometimes labelled as $ \phi^p $. Under a group transformation close to the identity, the variation is given by
+	\begin{equation}\label{key}
+		\delta \phi^p = i\sigma_a(T_a)^p_q \phi^q
+	\end{equation}
+	where $ p, q $ are matrix/component indices (running from $ 1 $ to $ d $) and $ a $ is the ``group index'' running from 1 to $ N^2-1 $.
+	
+\end{document}
